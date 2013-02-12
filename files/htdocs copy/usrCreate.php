@@ -6,7 +6,6 @@ if($db->connect_errno){
     echo "FAILURE";
 }
 if($_POST["pass"]!=$_POST["passc"]){
-    echo $_POST["pass"] ." and " . $_POST["passc"];
     return 1;
 }
 $user=$_POST['usr'];
@@ -29,7 +28,7 @@ switch(create()){
         echo "username is already in use, try again!";
         break;
     default:
-        echo "Account Creation Success!";
+        echo "true";
     }
 
 ?>

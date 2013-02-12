@@ -79,7 +79,7 @@
     <header data-role="header" data-theme="b"><h1>New Account</h1></header>
     <div class="newAcctCenter" data-role="content" data-theme="a">
     <fieldset>
-    <form action="#studentSelection" method="post" data-ajax="false">
+    <form id="newAcctForm">
         <div class="inputField" data-role="fieldcontain">
             <label for="name" class="ui-hidden-accessible">Username</label><input type="text" class="in" name="usr" placeholder="Username">
         </div>
@@ -93,7 +93,7 @@
             <label for="email" class="ui-hidden-accessible">E-Mail</label> <input type="text" class="in" name="email" placeholder="E-mail Address">
          </div>
          <div data-role="fieldcontain">
-            <label for="sub" class="ui-hidden-accessible"></label><input data-theme="a" id="submitNew" type="submit" name="sub" value="Create Account">
+            <label for="sub" class="ui-hidden-accessible"></label><input data-theme="a" id="submitNew" type="submit" name="sub" id="submitNewAcct" value="Create Account">
         </div>
         </form>
         </fieldset>
@@ -347,7 +347,16 @@
         }
     }
     function onError(data,status){
-        alert("error"+data);
+        alert(data);
+    }
+    function onCreate(data,status){
+        alert(data)
+        if(data=="true"){
+            $.mobile.changePage("#login");
+        }
+        else{
+            alert(data);
+        }
     }
     $(document).bind('pageinit');
     $(document).ready(
@@ -358,10 +367,19 @@
                 }
             );
         });
+    
         $(document).ready(function(){
             $("#submitLogin").click(function(){
                     var formData=$("#loginForm").serialize();
                     $.ajax({type:"POST", url: "login.php", data: formData, success: onLogin, error:onError});
+                    return false;
+                });
+        });
+        
+        $(document).ready(function(){
+            $("#submitNewAcct").click(function(){
+                    var formData=$("#newAcctForm").serialize();
+                    $.ajax({type:"POST", url: "usrCreate.php", data: formData, success: onCreate, error:onError});
                     return false;
                 });
         });

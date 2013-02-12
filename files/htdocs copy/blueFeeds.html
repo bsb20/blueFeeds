@@ -79,7 +79,7 @@
     <header data-role="header" data-theme="b"><h1>New Account</h1></header>
     <div class="newAcctCenter" data-role="content" data-theme="a">
     <fieldset>
-    <form action="#studentSelection" method="post" data-ajax="false">
+    <form id="newAcctForm">
         <div class="inputField" data-role="fieldcontain">
             <label for="name" class="ui-hidden-accessible">Username</label><input type="text" class="in" name="usr" placeholder="Username">
         </div>
@@ -346,6 +346,15 @@
             alert(data);
         }
     }
+    
+    function onCreate(data,status){
+        if(data=="true"){
+            $.mobile.changePage("#login");
+        }
+        else{
+            alert(data);
+        }
+    }
     function onError(data,status){
         alert("error"+data);
     }
@@ -362,6 +371,14 @@
             $("#submitLogin").click(function(){
                     var formData=$("#loginForm").serialize();
                     $.ajax({type:"POST", url: "login.php", data: formData, success: onLogin, error:onError});
+                    return false;
+                });
+        });
+
+        $(document).ready(function(){
+            $("#submitNew").click(function(){
+                    var formData=$("#newAcctForm").serialize();
+                    $.ajax({type:"POST", url: "usrCreate.php", data: formData, success: onCreate, error:onError});
                     return false;
                 });
         });

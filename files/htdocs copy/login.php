@@ -9,11 +9,11 @@ $pass=$_POST["pass"];
 $sql = "SELECT * FROM ".$table." WHERE `user`='".$user."';";
 $result=$db->query($sql);
 if($row=mysqli_fetch_array($result) and $row["pass"]==md5($pass,FALSE)){
+        session_start();
+        $_SESSION["UUID"]=$row["UUID"];
         echo "true";
     }
 
 else{echo "Username/Password combo was incorrect!";
-echo "hello";
-echo $pass;
 }
 ?>

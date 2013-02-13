@@ -1,0 +1,20 @@
+<?php
+$table="`test`.`users`";
+$db=new mysqli("127.0.0.1","root","root","test",8889);
+if($db->connect_errno){
+    echo "FAILURE";
+}
+$user=$_POST["usr"];
+$pass=$_POST["pass"];
+$sql = "SELECT * FROM ".$table." WHERE `user`='".$user."';";
+$result=$db->query($sql);
+if($row=mysqli_fetch_array($result) and $row["pass"]==md5($pass,FALSE)){
+        session_start();
+        $_SESSION["UUID"]=$row["UUID"];
+        $_SESSION["SUID"]="511aec88a4b6a";
+        echo "true";
+    }
+
+else{echo "Username/Password combo was incorrect!";
+}
+?>

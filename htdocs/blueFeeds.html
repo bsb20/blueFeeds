@@ -25,7 +25,14 @@
             background-repeat: no-repeat;
             background-position: 50% 20%;
         }
-        .input
+
+        #commentText{
+            margin-left: 3%;
+            margin-right: 3%;
+            margin-top: 20%;
+            font-size: 150%;
+        }
+                .input
         {
             padding-left: 12.5%;
             width:75%;
@@ -72,7 +79,7 @@
 		.noteControl
 		{
 		    -webkit-transform: translateZ(0);
-		    display:none;
+
 		}
     </style>
 </head>
@@ -151,7 +158,7 @@
         </button>
     </header>
     <div class="studentSelectionCenter" data-role="content" data-theme="a">
-        <ul data-role="listview" data-filter="true">
+        <ul data-role="listview" data-filter="true" id="selectionList">
             <li><a href="#">
                     <h1>John Dorian</h1>
                     <img src="./jd.jpg" class="imgTile" alt="J.D"/>
@@ -188,90 +195,12 @@
         <nav data-role="navbar">
             <ul>
                 <li><a href="#appointments" data-icon="grid">Appointments</a></li>
-                <li><a href="#quickNote" data-icon="star">Quick Note</a></li>
+                <li><a href="#" data-icon="home">My Students</a></li>
                 <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
             </ul>
         </nav>
     </footer>
 </div>
-
-<div data-role="page" id="quickNote">
-        <header data-role="header" data-theme="e">
-        <h1>Select Student</h1>
-        <a href="#login" data-theme="a" data-iconpos="notext" data-icon="back"></a>
-        <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
-        </button>
-    </header>
-    <div class="studentSelectionCenter" data-role="content" data-theme="a">
-        <ul data-role="listview" data-filter="true">
-            <li  class="trigger"><a href="#">
-                    <h1>John Dorian</h1>
-                    <img src="./jd.jpg" class="imgTile" alt="J.D"/>
-                    <p>Internal Medicine Resident</p>
-                </a>
-            </li>
-            <li class="trigger"><a href="#">
-                    <h1>Elliot Reed</h1>
-                    <img src="./elliot.jpeg" class="imgTile" alt="Elliot"/>
-                    <p>Internal Medicine Resident</p>
-                    </a>
-            </li>
-            <li  class="trigger"><a href="#">
-                    <h1>Chris Turk</h1>
-                    <img src="./turk.jpeg" class="imgTile" alt="Turk"/>
-                    <p>Surgical Resident</p>
-                </a>
-            </li>
-            <li  class="trigger"><a href="#">
-                    <h1>Carla Espinosa</h1>
-                    <img src="./carla.jpeg" class="imgTile" alt="Carla"/>
-                    <p>Nursing Student</p>
-                </a>
-                <div class="hideable">
-                    <form action="#studentSelection" method="post" data-ajax="false" data-theme="b">
-                        <div data-role="fieldcontain">
-                            <fieldset data-role="controlgroup">
-                                <legend>Tag your note</legend>
-                            <label for="tag1">Bedside Manner</label>
-                            <input type="checkbox" name="tag1" id="tag1" data-mini="true"/>
-                            <label for="tag2">Diagnostic Ability</label>
-                            <input type="checkbox" name="tag2" id="tag2" data-mini="true"/>
-                            <label for="tag3">Presentation Skills</label>
-                            <input type="checkbox" name="tag3" id="tag3" data-mini="true"/>
-                            <label for="tag4">Organization</label>
-                            <input type="checkbox" name="tag4" id="tag4" data-mini="true"/>
-                            </fieldset>  
-                        </div>
-                        <div data-role="fieldcontain">
-                        <label for="comment">Comment here</label>
-                        <textarea name="comment" id="comment"></textarea>
-                        </div>
-                        <div data-role="fieldcontain">
-                            <label for="post" class="ui-hidden-accessible" data-theme>Submit</label>
-                            <input type="submit" data-theme="b" name="post" id="post" value="Save Comment">
-                        </div>
-                    </form>    
-                </div>
-            </li>
-            <li  class="trigger"><a href="#">
-                    <h1>Janitor</h1>
-                    <img src="./janitor.jpeg" class="imgTile" alt="J.D"/>
-                    <p>Custodial Student</p>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <footer data-role="footer" data-theme="e" data-position="fixed">
-        <nav data-role="navbar">
-            <ul>
-                <li><a href="#appointments" data-icon="grid">Appointments</a></li>
-                <li><a href="#studentSelection" data-icon="home">My Students</a></li>
-                <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
-            </ul>
-        </nav>
-    </footer>
-</div>
-
 
 <div data-role="page" id="addStudent">
     <header data-role="header" data-theme="b">
@@ -282,7 +211,7 @@
     </header>
             
     <div class="addCenter" data-role="content" data-theme="a">
-        <form action="#studentSelection" method="post" data-ajax="false">
+        <form id="studentCreate">
             <div data-role="fieldcontain" class="input">
                 <label for="first">First Name</label><input type="text" name="first" data-mini="true"/>
              </div>
@@ -290,10 +219,13 @@
                 <label for="last">Last Name</label><input type="text" name="last" data-mini="true"/>
              </div>
             <div data-role="fieldcontain" class="input">
-                <label for="study" >Area of Study</label><input type="text" class="input" name="study" data-mini="true"/>
+                <label for="email">Email</label><input type="text" class="input" name="email" data-mini="true"/>
             </div>
             <div data-role="fieldcontain" class="input">
-                <label for="title">Title</label><input type="text" class="input" name="title" data-mini="true"/>
+                <label for="title">Title</label><input type="text" class="input" name="title" placeholder="e.g. resident" data-mini="true"/>
+            </div>
+            <div data-role="fieldcontain" class="input">
+                <label for="study" >Area of Study</label><input type="text" class="input" name="study" data-mini="true"/>
             </div>
             <div data-role="fieldcontain">
                             <fieldset data-role="controlgroup">
@@ -311,7 +243,7 @@
                             </fieldset>  
                         </div>
             <div data-role="fieldcontain" class="input">
-                <label for="submit" class="ui-hidden-accessible" data-theme>Submit</label><input type="submit" data-theme="b" data-icon="plus" name="submit" value="Add Student">
+                <label for="submit" class="ui-hidden-accessible" data-theme>Submit</label><input type="submit" data-theme="b" data-icon="plus" name="submit" id ="studentCreateSubmit" value="Add Student">
             </div>        
         </form>
     </div>          
@@ -423,61 +355,16 @@
 </div><!--new profile page, with list-->
 
 <div data-role="page" data-theme="a" id="commentspage">
-
-    <header data-role="header" data-theme="b"><h1>Comments</h1></header>
+    <header data-role="header" data-theme="b"><h1>Comments</h1>
+    <a href="#studentProfile2" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+    </header>
 	<div class="commentCenter" data-role="content" data-theme="a">
-        <ul data-role="listview">
-                <a href="#addcomment" data-theme="b" data-role="button" data-icon="plus" class="topButton">Add Comment</a>
-			<div data-role="collapsible-set" data-theme="b">
-				<div data-role="collapsible" data-iconpos="right">
-					<h1>Today</h1>
-					<ul data-role="listview" data-theme="d" data-filter="true" data-divider-theme="d">
-					    <li class="listNote">
-						<h1>Post Title!</h1>
-						<p class="note">Attention he extremity unwilling on otherwise. Conviction up partiality as delightful is discovered. Yet jennings resolved disposed exertion you off. Left did fond drew fat head poor. So if he into shot half many long. China fully him every fat was world grave. </p>
-						<div data-role="controlgroup" data-type="horizontal"  class="noteControl" align="right">
-						    <a href="#editcomment" data-role="button" data-theme="b" data-mini="true" data-icon="plus">Edit</a>
-						    <a href="#" data-role="button"  data-theme="b" data-mini="true" data-icon="delete">Delete</a>						
-						</div>
-						<p class="ui-li-aside"><strong>11/11/11</strong></p>
-					    </li>
-					    <li>
-						<h1>Q Post Title!</h1>
-						<p>Attention he extremity unwilling on otherwise. Conviction up partiality as delightful is discovered. Yet jennings resolved disposed exertion you off. Left did fond drew fat head poor. So if he into shot half many long. China fully him every fat was world grave. </p>
-						<div data-role="controlgroup" data-type="horizontal" align="right">
-						    <a href="#editcomment" data-role="button" data-theme="b" data-mini="true" data-icon="plus">Edit</a>
-						    <a href="#" data-role="button" data-mini="true" data-theme="b" data-icon="delete">Delete</a>						
-						</div>
-						<p class="ui-li-aside"><strong>11/11/11</strong></p>
-					    </li>
-					</ul>
-				</div>
-				<div data-role="collapsible" data-iconpos="right">
-					<h1>This Week</h1>
-					<p>Was certainty remaining engrossed applauded sir how discovery. Settled opinion how enjoyed greater joy adapted too shy.</p>
-					<div data-role="controlgroup" data-type="horizontal" align="right">
-						<a href="#editcomment" data-role="button" data-mini="true" data-icon="plus">Edit</a>
-						<a href="#" data-role="button" data-mini="true" data-icon="delete">Delete</a>						
-					</div>					
-				</div>
-				<div data-role="collapsible" data-iconpos="right">
-					<h1>This Month</h1>
-					<p>Piqued favour stairs it enable exeter as seeing.</p>					
-					<div data-role="controlgroup" data-type="horizontal" align="right">
-						<a href="#editcomment" data-role="button" data-mini="true" data-icon="plus">Edit</a>
-						<a href="#" data-role="button" data-mini="true" data-icon="delete">Delete</a>						
-					</div>					
-				</div>		
-				<div data-role="collapsible" data-iconpos="right">
-					<h1>All Comments</h1>
-					<p>Improve him believe opinion offered met and end cheered forbade. Friendly as stronger speedily by recurred.</p>					
-					<div data-role="controlgroup" data-type="horizontal" align="right">
-						<a href="#editcomment" data-role="button" data-mini="true" data-icon="plus">Edit</a>
-						<a href="#" data-role="button" data-mini="true" data-icon="delete">Delete</a>						
-					</div>					
-				</div>					
-			</div>
-		</ul>
+            <div style="margin-bottom: 15%;">
+            <a href="#addcomment" data-theme="b" data-role="button" data-icon="plus" class="topButton">Add Comment</a>
+            </div>
+        <ul data-role="listview" id="parent">
+
+	</ul>
 	</div>
     <footer data-role="footer" data-theme="b" data-tap-toggle="false" data-position="fixed" value="working?">
         <nav data-role="navbar">
@@ -493,12 +380,17 @@
 
 
 <div data-role="page" id="addcomment">
-    <header data-role="header" data-theme="b"><h1>Add Comment</h1></header>
+    <header data-role="header" data-theme="b"><h1>Add Comment</h1>
+    <a href="#commentspage" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+    </header>
 	<div class="commentSelection" data-role="content" data-theme="b" align="center">
-        <label for="textarea">Would would you like to change?</label>
-        <textarea cols="40" rows="321" name="textarea" id="commentBox">
+        <form id="commentForm">
+        <label for="title">Title This Post</label><input type="text" name="title">
+        <label for="textarea">What would you like to change?</label>
+        <textarea name="comment" id="comment">
         </textarea>
-        <button data-theme="a" data-icon="check">Save Comment</button>     
+        </form>
+        <button data-theme="a" type="submit" data-icon="check" id="commentSubmit">Save Comment</button>     
         <button data-theme="a" data-icon="star">Flag Comment</button> 
         <button data-theme="a" data-icon="edit">Tag Comment</button>                               
 	</div>
@@ -513,17 +405,20 @@
     </footer>
 </div><!--add comments page-->
 
-
 <div data-role="page" id="editcomment">
-    <header data-role="header" data-theme="b"><h1>Edit Comment</h1></header>
+    <header data-role="header" data-theme="b"><h1>Edit Comment</h1>
+    <a href="#commentspage" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+    </header>
 	<div class="commentSelection" data-role="content" data-theme="b" align="center">
-        <label for="textarea">Would would you like to change?</label>
-        <textarea name="textarea" id="commentBox">
-Eat imagine you chiefly few end ferrars compass. Be visitor females a  ferrars inquiry. Latter law remark two lively thrown.
+        <form id="commentEditForm">
+        <label for="textarea">What would you like to change?</label>
+        <textarea name="comment" id="commentBox">
         </textarea>
-        <button data-theme="a" data-icon="check">Save Comment</button>     
+        <input type="text" name="CUID" id="CUID" style="display: none;">
+        </form>
+        <button data-theme="a" type="submit" id="commentEdit" data-icon="check">Save Comment</button>     
         <button data-theme="a" data-icon="star">Flag Comment</button> 
-        <button data-theme="a" data-icon="delete">Discard Comment</button>                               
+        <button data-theme="a" data-icon="delete" id="commentDelete">Discard Comment</button>                               
 	</div>
     <footer data-role="footer" data-theme="b" data-position="fixed" value="working?">
         <nav data-role="navbar">
@@ -536,6 +431,24 @@ Eat imagine you chiefly few end ferrars compass. Be visitor females a  ferrars i
     </footer>
 </div><!--edit comments page-->
 
+<div data-role="page" id='viewcomment'>
+    <header data-role="header" data-theme="b"><h1 id="commentHeader"></h1>
+    <a href="#commentspage" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+    </header>
+    <div>
+    <p id="commentText"></p>
+    </div>
+    <footer data-role="footer" data-theme="b" data-position="fixed" value="working?">
+    <nav data-role="navbar">
+            <ul>
+                <li><a href="#appointments" data-icon="grid">Appointments</a></li>
+                <li><a href="#studentSelection" data-icon="home">My Students</a></li>
+                <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
+            </ul>
+        </nav>
+    </footer>
+</div>
+
 
 <script>
     function onLogin(data,status){
@@ -546,6 +459,18 @@ Eat imagine you chiefly few end ferrars compass. Be visitor females a  ferrars i
             alert(data);
         }
     }
+    
+    function onSelection(data,success){
+        $("#selectionList").append(data)
+        $("#selectionList").listview("refresh");
+        $(".imgTile").load(function(){
+            $(".dynamicProfile").slideDown();
+        });  
+    }
+    
+    function onSecondSelect(data,status){    
+    }
+    
     function onProfile(data,status){
         $("#profileInfo").prepend(data)
         $("#profileInfo").listview("refresh");
@@ -553,6 +478,21 @@ Eat imagine you chiefly few end ferrars compass. Be visitor females a  ferrars i
             $(".dynamicProfile").slideDown();
         });
     }
+    
+    function onComment(data,status){
+        if(data=="true"){
+            $.mobile.changePage("#studentProfile2");
+        }
+        else{
+            alert(data);
+        }
+    }
+    
+    function onCommentPage(data,status){
+        $("#parent").append(data).trigger("create");
+        $("#parent").listview("refresh");
+    }
+    
     function onCreate(data,status){
         if(data=="true"){
             $.mobile.changePage("#login");
@@ -561,22 +501,25 @@ Eat imagine you chiefly few end ferrars compass. Be visitor females a  ferrars i
             alert(data);
         }
     }
+    
+    function onStudentCreate(data,status){
+        alert(data);
+        if(data=="true"){
+            $.mobile.changePage("#studentSelection");
+        }
+        else{
+            alert(data);
+        }
+    }
     function onError(data,status){
-        alert("error"+data);
+        alert("error!!!"+data);
     }
     $(document).bind('pageinit');
-    $(document).ready(
-        function(){
-            $(".trigger").tap(function(){
-                $(".trigger").not(this).fadeOut("normal");
-                jQuery(this).find(".hideable").slideDown("slow");
-                }
-            );
-        });
+
         $(document).ready(function(){
             $("#submitLogin").click(function(){
                     var formData=$("#loginForm").serialize();
-                    $.ajax({type:"POST", url: "login.php", data: formData, success: onLogin, error:onError});
+                    $.ajax({async: false, type:"POST", url: "login.php", data: formData, success: onLogin, error:onError});
                     return false;
                 });
         });
@@ -588,31 +531,100 @@ Eat imagine you chiefly few end ferrars compass. Be visitor females a  ferrars i
                     return false;
                 });
         });
+        
+        $(document).ready(function(){
+            $("#studentCreateSubmit").click(function(){
+                    var formData=$("#studentCreate").serialize();
+                    $.ajax({type:"POST", url: "studentCreate.php", data: formData, success: onStudentCreate, error:onError});
+                    return false;
+                });
+        });
+        
+        $(document).ready(function(){
+            $(':jqmData(url^=commentspage)').live('pagebeforecreate', 
+                function(event) {
+                 $(this).filter(':jqmData(url*=ui-page)').find(':jqmData(role=header)')
+                .prepend('<a href="#" data-rel="back" data-icon="back">Back</a>')
+            });
+            
+        });
+        
         $(document).ready(
 	function(){
-	    $(".listNote").on("click",function(){
-		    if($(this).children("p").css("overflow")=="hidden"){
-			$(this).children("p").css("overflow","visible");
-			$(this).children("p").css("white-space","normal");
-			
-		    }
-		    else{
-			$(this).children("p").css("overflow","hidden");
-			$(this).children("p").css("white-space","nowrap");
-			
-		    }
-		    $(this).children(".noteControl").slideToggle();
-
+	    $("#parent").on("click", "li", function(e){
+                if($.trim($(e.target).parents('a').text())=='Edit'){
+                    $("#commentBox").val($(this).children(".note").text());
+                    $("#CUID").val($(this).children(".hiddenForm").val());
+                }
+                
+                if($.trim($(e.target).parents('a').text())=='View'){
+                    $("#commentHeader").text($(this).children('h1').text());
+                    $("#commentText").text($(this).children('.note').text());
+                }
+                
 		});	    
 	    });
+
+            
+        $(document).ready(
+	function(){
+	    $("#selectionList").on("click", "li", function(e){
+                var found=$(this).find("#no").val();
+                $.ajax({type: "POST", url: "setStudent.php", data: {'key':found}, success: onSecondSelect, error: onError})
+		});	    
+	    });
+        
+        $(document).ready(function(){
+            $("#commentSubmit").click(function(){
+               var formData=$("#commentForm").serialize();
+               $.ajax({type:"POST", url: "commentSubmit.php", data: formData, success: onComment, error:onError});
+            });
+        });
+        
+        
+        $(document).ready(function(){
+            $("#commentEdit").click(function(){
+               var formData=$("#commentEditForm").serialize();
+               $.ajax({type:"POST", url: "commentEdit.php", data: formData, success: onComment, error:onError});
+            });
+        });
+        
+        $(document).ready(function(){
+            $("#commentDelete").click(function(){
+               var formData=$("#commentEditForm").serialize();
+               $.ajax({type:"POST", url: "commentDelete.php", data: formData, success: onComment, error:onError});
+            });
+        });
+        
         $(document).ready(function(){
         $(document).on('pagechange', function (e,data) {
-            //alert(data.toPage.attr("id"));
             if(data.toPage.attr("id")=="studentProfile2"){
                 $.ajax({url: "profile.php", success: onProfile, error:onError});}
             
             else{
                 $(".dynamicProfile").remove();
+            }
+            });
+        });
+        
+        $(document).ready(function(){
+        $(document).on('pagechange', function (e,data) {
+            if(data.toPage.attr("id")=="commentspage"){
+                $.ajax({url: "commentRetrieve.php", success: onCommentPage, error:onError});}
+            
+            else{
+                $(".dynamicComment").remove();
+            }
+            });
+        });
+        
+        $(document).ready(function(){
+        $(document).on('pagechange', function (e,data) {
+            if(data.toPage.attr("id")=="studentSelection"){
+               $.ajax({url: "selection.php", success: onSelection, error: onError});
+            }
+            else{
+                $(".dynamicSelection").remove();
             }
             });
         });

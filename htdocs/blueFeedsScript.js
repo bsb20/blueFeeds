@@ -1,14 +1,6 @@
 //Callbacks
   
-    //Dynamics, requiring refresh
-/*   function onSelectionPage(data,success){
-        $("#selectionList").append(data)
-        $("#selectionList").listview("refresh");
-        $(".imgTile").load(function(){
-            $(".dynamicSelection").slideDown();
-        });  
-    }
-    */
+//Dynamic, requiring refresh
     function onPageLoad(data,status){
 	var id="#"+this.invokedata;
 	if($(id).attr("data-prepend")=="true"){
@@ -21,16 +13,9 @@
         $(".imgTile").load(function(){
             $(this).parents("li").slideDown();
         });
-    }
+    }  
     
-    
-/*    function onCommentPage(data,status){
-        $("#parent").append(data).trigger("create");
-        $("#parent").listview("refresh");
-    }*/
-    
-    
-    //onTrue corresponds to data-validate attributes
+//onTrue corresponds to data-validate attributes
     function onTrue(data,status){
         if(data=="true"){
             $.mobile.changePage(this.invokedata);
@@ -40,9 +25,7 @@
         }
     }
     
-    
-    
-    //error, don't touch this!
+//error function, don't touch this!
     function onError(data,status){
         alert("error!!!"+data);
     }
@@ -99,42 +82,3 @@
 		});
 	    });
         });
-
-
-
-
-/*        $(document).ready(function(){
-        $(document).on('pagechange', function (e,data) {
-            if(data.toPage.attr("id")=="studentProfile2"){
-                $.ajax({url: "profile.php", success: onProfilePage, error:onError});
-		}
-            else{
-                $(".dynamicProfile").remove();
-            }
-            });
-        });
-
-        
-        $(document).ready(function(){
-        $(document).on('pagechange', function (e,data) {
-            if(data.toPage.attr("id")=="commentspage"){
-                $.ajax({url: "commentRetrieve.php", success: onCommentPage, error:onError});
-		}
-            else{
-                $(".dynamicComment").remove();
-            }
-            });
-        });
-        
-        $(document).ready(function(){
-        $(document).on('pagechange', function (e,data) {
-            if(data.toPage.attr("id")=="studentSelection"){
-               $.ajax({url: "selection.php", success: onSelectionPage, error: onError});
-            }
-            else{
-                $(".dynamicSelection").remove();
-            }
-            });
-        });
-        */
-        

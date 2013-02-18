@@ -9,80 +9,14 @@
     href="./apple-touch-icon.png"/>
 
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+    <link rel="stylesheet"  href="./blueFeedsStyle.css"/>
     <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+    <script src="./blueFeedsScript.js"></script>
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <style>
-        label.overBlue
-        {
-            color: white;
-        }
-        .loginCenter
-        {
-            padding-top: 15%;
-            height: 25em;
-            background-image: url("./med.png"), url("./gradient.jpg");
-            background-repeat: no-repeat;
-            background-position: 50% 20%;
-        }
-
-        #commentText{
-            margin-left: 3%;
-            margin-right: 3%;
-            margin-top: 20%;
-            font-size: 150%;
-        }
-                .input
-        {
-            padding-left: 12.5%;
-            width:75%;
-        }
-
-        .newAcctCenter
-        {
-            height: 25em;
-        }
-        .hideable{
-            display: none;
-            position: relative;
-        }
-        .trigger{
-            position: relative;
-        }
-        #comment
-        {
-            height: 10em;    
-        }
-        	#popupPanel-popup {
-			right: 0 !important;
-			left: auto !important;
-		}
-		#popupPanel {
-			width: 200px;
-			border: 1px solid #000;
-			border-right: none;
-			background: rgba(0,0,0,.5);
-			margin: -1px 0;
-		}
-		#popupPanel .ui-btn {
-			margin: 2em 15px;
-		}
-		#commentBox {
-			height : 150px;
-		}
-		.note
-		{
-		    -webkit-transform: translateZ(0);
-		    overflow:hidden;
-		    white-space:nowrap;
-		}
-		.noteControl
-		{
-		    -webkit-transform: translateZ(0);
-
-		}
-    </style>
 </head>
+
+
 <body>
     
     
@@ -98,7 +32,7 @@
                 <label for="pass" class="overBlue">Password</label><input type="password" class="input" name="pass" data-mini="true"/>
             </div>
             <div data-role="fieldcontain" class="input">
-                <label for="submit" class="ui-hidden-accessible" data-theme>Submit</label><button type="submit" data-theme="b" id="submitLogin" name="submit" value="Log In">Log In</button>
+                <label for="submit" class="ui-hidden-accessible" data-theme>Submit</label><button type="submit" data-validate='login' data-destination="#studentSelection" data-theme="b" id="submitLogin" name="submit" value="Log In">Log In</button>
             </div>        
         </form>
         </fieldset>
@@ -135,7 +69,7 @@
             <label for="speciality" class="ui-hidden-accessible">Speciality</label> <input type="text" class="in" name="speciality" placeholder="Speciality">
             </div>
             <div>
-            <label for="sub" class="ui-hidden-accessible"></label><input data-theme="a" id="submitNew" type="submit" name="sub" value="Create Account">
+            <label for="sub" class="ui-hidden-accessible"></label><input data-theme="a" id="submitNew" type="submit" data-validate='usrCreate' data-destination="#login" name="sub" value="Create Account">
             </div>
 
         </form>
@@ -159,36 +93,6 @@
     </header>
     <div class="studentSelectionCenter" data-role="content" data-theme="a">
         <ul data-role="listview" data-filter="true" id="selectionList">
-            <li><a href="#">
-                    <h1>John Dorian</h1>
-                    <img src="./jd.jpg" class="imgTile" alt="J.D"/>
-                    <p>Internal Medicine Resident</p>
-                </a>
-            </li>
-            <li><a href="#studentProfile2">
-                    <h1>Elliot Reed</h1>
-                    <img src="./elliot.jpeg" class="imgTile" alt="Elliot"/>
-                    <p>Internal Medicine Resident</p>
-                </a>
-            </li>
-            <li><a href="#studentProfile2">
-                    <h1>Chris Turk</h1>
-                    <img src="./turk.jpeg" class="imgTile" alt="Turk"/>
-                    <p>Surgical Resident</p>
-                </a>
-            </li>
-            <li><a href="#">
-                    <h1>Carla Espinosa</h1>
-                    <img src="./carla.jpeg" class="imgTile" alt="Carla"/>
-                    <p>Nursing Student</p>
-                </a>
-            </li>
-            <li><a href="#">
-                    <h1>Janitor</h1>
-                    <img src="./janitor.jpeg" class="imgTile" alt="J.D"/>
-                    <p>Custodial Student</p>
-                </a>
-            </li>
         </ul>
     </div>
     <footer data-role="footer" data-theme="b" data-position="fixed">
@@ -243,7 +147,7 @@
                             </fieldset>  
                         </div>
             <div data-role="fieldcontain" class="input">
-                <label for="submit" class="ui-hidden-accessible" data-theme>Submit</label><input type="submit" data-theme="b" data-icon="plus" name="submit" id ="studentCreateSubmit" value="Add Student">
+                <label for="submit" class="ui-hidden-accessible" data-theme>Submit</label><input type="submit" data-theme="b" data-icon="plus" data-validate='studentCreate' data-destination="#studentSelection" name="submit" id ="studentCreateSubmit" value="Add Student">
             </div>        
         </form>
     </div>          
@@ -389,11 +293,11 @@
         <label for="textarea">What would you like to change?</label>
         <textarea name="comment" id="comment">
         </textarea>
-        </form>
-        <button data-theme="a" type="submit" data-icon="check" id="commentSubmit">Save Comment</button>     
+        <button data-theme="a" type="submit" data-icon="check" id="commentSubmit" data-validate='commentSubmit' data-destination="#studentProfile2">Save Comment</button>     
         <button data-theme="a" data-icon="star">Flag Comment</button> 
         <button data-theme="a" data-icon="edit">Tag Comment</button>                               
-	</div>
+	</form>
+        </div>
     <footer data-role="footer" data-theme="b" data-position="fixed" value="working?">
        <nav data-role="navbar">
             <ul>
@@ -414,12 +318,12 @@
         <label for="textarea">What would you like to change?</label>
         <textarea name="comment" id="commentBox">
         </textarea>
-        <input type="text" name="CUID" id="CUID" style="display: none;">
-        </form>
-        <button data-theme="a" type="submit" id="commentEdit" data-icon="check">Save Comment</button>     
+        <input type="text" name="CUID" id="CUID" style="display:none;">
+        <button data-theme="a" type="submit" id="commentEdit" data-validate='commentEdit' data-destination="#studentProfile2" data-icon="check">Save Comment</button>     
         <button data-theme="a" data-icon="star">Flag Comment</button> 
-        <button data-theme="a" data-icon="delete" id="commentDelete">Discard Comment</button>                               
-	</div>
+        <button data-theme="a" data-icon="delete" id="commentDelete" data-validate='commentDelete' data-destination="#studentProfile2">Discard Comment</button>                               
+	</form>
+        </div>
     <footer data-role="footer" data-theme="b" data-position="fixed" value="working?">
         <nav data-role="navbar">
             <ul>
@@ -450,184 +354,6 @@
 </div>
 
 
-<script>
-    function onLogin(data,status){
-        if(data=="true"){
-            $.mobile.changePage("#studentSelection");
-        }
-        else{
-            alert(data);
-        }
-    }
-    
-    function onSelection(data,success){
-        $("#selectionList").append(data)
-        $("#selectionList").listview("refresh");
-        $(".imgTile").load(function(){
-            $(".dynamicProfile").slideDown();
-        });  
-    }
-    
-    function onSecondSelect(data,status){    
-    }
-    
-    function onProfile(data,status){
-        $("#profileInfo").prepend(data)
-        $("#profileInfo").listview("refresh");
-        $(".imgTile").load(function(){
-            $(".dynamicProfile").slideDown();
-        });
-    }
-    
-    function onComment(data,status){
-        if(data=="true"){
-            $.mobile.changePage("#studentProfile2");
-        }
-        else{
-            alert(data);
-        }
-    }
-    
-    function onCommentPage(data,status){
-        $("#parent").append(data).trigger("create");
-        $("#parent").listview("refresh");
-    }
-    
-    function onCreate(data,status){
-        if(data=="true"){
-            $.mobile.changePage("#login");
-        }
-        else{
-            alert(data);
-        }
-    }
-    
-    function onStudentCreate(data,status){
-        alert(data);
-        if(data=="true"){
-            $.mobile.changePage("#studentSelection");
-        }
-        else{
-            alert(data);
-        }
-    }
-    function onError(data,status){
-        alert("error!!!"+data);
-    }
-    $(document).bind('pageinit');
 
-        $(document).ready(function(){
-            $("#submitLogin").click(function(){
-                    var formData=$("#loginForm").serialize();
-                    $.ajax({async: false, type:"POST", url: "login.php", data: formData, success: onLogin, error:onError});
-                    return false;
-                });
-        });
-
-        $(document).ready(function(){
-            $("#submitNew").click(function(){
-                    var formData=$("#newAcctForm").serialize();
-                    $.ajax({type:"POST", url: "usrCreate.php", data: formData, success: onCreate, error:onError});
-                    return false;
-                });
-        });
-        
-        $(document).ready(function(){
-            $("#studentCreateSubmit").click(function(){
-                    var formData=$("#studentCreate").serialize();
-                    $.ajax({type:"POST", url: "studentCreate.php", data: formData, success: onStudentCreate, error:onError});
-                    return false;
-                });
-        });
-        
-        $(document).ready(function(){
-            $(':jqmData(url^=commentspage)').live('pagebeforecreate', 
-                function(event) {
-                 $(this).filter(':jqmData(url*=ui-page)').find(':jqmData(role=header)')
-                .prepend('<a href="#" data-rel="back" data-icon="back">Back</a>')
-            });
-            
-        });
-        
-        $(document).ready(
-	function(){
-	    $("#parent").on("click", "li", function(e){
-                if($.trim($(e.target).parents('a').text())=='Edit'){
-                    $("#commentBox").val($(this).children(".note").text());
-                    $("#CUID").val($(this).children(".hiddenForm").val());
-                }
-                
-                if($.trim($(e.target).parents('a').text())=='View'){
-                    $("#commentHeader").text($(this).children('h1').text());
-                    $("#commentText").text($(this).children('.note').text());
-                }
-                
-		});	    
-	    });
-
-            
-        $(document).ready(
-	function(){
-	    $("#selectionList").on("click", "li", function(e){
-                var found=$(this).find("#no").val();
-                $.ajax({type: "POST", url: "setStudent.php", data: {'key':found}, success: onSecondSelect, error: onError})
-		});	    
-	    });
-        
-        $(document).ready(function(){
-            $("#commentSubmit").click(function(){
-               var formData=$("#commentForm").serialize();
-               $.ajax({type:"POST", url: "commentSubmit.php", data: formData, success: onComment, error:onError});
-            });
-        });
-        
-        
-        $(document).ready(function(){
-            $("#commentEdit").click(function(){
-               var formData=$("#commentEditForm").serialize();
-               $.ajax({type:"POST", url: "commentEdit.php", data: formData, success: onComment, error:onError});
-            });
-        });
-        
-        $(document).ready(function(){
-            $("#commentDelete").click(function(){
-               var formData=$("#commentEditForm").serialize();
-               $.ajax({type:"POST", url: "commentDelete.php", data: formData, success: onComment, error:onError});
-            });
-        });
-        
-        $(document).ready(function(){
-        $(document).on('pagechange', function (e,data) {
-            if(data.toPage.attr("id")=="studentProfile2"){
-                $.ajax({url: "profile.php", success: onProfile, error:onError});}
-            
-            else{
-                $(".dynamicProfile").remove();
-            }
-            });
-        });
-        
-        $(document).ready(function(){
-        $(document).on('pagechange', function (e,data) {
-            if(data.toPage.attr("id")=="commentspage"){
-                $.ajax({url: "commentRetrieve.php", success: onCommentPage, error:onError});}
-            
-            else{
-                $(".dynamicComment").remove();
-            }
-            });
-        });
-        
-        $(document).ready(function(){
-        $(document).on('pagechange', function (e,data) {
-            if(data.toPage.attr("id")=="studentSelection"){
-               $.ajax({url: "selection.php", success: onSelection, error: onError});
-            }
-            else{
-                $(".dynamicSelection").remove();
-            }
-            });
-        });
-</script>
 </body>
 </html>

@@ -1,42 +1,36 @@
 //Callbacks
   
     //Dynamics, requiring refresh
-    function onSelection(data,success){
+/*   function onSelectionPage(data,success){
         $("#selectionList").append(data)
         $("#selectionList").listview("refresh");
         $(".imgTile").load(function(){
-            $(".dynamicProfile").slideDown();
+            $(".dynamicSelection").slideDown();
         });  
     }
-    
-    function onSecondSelect(data,status){    
-    }
-    
-    function onProfile(data,status){
-        $("#profileInfo").prepend(data)
-        $("#profileInfo").listview("refresh");
+    */
+    function onPageLoad(data,status){
+	var id="#"+this.invokedata;
+	if($(id).attr("data-prepend")=="true"){
+	    $(id).prepend(data).trigger("create");
+	}
+	else{
+	    $(id).append(data).trigger("create");
+	}
+        $(id).listview("refresh");
         $(".imgTile").load(function(){
-            $(".dynamicProfile").slideDown();
+            $(this).parents("li").slideDown();
         });
     }
     
     
-    function onCommentPage(data,status){
+/*    function onCommentPage(data,status){
         $("#parent").append(data).trigger("create");
         $("#parent").listview("refresh");
-    }
+    }*/
     
     
-    //if true, then...
-    function onComment(data,status){
-        if(data=="true"){
-            $.mobile.changePage("#studentProfile2");
-        }
-        else{
-            alert(data);
-        }
-    }
-    
+    //onTrue corresponds to data-validate attributes
     function onTrue(data,status){
         if(data=="true"){
             $.mobile.changePage(this.invokedata);
@@ -46,23 +40,6 @@
         }
     }
     
-    function onCreate(data,status){
-        if(data=="true"){
-            $.mobile.changePage("#login");
-        }
-        else{
-            alert(data);
-        }
-    }
-    
-    function onStudentCreate(data,status){
-        if(data=="true"){
-            $.mobile.changePage("#studentSelection");
-        }
-        else{
-            alert(data);
-        }
-    }
     
     
     //error, don't touch this!
@@ -80,46 +57,8 @@
                     return false;
                 });
         });
-
-   /*     $(document).ready(function(){
-            $("#submitNew").click(function(){
-                    var formData=$("#newAcctForm").serialize();
-                    $.ajax({type:"POST", url: "usrCreate.php", data: formData, success: onTrue, invokedata: "#login", error:onError});
-                    return false;
-                });
-        });
         
-        $(document).ready(function(){
-            $("#studentCreateSubmit").click(function(){
-                    var formData=$("#studentCreate").serialize();
-                    $.ajax({type:"POST", url: "studentCreate.php", data: formData, success: onTrue, invokedata: "#studentSelection", error:onError});
-                    return false;
-                });
-        });
-        
-        $(document).ready(function(){
-            $("#commentSubmit").click(function(){
-               var formData=$("#commentForm").serialize();
-               $.ajax({type:"POST", url: "commentSubmit.php", data: formData, success: onTrue, invokedata: "#studentProfile2", error:onError});
-            });
-        });
-        
-        
-        $(document).ready(function(){
-            $("#commentEdit").click(function(){
-               var formData=$("#commentEditForm").serialize();
-               $.ajax({type:"POST", url: "commentEdit.php", data: formData, success: onTrue, invokedata:"#studentProfile2", error:onError});
-            });
-        });
-        
-        $(document).ready(function(){
-            $("#commentDelete").click(function(){
-               var formData=$("#commentEditForm").serialize();
-               $.ajax({type:"POST", url: "commentDelete.php", data: formData, success: onTrue, invokedata:"#studentProfile2", error:onError});
-            });
-        });
-        */
-        
+//Functions using on()
         $(document).ready(
 	function(){
 	    $("#parent").on("click", "li", function(e){
@@ -141,28 +80,46 @@
 	function(){
 	    $("#selectionList").on("click", "li", function(e){
                 var found=$(this).find("#no").val();
-                $.ajax({type: "POST", url: "setStudent.php", data: {'key':found}, success: onSecondSelect, error: onError})
+                $.ajax({type: "POST", url: "setStudent.php", data: {'key':found}, error: onError})
 		});	    
 	    });
         
     
-//Page change insert/remove functions    
+//Page change insert/remove functions
+
         $(document).ready(function(){
         $(document).on('pagechange', function (e,data) {
+	    $("[data-dynamicQuery]").each(function(index){
+		if(data.toPage.attr("id")==$(this).parents("[data-role='page']").attr("id")){
+		    $.ajax({url: $(this).attr("data-dynamicQuery")+".php", success: onPageLoad, invokedata: $(this).attr("id"), error:onError});
+		}
+		else{
+		    $("[data-dynamicContent="+$(this).attr("data-dynamicQuery")+"]").remove();
+		}
+		});
+	    });
+        });
+
+
+
+
+/*        $(document).ready(function(){
+        $(document).on('pagechange', function (e,data) {
             if(data.toPage.attr("id")=="studentProfile2"){
-                $.ajax({url: "profile.php", success: onProfile, error:onError});}
-            
+                $.ajax({url: "profile.php", success: onProfilePage, error:onError});
+		}
             else{
                 $(".dynamicProfile").remove();
             }
             });
         });
+
         
         $(document).ready(function(){
         $(document).on('pagechange', function (e,data) {
             if(data.toPage.attr("id")=="commentspage"){
-                $.ajax({url: "commentRetrieve.php", success: onCommentPage, error:onError});}
-            
+                $.ajax({url: "commentRetrieve.php", success: onCommentPage, error:onError});
+		}
             else{
                 $(".dynamicComment").remove();
             }
@@ -172,28 +129,12 @@
         $(document).ready(function(){
         $(document).on('pagechange', function (e,data) {
             if(data.toPage.attr("id")=="studentSelection"){
-               $.ajax({url: "selection.php", success: onSelection, error: onError});
+               $.ajax({url: "selection.php", success: onSelectionPage, error: onError});
             }
             else{
                 $(".dynamicSelection").remove();
             }
             });
         });
+        */
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-    $(document).ready(function(){
-            $(':jqmData(url^=commentspage)').live('pagebeforecreate', 
-                function(event) {
-                 $(this).filter(':jqmData(url*=ui-page)').find(':jqmData(role=header)')
-                .prepend('<a href="#" data-rel="back" data-icon="back">Back</a>')
-            });
-            
-        });

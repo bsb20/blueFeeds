@@ -22,7 +22,7 @@ if($row=mysqli_fetch_array($result)){
     $spec=$row["speciality"];
     $SUID=$row["SUID"];
     }
-$html.=           " <li class='dynamicSelection' >
+$html.=           " <li class='dynamicSelection' data-dynamicContent='selection'>
                     <a href='#studentProfile2'>
                     <h1>$name</h1>
                     <img src='$photo' class='imgTile'alt='getarealphone'/>

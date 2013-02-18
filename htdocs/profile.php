@@ -18,7 +18,7 @@ if($row=mysqli_fetch_array($result)){
     $title=$row["title"];
     $spec=$row["speciality"];
     }
-$result=           " <li class='dynamicProfile' style='display:none;'>
+$result=           " <li class='dynamicProfile' data-dynamicContent='profile' style='display:none;'>
                     <h1>$name</h1>
                     <img src='$photo' class='imgTile'alt='Turk'/>
                     <p>$title, $spec</p>

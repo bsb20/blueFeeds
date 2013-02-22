@@ -17,6 +17,7 @@ $photo="./uploads/nophoto.gif";
 $title=$_POST['title'];
 $spec=$_POST['study'];
 $SUID=uniqid("",FALSE);
+$_SESSION["SUID"]=$SUID;
 $sql = "SELECT * FROM ".$table." WHERE `user`='".$user."';";
 $hasDuplicatesResult=$db->query($sql);
 if(mysqli_fetch_array($hasDuplicatesResult)){

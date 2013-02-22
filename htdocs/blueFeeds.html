@@ -69,7 +69,7 @@
             <label for="speciality" class="ui-hidden-accessible">Speciality</label> <input type="text" class="in" name="speciality" placeholder="Speciality">
             </div>
             <div>
-            <label for="sub" class="ui-hidden-accessible"></label><input data-theme="a" id="submitNew" type="submit" data-validate='usrCreate' data-destination="#login" name="sub" value="Create Account">
+            <label for="sub" class="ui-hidden-accessible"></label><input data-theme="a" id="submitNew" type="submit" data-validate='usrCreate' data-destination="#studentSelection" name="sub" value="Create Account">
             </div>
 
         </form>
@@ -83,6 +83,16 @@
         </nav>
     </footer>
 </div><!--new account page-->
+
+<div data-role="page" id="photoUpload" data-theme="a" data-url="#studentSelection">
+    <header data-role="header" data-theme="b"><h1>Photo Selection</h1></header>
+    <button id="fileProxy">Choose photo</button>
+    <form data-ajax="false" enctype="multipart/form-data" method="post" action="photo.php">
+    <input type="file" name="photo" id="photo" accept="image/*;capture=camera" style="display:none">
+    <input id="submitPhoto" type="submit" value="upload photo">
+    </form>
+    <a  href="#login" data-role="button">Skip</a>
+</div><!-- photo upload page -->
 
 <div data-role="page" id="studentSelection">
     <header data-role="header" data-theme="b">
@@ -147,7 +157,7 @@
                             </fieldset>  
                         </div>
             <div data-role="fieldcontain" class="input">
-                <label for="submit" class="ui-hidden-accessible" data-theme>Submit</label><input type="submit" data-theme="b" data-icon="plus" data-validate='studentCreate' data-destination="#studentSelection" name="submit" id ="studentCreateSubmit" value="Add Student">
+                <label for="submit" class="ui-hidden-accessible" data-theme>Submit</label><input type="submit" data-theme="b" data-icon="plus" data-validate='studentCreate' data-destination="#photoUpload" name="submit" id ="studentCreateSubmit" value="Add Student">
             </div>        
         </form>
     </div>          

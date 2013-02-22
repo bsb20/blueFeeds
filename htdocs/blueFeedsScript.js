@@ -67,7 +67,16 @@
 		});	    
 	    });
         
-    
+
+
+	$(document).ready(function(){
+	    $("#fileProxy").click(function(){
+		$("#photo").click();
+		})    
+	});
+
+
+
 //Page change insert/remove functions
 
         $(document).ready(function(){

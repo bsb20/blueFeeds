@@ -1,5 +1,6 @@
 <?php
 function create(){
+session_start();
 $table="`test`.`users`";
 $db=new mysqli("127.0.0.1","root","devils","test",8889);
 if($db->connect_errno){
@@ -8,7 +9,6 @@ if($db->connect_errno){
 if($_POST["pass"]!=$_POST["passc"]){
     return 1;
 }
-
 $user=$_POST['usr'];
 $password=md5($_POST['pass'],FALSE);
 $email=$_POST['email'];
@@ -16,6 +16,7 @@ $photo=$_FILES['photo']['tmp_name'];
 $title=$_POST['title'];
 $spec=$_POST['speciality'];
 $UUID=uniqid("",FALSE);
+$_SESSION["UUID"]=$UUID;
 $sql = "SELECT * FROM ".$table." WHERE `user`='".$user."';";
 $hasDuplicatesResult=$db->query($sql);
 if(mysqli_fetch_array($hasDuplicatesResult)){

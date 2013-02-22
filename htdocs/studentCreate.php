@@ -3,7 +3,7 @@ function create(){
 session_start();
 $table="`test`.`students`";
 $joinTable="`test`.`su`";
-$db=new mysqli("127.0.0.1","root","root","test",8889);
+$db=new mysqli("127.0.0.1","root","devils","test",8889);
 if($db->connect_errno){
     echo "FAILURE";
 }

@@ -1,12 +1,12 @@
 <?php
 session_start();
-$table="`test`.`comments`";
+$table="`test`.`tags`";
 $db=new mysqli("127.0.0.1","root","devils","test",8889);
 if($db->connect_errno){
     echo "FAILURE";
 }
 $SUID=$_SESSION["SUID"];
-$sql = "SELECT * FROM `test`.`comments` WHERE `SUID`='$SUID'";
+$sql = "SELECT * FROM `test`.`tags` WHERE `SUID`='$SUID'";
 $result=$db->query($sql);
 $finally="";
 for($i=0; $i<mysqli_num_rows($result); $i++){

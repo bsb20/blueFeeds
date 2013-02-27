@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>BlueFeeds</title>
+	
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />	
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+    <style>
+        label.loginCSS
+        {
+            color: white;
+        }
+		
+        .loginCenter
+        {
+            padding-top: 15%;
+            height: 50em;
+            background-image: url("./med.png"), url("./gradient.jpg");
+			background-size: auto, 100% 100%;
+            background-repeat: no-repeat, repeat;
+            background-position: 50% 20%, 50% 0%;
+        }
+        .input
+        {
+            padding-left: 12.5%;
+            width:40%;
+			margin-left:20%;
+        }
+        .newAcctCenter
+        {
+            height: 100em;
+        }
+        .hideable{
+            display: none;
+            position: relative;
+        }
+        .trigger{
+            position: relative;
+        }
+        #comment
+        {
+            height: 10em;    
+        }
+    </style>	
+</head>
+<div data-role="page" id="login">
+    <header data-role="header" data-theme="b"><h1>BlueFeeds Login</h1></header>
+    <div class="loginCenter" data-role="content" data-theme="b">
+        <fieldset>
+        <form id="loginForm">
+            <div data-role="fieldcontain" class="input" style="padding-top: 12.5%">
+                <label for="usr" class="loginCSS">Username </label><input type="text" name="usr" data-mini="true"/>
+             </div>
+            <div data-role="fieldcontain" class="input">
+                <label for="pass" class="loginCSS">Password </label><input type="password" class="input" name="pass" data-mini="true"/>
+            </div>
+            <div data-role="fieldcontain" class="input" style="margin-left: auto; margin-right: auto;">
+                <label for="submit" class="ui-hidden-accessible" data-theme>Submit</label><button type="submit" data-theme="b" id="submitLogin" name="submit" value="Log In">Log In</button>
+            </div>        
+        </form>
+        </fieldset>
+    </div>
+    <footer data-role="footer" data-theme="a" data-position="fixed"><nav data-role="navbar">
+        <ul>    
+            <li><a href="#newAcct" data-icon="plus">New Account</a></li>
+        </ul>
+    </nav></footer>
+</div><!--login page-->
+
+<div data-role="page" id="newAcct">
+    <header data-role="header" data-theme="b"><h1>New Account</h1></header>
+    <div class="newAcctCenter" data-role="content" data-theme="a">
+    <fieldset>
+    <form id="newAcctForm">
+        <div class="inputField" data-role="fieldcontain">
+            <label for="name" class="ui-hidden-accessible">Username</label><input type="text" class="in" name="usr" placeholder="Username">
+        </div>
+         <div data-role="fieldcontain">
+            <label for="pass" class="ui-hidden-accessible">Password</label><input type="password" class="in" name="pass" placeholder="Password">
+         </div>
+        <div data-role="fieldcontain">
+                <label for="passc" class="ui-hidden-accessible">Confirm Password</label><input type="password" class="in" name="passc" placeholder="Confirm Password">
+        </div>
+         <div data-role="fieldcontain" data-theme="a">
+            <label for="email" class="ui-hidden-accessible">E-Mail</label> <input type="text" class="in" name="email" placeholder="E-mail Address">
+         </div>
+         <div data-role="fieldcontain">
+            <label for="sub" class="ui-hidden-accessible"></label><input data-theme="a" id="submitNew" type="submit" name="sub" id="submitNewAcct" value="Create Account">
+        </div>
+        </form>
+        </fieldset>
+    </div>
+    <footer data-role="footer" data-theme="b" data-position="fixed" value="working?">
+        <nav data-role="navbar">
+            <ul>
+                <li><a href="#login" data-icon="home" data-iconpos="bottom">Back to Login</a></li>
+            </ul>
+        </nav>
+    </footer>
+</div><!--new account page-->
+<body>
+</body>
+</html>

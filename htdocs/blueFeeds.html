@@ -291,7 +291,128 @@
     </footer>
 </div><!--comments page-->
 
+<div data-role="page" data-theme="a" id="studenttags">
+     <header data-role="header" data-theme="b">
+        <h1>Student Tags</h1>
+        <a href="#studentSelection" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+        <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
+        </button>
+    </header>
+    <div data-role="navbar" data-type="horizontal">
+	<ul>
+		<li data-theme="a"><a href="#studentProfile2"  data-theme="b" data-role="button">Filter Tags...</a></li>
+        <li data-theme="a"><a href="#graphViewer"  data-theme="b" data-role="button">View Graphs</a></li>
+        </ul>  
+</div>
 
+    <div class="studentSelectionCenter" data-role="content" data-theme="a">
+        <ul data-role="listview">
+	    
+	    <!-- hardcoded for now -->
+            <li><a href="#commentspage">
+		    <h1>Leadership</h1>
+		    <span class="ui-li-count">2</span></a>
+	    	</li>
+	    	<li><a href="#commentspage">
+		    <h1>Patient Care</h1>
+		    <span class="ui-li-count">3</span></a>
+	    	</li>
+			<li><a href="#commentspage">
+		    <h1>Gentle Love and Care</h1>
+		    <span class="ui-li-count">10</span></a>
+	    	</li>
+            <li><a href="#commentspage">
+		    <h1>Power</h1>
+		    <span class="ui-li-count">12</span></a>
+	    	</li>
+	    	<li><a href="#commentspage">
+		    <h1>Attractiveness</h1>
+		    <span class="ui-li-count">1</span></a>
+	    	</li>
+			<li><a href="#commentspage">
+		    <h1>Honour</h1>
+		    <span class="ui-li-count">4</span></a>
+	    	</li>
+        </ul>
+    </div>
+    <footer data-role="footer" data-theme="b" data-position="fixed">
+        <nav data-role="navbar">
+            <ul>
+                <li><a href="#appointments" data-icon="grid">Appointments</a></li>
+                <li><a href="#studentSelection" data-icon="home">My Students</a></li>
+                <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
+            </ul>
+        </nav>
+    </footer>
+</div><!--tagging view page-->
+
+<div data-role="page" data-theme="a" id="graphViewer">
+     <header data-role="header" data-theme="b">
+        <h1>Rachel Harris</h1>
+        <a href="#commentspage" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+        <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
+    </header>
+    <body>
+    <div data-role="navbar" data-type="horizontal">
+	<ul>
+		<li data-theme="a"><a href="#" id="reset-graph-button  data-theme="b" data-role="button">Reset Graph</a></li>
+        </ul>
+   </div>
+	<div id="wrapper">
+		<div class="chart">
+			<!--<h2>Number of QuickNotes from Spring 2013</h2> -->
+			<table id="data-table" border="1" cellpadding="10" cellspacing="0" summary="The Amount of QuickNotes for a Student Filtered by Tags.">
+			<!--<caption>Population in thousands</caption> -->
+			<thead>
+			<tr>
+				<td>&nbsp;</td>
+				<th scope="col">Leadership</th>
+				<th scope="col">PatientCare</th>
+				<th scope="col">Teamwork</th>
+				<th scope="col">Integrity</th>
+			</tr>
+			</thead>
+			
+			<tbody>
+			<tr>
+				<th scope="row">Rachel Harris</th>
+				<td>4080</td>
+				<td>6080</td>
+				<td>6240</td>
+				<td>3520</td>
+			</tr>
+			
+                    	<tr>
+				<th scope="row">Ben Berg</th>
+				<td>5680</td>
+				<td>6880</td>
+				<td>5760</td>
+				<td>5120</td>
+			</tr>
+                   <!-- 
+			<tr>
+				<th scope="row">Shaka Khan</th>
+				<td>1040</td>
+				<td>1760</td>
+				<td>2880</td>
+				<td>4720</td>
+			</tr>
+                   -->
+			</tbody>
+		</table>
+	</div>
+	</div>
+	</body>
+    <footer data-role="footer" data-theme="b" data-position="fixed">
+        <nav data-role="navbar">
+            <ul>
+                <li><a href="#appointments" data-icon="grid">Appointments</a></li>
+                <li><a href="#studentSelection" data-icon="home">My Students</a></li>
+                <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
+            </ul>
+        </nav>
+    </footer>
+</div> <!--new graph page, with list-->
 
 <div data-role="page" id="addcomment">
     <header data-role="header" data-theme="b"><h1>Add Comment</h1>
@@ -303,11 +424,40 @@
         <label for="textarea">What would you like to change?</label>
         <textarea name="comment" id="comment">
         </textarea>
-        <button data-theme="a" type="submit" data-icon="check" id="commentSubmit" data-validate='commentSubmit' data-destination="#studentProfile2">Save Comment</button>     
-        <button data-theme="a" data-icon="star">Flag Comment</button> 
-        <button data-theme="a" data-icon="edit">Tag Comment</button>                               
-	</form>
-        </div>
+        
+       	<div data-role="navbar" data-type="horizontal">
+		<ul>	
+			<!-- STILL TO IMPLEMENT SAVE -->
+			<li data-theme="a"><a href="#studentProfile2"  data-theme="a" data-role="button">Save</a></li>
+        		<li data-theme="a"><button data-theme="a" type="submit" data-icon="check" id="commentSubmit" data-validate='commentSubmit' data-destination="#studentProfile2">Submit</button></li>
+    		</ul>
+    	</div>
+    
+    	<div data-role="collapsible-set" data-theme="b" data-content-theme="d">     
+		<div data-role="collapsible">
+			<h2>Tags</h2>
+			<ul data-role="listview" data-divider-theme="d">
+				<fieldset data-role="controlgroup">
+					<input type="checkbox" name="checkbox-1a" id="checkbox-1a" class="custom" /><li>Leadership</li>
+                        	</fieldset>
+                        	<fieldset data-role="controlgroup">
+					<input type="checkbox" name="checkbox-1a" id="checkbox-1a" class="custom" /><li>Work Ethic</li>
+                        	</fieldset>
+                        	<fieldset data-role="controlgroup">
+					<input type="checkbox" name="checkbox-1a" id="checkbox-1a" class="custom" /><li>Intelligence</li>
+                        	</fieldset>
+                        	<fieldset data-role="controlgroup">
+					<input type="checkbox" name="checkbox-1a" id="checkbox-1a" class="custom" /><li>Mediocrity</li>
+                        	</fieldset>
+			</ul>
+		</div>
+    	</div>
+        <!--
+        	<button data-theme="a" type="submit" data-icon="check" id="commentSubmit" data-validate='commentSubmit' data-destination="#studentProfile2">Save Comment</button>     
+       		<button data-theme="a" data-icon="star">Flag Comment</button> 
+        	<button data-theme="a" data-icon="edit">Tag Comment</button>                               
+		</form>
+	-->
     <footer data-role="footer" data-theme="b" data-position="fixed" value="working?">
        <nav data-role="navbar">
             <ul>

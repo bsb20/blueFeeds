@@ -1,11 +1,14 @@
 body {
-  background: #fff;
+	background: #fff;
 	color: #222;
 	font: 12px/20px 'Helvetica Neue', Arial, sans-serif;
 	margin: 0;
 	padding: 0;
 }
+
+
 h2 {
+	color: #000;
 	font-size: 18px;
 	font-weight: normal;
 	line-height: 20px;
@@ -13,8 +16,9 @@ h2 {
 	padding: 0;
 	text-align: center;
 }
+*/
 h4 {
-	color: #545454;
+	color: #000;
 	font-size: 14px;
 	font-weight: normal;
 	line-height: 20px;
@@ -22,16 +26,22 @@ h4 {
 	padding: 0;
 	text-align: center;
 }
+
+
+/*
 a {
 	color: #333;
-}
+} 
+*/
 
 /* Table */
 #data-table {
 	border: none; /* Turn off all borders */
+	background: #FFF;
 	border-top: 1px solid #ccc;
-	width: 540px;
+	width: 1024px;
 }
+
 #data-table caption {
 	color: #545454;
 	font-size: 14px;
@@ -41,6 +51,8 @@ a {
 	padding: 0;
 	text-align: center;
 }
+
+
 #data-table thead {
 	background: #f0f0f0;
 }
@@ -83,12 +95,13 @@ a {
 /* Graph */
 /* Containers */
 #wrapper {
-	height: 420px;
-	left: 50%;
+	height: 300px;/*420px;*/
+	left: 100%  /*50%;*/
 	margin: -210px 0 0 -270px;
-	position: absolute;
-	top: 50%;	
-	width: 540px;
+	
+	/*position:relative;
+	/*top: 50%;	*/
+	width: 1024px;  /*540px;*/
 }
 #figure {
 	height: 380px;
@@ -104,15 +117,17 @@ a {
 	position: relative;
 }
 
-/* Legend */
-.legend {
+/* Legend  - used to display name*/
+
+/*
+.legend { 
 	background: #f0f0f0;
 	border-radius: 4px;
-	bottom: 0;
-	position: absolute;
-	text-align: left;
+	position:absolute;
+	text-align: center;
 	width: 540px;	
 }
+
 .legend li {
 	display: block;
 	float: left;
@@ -121,6 +136,8 @@ a {
 	padding: 10px 30px;
 	width: 120px;
 }
+*/
+
 .legend span.icon {
 	background-position: 50% 0;
 	border-radius: 2px;
@@ -129,7 +146,8 @@ a {
 	height: 16px;
 	margin: 2px 10px 0 0;
 	width: 16px;	
-}
+} 
+/**/
 
 /* X-Axis */
 .x-axis {
@@ -139,10 +157,12 @@ a {
 	text-align: center;
 	width: 540px;
 }
+/* Controls Text Color */
 .x-axis li {
 	float: left;
 	margin: 0 15px;
 	padding: 5px 0;
+	color: #FFF;
 	width: 76px;	
 }
 
@@ -217,7 +237,7 @@ a {
 	margin-top: -25px;
 }
 #data-table {
-  display: none;
+	display: none;
 }
 .bar span {
 	background: #fefefe url(../images/info-bg.gif) 0 100% repeat-x;

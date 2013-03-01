@@ -71,6 +71,7 @@
          $("#studentTags").delegate("a", "click", function () {
          $("div.ui-input-search").find("input").val($(this).text());
          $("div.ui-input-search").find("input").keyup();
+         }
     });
 
 	$(document).ready(function(){

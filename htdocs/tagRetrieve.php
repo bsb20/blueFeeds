@@ -17,11 +17,11 @@ if($row=mysqli_fetch_array($result)){
     $text=$row["text"];
     $TUID=$row["TUID"];
     }
-    $finally.=                       "<li data-theme='d' class='listNote dynamicComment' data-dynamicContent='tagRetrieve' onClick='echoComment()' style='margin: 1%; overflow: visible; white-space: normal;'>
+    $finally.=                       "<li data-theme='b' class='listNote dynamicComment' data-dynamicContent='tagRetrieve' onClick='echoComment()' style='margin: 1%; overflow: visible; white-space: normal;'>
 						<div data-role='controlgroup' data-type='horizontal'  class='noteControl'>
-                                               	<h1>$text</h1>
+                                               	<a href='commentspage'><h1>$text</h1></a>
 						</div>
-                                        	</li>";
+                                        </li>";
 }
     echo $finally;
 ?>

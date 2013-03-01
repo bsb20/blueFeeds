@@ -18,8 +18,7 @@ if($row=mysqli_fetch_array($result)){
     $TUID=$row["TUID"];
     }
     $finally.=                       "<li data-theme='d' class='listNote dynamicComment' data-dynamicContent='tagRetrieve' onClick='echoComment()' style='margin: 1%; overflow: visible; white-space: normal;'>
-						<a href="#commentspage">
-						<h1>$text</h1></a>
+						<h1>$text</h1>
                                         	</li>";
 }
     echo $finally;

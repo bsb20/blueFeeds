@@ -88,6 +88,7 @@
 		    $.ajax({url: $(this).attr("data-dynamicQuery")+".php", success: onPageLoad, invokedata: $(this).attr("id"), error:onError});
 		}
 		else{
+			alert('DataElseQueried!')
 		    $("[data-dynamicContent="+$(this).attr("data-dynamicQuery")+"]").remove();
 		}
 		});

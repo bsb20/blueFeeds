@@ -75,7 +75,15 @@
 		})    
 	});
 
-
+	$('#loadMyFilter').bind('click',function(e){  
+    
+    e.preventDefault();
+    
+    $('#myFilter').prev('form[role="search"]').find('input[data-type="search"]')
+        .val("Ad")
+        .trigger('change');
+    
+});
 
 //Page change insert/remove functions
 

@@ -75,12 +75,13 @@
 		})    
 	});
 
-	$('#loadMyFilter').bind('click',function(e){  
-    
+
+$('#loadMyFilter').bind('click',function(e){  
     e.preventDefault();
     
     $('#myFilter').prev('form[role="search"]').find('input[data-type="search"]')
-        .val("Ad")
+    	alert('DataQueried!');
+        .val("Ad");
         .trigger('change');
     
 });

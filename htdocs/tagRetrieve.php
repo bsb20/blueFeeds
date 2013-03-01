@@ -14,20 +14,6 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 if($row=mysqli_fetch_array($result)){
     $text=$row["text"];
     $TUID=$row["TUID"];
-    $counter=0;
-    $sql2 = "SELECT `CUID` FROM `test`.`tu` WHERE `TUID`='$TUID'"
-    $result=$db->query($sql2);
-    for($i=0; $i< mysqli_num_rows(result); i++){
-    	if($row=mysqli_fetch_array($result)){
-    		
-    		$sql3 = "SELECT * FROM `test`.`comments` WHERE `UUID`='$UUID'"
-    			for($i=0; $i< mysqli_num_rows(result); i++){
-    				if($row=mysqli_fetch_array($result)){
-    					$counter=counter+1;
-    				}
-   			 }
-    	}
-    }
     $time=strtotime($date);
     $formattedDate=date("m/d/y",$time);
     }

@@ -9,9 +9,10 @@ $SUID=$_SESSION["UUID"];
 $sql = "SELECT * FROM `test`.`tags` WHERE `UUID`='$UUID'";
 $result=$db->query($sql);
 $finally="";
-
+echo "before";
 for($i=0; $i<mysqli_num_rows($result); $i++){
 if($row=mysqli_fetch_array($result)){
+	echo "after";
     $text=$row["text"];
     $TUID=$row["TUID"];
     $time=strtotime($date);

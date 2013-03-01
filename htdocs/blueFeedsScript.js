@@ -57,17 +57,6 @@
                 
 		});	    
 	    });
-
-	$('#loadMyFilter').bind('click',function(e){  
-    alert('here');
-    e.preventDefault();
-    
-    $('#studentTags').prev('form[role="search"]').find('input[data-type="search"]')
-    alert('here2');
-        .val("Ad")
-        .trigger('change');
-    
-});
             
         $(document).ready(
 	function(){

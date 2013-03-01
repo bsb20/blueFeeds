@@ -19,8 +19,7 @@ if($row=mysqli_fetch_array($result)){
     }
     $finally.=                       "<li data-theme='d' class='listNote dynamicComment' data-dynamicContent='tagRetrieve' onClick='echoComment()' style='margin: 1%; overflow: visible; white-space: normal;'>
 						<div data-role='controlgroup' data-type='horizontal'  class='noteControl'>
-                                                <a href='#commentspage' data-role='button' data-theme='b' data-mini='true' data-icon='plus'>Edit</a>
-						<h1>$text</h1></a>
+                                               	<h1>$text</h1>
 						</div>
                                         	</li>";
 }

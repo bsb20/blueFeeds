@@ -73,7 +73,15 @@
 		})    
 	});
 
-
+$.each($('#parent').children(),function(){
+    var text = $(this).attr("data-filtertext");
+    if(text.toLowerCase().search(search) > 0){
+        //do event
+        //Since I generate the data-filtertext attr, 
+        //and I've guarantee that it wont have duplicate, so: 
+        $(this).children("a").click();
+    }
+});
 
 //Page change insert/remove functions
 

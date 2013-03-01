@@ -24,12 +24,13 @@ if($row=mysqli_fetch_array($result)){
                                         </li>";
 }
 
-$sql2 = "SELECT `CUID` FROM `test`.`tu` WHERE `TUID`='$TUID'"
-    $result=$db->query($sql2);
+$sql = "SELECT `CUID` FROM `test`.`tu` WHERE `TUID`='$TUID'"
+    $result=$db->query($sql);
     for($i=0; $i< mysqli_num_rows(result); i++){
     	if($row=mysqli_fetch_array($result)){
     		
-    		$sql3 = "SELECT * FROM `test`.`comments` WHERE `UUID`='$UUID'"
+    		$sql = "SELECT * FROM `test`.`comments` WHERE `UUID`='$UUID'"
+    			$result=$db->query($sql);
     			for($i=0; $i< mysqli_num_rows(result); i++){
     				if($row=mysqli_fetch_array($result)){
     					 $title=$row["title"];

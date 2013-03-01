@@ -21,7 +21,6 @@ if($row=mysqli_fetch_array($result)){
 						<a href='commentspage'>
 						<div data-role='controlgroup' data-type='horizontal'  class='noteControl'>
                                                	<h1>$text</h1>
-                                               	<span class="ui-li-count"$10</span>
 						</div>
 						</a>
                                         </li>";

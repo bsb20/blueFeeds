@@ -20,7 +20,6 @@ if($row=mysqli_fetch_array($result)){
     $finally.=                       "<li data-theme='d' class='listNote dynamicComment' data-dynamicContent='tagRetrieve' onClick='echoComment()' style='margin: 1%; overflow: visible; white-space: normal;'>
 						<h1> HI </h1>
 						<p class='note'>$text</p>
-						<span class="ui-li-count">counter</span></a>
                                                 <p class='ui-li-aside'><strong>$formattedDate</strong></p>
                                         	</li>";
 }

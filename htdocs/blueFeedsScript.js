@@ -80,8 +80,8 @@
 //Page change insert/remove functions
 
         $(document).ready(function(){
-        	alert('PHP Initiated')
         $(document).on('pagechange', function (e,data) {
+        	alert('Page Changed Queried!')
 	    $("[data-dynamicQuery]").each(function(index){
 		if(data.toPage.attr("id")==$(this).parents("[data-role='page']").attr("id")){
 		alert('DataQueried!')

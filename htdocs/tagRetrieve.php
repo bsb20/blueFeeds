@@ -16,15 +16,13 @@ if($row=mysqli_fetch_array($result)){
 	echo "after";
     $text=$row["text"];
     $TUID=$row["TUID"];
-    $time=strtotime($date);
-    $formattedDate=date("m/d/y",$time);
     }
     $finally.=                       "<li data-theme='d' class='listNote dynamicComment' data-dynamicContent='tagRetrieve' onClick='echoComment()' style='margin: 1%; overflow: visible; white-space: normal;'>
+						<h1> HI </h1>
 						<p class='note'>$text</p>
 						<span class="ui-li-count">counter</span></a>
                                                 <p class='ui-li-aside'><strong>$formattedDate</strong></p>
-                                                    <input type='text' name='TUID' value='$TUID' class='hiddenForm' style='display: none;'>
-					</li>";
+                                        	</li>";
 }
     echo $finally;
 ?>

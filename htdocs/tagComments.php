@@ -16,9 +16,7 @@ $result=$db->query($sql);
             $CUID=$row["CUID"];
 
                 $table2="`test`.`comments`";
-                $sql2 = "SELECT * FROM ".$table2." WHERE `CUID`='".$CUID."' AND (
-                	SUID LIKE $SUID OR UUID LIKE $UUID';";
-                	
+                $sql2 = "SELECT * FROM ".$table2." WHERE `CUID`='".$CUID."';";	
                 $result2=$db->query($sql2);
                 for($i=0; $i<mysqli_num_rows($result2); $i++){
                    if($row=mysqli_fetch_array($result2)){

@@ -62,7 +62,7 @@
     alert('here');
     e.preventDefault();
     
-    $('#parent').prev('form[role="search"]').find('input[data-type="search"]')
+    $('#studentTags').prev('form[role="search"]').find('input[data-type="search"]')
         .val("Ad")
         .trigger('change');
     

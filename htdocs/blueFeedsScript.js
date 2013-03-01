@@ -76,15 +76,6 @@
 	});
 
 
-$('#loadMyFilter').bind('click',function(e){  
-    e.preventDefault();
-    alert('Page Changed Queried!')
-    $('#myFilter').prev('form[role="search"]').find('input[data-type="search"]')
-    	alert('DataQueried!');
-        .val("Ad");
-        .trigger('change');
-    
-});
 
 //Page change insert/remove functions
 

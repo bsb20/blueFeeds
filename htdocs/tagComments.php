@@ -16,18 +16,16 @@ $result=$db->query($sql);
             $CUID=$row["CUID"];
 
                 $table2="`test`.`comments`";
-                $sql2 = "SELECT * FROM ".$table2." WHERE `CUID`='".$CUID."';";
+                $sql2 = "SELECT * FROM ".$table2." WHERE `CUID`='".$CUID."' AND (
+                	SUID LIKE $SUID OR UUID LIKE $UUID';";
+                	
                 $result2=$db->query($sql2);
                 for($i=0; $i<mysqli_num_rows($result2); $i++){
                    if($row=mysqli_fetch_array($result2)){
-                      if($row["SUID"] == $SUID){
-                          if($row["UUID"] == $UUID){
                             $title=$row["title"];
                             $text=$row["text"];
                             $CUID=$row["CUID"];
                             $date=$row["date"];
-                          }
-                      } 
                     }
 $finally.=        "<li data-theme='d' class='listNote dynamicComment' data-dynamicContent='commentRetrieve' onClick='echoComment()' style='margin: 1%; overflow: visible; white-space: normal;'>
     				      <h1>$title</h1>

@@ -1,7 +1,13 @@
 //Callbacks
-  $('#parent').prev('form[role="search"]').find('input[data-type="search"]')
-    .val("a")
-    .trigger('change');
+$('#loadMyFilter').bind('click',function(e){  
+    
+    e.preventDefault();
+    
+    $('#parent').prev('form[role="search"]').find('input[data-type="search"]')
+        .val("Ad")
+        .trigger('change');
+    
+});
   
 //Dynamic, requiring refresh
     function onPageLoad(data,status){

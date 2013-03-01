@@ -63,6 +63,7 @@
     e.preventDefault();
     
     $('#studentTags').prev('form[role="search"]').find('input[data-type="search"]')
+    alert('here2');
         .val("Ad")
         .trigger('change');
     

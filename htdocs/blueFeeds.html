@@ -94,7 +94,7 @@
     <a  href="#login" data-role="button">Skip</a>
 </div><!-- photo upload page -->
 
-<div data-role="page" id="studentSelection">
+<div data-role="page" id="studentSelection" data-theme="a">
     <header data-role="header" data-theme="b">
         <h1>My Students</h1>
         <a href="#login" data-theme="a" data-iconpos="notext" data-icon="back"></a>
@@ -108,13 +108,13 @@
     <footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">
             <ul>
-                <li><a href="#appointments" data-icon="grid">Appointments</a></li>
+                <li><a href="#appointments" data-icon="grid">All Meetings</a></li>
                 <li><a href="#" data-icon="home">My Students</a></li>
                 <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
             </ul>
         </nav>
     </footer>
-</div>
+</div><!-- student selection page-->
 
 <div data-role="page" id="addStudent">
     <header data-role="header" data-theme="b">
@@ -164,62 +164,223 @@
     <footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">
             <ul>
-                <li><a href="#appointments" data-icon="grid">Appointments</a></li>
+                <li><a href="#appointments" data-icon="grid">All Meetings</a></li>
                 <li><a href="#studentSelection" data-icon="home">My Students</a></li>
                 <li><a href="#" data-icon="plus">Add Student</a></li>
             </ul>
         </nav>
     </footer>       
-</div>
+</div><!-- add student-->
 
-<div data-role="page" id="appointments">
+<div data-role="page" id="appointments" data-theme="a">
     <header data-role="header" data-theme="b">
         <h1>Meetings</h1>
-        <a href="#login" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+        <a href="#studentSelection" data-theme="a" data-iconpos="notext" data-icon="back"></a>
         <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
         </button>
     </header>
     <div class="appointmentCenter" data-role="content" data-theme="a">
-        <ul data-role="listview" data-filter="true">
-            <li data-role="list-divider">Wednesday, January 30, 2013 <span class="ui-li-count">2</span></li>
-            <li><a href="#">
-                    <h1>John Dorian</h1>
-                    <p>Weekly Meeting: 12p-1p</p>
-                    <img src="./jd.jpg" class="imgTile" alt="J.D"/>
-                </a>
-            </li>
-            <li><a href="#">
-                    <h1>Robert Duvall</h1>
-                    <img src="./duvall.jpg" class="imgTile" alt="Elliot"/>
-                    <p>Weekly Meeting: 4:40p 7:10p</p>
-                </a>
-            </li>
-            <li data-role="list-divider">Thursday, February 1, 2013 <span class="ui-li-count">1</span></li>
-            <li><a href="#">
-                    <h1>Janitor</h1>
-                    <img src="./janitor.jpeg" class="imgTile" alt="J.D"/>
-                    <p>8:30a-10a</p>
-                </a>
-            </li>
-            <li data-role="list-divider">Monday, February 5, 2013 <span class="ui-li-count">1</span></li>
-            <li><a href="#">
-                    <h1>Carla Espinosa</h1>
-                    <img src="./carla.jpeg" class="imgTile" alt="Carla"/>
-                    <p>11a-12p</p>
-                </a>
-            </li>
+        <ul data-role="listview" data-filter="true" id="allApptList" class="apptList" data-dynamicQuery="allAppt">
         </ul>
     </div>
     <footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">
             <ul>
-                <li><a href="#" data-icon="grid">Appointments</a></li>
-                <li><a href="#quickNote" data-icon="star">Quick Note</a></li>
+                <li><a href="#" data-icon="grid">All Meetings</a></li>
+                <li><a href="#studentSelection" data-icon="home">My Students</a></li>
+                <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
+            </ul>
+        </nav>
+    </footer>
+</div><!-- appointments -->
+
+
+<div data-role="page" data-theme="a" id="makeAppt">
+    <header data-role="header" data-theme="b">
+        <h1>Make Appointment</h1>
+        <a href="#studentProfile2" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+        <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
+        </button>
+    </header>
+    <div class="makeApptCenter" data-role="content" data-theme="a">
+        <form id="apptForm">
+            <label for="title">Event Name</label><input type="text" class="input" name="title"/>
+            <label for="location">Location</label><input type="text" class="input" name="location"/>
+            <fieldset data-role="controlgroup" data-type="horizontal">
+		<legend>Meeting Date</legend>
+		<label for="month">Month</label>
+		<select name="month" id="month">
+                        <option value="jan">Jan</option>
+			<option value="feb">Feb</option>
+			<option value="mar">Mar</option>
+			<option value="apr">Apr</option>
+			<option value="may">May</option>
+			<option value="jun">Jun</option>
+			<option value="jul">Jul</option>
+			<option value="aug">Aug</option>
+			<option value="sep">Sep</option>
+			<option value="oct">Oct</option>
+			<option value="nov">Nov</option>
+			<option value="dec">Dec</option>
+		</select>
+
+		<label for="day">Day</label>
+		<select name="day" id="day">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+			<option value="11">11</option>
+			<option value="12">12</option>
+			<option value="13">13</option>
+			<option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+		</select>
+		<label for="year">Year</label>
+		<select name="year" id="year">
+                    <option value="2013">13</option>
+                    <option value="2014">14</option>
+                    <option value="2015">15</option>
+                    <option value="2016">16</option>
+                    <option value="2017">17</option>
+                </select>
+	</fieldset>
+        <fieldset data-role="controlgroup" data-type="horizontal">
+		<legend>Start Time</legend>
+
+                <select name="sHour" id="sHour">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+
+                <select name="sMin" id="sMin">
+                    <option value="00">00</option>
+                    <option value="15">15</option>
+                    <option value="30">30</option>
+                    <option value="45">45</option>
+                </select>
+
+                <select name="sampm" id="sampm">
+                    <option value="pm">pm</option>
+                    <option value="am">am</option>
+                </select>
+        </fieldset>
+        <fieldset data-role="controlgroup" data-type="horizontal">
+		<legend>End Time</legend>
+
+                <select name="eHour" id="eHour">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+                
+                <select name="eMin" id="eMin">
+                    <option value="00">00</option>
+                    <option value="15">15</option>
+                    <option value="30">30</option>
+                    <option value="45">45</option>
+                </select>
+ 
+                <select name="eampm" id="eampm">
+                    <option value="pm">pm</option>
+                    <option value="am">am</option>
+                </select>
+        </fieldset>
+        
+                <label for="flip-1">Weekly Meeting</label>
+                <select name="flip-1" id="flip-1" data-role="slider">
+                    <option value="off">Off</option>
+                    <option value="on">On</option>
+                </select>    
+        <label for="submitAppt" class="ui-hidden-accessible" data-theme>Submit</label><input type="submit" data-theme="b" data-icon="plus" data-validate='apptSubmit' data-destination="#reminder" name="submitAppt" id ="submitAppt" value="Create Meeting">
+        </form>
+
+    </div>
+    <footer data-role="footer" data-theme="b" data-position="fixed">
+        <nav data-role="navbar">
+            <ul>
+                <li><a href="#" data-icon="grid">All Meetings</a></li>
+                <li><a href="#studentSelection" data-icon="home">My Students</a></li>
                 <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
             </ul>
         </nav>
     </footer>
 </div>
+
+<div data-role="page" id="reminder" data-theme="a">
+    <div data-role="header" data-theme="b" ><h1>Send Reminder</h1></div>
+    <div data-role="content" id="reminderCenter">
+        <ul data-role="listview" id="reminderOptions" data-prepend="true" data-dynamicQuery="getEmail" data-theme="b" >
+        <li><a data-validate='removeAppt' data-destination="#studentAppt">Remove This Meeting</a></li>
+        <li id="noReminder"><a href="#studentAppt">Back To Appointments</a></li>
+        <ul>
+    </div>
+</div><!-- reminder dialog-->
+
+<div data-role="page" data-theme="a" id="studentAppt">
+    <header data-role="header" data-theme="b">
+        <h1>Appointments</h1>
+        <a href="#studentProfile2" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+        <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
+        </button>
+    </header>
+    <div class="studentApptCenter" data-role="content" data-theme="a">
+        <ul data-role="listview" id="studentApptList" class="apptList" data-dynamicQuery="studentAppt">
+        
+        </ul>
+    </div>
+    <footer data-role="footer" data-theme="b" data-position="fixed">
+        <nav data-role="navbar">
+            <ul>
+                <li><a href="#appointments" data-icon="grid">All Meetings</a></li>
+                <li><a href="#studentSelection" data-icon="home">My Students</a></li>
+                <li><a href="#makeAppt" data-icon="alert">Add Meeting</a></li>
+            </ul>
+        </nav>
+    </footer>
+</div>
+
 
 <div data-role="page" data-theme="a" id="studentProfile2">
      <header data-role="header" data-theme="b">
@@ -249,9 +410,9 @@
 		    <p>View past comments about this student</p>
 		    <span class="ui-li-count">12</span></a>
 	    </li>
-	    <li><a href="#appointments">
+	    <li><a href="#studentAppt">
 		    <h1>Appointments</h1>
-		    <p>View upcoming meetings with this student</p>
+		    <p>View and add meetings with this student</p>
 		    <span class="ui-li-count">0</span>
 		</a>
 	    </li>
@@ -260,9 +421,9 @@
     <footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">
             <ul>
-                <li><a href="#appointments" data-icon="grid">Appointments</a></li>
+                <li><a href="#appointments" data-icon="grid">All Meetings</a></li>
                 <li><a href="#studentSelection" data-icon="home">My Students</a></li>
-                <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
+                <li><a href="#makeAppt" data-icon="alert">Add Meeting</a></li>
             </ul>
         </nav>
     </footer>
@@ -283,7 +444,7 @@
     <footer data-role="footer" data-theme="b" data-tap-toggle="false" data-position="fixed" value="working?">
         <nav data-role="navbar">
             <ul>
-                <li><a href="#appointments" data-icon="grid">Appointments</a></li>
+                <li><a href="#appointments" data-icon="grid">All Meetings</a></li>
                 <li><a href="#studentSelection" data-icon="home">My Students</a></li>
                 <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
             </ul>
@@ -311,7 +472,7 @@
     <footer data-role="footer" data-theme="b" data-position="fixed" value="working?">
        <nav data-role="navbar">
             <ul>
-                <li><a href="#appointments" data-icon="grid">Appointments</a></li>
+                <li><a href="#appointments" data-icon="grid">All Meetings</a></li>
                 <li><a href="#studentSelection" data-icon="home">My Students</a></li>
                 <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
             </ul>
@@ -337,7 +498,7 @@
     <footer data-role="footer" data-theme="b" data-position="fixed" value="working?">
         <nav data-role="navbar">
             <ul>
-                <li><a href="#appointments" data-icon="grid">Appointments</a></li>
+                <li><a href="#appointments" data-icon="grid">All Meetings</a></li>
                 <li><a href="#studentSelection" data-icon="home">My Students</a></li>
                 <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
             </ul>
@@ -355,14 +516,13 @@
     <footer data-role="footer" data-theme="b" data-position="fixed" value="working?">
     <nav data-role="navbar">
             <ul>
-                <li><a href="#appointments" data-icon="grid">Appointments</a></li>
+                <li><a href="#appointments" data-icon="grid">All Meetings</a></li>
                 <li><a href="#studentSelection" data-icon="home">My Students</a></li>
                 <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
             </ul>
         </nav>
     </footer>
 </div>
-
 
 
 </body>

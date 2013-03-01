@@ -1,6 +1,6 @@
 //Callbacks
 $('#loadMyFilter').bind('click',function(e){  
-    
+    alert("tommy");
     e.preventDefault();
     
     $('#parent').prev('form[role="search"]').find('input[data-type="search"]')

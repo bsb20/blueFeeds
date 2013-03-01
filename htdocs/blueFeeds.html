@@ -310,6 +310,14 @@
 	<ul><li data-theme="a"><a href="#graphViewer"  data-theme="b" data-role="button">View By Graphs</a></li></ul> 
 	</div>
 	<ul data-role="listview" data-filter="true" id="studentTags" data-theme="b" data-prepend="true" data-dynamicQuery="tagRetrieve"></ul>
+       <script type="text/javascript">
+    $(document).ready(function () {
+         $("#studentTags").delegate("a", "click", function () {
+         $("div.ui-input-search").find("input").val($(this).text());
+         $("div.ui-input-search").find("input").keyup();
+    });
+</script>
+       
        <!--
        <ul data-role="listview" data-filter="true">   
 	    <!-- hardcoded for now

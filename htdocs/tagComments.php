@@ -9,6 +9,7 @@ if($db->connect_errno){
 $TUID=$_SESSION["TUID"];
 $UUID=$_SESSION["UUID"];
 $finally="";
+echo "HERE";
 
 $sql = "SELECT * FROM ".$table." JOIN ".$table2." ON (".$table.CUID." = ".$table2.CUID.") WHERE `TUID`='".$TUID."';";
 $result=$db->query($sql);

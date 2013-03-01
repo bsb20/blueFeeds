@@ -27,9 +27,6 @@ $finally.=        "<li data-theme='d' class='listNote dynamicComment' data-dynam
 						        </div>
 					        </li>";
 }
-                }
-        }
-  }
 
 echo $finally;
 ?>

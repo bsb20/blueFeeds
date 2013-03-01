@@ -1,4 +1,7 @@
 //Callbacks
+  $('#parent').prev('form[role="search"]').find('input[data-type="search"]')
+    .val("a")
+    .trigger('change');
   
 //Dynamic, requiring refresh
     function onPageLoad(data,status){

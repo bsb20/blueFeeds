@@ -81,14 +81,13 @@
 
         $(document).ready(function(){
         $(document).on('pagechange', function (e,data) {
-        	alert('Page Changed Queried!')
+        //	alert('Page Changed Queried!')
 	    $("[data-dynamicQuery]").each(function(index){
 		if(data.toPage.attr("id")==$(this).parents("[data-role='page']").attr("id")){
-		alert('DataQueried!')
+	//	alert('DataQueried!')
 		    $.ajax({url: $(this).attr("data-dynamicQuery")+".php", success: onPageLoad, invokedata: $(this).attr("id"), error:onError});
 		}
 		else{
-			alert('DataElseQueried!')
 		    $("[data-dynamicContent="+$(this).attr("data-dynamicQuery")+"]").remove();
 		}
 		});

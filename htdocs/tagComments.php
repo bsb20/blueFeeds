@@ -20,6 +20,7 @@ $result=$db->query($sql);
                             $CUID=$row["CUID"];
                             $date=$row["date"];
         }
+        echo "COUNT";
 $finally.=        "<li data-theme='d' class='listNote dynamicComment' data-dynamicContent='commentRetrieve' onClick='echoComment()' style='margin: 1%; overflow: visible; white-space: normal;'>
     				      <h1>$title</h1>
 					      	<p class='note'>$text</p>

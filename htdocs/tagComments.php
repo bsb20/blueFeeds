@@ -7,14 +7,7 @@ if($db->connect_errno){
 }
 $TUID=$_SESSION["TUID"];
 $UUID=$_SESSION["UUID"];
-$SUID=$_SESSION["SUID"];
 $finally="";
-$sql = "SELECT * FROM ".$table." WHERE `TUID`='".$TUID."';";
-$result=$db->query($sql);
-    for($i=0; $i<mysqli_num_rows($result); $i++){
-        if($row=mysqli_fetch_array($result)){
-            $CUID=$row["CUID"];
-
                 $table2="`test`.`comments`";
                 $sql2 = "SELECT * FROM ".$table2." WHERE `CUID`='".$CUID."';";	
                 $result2=$db->query($sql2);

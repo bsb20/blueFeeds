@@ -62,7 +62,7 @@
     alert('here');
     e.preventDefault();
     
-    $('#myFilter').prev('form[role="search"]').find('input[data-type="search"]')
+    $('#parent').prev('form[role="search"]').find('input[data-type="search"]')
         .val("Ad")
         .trigger('change');
     

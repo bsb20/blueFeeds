@@ -9,7 +9,7 @@ $TUID=$_SESSION["TUID"];
 $UUID=$_SESSION["UUID"];
 $finally="";
                 $table2="`test`.`comments`";
-                $sql2 = "SELECT * FROM ".$table2." WHERE `CUID`='".$CUID."';";	
+                $sql2 = "SELECT * FROM ".$table2." WHERE `UUID`='".$UUID."';";	
                 $result2=$db->query($sql2);
                 for($i=0; $i<mysqli_num_rows($result2); $i++){
                    if($row=mysqli_fetch_array($result2)){

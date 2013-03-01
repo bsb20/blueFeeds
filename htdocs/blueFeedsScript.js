@@ -80,9 +80,11 @@
 //Page change insert/remove functions
 
         $(document).ready(function(){
+        	alert('PHP Initiated')
         $(document).on('pagechange', function (e,data) {
 	    $("[data-dynamicQuery]").each(function(index){
 		if(data.toPage.attr("id")==$(this).parents("[data-role='page']").attr("id")){
+		alert('DataQueried!')
 		    $.ajax({url: $(this).attr("data-dynamicQuery")+".php", success: onPageLoad, invokedata: $(this).attr("id"), error:onError});
 		}
 		else{

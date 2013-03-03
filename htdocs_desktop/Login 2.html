@@ -19,6 +19,14 @@
 		height: 100%; 
 		min-height: 100%;
 	}
+	
+	body {
+		margin:0px;
+		padding:0px;
+		height:100%;
+		overflow:hidden;	
+	}		
+	
 	#logincenter
 	{
 		background-image: url("./med.png"), url("./gradient.jpg");
@@ -26,27 +34,33 @@
 		background-repeat: no-repeat, repeat;
 		background-position: 50% 20%, 50% 0%;		
 	}
-	#loginForm
+	#LoginPage
 	{
+		padding-left: 38%;
+		padding-top: 25%;
 	}
 </style>
 </head>
 <header><h1>BlueFeeds Login</h1></header>
 <body id="logincenter">
 	<div>
-        <fieldset>
-        <form id="loginForm" style="margin-left: auto; margin-right: auto;">
-            <div>
-                <label>Username </label><input type="text"/>
-             </div>
-            <div data-role="fieldcontain" class="input">
-                <label>Password </label><input type="password"/>
-            </div>
-            <div data-role="fieldcontain" class="loginbutton">      
-                <a href="./Landing Page.html">Log In</a>			
-            </div>        
-        </form>
-    </fieldset> 
+        <div id="LoginPage"> 
+			<div style="display: inline-block;">
+				<form>
+					<div class="input-control text">
+						<label>Username: </label>
+						<input type="text" class="with-helper" placeholder="John"/>
+					</div>		
+					<div class="input-control text">
+						<label>Password: </label>
+						<input type="text" class="with-helper" placeholder="Smith"/>
+					</div>											
+				</form>				
+			</div>				
+			<div style="padding-top: 1%">		
+				<a href="./Landing Page.html"><button class="big">Sign In</button></a>			
+			</div> 
+        </div>
     </div>
 </body>
 </html>

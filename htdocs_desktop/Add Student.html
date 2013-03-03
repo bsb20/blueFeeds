@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="./Windows Metro Theme/css/modern.css" rel="stylesheet">
+    <link href="./Windows Metro Theme/css/modern-responsive.css" rel="stylesheet">
+    <link href="./Windows Metro Theme/css/site.css" rel="stylesheet" type="text/css">
+<!--    <link href="js/google-code-prettify/prettify.css" rel="stylesheet" type="text/css">-->
+
+<title>Bluefeeds Test Page</title>
+<style>
+	html
+	{
+		background-image: url("./gradient.jpg");
+		background-size: 100% auto;
+		background-repeat: repeat;
+		background-position: 0% 0%;		
+	}
+	html, body, .container
+	{
+		height: 100%; 
+		min-height: 100%;
+	}
+	
+	body {
+		margin:0px;
+		padding:0px;
+		height:100%;
+		overflow:hidden;	
+	}	
+	
+	ul
+	{
+		list-style-type: none;
+	}	
+	
+	li
+	{
+		font: 16px;
+	}
+
+	.ProfilePage {
+		float: left;
+		width: 22.5%;
+		height: 27.5%;
+		background-color: #D8D8E0;
+	}
+	
+	#ProfilePicture{
+		float: left; 
+		max-width:90%; 
+		max-height:90%;
+		padding-bottom:2.5%;
+		padding-left:2.5%;
+		padding-top:2.5%;
+	}
+	
+	#ProfilePic{
+		width: 40%;
+		height 40%;
+	}
+	
+	#ProfileTile{
+		height: 100%;
+		width: 100%;
+	}
+	
+	.MenuPage{
+		float: left;
+		width: 22.5%;
+		height: 57.5%;
+		background-color: #6A6A6E;
+	}
+	
+	#MenuOptions{
+		list-style: none;
+		
+	}
+	
+	#MenuButtons{
+		width: 90%;
+	}
+	
+	.AddStudentPage{
+		float: right;
+		width: 77.5%;
+		height: 85%;
+		background-color: #1947D1;
+		padding-left: 3%;
+		padding-top: 2%;		
+	}
+</style>
+</head>
+<header><h1>Add Student</h1></header>
+<body>
+    <div class="container">
+        <div class="ProfilePage">
+				<div class="tile double bg-color-purple" id="ProfileTile">
+					<div class="tile-content">
+					<img src="./Doctor-house.jpg" class="place-left" id="ProfilePic"/>		                    
+						<h2>Gregory House</h2>
+						<h5>M.D.</h5>
+						<p>
+							Specialty: Diagnosis
+						</p>
+					</div>				
+				</div>
+        </div>
+        <div class="AddStudentPage">
+			<div style="float: left;">
+				<h2>Student Information</h2>
+				<form>
+					<div class="input-control text">
+						<label>First Name: </label>
+						<input type="text" class="with-helper" placeholder="John"/>
+					</div>		
+					<div class="input-control text">
+						<label>Last Name: </label>
+						<input type="text" class="with-helper" placeholder="Smith"/>
+					</div>					
+					<div class="input-control text">
+						<label>Email: </label>
+						<input type="text" class="with-helper" placeholder="(i.e. 3/1/13)"/>
+					</div>
+					<div class="input-control text">
+						<label>Title: </label>					
+						<input type="text" class="with-helper" placeholder="(i.e. Nurse)"/>
+					</div>		
+					<div class="input-control text">
+						<label>Area of Study: </label>					
+						<input type="text" class="with-helper" placeholder="(i.e. Undecided)"/>
+					</div>						
+				</form>
+				<div style="padding-top: 3%">		
+					<a href="./Landing Page.html"><button class="big">Add Student <i class="icon-checkmark icon-large"></i></button></a>			
+				</div> 				
+			</div>	
+			<div style="float: left; padding-left: 3%;" class="input-control textarea">
+				<h2>Photo</h2>			
+				<form action='' method='POST' enctype='multipart/form-data'>
+					<div class="input-control file">
+						Choose a photo:
+						<input type='file' name='userFile'><br>
+						<input type='submit' name='upload_btn' value='upload'>						
+					</div>
+				</form>
+				<h2>Description</h2>			
+					<div class="input-control textarea">
+						<textarea></textarea>
+					</div>							
+			</div>
+        </div>
+        <div class="MenuPage">
+			<ul id="MenuOptions" style="padding-top: 5%">
+            	<li><a href="./Landing Page.html"><button class="big" id="MenuButtons">Home<i class="icon-home icon-small"></i></button></a></li>			
+            	<li><a href="./Appointments.html"><button class="big" id="MenuButtons">Appointments<i class="icon-clipboard-2 icon-small"></i></button></a></li>
+                <li><a href="./StudentSelection.html"><button class="big" id="MenuButtons">Students<i class="icon-user-2 icon-small"></i></button></a></li>
+                <li><a href="./RSS Feeds.html"><button class="big" id="MenuButtons">RSS Feeds<i class="icon-feed icon-small"></i></button></a></li>
+                <li><a href="./Add Appointment.html"><button class="big" id="MenuButtons">Schedule Appointment<i class="icon-clipboard icon-small"></i></button></a></li>
+                <li><a href="./Add Student.html"><button class="big" id="MenuButtons">Add New Students<i class="icon-plus-2 icon-small"></i></button></a></li>               
+            </ul>                   
+        </div>
+    </div>​
+</body>
+</html>
+

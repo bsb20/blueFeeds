@@ -9,7 +9,6 @@ if($db->connect_errno){
 $TUID=$_SESSION["TUID"];
 $UUID=$_SESSION["UUID"];
 $finally="";
-echo "HERE";
 
 $sql = "SELECT * FROM `test`.`tu` INNER JOIN `test`.`comments` ON `test`.`tu`.`CUID` = `test`.`comments`.`CUID` WHERE `test`.`comments`.`UUID` ='".$UUID."';";
 $result=$db->query($sql);
@@ -20,7 +19,6 @@ $result=$db->query($sql);
                             $CUID=$row["CUID"];
                             $date=$row["date"];
         }
-        echo "COUNT";
 $finally.=        "<li data-theme='d' class='listNote dynamicComment' data-dynamicContent='commentRetrieve' onClick='echoComment()' style='margin: 1%; overflow: visible; white-space: normal;'>
     				      <h1>$title</h1>
 					      	<p class='note'>$text</p>

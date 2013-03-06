@@ -11,7 +11,7 @@ $UUID=$_SESSION["UUID"];
 $finally="";
 echo "HERE";
 
-$sql = "SELECT * FROM" ".$table." JOIN ".$table2." ON (".$table.CUID." == ".$table2.CUID.") WHERE `TUID`='".$TUID."';";
+$sql = "SELECT * FROM `test`.`tu` INNER JOIN `test`.`comments` ON `test`.`tu`.`CUID` = `test`.`comments`.`CUID` WHERE `test`.`comments`.`UUID` ='".$UUID."';";
 $result=$db->query($sql);
     for($i=0; $i<mysqli_num_rows($result); $i++){
         if($row=mysqli_fetch_array($result)){
@@ -22,7 +22,7 @@ $result=$db->query($sql);
         }
         echo "COUNT";
 $finally.=        "<li data-theme='d' class='listNote dynamicComment' data-dynamicContent='commentRetrieve' onClick='echoComment()' style='margin: 1%; overflow: visible; white-space: normal;'>
-      			      <h1>$title</h1>
+    				      <h1>$title</h1>
 					      	<p class='note'>$text</p>
 					        	<div data-role='controlgroup' data-type='horizontal'  class='noteControl' align='right'>
                         <a href='#editcomment' data-role='button' data-theme='b' data-mini='true' data-icon='plus'>Edit</a>

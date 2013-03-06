@@ -26,13 +26,13 @@ $final=           " <li class='dynamicProfile' data-dynamicContent='studentAppt'
                     <p>$title, $spec</p>
                 </a>
             </li>";
-$table="`test`.`appointments`";            
+$table="`test`.`appointments`";
 $sql = "SELECT * FROM ".$table." WHERE `SUID`='$SUID' AND `UUID`='$UUID' ORDER BY `start`;";
 $result=$db->query($sql);
 for($i=0; $i<mysqli_num_rows($result); $i++){
     if($row=mysqli_fetch_array($result)){
         $past=strtotime($row['start'])>time() || $row['isWeekly'] ? "a" : "d";
-        $pastMessage= strtotime($row[$start])>time() || $row['isWeekly'] ? "":"Past Meeting Time";
+        $pastMessage= strtotime($row['start'])>time() || $row['isWeekly'] ? "":"Past Meeting Time";
         $duration=$row['duration'];
         $start=strtotime($row['start']);
         $formattedStart=date("g:i",$start);

@@ -11,7 +11,7 @@ $UUID=$_SESSION["UUID"];
 $finally="";
 echo "HERE";
 
-$sql = "SELECT * FROM" ".$table." "LEFT JOIN" ".$table2." "ON" (".$table.CUID." == ".$table2.CUID.") WHERE `TUID`='".$TUID."';";
+$sql = "SELECT * FROM" ".$table." "LEFT JOIN" ".$table2." "ON" (".$table.CUID." = ".$table2.CUID.") WHERE `TUID`='".$TUID."';";
 $result=$db->query($sql);
     for($i=0; $i<mysqli_num_rows($result); $i++){
         if($row=mysqli_fetch_array($result)){

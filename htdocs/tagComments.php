@@ -11,7 +11,7 @@ $UUID=$_SESSION["UUID"];
 $finally="";
 echo "HERE";
 
-$sql = "SELECT * FROM `test`.`tu` INNER JOIN `test`.`comments` ON `test`.`tu`.`CUID` = `test`.`comments`.`CUID`";
+$sql = "SELECT * FROM `test`.`tu` INNER JOIN `test`.`comments` ON `test`.`tu`.`CUID` = `test`.`comments`.`CUID` WHERE `test`.`comments`.`UUID` ='".$UUID."';;
 $result=$db->query($sql);
     for($i=0; $i<mysqli_num_rows($result); $i++){
         if($row=mysqli_fetch_array($result)){

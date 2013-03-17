@@ -24,7 +24,7 @@ if($row=mysqli_fetch_array($result)){
 						</div>
 						</a>
 						
-						 <input type='text' name='TUID' value='$TUID' class='hiddenForm' style='display: none;'>
+						 <input type='text' name='TUID' value='$TUID' class='hiddenForm'>
                                         </li>";
 }
     echo $finally;

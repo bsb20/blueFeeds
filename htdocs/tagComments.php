@@ -6,7 +6,7 @@ $db=new mysqli("127.0.0.1","root","devils","test",8889);
 if($db->connect_errno){
     echo "FAILURE";
 }
-$TUID=$_SESSION["TUID"];
+//$TUID=$_SESSION["TUID"];
 $UUID=$_SESSION["UUID"];
 $finally="";
 

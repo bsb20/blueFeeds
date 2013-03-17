@@ -6,7 +6,6 @@ if($db->connect_errno){
     echo "FAILURE";
 }
 $SUID=$_SESSION["SUID"];
-echo $SUID;
 $sql = "SELECT * FROM ".$table." WHERE `SUID`='".$SUID."';";
 $result=$db->query($sql);
 $name;

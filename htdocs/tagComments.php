@@ -7,15 +7,15 @@ if($db->connect_errno){
     echo "FAILURE";
 }
 $TUID=$_SESSION["TUID"];
-//$UUID=$_SESSION["UUID"];
+$UUID=$_SESSION["UUID"];
 $finally="";
 
+echo $TUID;
+echo " -tuid ";
 echo $UUID;
 $sql = "SELECT * FROM `test`.`tu` INNER JOIN `test`.`comments` ON `test`.`tu`.`CUID` = `test`.`comments`.`CUID` WHERE `test`.`tu`.`TUID` ='".$TUID."';";
 $result=$db->query($sql);
 
-echo $TUID;
-echo " -tuid ";
 
     for($i=0; $i<mysqli_num_rows($result); $i++){
         if($row=mysqli_fetch_array($result)){

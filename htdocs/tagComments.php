@@ -12,6 +12,7 @@ $finally="";
 
 
 echo $TUID;
+echo "tuid not set";
 $sql = "SELECT * FROM `test`.`tu` INNER JOIN `test`.`comments` ON `test`.`tu`.`CUID` = `test`.`comments`.`CUID` WHERE `test`.`tu`.`TUID` ='".$TUID."';";
 $result=$db->query($sql);
     for($i=0; $i<mysqli_num_rows($result); $i++){

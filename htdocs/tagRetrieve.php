@@ -20,6 +20,7 @@ if($row=mysqli_fetch_array($result)){
 					<a href='#commentspageresults'>	
 						<div data-role='controlgroup' data-type='horizontal'  class='noteControl'>
                                                	<h1>$text</h1>
+                                               	<h1>$TUID</h1>
 						</div>
 						</a>
 						

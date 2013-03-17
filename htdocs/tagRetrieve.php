@@ -15,13 +15,12 @@ if($row=mysqli_fetch_array($result)){
     $TUID=$row["TUID"];
     }
     $finally.=                       "<li data-theme='a' class='listNote dynamicComment' data-dynamicContent='tagRetrieve' style='margin: 1%; overflow: visible; white-space: normal;'>
-  				
+  					<input type='text' id='no' style='display:none' value='$TUID'>
 					<a href='#commentspageresults' id='loadMyFilter'>	
 						<div data-role='controlgroup' data-type='horizontal'  class='noteControl'>
                                                	<h1>$text</h1>
 						</div>
 						</a>
-						<input type='text' id='no' style='display:none' value='$TUID'>
                                         </li>";
 }
     echo $finally;

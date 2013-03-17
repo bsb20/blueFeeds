@@ -16,7 +16,7 @@ if($row=mysqli_fetch_array($result)){
     }
     $finally.=                       "<li data-theme='a' class='dynamicTag' data-dynamicContent='tagRetrieve' style='margin: 1%; overflow: visible; white-space: normal;'>
   					
-					<a href='#commentspageresults' id='loadMyFilter'>	
+					<a href='#commentspageresults'>	
 						<div data-role='controlgroup' data-type='horizontal'  class='noteControl'>
                                                	<h1>$text</h1>
 						</div>

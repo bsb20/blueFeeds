@@ -13,6 +13,7 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 if($row=mysqli_fetch_array($result)){
     $text=$row["text"];
     $TUID=$row["TUID"];
+    echo $TUID;
     }
     $finally.=                       "<li data-theme='a' class='dynamicTag' data-dynamicContent='tagRetrieve' style='margin: 1%; overflow: visible; white-space: normal;'>
   					

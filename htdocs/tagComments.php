@@ -10,7 +10,9 @@ $TUID=$_SESSION["TUID"];
 $UUID=$_SESSION["UUID"];
 $finally="";
 
-$sql = "SELECT * FROM `test`.`tu` INNER JOIN `test`.`comments` ON `test`.`tu`.`CUID` = `test`.`comments`.`CUID` WHERE `test`.`comments`.`UUID` ='".$UUID."' AND WHERE `test`.`tu`.`TUID` = '".$TUID."';";
+
+echo ".$TUID.";
+$sql = "SELECT * FROM `test`.`tu` INNER JOIN `test`.`comments` ON `test`.`tu`.`CUID` = `test`.`comments`.`CUID` WHERE `test`.`tu`.`TUID` = '".$TUID."';";
 $result=$db->query($sql);
     for($i=0; $i<mysqli_num_rows($result); $i++){
         if($row=mysqli_fetch_array($result)){

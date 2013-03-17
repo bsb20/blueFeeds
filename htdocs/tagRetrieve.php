@@ -14,7 +14,7 @@ if($row=mysqli_fetch_array($result)){
     $text=$row["text"];
     $TUID=$row["TUID"];
     }
-    $finally.=                       "<li data-theme='a' class='listNote dynamicComment' data-dynamicContent='tagRetrieve' style='margin: 1%; overflow: visible; white-space: normal;'>
+    $finally.=                       "<li data-theme='a' class='dynamicTag' data-dynamicContent='tagRetrieve' style='margin: 1%; overflow: visible; white-space: normal;'>
   					
 					<a href='#commentspageresults' id='loadMyFilter'>	
 						<div data-role='controlgroup' data-type='horizontal'  class='noteControl'>

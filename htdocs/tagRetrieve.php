@@ -24,5 +24,6 @@ if($row=mysqli_fetch_array($result)){
 						<input type='text' id='no' style='display:none' value='$TUID'>
                                         </li>";
 }
+	echo $TUID;
     echo $finally;
 ?>

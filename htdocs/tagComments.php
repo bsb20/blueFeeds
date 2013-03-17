@@ -14,7 +14,7 @@ $finally="";
 echo $TUID;
 echo " -tuid ";
 echo $UUID;
-$sql = "SELECT * FROM `test`.`tu` INNER JOIN `test`.`comments` ON `test`.`tu`.`CUID` = `test`.`comments`.`CUID` WHERE `test`.`tu`.`TUID` ='".$TUID."';";
+$sql = "SELECT * FROM `test`.`tu` INNER JOIN `test`.`comments` ON `test`.`tu`.`CUID` = `test`.`comments`.`CUID` WHERE `test`.`tu`.`UUID` ='".$UUID."';";
 $result=$db->query($sql);
 
 

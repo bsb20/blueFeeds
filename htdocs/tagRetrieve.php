@@ -13,6 +13,7 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 if($row=mysqli_fetch_array($result)){
     $text=$row["text"];
     $TUID=$row["TUID"];
+    $_SESSION["TUID"] =$TUID;
     echo $TUID;
     }
     $finally.=                       "<li data-theme='a' class='dynamicTag' data-dynamicContent='tagRetrieve' style='margin: 1%; overflow: visible; white-space: normal;'>
@@ -23,8 +24,6 @@ if($row=mysqli_fetch_array($result)){
                                                	<h1>$TUID</h1>
 						</div>
 						</a>
-						<input type='text' id='rtag' name='rtag' style='display:none' value='$TUID'
-						>
                                         </li>";
 }
     echo $finally;

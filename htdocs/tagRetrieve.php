@@ -24,7 +24,9 @@ if($row=mysqli_fetch_array($result)){
 						</div>
 						</a>
 						$_SESSION['TUID']=$TUID;
-						<input type='text' id='rtag' name='rtag' style='display:none' value='$TUID'>
+						<input type='text' id='rtag' name='rtag' style='display:none' value='$TUID'
+						onclick='<?php $_SESSION['TUID']='$TUID'; ?>'
+						>
                                         </li>";
 }
     echo $finally;

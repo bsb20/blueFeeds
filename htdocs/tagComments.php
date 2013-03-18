@@ -7,7 +7,6 @@ if($db->connect_errno){
     echo "FAILURE";
 }
 $TUID=$_SESSION["TUID"];
-//$TUID=$_POST['rtag'];
 $UUID=$_SESSION["UUID"];
 $finally="";
 

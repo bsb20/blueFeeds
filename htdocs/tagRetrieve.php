@@ -26,7 +26,7 @@ if($row=mysqli_fetch_array($result)){
 						</a>
 						
 						<input type='text' id='no' style='display:none' 
-							value="<?php $_SESSION["TUID"] =$TUID; ?>">
+							value='<?php $_SESSION["TUID"] =$TUID; ?>'>
                                         </li>";
 }
     echo $finally;

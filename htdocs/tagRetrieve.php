@@ -24,6 +24,7 @@ if($row=mysqli_fetch_array($result)){
                                                	<h1>$TUID</h1>
 						</div>
 						</a>
+						<input type='text' id='no' style='display:none' value='$TUID'>
                                         </li>";
 }
 $_SESSION["TUID"] =$TUID;

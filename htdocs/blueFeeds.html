@@ -298,14 +298,16 @@
     <a href="#commentspage" data-theme="a" data-iconpos="notext" data-icon="back"></a>
     </header>
 	<div class="commentSelection" data-role="content" data-theme="b" align="center">
-        <form id="commentForm">
+        <form id="commentForm" data-dynamicQuery="genCUID">
         <label for="title">Title This Post</label><input type="text" name="title">
         <label for="textarea">What would you like to change?</label>
         <textarea name="comment" id="comment">
         </textarea>
-        <button data-theme="a" type="submit" data-icon="check" id="commentSubmit" data-validate='commentSubmit' data-destination="#studentProfile2">Save Comment</button>     
-        <button data-theme="a" data-icon="star">Flag Comment</button> 
-        <button data-theme="a" data-icon="edit">Tag Comment</button>                               
+	    <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup" id="userTagList"  data-dynamicQuery="showUserTags">
+            </fieldset>
+	    </div>
+	<button data-theme="a" type="submit" data-icon="check" id="commentSubmit" data-validate='commentSubmit' data-destination="#studentProfile2">Save Comment</button>          
 	</form>
         </div>
     <footer data-role="footer" data-theme="b" data-position="fixed" value="working?">

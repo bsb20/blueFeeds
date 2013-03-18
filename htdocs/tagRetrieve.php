@@ -23,7 +23,7 @@ if($row=mysqli_fetch_array($result)){
                                                	<h1>$TUID</h1>
 						</div>
 						</a>
-						
+						$_SESSION['TUID']=$TUID;
 						<input type='text' id='rtag' name='rtag' style='display:none' value='$TUID'>
                                         </li>";
 }

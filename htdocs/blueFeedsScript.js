@@ -1,5 +1,4 @@
 //Callbacks
-  
 //Dynamic, requiring refresh
     function onPageLoad(data,status){
 	var id="#"+this.invokedata;
@@ -18,13 +17,17 @@
 //onTrue corresponds to data-validate attributes
     function onTrue(data,status){
         if(data=="true"){
-            $.mobile.changePage(this.invokedata);
+	    if(this.invokedata.role=="dialog"){
+		$.mobile.changePage(this.invokedata.destination, {transition: "pop", role:"dialog"});
+	    }
+	    else{
+            $.mobile.changePage(this.invokedata.destination);}
         }
         else{
             alert(data);
         }
     }
-    
+
 //error function, don't touch this!
     function onError(data,status){
         alert("error!!!"+data);
@@ -36,7 +39,7 @@
         $(document).ready(function(){
             $("[data-validate]").click(function(){
                     var formData=$(this).parents("form").serialize();
-                    $.ajax({type:"POST", url: $(this).attr('data-validate')+".php", data: formData, success: onTrue, invokedata:$(this).attr('data-destination'), error:onError});
+                    $.ajax({type:"POST", url: $(this).attr('data-validate')+".php", data: formData, success: onTrue, invokedata:{destination:$(this).attr('data-destination'), role: $(this).attr('data-rel')}, error:onError});
                     return false;
                 });
         });
@@ -66,7 +69,22 @@
                 $.ajax({type: "POST", url: "setStudent.php", data: {'key':found}, error: onError})
 		});	    
 	    });
-        
+	
+	$(document).ready(
+	function(){
+	    $("#tagList").on("click", "li", function(e){
+                var found=$(this).find("#no").val();
+                $.ajax({type: "POST", url: "setTag.php", data: {'key':found}, error: onError})
+		});	    
+	    });
+
+        $(document).ready(
+	function(){
+	    $(".apptList").on("click", "li", function(e){
+                var found=$(this).find("#no").val();
+                $.ajax({type: "POST", url: "setAppt.php", data: {'key':found}, error: onError})
+		});	    
+	    });        
 
 
 	$(document).ready(function(){
@@ -74,7 +92,6 @@
 		$("#photo").click();
 		})    
 	});
-
 
 
 //Page change insert/remove functions

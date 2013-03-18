@@ -1,0 +1,21 @@
+This document will serve to track changes and installs made to the bluefeeds server to assist in future migration of the environment to other machines.
+
+The basic install is as follows:
+
+Current versions of a basic LAMP install:
+
+-mySql
+-php5
+-apache2
+
+Administrative tools:
+
+-phpmyadmin
+
+Supplementary software:
+
+-imagemagick (for image processing)
+
+The following configuration changes were made:
+
+in /etc/php5/apache2/php.ini the max_upload_filesize and post_max_size were raised to accomodate large image files

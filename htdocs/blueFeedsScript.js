@@ -70,6 +70,13 @@
 		});	    
 	    });
 	
+	$(document).ready(
+	function(){
+	    $("#tagList").on("click", "li", function(e){
+                var found=$(this).find("#no").val();
+                $.ajax({type: "POST", url: "setTag.php", data: {'key':found}, error: onError})
+		});	    
+	    });
 
         $(document).ready(
 	function(){

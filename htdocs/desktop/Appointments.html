@@ -6,7 +6,8 @@
     <link href="./Windows Metro Theme/css/modern-responsive.css" rel="stylesheet">
     <link href="./Windows Metro Theme/css/site.css" rel="stylesheet" type="text/css">
     <link href="bluefeedsdesktop.css" rel="stylesheet" type="text/css">		
-	
+	<script type="text/javascript" src="./javascript/Time.js"></script>	
+
 <!--    <link href="js/google-code-prettify/prettify.css" rel="stylesheet" type="text/css">-->
 
 <title>Bluefeeds Test Page</title>
@@ -57,24 +58,17 @@
 			</button>
 			<div class="tile double bg-color-green">
 				<div class="tile-content">
-					<h2>Wednesday, February 29th</h2>
+					<h2>
+					<script type="text/javascript">
+					<!-- 
+					writeDate()
+					-->
+					</script>
+					
 					<h5>It is now  
 					<script type="text/javascript">
 					<!--
-					var currentTime = new Date()
-					var hours = currentTime.getHours()
-					var minutes = currentTime.getMinutes()
-					if (minutes < 10){
-					minutes = "0" + minutes
-					}
-					if(hours > 11){
-					hours-=12
-					document.write(hours + ":" + minutes + " ")						
-					document.write("PM")
-					} else {
-					document.write(hours + ":" + minutes + " ")						
-					document.write("AM")
-					}
+					writeTime();
 					//-->
 					</script>
 					</h5>
@@ -86,7 +80,7 @@
 			<div style="width:100%;height:100%;line-height:3em;padding:5px;overflow-x: hidden;">
 				<head><b>Here are your appointments today:</b></head>
 					<table class="striped">
-						<thead>
+<!-- 						<thead>
 							<tr>
 								<th>Name</th>
 								<th class="right">Start Time</th>
@@ -118,7 +112,10 @@
 								<td class="right">5:30 PM</td>
 								<td class="right">Office</td>
 							</tr>
-						</tbody>
+						</tbody> -->
+						<?php
+						include("allApptDesktop.php");
+						?>						
 					</table>	
 			</div>
         </div>		

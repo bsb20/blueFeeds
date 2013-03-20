@@ -11,6 +11,7 @@ $result=$db->query($sql);
 if($row=mysqli_fetch_array($result) and $row["pass"]==md5($pass,FALSE)){
         session_start();
         $_SESSION["UUID"]=$row["UUID"];
+        header ("Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/Landing%20Page.html");
         echo "true";
     }
 

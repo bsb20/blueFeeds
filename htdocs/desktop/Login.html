@@ -20,7 +20,7 @@
 	<div>
         <div id="LoginPage"> 
 			<div style="display: inline-block;">
-				<form>
+				<form action="login.php" method="post">
 					<div class="input-control text">
 						<label for="usr">Username: </label>
 						<input type="text" class="with-helper" placeholder="John" maxlength="40"/>
@@ -31,7 +31,7 @@
 					</div>	
 					<div id="signinbutton">		
 						<label for="submit"></label>
-						<button type="submit" data-validate='login' data-destination="./LandingPage.html" id="submitLogin" name="submit" value="Log In">Log In</button>
+						<input type="submit" value="Log In"></button>
 					</div> 					
 				</form>				
 			</div>				

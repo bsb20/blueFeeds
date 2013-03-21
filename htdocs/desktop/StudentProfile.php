@@ -2,7 +2,8 @@
 	session_start();
 	date_default_timezone_set("America/New_York");
 	$table1="`test`.`students`";
-	$table2="`test`.`appointments`";	
+	$table2="`test`.`appointments`";
+	$table3="`test`.`comments`";	
 	$db=new mysqli("127.0.0.1","root","devils","test",8889);
 	if($db->connect_errno){
 		echo "FAILURE";
@@ -39,8 +40,7 @@
 			break;
 		}
 	}
-	$table3="`test`.`comments`";	
-	$sql3 = "SELECT * FROM ".$table3." WHERE `SUID`='$SUID' ORDER BY 'date' desc";
+	$sql3 = "SELECT * FROM ".$table3." WHERE `SUID`='$SUID' ORDER BY 'date' DESC";
 	$result3=$db->query($sql3);
 	$recentComment="";
 	for($i=0; $i<mysqli_num_rows($result3); $i++){
@@ -52,7 +52,7 @@
 		$time=strtotime($date);
 		$formattedDate=date("m/d/y",$time);
 		}
-		$recentComment="						<p style="font-size: 15px">
+		$recentComment="						<p style='font-size: 15px'>
 								$text
 							</p>
 							<p>

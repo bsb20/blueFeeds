@@ -6,7 +6,7 @@
 		echo "Database connection FAILURE";
 	}
 	$UUID=$_SESSION["UUID"];
-	$sql = "SELECT * FROM ".$table." WHERE `UUID`='".$UUID."';";
+	$sql = "SELECT * FROM ".$table." WHERE `UUID`='$UUID';";
 	$result=$db->query($sql);
 	if($row=mysqli_fetch_array($result)){
 		$_SESSION["SUID"]=$row["SUID"];

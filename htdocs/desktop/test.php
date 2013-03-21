@@ -11,6 +11,9 @@
 	}
 	$UUID=$_SESSION["UUID"];
 	echo $UUID;
+	$UUID=$_SESSION["UUID"];
+	$sql = "SELECT * FROM ".$table." WHERE `UUID`='$UUID';";	
+	$result=$db->query($sql);
 ?>
 </body>
 </html>

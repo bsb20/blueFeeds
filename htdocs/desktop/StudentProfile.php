@@ -17,8 +17,29 @@
 		$_SESSION["email"]=$row["email"];		
 	}
 
-	$sql2 = "SELECT * FROM ".$table2." WHERE `SUID`='$SUID' ORDER BY `start`;";
+	$UUID=$_SESSION["UUID"];
+	$recentAppt="";
+	$sql2 = "SELECT * FROM $table1,$table2 WHERE $table1.`SUID`=$table2.`SUID` AND $table2.`UUID`='$UUID' ORDER BY `start`;";
 	$result2=$db->query($sql2);
+	for($i=0; $i<mysqli_num_rows($result2); $i++){
+		if($row=mysqli_fetch_array($result2)){
+			$past=strtotime($row['start'])>time() || $row['isWeekly'] ? "a" : "d";
+			$pastMessage= strtotime($row['start'])>time() || $row['isWeekly'] ? "":"Past Meeting Time";
+			$duration=$row['duration'];
+			$start=strtotime($row['start']);
+			$formattedStart=date("g:i",$start);
+			$end=date("g:i", strtotime($row['end']));
+			$weekly= $row['isWeekly'] ? "Weekly: ".date("l",$start) : date("l, M j", $start);
+			$title=$row['title'];
+			$loc=$row['location'];
+			$AUID=$row["AUID"];
+			$recentAppt=" $weekly
+				</br>
+				At $formattedStart";
+			$_SESSION["recentAppt"]=$recentAppt;		
+			break;
+		}
+	}
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -96,9 +117,7 @@
 					<h2>Upcoming Appointments:</h2>
 					<p style="font-size: 15px">
 						<?php
-							echo $_SESSION['nextApptDate'];
-							echo "</br>";
-							echo 'At: ' . $_SESSION['nextApptTime'];							
+							echo $_SESSION['recentAppt'];							
 						?>
 					</p>
 					</div>				

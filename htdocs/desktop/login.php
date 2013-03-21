@@ -11,9 +11,16 @@ $result=$db->query($sql);
 if($row=mysqli_fetch_array($result) and $row["pass"]==md5($pass,FALSE)){
         session_start();
         $_SESSION["UUID"]=$row["UUID"];
-		header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/test2.php');
     }
 else{
 	echo "Username/Password combo was incorrect!";
 }
 ?>
+<html>
+<body>
+
+Welcome <?php echo $_POST["user"]; ?>!<br>
+Your password was <?php echo $_POST["pass"]; ?> years old.
+
+</body>
+</html>

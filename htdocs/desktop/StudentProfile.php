@@ -124,6 +124,7 @@
 					</div>				
 				</div>	
 				<div class="tile double bg-color-pink">
+					<a href="./StudentComments.php">				
 					<div class="tile-content">
 					<h2>Recent Comment:</h2>
 						<?php

@@ -10,6 +10,8 @@
 		echo "FAILURE";
 	}
 	$UUID=$_SESSION["UUID"];
+	$user=$_SESSION["user"];
+	$pass=$_SESSION["pass"];
 	$sql = "SELECT * FROM ".$table." WHERE `UUID`='".$UUID."';";
 	$result=$db->query($sql);
 	if($row=mysqli_fetch_array($result)){
@@ -19,9 +21,9 @@
 	else{
 		echo $UUID;
 		echo " ";
-		echo $_SESSION["user"];
+		echo $user;
 		echo " ";
-		echo $_SESSION["pass"];
+		echo $pass;
 		echo "failure";
 	}
 ?>

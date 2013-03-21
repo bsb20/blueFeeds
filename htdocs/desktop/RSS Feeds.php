@@ -1,4 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php
+session_start();
+?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -21,26 +23,12 @@
     <div class="container">
         <div class="ProfilePage">
 				<div class="tile double bg-color-purple" id="ProfileTile">
-<!-- 					<div class="tile-content">
-					<img src="./images/Doctor-house.jpg" class="place-left" id="ProfilePic"/>		                    
-						<h2>Gregory House</h2>
-						<h5>M.D.</h5>
-						<p>
-							Specialty: Diagnosis
-						</p>
-					</div>	 
--->	
-					<?php 
-					include("profileDesktop.php"); 
+					<?php
+						echo $_SESSION['profile'];
 					?>							
 				</div>
         </div>
         <div class="BluefeedsNewsPage">
-			<!-- <h1>Bluefeeds News</h1>
-        	<p><b>Benedict Departs Vatican, Pledges Obedience to Next Pope</b> Pope Benedict XVI pledged his "unconditional reverence and obedience" to his successor Thursday, then left the Vatican as the first Roman Catholic Church leader to resign in 600 years.
-</p>
-			<p><b>In Victory for Obama, House Backs Domestic Violence Law</b> WASHINGTON - The House voted on Thursday to pass the Senate's bipartisan reauthorization of the Violence Against Women Act, in a big victory for President Obama and Democrats in Congress.</p>
-			<p><b>Bradley Manning pleads guilty to misusing classified data in WikiLeaks case</b> By Medina Roshan. FORT MEADE, Maryland | Thu Feb 28, 2013 1:03pm EST. FORT MEADE, Maryland (Reuters) - The U.S. Army private accused of providing diplomatic cables and other secret documents to the WikiLeaks website pleaded guilty on ...</p>             -->
             <h2>Bluefeeds Newsletter</h2>
 				<div style="width:100%;height:85%;line-height:3em;padding:5px;overflow-x: hidden;padding-bottom: 5%;">
 				<ul class="accordion dark span10" data-role="accordion">

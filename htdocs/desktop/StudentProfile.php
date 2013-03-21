@@ -39,6 +39,28 @@
 			break;
 		}
 	}
+	
+	$sql3 = "SELECT * FROM `test`.`comments` WHERE `SUID`='$SUID' ORDER BY 'date' desc";
+	$result3=$db->query($sql3);
+	$recentComment="";
+	for($i=0; $i<mysqli_num_rows($result3); $i++){
+	if($row=mysqli_fetch_array($result3)){
+		$title=$row["title"];
+		$text=$row["text"];
+		$CUID=$row["CUID"];
+		$date=$row["date"];
+		$time=strtotime($date);
+		$formattedDate=date("m/d/y",$time);
+		}
+		$recentComment="						<p style="font-size: 15px">
+								$text
+							</p>
+							<p>
+								$date
+							</p>";
+		$_SESSION["recentCmmnt"]=$recentComment;	
+		break;
+	}
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -103,12 +125,9 @@
 				<div class="tile double bg-color-pink">
 					<div class="tile-content">
 					<h2>Recent Comment:</h2>
-					<p style="font-size: 15px">
-						Foreman sucks.
-					</p>
-					<p>
-						2/27/13
-					</p>
+						<?php
+							echo $_SESSION['recentCmmnt'];							
+						?>
 					</div>				
 				</div>
 				<div class="tile double bg-color-orange">

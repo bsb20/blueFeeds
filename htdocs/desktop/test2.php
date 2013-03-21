@@ -16,6 +16,9 @@
 		$_SESSION["SUID"]=$row["SUID"];
 		echo "success";
 	}
+	else{
+		echo "failure";
+	}
 ?>
 </body>
 </html>

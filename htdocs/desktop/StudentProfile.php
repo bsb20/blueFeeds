@@ -18,7 +18,7 @@
 	}
 	$UUID=$_SESSION["UUID"];
 	$recentAppt="";
-	$sql2 = "SELECT * FROM $table1,$table2 WHERE $table1.`SUID`=$table2.`SUID` AND $table2.`UUID`='$UUID' ORDER BY `start`;";
+	$sql2 = "SELECT * FROM $table1,$table2 WHERE $table1.`SUID`=$table2.`SUID` AND $table2.`UUID`='$UUID' ORDER BY `start` DESC;";
 	$result2=$db->query($sql2);
 	for($i=0; $i<mysqli_num_rows($result2); $i++){
 		if($row=mysqli_fetch_array($result2)){

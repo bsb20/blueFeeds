@@ -20,14 +20,17 @@
 	date_default_timezone_set("America/New_York");
 	$sql2 = "SELECT * FROM ".$table2." WHERE `SUID`='$SUID' ORDER BY `start`;";
 	$result2=$db->query($sql2);
-	if($row=mysqli_fetch_array($result2)){
-
-		$weekly= $row['isWeekly'] ? "Weekly: ".date("l",$start) : date("l, M j", $start);	
-		$start=strtotime($row['start']);
-		$formattedStart=date("g:i",$start);	
-		
-		$_SESSION["nextApptDate"]=$weekly;		
-		$_SESSION["nextApptTime"]=$formattedStart;	
+	for($i=0; $i<mysqli_num_rows($result); $i++){
+		if($row=mysqli_fetch_array($result2)){
+			if(strtotime($row['start'])>time()){
+				$apptDate= date("l",$start) : date("l, M j", $start);	
+				$start=strtotime($row['start']);
+				$formattedStart=date("g:i",$start);	
+				
+				$_SESSION["nextApptDate"]=$apptDate;		
+				$_SESSION["nextApptTime"]=$formattedStart;	
+			}			
+		}
 	}
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">

@@ -20,6 +20,7 @@
 	date_default_timezone_set("America/New_York");
 	$sql2 = "SELECT * FROM ".$table2." WHERE `SUID`='$SUID' ORDER BY `start`;";
 	$result2=$db->query($sql2);
+	echo "here";
 	for($i=0; $i<mysqli_num_rows($result2); $i++){
 		if($row=mysqli_fetch_array($result2)){
 			if(strtotime($row['start'])>time()){

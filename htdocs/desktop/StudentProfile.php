@@ -39,8 +39,8 @@
 			break;
 		}
 	}
-	
-	$sql3 = "SELECT * FROM `test`.`comments` WHERE `SUID`='$SUID' ORDER BY 'date' desc";
+	$table3="`test`.`comments`";	
+	$sql3 = "SELECT * FROM ".$table3." WHERE `SUID`='$SUID' ORDER BY 'date' desc";
 	$result3=$db->query($sql3);
 	$recentComment="";
 	for($i=0; $i<mysqli_num_rows($result3); $i++){

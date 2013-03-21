@@ -1,17 +1,23 @@
 <?php
-$table="`test`.`users`";
+$table1="`test`.`users`";
+$table2="`test`.`su`";
 $db=new mysqli("127.0.0.1","root","devils","test",8889);
 if($db->connect_errno){
     echo "FAILURE";
 }
 $user=$_POST["usr"];
 $pass=$_POST["pass"];
-$sql = "SELECT * FROM ".$table." WHERE `user`='".$user."';";
-$result=$db->query($sql);
-if($row=mysqli_fetch_array($result) and $row["pass"]==md5($pass,FALSE)){
+$sql1 = "SELECT * FROM ".$table1." WHERE `user`='".$user."';";
+$result1=$db->query($sql1);
+if($row=mysqli_fetch_array($result1) and $row["pass"]==md5($pass,FALSE)){
         session_start();
         $_SESSION["UUID"]=$row["UUID"];
-		header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/test2.php');
+		$sql2 = "SELECT * FROM ".$table2." WHERE `UUID`='$UUID';";
+		$result2=$db->query($sq2);
+		if($row=mysqli_fetch_array($result2)){
+			$_SESSION["SUID"]=$row["SUID"];
+			header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/LandingPage.php');
+		}		
     }
 else{
 	echo "Username/Password combo was incorrect!";

@@ -18,6 +18,10 @@
 	}
 	else{
 		echo $UUID;
+		echo " ";
+		echo $_SESSION["user"];
+		echo " ";
+		echo $_SESSION["pass"];
 		echo "failure";
 	}
 ?>

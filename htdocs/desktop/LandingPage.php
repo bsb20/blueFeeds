@@ -1,4 +1,32 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php
+session_start();
+$table="`test`.`users`";
+$db=new mysqli("127.0.0.1","root","devils","test",8889);
+if($db->connect_errno){
+	echo "FAILURE";
+}
+$SUID=$_SESSION["UUID"];
+$sql = "SELECT * FROM ".$table." WHERE `user`='".$user."';";
+$result=$db->query($sql);
+$name;
+$email;
+$title;
+$spec;
+if($row=mysqli_fetch_array($result)){
+	$name=$row["user"];
+	$email=$row["email"];
+	$title=$row["title"];
+	$spec=$row["speciality"];
+	}
+	$_SESSION['profile'] = " <div class="tile-content">
+					<img src="./images/Doctor-house.jpg" class="place-left" id="ProfilePic"/>
+					<h2>$name</h2>
+					<h5>$title</h5>
+					<p>
+						$spec
+					</p>					
+				</div>;"
+?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -12,37 +40,7 @@
     <script type="text/javascript" src="./javascript/assets/jquery.mousewheel.min.js"></script>	
 	<script type="text/javascript" src="./javascript/accordion.js"></script>
 <!--    <link href="js/google-code-prettify/prettify.css" rel="stylesheet" type="text/css">-->
-	<?php
-	session_start();
-	$table="`test`.`students`";
-	$db=new mysqli("127.0.0.1","root","devils","test",8889);
-	if($db->connect_errno){
-		echo "FAILURE";
-	}
-	$SUID=$_SESSION["SUID"];
-	$sql = "SELECT * FROM ".$table." WHERE `SUID`='".$SUID."';";
-	$result=$db->query($sql);
-	$name;
-	$photo;
-	$title;
-	$spec;
-	if($row=mysqli_fetch_array($result)){
-		$name=$row["user"];
-		$photo=$row["photo"];
-		$title=$row["title"];
-		$spec=$row["speciality"];
-		}
-		$_SESSION['profile'] = " <div class="tile-content">
-						<img src="$photo" class="place-left" id="ProfilePic"/>
-						<h2>$name</h2>
-						<h5>$title</h5>
-						<p>
-							%spec
-						</p>					
-						
-						<p>$title, $spec</p>
-					</div>;"
-	?>
+
 <title>Bluefeeds Test Page</title>
 
 </head>
@@ -61,7 +59,6 @@
 					</div>	 
 -->			
 					<?php
-						session_start();
 						echo $_SESSION['profile'];
 					?>
 				</div>

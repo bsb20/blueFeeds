@@ -101,7 +101,7 @@
 						</select>
 					</fieldset>
 					<fieldset>
-						<legend>Start Time</legend>
+						<legend>Start Time and End Time</legend>
 							<select name="sHour" id="sHour">
 								<option value="1">1</option>
 								<option value="2">2</option>
@@ -128,7 +128,7 @@
 								<option value="pm">pm</option>
 								<option value="am">am</option>
 							</select>
-						<legend>End Time</legend>
+							</br>
 							<select name="eHour" id="eHour">
 								<option value="1">1</option>
 								<option value="2">2</option>

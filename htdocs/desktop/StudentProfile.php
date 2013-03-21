@@ -16,6 +16,9 @@
 		$_SESSION["spec"]=$row["specialty"];
 		$_SESSION["email"]=$row["email"];		
 	}
+
+	$sql2 = "SELECT * FROM ".$table2." WHERE `SUID`='$SUID' ORDER BY `start`;";
+	$result2=$db->query($sql2);
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>

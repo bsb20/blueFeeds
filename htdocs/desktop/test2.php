@@ -24,7 +24,7 @@
 		echo $user;
 		echo " ";
 		echo $pass;
-		echo "failure";
+		echo "FAILURE";
 	}
 ?>
 </body>

@@ -36,7 +36,7 @@
 			$recentAppt=" $weekly
 				</br>
 				At $formattedStart";
-			$_SESSION["recentAppt"]=$recentAppt;		
+			$_SESSION["recentAppt"]=$recentAppt;	
 			break;
 		}
 	}

@@ -1,7 +1,3 @@
-<html>
-<head>
-</head>
-<body>
 <?php
 	session_start();
 	$table="`test`.`su`";
@@ -27,5 +23,13 @@
 		echo "FAILURE";
 	}
 ?>
+<html>
+<head>
+</head>
+<body>
+	<?php
+		echo "UUID ". $_SESSION["UUID"];
+		echo "User ". $_SESSION["user"];		
+	?>
 </body>
 </html>

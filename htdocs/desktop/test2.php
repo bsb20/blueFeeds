@@ -22,6 +22,9 @@
 <body>
 	<?php
 		echo "UUID ". $_SESSION["UUID"];
+		echo "<br>";
+		echo "SUID ". $_SESSION["SUID"];
+		
 	?>
 </body>
 </html>

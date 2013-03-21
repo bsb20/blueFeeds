@@ -13,5 +13,5 @@ $isReleased=0;
 $CUID=uniqid("",FALSE);
 $date=date("Y-m-d H:i:s");
 $db->real_query("INSERT INTO ".$table." (`UUID`, `SUID`, `date`, `text`, `isReleased`, `CUID`, `title`) VALUES ('$user', '$student', '$date', '$text', '$isReleased', '$CUID','$title');");
-echo "true";
+header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/StudentComments.php');
 ?>

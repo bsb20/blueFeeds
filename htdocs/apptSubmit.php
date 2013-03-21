@@ -26,5 +26,5 @@ $title=$_POST["title"];
 $AUID=uniqid("",FALSE);
 $_SESSION['AUID']=$AUID;
 $db->real_query("INSERT INTO ".$table." (`UUID`, `SUID`, `start`, `end`, `title`, `location`, `AUID`) VALUES ('$user', '$student', '$sDateTime', '$eDateTime', '$title', '$location', '$AUID');");
-header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/LandingPage.php');
+echo "true";
 ?>

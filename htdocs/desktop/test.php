@@ -10,35 +10,7 @@ $SUID=$_GET["UUID"];
 $final="";
 $sql2 = "SELECT * FROM ".$table2." WHERE `SUID`='$SUID' ORDER BY `start`;";
 $result2=$db->query($sql2);
-for($i=0; $i<mysqli_num_rows($result2); $i++){
-    if($row=mysqli_fetch_array($result2)){
-            $name=$row["user"];
-            $photo=$row["photo"];
-            $title=$row["title"];
-            $spec=$row["speciality"];
-			$past=strtotime($row['start'])>time() || $row['isWeekly'] ? "a" : "d";
-			$pastMessage= strtotime($row['start'])>time() || $row['isWeekly'] ? "":"Past Meeting Time";
-			$duration=$row['duration'];
-			$start=strtotime($row['start']);
-			$formattedStart=date("g:i",$start);
-			$end=date("g:i", strtotime($row['end']));
-			$weekly= $row['isWeekly'] ? "Weekly: ".date("l",$start) : date("l, M j", $start);
-			$title=$row['title'];
-			$loc=$row['location'];
-			$AUID=$row["AUID"];
-			$table.="							<tr>
-									<td>$name</td>
-									<td class='right'>$title</td>
-									<td class='right'>$loc</td>
-									<td class='right'>$weekly $formattedStart-$end</td>
-								</tr>";
-	}
-}
-if($row=mysqli_fetch_array($result1) || $row['isWeekly']==1){
-	$_SESSION["student"]=$row["user"];
-	$_SESSION["title"]=$row["title"];
-	$_SESSION["spec"]=$row["specialty"];
-	$_SESSION["email"]=$row["email"];	
+if($row=mysqli_fetch_array($result1) and $row['isWeekly']==1){
 
 	$weekly= $row['isWeekly'] ? "Weekly: ".date("l",$start) : date("l, M j", $start);	
 	$start=strtotime($row['start']);

@@ -101,6 +101,35 @@
 						</select>
 					</fieldset>
 					<fieldset>
+						<legend>Start Time</legend>
+							<select name="sHour" id="sHour">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+							</select>
+
+							<select name="sMin" id="sMin">
+								<option value="00">00</option>
+								<option value="15">15</option>
+								<option value="30">30</option>
+								<option value="45">45</option>
+							</select>
+
+							<select name="sampm" id="sampm">
+								<option value="pm">pm</option>
+								<option value="am">am</option>
+							</select>
+					</fieldset>					
+					<fieldset>
 						<legend>End Time</legend>
 							<select name="eHour" id="eHour">
 								<option value="1">1</option>

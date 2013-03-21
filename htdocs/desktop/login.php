@@ -7,15 +7,15 @@ if($db->connect_errno){
 $user=$_POST["usr"];
 $pass=$_POST["pass"];
 $sql = "SELECT * FROM ".$table." WHERE `user`='".$user."';";
+echo $user;
+echo $pass;
 $result=$db->query($sql);
 if($row=mysqli_fetch_array($result) and $row["pass"]==md5($pass,FALSE)){
         session_start();
         $_SESSION["UUID"]=$row["UUID"];
-        $_SESSION["user"]=$user;
-        $_SESSION["pass"]=$pass;		
 		header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/test2.php');
     }
-
-else{echo "Username/Password combo was incorrect!";
+else{
+	echo "Username/Password combo was incorrect!";
 }
 ?>

@@ -27,6 +27,6 @@ $result=           " <div class="tile-content">
 					</p>					
 					
                     <p>$title, $spec</p>
-				</div>;"
+				</div>;";
 echo $result;
 ?>

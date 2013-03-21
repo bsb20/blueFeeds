@@ -110,7 +110,7 @@ The "dream" is to perform these sorts of measurements on galaxies much further a
         </div>
         <div class="MenuPage">
 			<ul id="MenuOptions" style="padding-top: 5%">
-            	<li><a href="./Landing Page.html"><button class="big" id="MenuButtons">Home<i class="icon-home icon-small"></i></button></a></li>			
+            	<li><a href="./LandingPage.html"><button class="big" id="MenuButtons">Home<i class="icon-home icon-small"></i></button></a></li>			
             	<li><a href="./Appointments.html"><button class="big" id="MenuButtons">Appointments<i class="icon-clipboard-2 icon-small"></i></button></a></li>
                 <li><a href="./StudentSelection.html"><button class="big" id="MenuButtons">Students<i class="icon-user-2 icon-small"></i></button></a></li>
                 <li><a href="./RSS Feeds.html"><button class="big" id="MenuButtons">RSS Feeds<i class="icon-feed icon-small"></i></button></a></li>

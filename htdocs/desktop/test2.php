@@ -17,6 +17,7 @@
 		echo "success";
 	}
 	else{
+		echo $UUID;
 		echo "failure";
 	}
 ?>

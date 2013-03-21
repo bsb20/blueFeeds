@@ -9,6 +9,7 @@
 		echo "FAILURE";
 	}
 	$SUID=$_GET["SUID"];
+	$_SESSION["SUID"]=$SUID;
 	$sql1 = "SELECT * FROM ".$table1." WHERE `SUID`='$SUID';";
 	$result1=$db->query($sql1);
 	if($row=mysqli_fetch_array($result1)){
@@ -56,7 +57,7 @@
 								$text
 							</p>
 							<p>
-								$date
+								$formattedDate
 							</p>";
 		$_SESSION["recentCmmnt"]=$recentComment;	
 		break;
@@ -140,7 +141,7 @@
 					</p>
 					</div>				
 				</div>	
-				<a href="./StudentComments.html"><button class="big">New Comment <i class="icon-pencil icon-small"></i></button></a>
+				<a href="./StudentComments.php"><button class="big">New Comment <i class="icon-pencil icon-small"></i></button></a>
 				<a href="./Add Appointment.php"><button class="big">New Appointment <i class="icon-clipboard-2 icon-small"></i></button></a>
 				<a href=""><button class="big">Delete Profile <i class="icon-remove icon-small"></i></button></a>						
 			</div>

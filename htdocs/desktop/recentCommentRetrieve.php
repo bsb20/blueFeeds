@@ -6,24 +6,27 @@ if($db->connect_errno){
     echo "FAILURE";
 }
 $SUID=$_SESSION["SUID"];
-$sql = "SELECT * FROM `test`.`comments` WHERE `SUID`='$SUID' ORDER BY 'date' desc";
+$sql = "SELECT * FROM ".$table."WHERE `SUID`='$SUID' ORDER BY 'date' DESC";
 $result=$db->query($sql);
-$finally="";
+$commentList="";
 for($i=0; $i<mysqli_num_rows($result); $i++){
-if($row=mysqli_fetch_array($result)){
-    $title=$row["title"];
-    $text=$row["text"];
-    $CUID=$row["CUID"];
-    $date=$row["date"];
-    $time=strtotime($date);
-    $formattedDate=date("m/d/y",$time);
+	if($row=mysqli_fetch_array($result)){
+		$title=$row["title"];
+		$text=$row["text"];
+		$CUID=$row["CUID"];
+		$date=$row["date"];
+		$time=strtotime($date);
+		$formattedDate=date("m/d/y",$time);
     }
-    $finally.="						<p style="font-size: 15px">
-							$text
-						</p>
-						<p>
-							$date
-						</p>";
+    $commentList.="						<li>
+							<a href='#'>$title</a>
+							<div>
+								$text
+								<p>
+									$formattedDate
+								</p>
+							</div>
+						</li>";
 }
-    echo $finally;
+$_SESSION["commentList"]=$commentList;	
 ?>

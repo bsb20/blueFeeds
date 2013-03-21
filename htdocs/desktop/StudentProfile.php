@@ -16,7 +16,6 @@
 		$_SESSION["spec"]=$row["specialty"];
 		$_SESSION["email"]=$row["email"];		
 	}
-
 	$UUID=$_SESSION["UUID"];
 	$recentAppt="";
 	$sql2 = "SELECT * FROM $table1,$table2 WHERE $table1.`SUID`=$table2.`SUID` AND $table2.`UUID`='$UUID' ORDER BY `start`;";

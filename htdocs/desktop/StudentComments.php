@@ -59,7 +59,7 @@
         <div class="BluefeedsNewsPage">
             <h2>
 				<?php 
-					echo $_SESSION['profile'] . "'s Comment Page";					
+					echo $_SESSION['title'] . "'s Comment Page";					
 				?>				
 			</h2>
 				<div style="width:100%;height:85%;line-height:3em;padding:5px;overflow-x: hidden;">

@@ -7,13 +7,31 @@
 		echo "FAILURE";
 	}
 	$SUID=$_GET["SUID"];
-	$sql = "SELECT * FROM ".$table1." WHERE `SUID`='$SUID';";
-	$result=$db->query($sql);
-	if($row=mysqli_fetch_array($result)){
+	$sql1 = "SELECT * FROM ".$table1." WHERE `SUID`='$SUID';";
+	$result1=$db->query($sql1);
+	if($row=mysqli_fetch_array($result1)){
 		$_SESSION["student"]=$row["user"];
 		$_SESSION["title"]=$row["title"];
 		$_SESSION["spec"]=$row["specialty"];
 		$_SESSION["email"]=$row["email"];		
+	}
+	
+	date_default_timezone_set("America/New_York");
+	$table2="`test`.`appointments`";
+	$db=new mysqli("127.0.0.1","root","devils","test",8889);
+	if($db->connect_errno){
+		echo "FAILURE";
+	}
+	$sql2 = "SELECT * FROM ".$table2." WHERE `SUID`='$SUID' ORDER BY `start`;";
+	$result2=$db->query($sql2);
+	if($row=mysqli_fetch_array($result1) and $row['isWeekly']==1){
+
+		$weekly= $row['isWeekly'] ? "Weekly: ".date("l",$start) : date("l, M j", $start);	
+		$start=strtotime($row['start']);
+		$formattedStart=date("g:i",$start);	
+		
+		$_SESSION["nextApptDate"]=$weekly;		
+		$_SESSION["nextApptTime"]=$formattedStart;	
 	}
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -25,14 +43,11 @@
 	<link href="bluefeedsdesktop.css" rel="stylesheet" type="text/css">		
 	
 <!--    <link href="js/google-code-prettify/prettify.css" rel="stylesheet" type="text/css">-->
-<title>Bluefeeds Test Page</title>
+<title>Bluefeeds Student Profile</title>
 </head>
 <header>
-	<h1>
-		<?php 
-			echo $_SESSION['student'] . "'s Profile Page";					
-		?>			
-	</h1></header>
+	<h1>Student Profile Page</h1>
+</header>
 <body>
     <div class="container">
         <div class="ProfilePage">
@@ -94,7 +109,11 @@
 					<div class="tile-content">
 					<h2>Upcoming Appointments:</h2>
 					<p style="font-size: 15px">
-						Tuesday at 3:30 P.M.
+						<?php
+							echo $_SESSION['nextApptDate'];
+							echo "</br>";
+							echo 'At: ' . $_SESSION['nextApptTime'];							
+						?>
 					</p>
 					</div>				
 				</div>	

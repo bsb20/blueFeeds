@@ -19,8 +19,8 @@ else{
 <html>
 <body>
 
-Welcome <?php echo $_POST["user"]; ?>!<br>
-Your password was <?php echo $_POST["pass"]; ?> years old.
+Welcome <?php echo $_POST["usr"]; ?>!<br>
+Your password was <?php echo $_POST["pass"]; ?>.
 
 </body>
 </html>

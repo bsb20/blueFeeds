@@ -32,6 +32,10 @@
 						<input type="text" name="title" placeholder="(i.e. Coffee with Joe)"/>
 					</div>
 					<div class="input-control text">
+						<label for="studentname">Student: </label>					
+						<input type="text" name="studentname" placeholder="John Smith"/>
+					</div>					
+					<div class="input-control text">
 						<label for="location">Location: </label>					
 						<input type="text" name="location" placeholder="(i.e. Office)"/>
 					</div>
@@ -130,7 +134,7 @@
 								<option value="off">Off</option>
 								<option value="on">On</option>
 							</select>
-					</div>a
+					</div>
 					<div style="padding-top: 3%" class="input">								
 						<label for="submitAppt"></label>
 						<input type="submit" name="submitAppt" value="Create Meeting" class="big">	

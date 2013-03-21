@@ -35,6 +35,6 @@ switch(create()){
         echo "student is already in system, try again!";
         break;
     default:
-        echo "true";
+		header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/LandingPage.php');
     }
 ?>

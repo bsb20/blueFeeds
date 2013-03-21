@@ -17,6 +17,9 @@ if($row=mysqli_fetch_array($result)){
 	$email=$row["email"];
 	$title=$row["title"];
 	$spec=$row["speciality"];
+	echo "UUID ".$UUID;
+	echo "</br>";
+	echo $name;
 	}
 	$_SESSION['profile'] = " <div class="tile-content">
 					<img src="./images/Doctor-house.jpg" class="place-left" id="ProfilePic"/>

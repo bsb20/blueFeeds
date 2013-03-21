@@ -128,8 +128,6 @@
 								<option value="pm">pm</option>
 								<option value="am">am</option>
 							</select>
-					</fieldset>					
-					<fieldset>
 						<legend>End Time</legend>
 							<select name="eHour" id="eHour">
 								<option value="1">1</option>
@@ -154,8 +152,8 @@
 							<select name="eampm" id="eampm">
 								<option value="pm">pm</option>
 								<option value="am">am</option>
-							</select>
-					</fieldset>	
+							</select>							
+					</fieldset>
 					</br>
 					<div>
 						<label for="flip-1">Weekly Meeting</label>

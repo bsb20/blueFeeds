@@ -101,15 +101,15 @@
 							<form action="commentSubmit.php" method="post">
 								<div class="input-control text">
 									<label for="title">Title: </label>
-									<input type="text" class="with-helper" placeholder="Morning Report"/>
+									<input type="text" name="title" placeholder="Morning meeting"/>
 								</div>	
 								<div class="input-control text">
 									<label for="comment">Comment: </label>
-									<textarea class="with-helper" placeholder=""/></textarea>
+									<textarea name="comment" placeholder="Descript"/></textarea>
 								</div>	
 								<div class="input-control text">
 									<label for="submit"></label>
-									<input type="submit" class="big" data-validate='studentCreate' name="submit" value="Add Comment" style="float: left;">	
+									<input type="submit" class="big" name="submit" value="Add Comment" style="float: left;">	
 								</div>
 							</form>
 					</div>							

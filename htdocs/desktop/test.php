@@ -9,9 +9,30 @@
 	if($db->connect_errno){
 		echo "FAILURE";
 	}
-	else{
-		echo "SUCCESS";
-	}
+	$SUID=$_SESSION["SUID"];
+	$sql = "SELECT * FROM ".$table." WHERE `SUID`='".$SUID."';";
+	$result=$db->query($sql);
+	$name;
+	$photo;
+	$title;
+	$spec;
+	if($row=mysqli_fetch_array($result)){
+		$name=$row["user"];
+		$photo=$row["photo"];
+		$title=$row["title"];
+		$spec=$row["speciality"];
+		}
+	$result=           " <div>
+						<img src="$photo" class="place-left" id="ProfilePic"/>
+						<h2>$name</h2>
+						<h5>$title</h5>
+						<p>
+							%spec
+						</p>					
+						
+						<p>$title, $spec</p>
+					</div>;"
+	echo $result;
 ?>
 </body>
 </html>

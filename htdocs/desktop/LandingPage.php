@@ -17,9 +17,6 @@
 		$email=$row["email"];
 		$title=$row["title"];
 		$spec=$row["speciality"];
-		echo "UUID ".$UUID;
-		echo "</br>";
-		echo $name;
 		}
 		$_SESSION['profile'] = " <div class='tile-content'>
 						<img src='./images/Doctor-house.jpg' class='place-left' id='ProfilePic'/>
@@ -51,16 +48,7 @@
 <body>
     <div class="container">
         <div class="ProfilePage">
-				<div class="tile double bg-color-purple" id="ProfileTile">
-<!-- 					<div class="tile-content">
-					<img src="./images/Doctor-house.jpg" class="place-left" id="ProfilePic"/>		                    
-						<h2>Gregory House</h2>
-						<h5>M.D.</h5>
-						<p>
-							Specialty: Diagnosis
-						</p>
-					</div>	 
--->			
+				<div class="tile double bg-color-purple" id="ProfileTile">	
 					<?php
 						echo $_SESSION['profile'];
 					?>

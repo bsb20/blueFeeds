@@ -37,5 +37,4 @@ switch(create()){
     default:
         echo "true";
     }
-
 ?>

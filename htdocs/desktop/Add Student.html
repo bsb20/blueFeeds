@@ -1,4 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -16,18 +15,9 @@
     <div class="container">
         <div class="ProfilePage">
 				<div class="tile double bg-color-purple" id="ProfileTile">
-<!--
- 					<div class="tile-content">
-					<img src="./images/Doctor-house.jpg" class="place-left" id="ProfilePic"/>		                    
-						<h2>Gregory House</h2>
-						<h5>M.D.</h5>
-						<p>
-							Specialty: Diagnosis
-						</p>
-					</div>	 
--->
 					<?php 
-					include("profileDesktop.php"); 
+						session_start();
+						echo $_SESSION['profile'];					
 					?>					
 				</div>
         </div>
@@ -37,41 +27,32 @@
 				<form action="studentCreate.php" method="post" style="float: left;">
 					<div class="input-control text">
 						<label for="first">First Name: </label>
-						<input type="text" class="with-helper" placeholder="John"/>
+						<input type="text" name="first" placeholder="John"/>
 					</div>		
 					<div class="input-control text">
 						<label for="last">Last Name: </label>
-						<input type="text" class="with-helper" placeholder="Smith"/>
+						<input type="text" name="last" placeholder="Smith"/>
 					</div>					
 					<div class="input-control text">
 						<label for="email">Email: </label>
-						<input type="text" class="with-helper" placeholder="(i.e. 3/1/13)"/>
+						<input type="text" name="email" placeholder="(i.e. 3/1/13)"/>
 					</div>
 					<div class="input-control text">
 						<label for="title">Title: </label>					
-						<input type="text" class="with-helper" placeholder="(i.e. Nurse)"/>
+						<input type="text" name="title" placeholder="(i.e. Nurse)"/>
 					</div>		
 					<div class="input-control text">
 						<label for="study">Area of Study: </label>					
-						<input type="text" class="with-helper" placeholder="(i.e. Undecided)"/>
+						<input type="text" name="study" placeholder="(i.e. Undecided)"/>
 					</div>	
 					<div style="padding-top: 3%" class="input">		
 						<label for="submit"></label>
-						<input type="submit" class="big" data-validate='studentCreate' name="submit" value="Add Student">	
+						<input type="submit" class="big" value="Add Student">	
 					</div> 						
 				</form>
 			
 			</div>	
 			<div style="float: left; padding-left: 3%;" class="input-control textarea">
-<!--
- 				<form action='' method='post' enctype='multipart/form-data'>
-					<div class="input-control file">
-						Choose a photo:
-						<input type='file' name='userFile'><br>
-						<input type='submit' name='upload_btn' value='upload'>						
-					</div>
-				</form> 
--->
 				<h2>Photo</h2>							
 				<form data-ajax="false" enctype="multipart/form-data" method="post" action="photo.php">
 					<div class="input-control file">	

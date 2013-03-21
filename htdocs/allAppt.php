@@ -27,6 +27,7 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
         $title=$row['title'];
         $loc=$row['location'];
         $AUID=$row["AUID"];
+        $SUID=$row["SUID"];
         $final.=" <li data-theme='$past' data-dynamicContent='allAppt'><a href='#reminder'>
                     <h1>$name</h1>
                     <h2>$title</h2>
@@ -35,6 +36,7 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
                     <p class='ui-li-aside'><strong>$pastMessage</strong></p>
                 </a>
                 <input type='text' id='no' style='display:none' value='$AUID'>
+                <input type='text' id='student' style='display:none' value='$SUID'>
             </li>";
     }
 }

@@ -86,6 +86,13 @@
 		});	    
 	    });        
 
+        $(document).ready(
+	function(){
+	    $(".apptList").on("click", "li", function(e){
+                var found=$(this).find("#student").val();
+                $.ajax({type: "POST", url: "setStudent.php", data: {'key':found}, error: onError})
+		});	    
+	    });  
 
 	$(document).ready(function(){
 	    $("#fileProxy").click(function(){

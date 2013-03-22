@@ -9,17 +9,9 @@ if($db->connect_errno){
 }
 $UUID=$_SESSION["UUID"];
 $final="";
-$sql = "SELECT * FROM $table,$table2 WHERE $table.`SUID`=$table2.`SUID` AND $table2.`UUID`='$UUID' ORDER BY `start` DESC;";
+$sql = "SELECT * FROM $table,$table2 WHERE $table.`SUID`=$table2.`SUID` AND $table2.`UUID`='$UUID' ORDER BY `start`;";
 $result=$db->query($sql);
-$table = "						<thead>
-							<tr>
-								<th>Name</th>
-								<th class='right'>Title</th>
-								<th class='right'>Location</th>
-								<th class='right'>Time and Date</th>
-							</tr>
-						</thead>
-						<tbody>";
+$recentAppt = "";
 for($i=0; $i<mysqli_num_rows($result); $i++){
     if($row=mysqli_fetch_array($result)){
             $name=$row["user"];
@@ -36,15 +28,10 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 			$title=$row['title'];
 			$loc=$row['location'];
 			$AUID=$row["AUID"];
-			$table.="							<tr>
-									<td>$name</td>
-									<td class='right'>$title</td>
-									<td class='right'>$loc</td>
-									<td class='right'>$weekly $formattedStart-$end</td>
-								</tr>";
+			$recentAppt.="								<li id='CurrentAppointments'>$name at $formattedStart</li>";
 	}
 }
-$_SESSION['appointments'] = $table;
+$_SESSION['appointments'] = $recentAppt;
 
 $table="`test`.`users`";
 $sql = "SELECT * FROM ".$table." WHERE `UUID`='$UUID';";
@@ -176,6 +163,7 @@ The findings are described in a new study in the journal Nature.
 						<div style="width:100%;height:100%;line-height:3em;padding:5px;overflow-x: hidden;padding-bottom: 5%;">
 							<ul>
 								<?php
+									echo $_SESSION['appointments'];
 								?>							
 							</ul>							
 						</div>

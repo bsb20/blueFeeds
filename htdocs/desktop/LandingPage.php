@@ -26,6 +26,35 @@
 							$spec
 						</p>					
 					</div>;"
+				
+				
+	date_default_timezone_set("America/New_York");
+	$table1="`test`.`students`";
+	$table2="`test`.`appointments`";
+
+	$todayAppt="";
+	$sql = "SELECT * FROM $table1,$table2 WHERE $table1.`SUID`=$table2.`SUID` AND $table2.`UUID`='$UUID' ORDER BY `start` DESC;";
+	$result=$db->query($sql);
+	for($i=0; $i<mysqli_num_rows($result); $i++){
+		if($row=mysqli_fetch_array($result)){
+				$name=$row["user"];
+				$photo=$row["photo"];
+				$title=$row["title"];
+				$spec=$row["speciality"];
+				$past=strtotime($row['start'])>time() || $row['isWeekly'] ? "a" : "d";
+				$pastMessage= strtotime($row['start'])>time() || $row['isWeekly'] ? "":"Past Meeting Time";
+				$duration=$row['duration'];
+				$start=strtotime($row['start']);
+				$formattedStart=date("g:i",$start);
+				$end=date("g:i", strtotime($row['end']));
+				$weekly= $row['isWeekly'] ? "Weekly: ".date("l",$start) : date("l, M j", $start);
+				$title=$row['title'];
+				$loc=$row['location'];
+				$AUID=$row["AUID"];
+				$todayAppt.="								<li id='CurrentAppointments'>$name at $formattedStart</li>";
+		}
+	}
+	$_SESSION['todayAppt'] = $todayAppt;					
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -134,10 +163,9 @@ The findings are described in a new study in the journal Nature.
 					<p>
 						<div style="width:100%;height:100%;line-height:3em;padding:5px;overflow-x: hidden;padding-bottom: 5%;">
 							<ul>
-								<li id="CurrentAppointments">Lisa Cuddy at 8:30 AM</li>
-								<li id="CurrentAppointments">Eric Foreman at 1:00 PM</li>
-								<li id="CurrentAppointments">James Wilson at 2:00 PM</li>
-								<li id="CurrentAppointments">Dentist at 3:00 PM</li>							
+								<?php
+									echo $_SESSION['todayAppt'];
+								?>							
 							</ul>							
 						</div>
 					</p>

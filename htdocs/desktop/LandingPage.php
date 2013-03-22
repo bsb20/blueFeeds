@@ -30,9 +30,7 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 			$AUID=$row["AUID"];
 			$today=getDate();
 			$day=date("j",$start);
-			if($today['mday']==$day)){
-				$recentAppt.="								<li id='CurrentAppointments'>$name at $formattedStart</li>";								
-			}
+			$recentAppt.="								<li id='CurrentAppointments'>$name at $formattedStart</li>";								
 	}
 }
 $_SESSION['appointments'] = $recentAppt;

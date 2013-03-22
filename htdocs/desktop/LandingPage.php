@@ -1,6 +1,5 @@
 <?php
 	session_start();
-	
 	$table="`test`.`users`";
 	$table1="`test`.`students`";
 	$table2="`test`.`appointments`";
@@ -33,6 +32,29 @@
 				
 		
 		
+	$todayAppt="";
+	$sql1 = "SELECT * FROM $table1,$table2 WHERE $table1.`SUID`=$table2.`SUID` AND $table2.`UUID`='$UUID' ORDER BY `start`;";
+	$result1=$db->query($sql1);
+	for($i=0; $i<mysqli_num_rows($result1); $i++){
+		if($row=mysqli_fetch_array($result1)){
+				$name=$row["user"];
+				$photo=$row["photo"];
+				$title=$row["title"];
+				$spec=$row["speciality"];
+				$past=strtotime($row['start'])>time() || $row['isWeekly'] ? "a" : "d";
+				$pastMessage= strtotime($row['start'])>time() || $row['isWeekly'] ? "":"Past Meeting Time";
+				$duration=$row['duration'];
+				$start=strtotime($row['start']);
+				$formattedStart=date("g:i",$start);
+				$end=date("g:i", strtotime($row['end']));
+				$weekly= $row['isWeekly'] ? "Weekly: ".date("l",$start) : date("l, M j", $start);
+				$title=$row['title'];
+				$loc=$row['location'];
+				$AUID=$row["AUID"];
+				$todayAppt.="								<li id='CurrentAppointments'>$name at $formattedStart</li>";
+		}
+	}
+	$_SESSION['todayAppt'] = $todayAppt;					
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>

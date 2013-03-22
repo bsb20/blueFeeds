@@ -31,9 +31,11 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 			$today=getDate();
 			$testday = $today['mday'];
 			$day=intval(date("j",$start));
-			if($testday==$day)
+			$month=intval(date("n",$start));
+			$year=intval(date("Y",$start));
+			if($today['mday']==$day and $today['mon']==$month and $today['year']==$year)
 			{
-				$recentAppt.="								<li id='CurrentAppointments'>$name at $formattedStart ++ $testday ++ $day</li>";								
+				$recentAppt.="								<li id='CurrentAppointments'>$name at $formattedStart</li>";								
 			}
 	}
 }

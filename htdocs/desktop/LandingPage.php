@@ -45,6 +45,28 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 	}
 }
 $_SESSION['appointments'] = $table;
+
+$table="`test`.`users`";
+$sql = "SELECT * FROM ".$table." WHERE `UUID`='$UUID';";
+$result=$db->query($sql);
+$name;
+$email;
+$title;
+$spec;
+if($row=mysqli_fetch_array($result)){
+	$name=$row["user"];
+	$email=$row["email"];
+	$title=$row["title"];
+	$spec=$row["speciality"];
+	}
+	$_SESSION['profile'] = " <div class='tile-content'>
+					<img src='./images/Doctor-house.jpg' class='place-left' id='ProfilePic'/>
+					<h2>$name</h2>
+					<h5>$title</h5>
+					<p>
+						$spec
+					</p>					
+				</div>;"
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -69,6 +91,7 @@ $_SESSION['appointments'] = $table;
         <div class="ProfilePage">
 				<div class="tile double bg-color-purple" id="ProfileTile">	
 					<?php
+						echo $_SESSION['profile'];
 					?>
 				</div>
         </div>

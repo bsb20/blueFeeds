@@ -29,7 +29,8 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 			$loc=$row['location'];
 			$AUID=$row["AUID"];
 			$today=getDate();
-			if($today['mday']==date("j",$start))){
+			$day=date("j",$start);
+			if($today['mday']==$day)){
 				$recentAppt.="								<li id='CurrentAppointments'>$name at $formattedStart</li>";								
 			}
 	}

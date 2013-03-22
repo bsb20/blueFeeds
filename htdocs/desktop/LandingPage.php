@@ -1,60 +1,50 @@
 <?php
-	session_start();
-	$table="`test`.`users`";
-	$table1="`test`.`students`";
-	$table2="`test`.`appointments`";
-	
-	$db=new mysqli("127.0.0.1","root","devils","test",8889);
-	if($db->connect_errno){
-		echo "FAILURE";
+session_start();
+date_default_timezone_set("America/New_York");
+$table="`test`.`students`";
+$table2="`test`.`appointments`";
+$db=new mysqli("127.0.0.1","root","devils","test",8889);
+if($db->connect_errno){
+    echo "FAILURE";
+}
+$UUID=$_SESSION["UUID"];
+$final="";
+$sql = "SELECT * FROM $table,$table2 WHERE $table.`SUID`=$table2.`SUID` AND $table2.`UUID`='$UUID' ORDER BY `start`;";
+$result=$db->query($sql);
+$table = "						<thead>
+							<tr>
+								<th>Name</th>
+								<th class='right'>Title</th>
+								<th class='right'>Location</th>
+								<th class='right'>Time and Date</th>
+							</tr>
+						</thead>
+						<tbody>";
+for($i=0; $i<mysqli_num_rows($result); $i++){
+    if($row=mysqli_fetch_array($result)){
+            $name=$row["user"];
+            $photo=$row["photo"];
+            $title=$row["title"];
+            $spec=$row["speciality"];
+			$past=strtotime($row['start'])>time() || $row['isWeekly'] ? "a" : "d";
+			$pastMessage= strtotime($row['start'])>time() || $row['isWeekly'] ? "":"Past Meeting Time";
+			$duration=$row['duration'];
+			$start=strtotime($row['start']);
+			$formattedStart=date("g:i",$start);
+			$end=date("g:i", strtotime($row['end']));
+			$weekly= $row['isWeekly'] ? "Weekly: ".date("l",$start) : date("l, M j", $start);
+			$title=$row['title'];
+			$loc=$row['location'];
+			$AUID=$row["AUID"];
+			$table.="							<tr>
+									<td>$name</td>
+									<td class='right'>$title</td>
+									<td class='right'>$loc</td>
+									<td class='right'>$weekly $formattedStart-$end</td>
+								</tr>";
 	}
-	$UUID=$_SESSION["UUID"];
-	$sql = "SELECT * FROM ".$table." WHERE `UUID`='$UUID';";
-	$result=$db->query($sql);
-	$name;
-	$email;
-	$title;
-	$spec;
-	if($row=mysqli_fetch_array($result)){
-		$name=$row["user"];
-		$email=$row["email"];
-		$title=$row["title"];
-		$spec=$row["speciality"];
-		}
-		$_SESSION['profile'] = " <div class='tile-content'>
-						<img src='./images/Doctor-house.jpg' class='place-left' id='ProfilePic'/>
-						<h2>$name</h2>
-						<h5>$title</h5>
-						<p>
-							$spec
-						</p>					
-					</div>;"
-				
-		
-		
-	$todayAppt="";
-	$sql1 = "SELECT * FROM $table1,$table2 WHERE $table1.`SUID`=$table2.`SUID` AND $table2.`UUID`='$UUID' ORDER BY `start`;";
-	$result1=$db->query($sql1);
-	for($i=0; $i<mysqli_num_rows($result1); $i++){
-		if($row=mysqli_fetch_array($result1)){
-				$name=$row["user"];
-				$photo=$row["photo"];
-				$title=$row["title"];
-				$spec=$row["speciality"];
-				$past=strtotime($row['start'])>time() || $row['isWeekly'] ? "a" : "d";
-				$pastMessage= strtotime($row['start'])>time() || $row['isWeekly'] ? "":"Past Meeting Time";
-				$duration=$row['duration'];
-				$start=strtotime($row['start']);
-				$formattedStart=date("g:i",$start);
-				$end=date("g:i", strtotime($row['end']));
-				$weekly= $row['isWeekly'] ? "Weekly: ".date("l",$start) : date("l, M j", $start);
-				$title=$row['title'];
-				$loc=$row['location'];
-				$AUID=$row["AUID"];
-				$todayAppt.="								<li id='CurrentAppointments'>$name at $formattedStart</li>";
-		}
-	}
-	$_SESSION['todayAppt'] = $todayAppt;					
+}
+$_SESSION['appointments'] = $table;
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -79,7 +69,6 @@
         <div class="ProfilePage">
 				<div class="tile double bg-color-purple" id="ProfileTile">	
 					<?php
-						echo $_SESSION['profile'];
 					?>
 				</div>
         </div>
@@ -164,7 +153,6 @@ The findings are described in a new study in the journal Nature.
 						<div style="width:100%;height:100%;line-height:3em;padding:5px;overflow-x: hidden;padding-bottom: 5%;">
 							<ul>
 								<?php
-									echo $_SESSION['todayAppt'];
 								?>							
 							</ul>							
 						</div>

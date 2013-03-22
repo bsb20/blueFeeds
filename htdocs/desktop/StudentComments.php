@@ -68,6 +68,7 @@ $_SESSION['appointments'] = $table;
         <div class="ProfilePage">
 				<div class="tile double bg-color-purple" id="ProfileTile">
 					<?php 
+						echo $_SESSION['profile'];					
 					?>	
 				</div>
         </div>
@@ -122,6 +123,7 @@ $_SESSION['appointments'] = $table;
 					</button>					
 					<ul class="accordion dark span10" data-role="accordion" data-dynamicQuery="commentRetrieveDesktop">
 						<?php 
+							echo $_SESSION['commentList'];					
 						?>						
 					</ul>
 					<div id="NewCommentArea" class="input-control textarea">

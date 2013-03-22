@@ -36,12 +36,20 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 			$title=$row['title'];
 			$loc=$row['location'];
 			$AUID=$row["AUID"];
-			$table.="							<tr>
-									<td>$name</td>
-									<td class='right'>$title</td>
-									<td class='right'>$loc</td>
-									<td class='right'>$weekly $formattedStart - $end</td>
-								</tr>";
+			$today=getDate();
+			$testday = $today['mday'];
+			$day=intval(date("j",$start));
+			$month=intval(date("n",$start));
+			$year=intval(date("Y",$start));	
+			if($today['mday']==$day and $today['mon']==$month and $today['year']==$year)
+			{
+				$table.="							<tr>
+										<td>$name</td>
+										<td class='right'>$title</td>
+										<td class='right'>$loc</td>
+										<td class='right'>$weekly $formattedStart - $end</td>
+									</tr>";				
+			}
 	}
 }
 $_SESSION['appointments'] = $table;

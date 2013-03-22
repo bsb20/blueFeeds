@@ -30,8 +30,8 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 			$pastMessage= strtotime($row['start'])>time() || $row['isWeekly'] ? "":"Past Meeting Time";
 			$duration=$row['duration'];
 			$start=strtotime($row['start']);
-			$formattedStart=date("g:i",$start);
-			$end=date("g:i", strtotime($row['end']));
+			$formattedStart=date("g:i A",$start);
+			$end=date("g:i A", strtotime($row['end']));
 			$weekly= $row['isWeekly'] ? "Weekly: ".date("l",$start) : date("l, M j", $start);
 			$title=$row['title'];
 			$loc=$row['location'];
@@ -40,7 +40,7 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 									<td>$name</td>
 									<td class='right'>$title</td>
 									<td class='right'>$loc</td>
-									<td class='right'>$weekly $formattedStart-$end</td>
+									<td class='right'>$weekly $formattedStart - $end</td>
 								</tr>";
 	}
 }

@@ -28,7 +28,10 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 			$title=$row['title'];
 			$loc=$row['location'];
 			$AUID=$row["AUID"];
-			$recentAppt.="								<li id='CurrentAppointments'>$name at $formattedStart</li>";
+			$today=getDate();
+			if($today['year']==date("Y",$start) and $today['mon']==date("n",$start) and $today['mday']==date("j",$start))){
+				$recentAppt.="								<li id='CurrentAppointments'>$name at $formattedStart</li>";				
+			}
 	}
 }
 $_SESSION['appointments'] = $recentAppt;

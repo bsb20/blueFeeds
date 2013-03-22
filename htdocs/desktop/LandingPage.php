@@ -1,6 +1,9 @@
 <?php
 	session_start();
 	$table="`test`.`users`";
+	$table1="`test`.`students`";
+	$table2="`test`.`appointments`";
+	
 	$db=new mysqli("127.0.0.1","root","devils","test",8889);
 	if($db->connect_errno){
 		echo "FAILURE";
@@ -27,16 +30,14 @@
 						</p>					
 					</div>;"
 				
-				
+		
+		
 	date_default_timezone_set("America/New_York");
-	$table1="`test`.`students`";
-	$table2="`test`.`appointments`";
-
 	$todayAppt="";
-	$sql = "SELECT * FROM $table1,$table2 WHERE $table1.`SUID`=$table2.`SUID` AND $table2.`UUID`='$UUID' ORDER BY `start` DESC;";
-	$result=$db->query($sql);
-	for($i=0; $i<mysqli_num_rows($result); $i++){
-		if($row=mysqli_fetch_array($result)){
+	$sql1 = "SELECT * FROM $table1,$table2 WHERE $table1.`SUID`=$table2.`SUID` AND $table2.`UUID`='$UUID' ORDER BY `start`;";
+	$result1=$db->query($sql1);
+	for($i=0; $i<mysqli_num_rows($result1); $i++){
+		if($row=mysqli_fetch_array($result1)){
 				$name=$row["user"];
 				$photo=$row["photo"];
 				$title=$row["title"];

@@ -6,7 +6,7 @@ $table2="`test`.`students`";
 $db=new mysqli("127.0.0.1","root","devils","test",8889);
 if($db->connect_errno){
     echo "FAILURE";
-}
+} 
 $user=$_SESSION["UUID"];
 $studentname=$_POST["studentname"];
 $sql = "SELECT * FROM ".$table2." WHERE `user`='$studentname';";

@@ -33,9 +33,7 @@
 		
 		
 	date_default_timezone_set("America/New_York");
-	$todayAppt="";
-	$sql1 = "SELECT * FROM $table1,$table2 WHERE $table1.`SUID`=$table2.`SUID` AND $table2.`UUID`='$UUID' ORDER BY `start`;";
-	$result1=$db->query($sql1);					
+	$todayAppt="";					
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>

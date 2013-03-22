@@ -63,14 +63,16 @@
 				?>				
 			</h2>
 				<div style="width:100%;height:85%;line-height:3em;padding:5px;overflow-x: hidden;">
-					<button class="shortcut" id="TimeFilterButton">
-						<a href="./StudentProfile.php">																									
-						<span class="icon">
-							<i class="icon-undo"></i>
-						</span>
-						<span class="label"> Back
-						</span>
-					</button>				
+					<a href="./StudentProfile.php">																									
+						<button class="shortcut" id="TimeFilterButton">
+							<a href="./StudentProfile.php">																									
+							<span class="icon">
+								<i class="icon-undo"></i>
+							</span>
+							<span class="label"> Back
+							</span>
+						</button>	
+					</a>
 					<button class="shortcut" id="TimeFilterButton">
 						<span class="icon">
 							<i class="icon-clock"></i>

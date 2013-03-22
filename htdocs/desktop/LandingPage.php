@@ -31,7 +31,7 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 			$today=getDate();
 			$testday = $today['mday'];
 			$day=date("j",$start);
-			$recentAppt.="								<li id='CurrentAppointments'>$name at $formattedStart ++ $testday ++ day</li>";								
+			$recentAppt.="								<li id='CurrentAppointments'>$name at $formattedStart ++ $testday ++ $day</li>";								
 	}
 }
 $_SESSION['appointments'] = $recentAppt;

@@ -1,6 +1,5 @@
 <?php
 	session_start();
-	date_default_timezone_set("America/New_York");
 	
 	$table="`test`.`users`";
 	$table1="`test`.`students`";
@@ -34,7 +33,6 @@
 				
 		
 		
-	$todayAppt="";					
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>

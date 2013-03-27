@@ -9,6 +9,7 @@ $UUID=$_SESSION["UUID"];
 $sql = "SELECT * FROM `test`.`tags` WHERE `UUID`='$UUID'";
 $result=$db->query($sql);
 $finally="";
+$i=500;
 
 for($i=0; $i<mysqli_num_rows($result); $i++){
 if($row=mysqli_fetch_array($result)){
@@ -17,7 +18,7 @@ if($row=mysqli_fetch_array($result)){
     }
     
     $finally.=      "<td class='dynamicTag' data-dynamicContent='graphHeaderRetrieve'>
-      					$20
+      					$i
                                         </td>";
 }
 echo $finally;

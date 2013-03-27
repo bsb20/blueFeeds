@@ -529,9 +529,9 @@
 	<div id="wrapper">
 		<div class="chart">
 			<!--<h2>Number of QuickNotes from Spring 2013</h2> -->
-			<table id="data-table" data-role="table" border="1" cellpadding="75" cellspacing="0" summary="The Amount of QuickNotes for a Student Filtered by Tags."  data-dynamicQuery="graphHeaderRetrieve">
+			<table id="data-table"  border="1" cellpadding="75" cellspacing="0" summary="The Amount of QuickNotes for a Student Filtered by Tags."  >
 			<!--<caption>Population in thousands</caption> -->
-		<!--	<thead>
+			<thead>
 			<tr></tr> 
 			<tr>
 			<td>&nbsp;</td>	
@@ -543,7 +543,8 @@
 			
 		
 			</thead>
-
+			<tbody data-role="listView" data-dynamicQuery="graphHeaderRetrieve"></tbody>
+			<!--
 			<tbody>
 			<tr>
 							<th scope="row">Leadership</th>

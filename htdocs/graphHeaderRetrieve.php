@@ -16,5 +16,8 @@ if($row=mysqli_fetch_array($result)){
     $TUID=$row["TUID"];
     }
     
+    $finally.=      "<td class='dynamicTag' data-dynamicContent='graphHeaderRetrieve'>
+      					$text
+                                        </td>";
 }
 echo $finally;

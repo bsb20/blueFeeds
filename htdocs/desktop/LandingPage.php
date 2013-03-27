@@ -78,7 +78,7 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 		$time=strtotime($date);
 		$formattedDate=date("m/d/y",$time);
 	}
-	$recentComment2="<h2>Most Recent Comment:</h2>
+	$recentComment1="<h2>Most Recent Comment:</h2>
 					<br>
 					<div>
 						<h3>Description: </h3>					
@@ -97,7 +97,7 @@ $result=$db->query($sql);
 $recentcomment1="";
 if($row=mysqli_fetch_array($result)){
 	$student=$row["user"];
-	$recentComment1="
+	$recentComment2="
 					<div id='RecentCommentDiv'>
 						<h3>To: </h3>
 						<br>

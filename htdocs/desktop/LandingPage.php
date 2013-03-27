@@ -54,14 +54,14 @@ if($row=mysqli_fetch_array($result)){
 	$title=$row["title"];
 	$spec=$row["speciality"];
 	}
-	$_SESSION['profile'] = " <div class='tile-content'>
-					<img src='./images/Doctor-house.jpg' class='place-left' id='ProfilePic'/>
-					<h2>$name</h2>
-					<h5>$title</h5>
-					<p>
-						$spec
-					</p>					
-				</div>;";
+$_SESSION['profile'] = " <div class='tile-content'>
+				<img src='./images/Doctor-house.jpg' class='place-left' id='ProfilePic'/>
+				<h2>$name</h2>
+				<h5>$title</h5>
+				<p>
+					$spec
+				</p>					
+			</div>;";
 
 				
 $table="`test`.`comments`";
@@ -93,6 +93,7 @@ $_SESSION["recentComment2"]=$recentComment2;
 $table="`test`.`students`";
 $sql = "SELECT * FROM ".$table." WHERE `SUID`='$SUID';";
 $result=$db->query($sql);
+$recentcomment1="";
 if($row=mysqli_fetch_array($result)){
 	$student=$row["user"];
 	$recentComment1="					<h2>Most Recent Comment:</h2>

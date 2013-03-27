@@ -8,7 +8,7 @@ if($db->connect_errno){
 $UUID=$_SESSION["UUID"];
 $sql = "SELECT * FROM `test`.`tags` WHERE `UUID`='$UUID'";
 $result=$db->query($sql);
-$finally="<th scope='row'>Leadership</th>";
+$finally="";
 $i=500;
 
 for($i=0; $i<mysqli_num_rows($result); $i++){
@@ -17,6 +17,7 @@ if($row=mysqli_fetch_array($result)){
     $TUID=$row["TUID"];
     }
     
-    $finally.=      "<td>$i</td>";
+    $finally.=      "<th scope='row'>Leadership</th>
+                        <td>$i</td>";
 }
 echo $finally;

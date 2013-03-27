@@ -26,10 +26,10 @@ if($row=mysqli_fetch_array($result)){
 			<tbody>
 			<tr>
 							<th scope='row'>$text</th>
-							<td>4080</td>
-							<td>6080</td>
-							<td>6240</td>
-							<td>3520</td>
+							<td>$4080</td>
+							<td>$6080</td>
+							<td>$6240</td>
+							<td>$3520</td>
 			</tr>
             </tbody>"
     echo $finally;

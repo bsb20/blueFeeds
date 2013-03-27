@@ -64,55 +64,7 @@ $_SESSION['profile'] = " <div class='tile-content'>
 			</div>;";
 
 				
-$table="`test`.`comments`";
-$sql = "SELECT * FROM ".$table."WHERE `UUID`='$UUID' ORDER BY 'date' DESC";
-$result=$db->query($sql);
-$recentcomment2="";
-for($i=0; $i<mysqli_num_rows($result); $i++){
-	if($row=mysqli_fetch_array($result)){
-		$title=$row["title"];
-		$text=$row["text"];
-		$CUID=$row["CUID"];
-		$SUID=$row["SUID"];		
-		$date=$row["date"];
-		$time=strtotime($date);
-		$formattedDate=date("m/d/y",$time);
-	}
-	$recentComment2="					</br>
-					</br>
-					</br>
-					<h3>Description: </h3>					
-					<br>
-					<p id="RecentCommentText">
-						$text
-					</p>";
-	break;
-}
-$_SESSION["recentComment2"]=$recentComment2;	
-
-$table="`test`.`students`";
-$sql = "SELECT * FROM ".$table." WHERE `SUID`='$SUID';";
-$result=$db->query($sql);
-$recentcomment1="";
-if($row=mysqli_fetch_array($result)){
-	$student=$row["user"];
-	$recentComment1="					<h2>Most Recent Comment:</h2>
-					<br>
-					<div id="RecentCommentDiv">
-						<h3>To: </h3>
-						<br>
-						<p id="RecentCommentText">
-							$student
-						</p>
-					</div>
-					<div id="RecentCommentDiv">					
-						<h3>On: </h3>
-						<p id="RecentCommentText">
-							$date
-						</p>	
-					</div>";
-}
-$_SESSION["recentComment1"]=$recentComment1;				
+				
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>

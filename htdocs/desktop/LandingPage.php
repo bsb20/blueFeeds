@@ -107,6 +107,7 @@ if($row=mysqli_fetch_array($result)){
 					</div>
 					<div id='RecentCommentDiv'>					
 						<h3>On: </h3>
+						<br>						
 						<p id='RecentCommentText'>
 							$formattedDate
 						</p>	

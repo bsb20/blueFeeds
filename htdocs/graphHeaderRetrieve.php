@@ -16,14 +16,7 @@ if($row=mysqli_fetch_array($result)){
     $TUID=$row["TUID"];
     }
     echo"Work";
-    $finally.= "<thead>
-			<tr>
-			<td>&nbsp;</td>	
-				<th scope='col'>$text</th>
-			</tr>
-			</thead>
-
-			<tbody>
+    $finally.= "	<tbody>
 			<tr>
 							<th scope='row'>$text</th>
 							<td>$4080</td>

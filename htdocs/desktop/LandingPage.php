@@ -83,7 +83,7 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 					</br>
 					<h3>Description: </h3>					
 					<br>
-					<p id="RecentCommentText">
+					<p id='RecentCommentText'>
 						$text
 					</p>";
 	break;
@@ -98,16 +98,16 @@ if($row=mysqli_fetch_array($result)){
 	$student=$row["user"];
 	$recentComment1="					<h2>Most Recent Comment:</h2>
 					<br>
-					<div id="RecentCommentDiv">
+					<div id='RecentCommentDiv'>
 						<h3>To: </h3>
 						<br>
-						<p id="RecentCommentText">
+						<p id='RecentCommentText'>
 							$student
 						</p>
 					</div>
-					<div id="RecentCommentDiv">					
+					<div id='RecentCommentDiv'>					
 						<h3>On: </h3>
-						<p id="RecentCommentText">
+						<p id='RecentCommentText'>
 							$date
 						</p>	
 					</div>";

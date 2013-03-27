@@ -17,7 +17,7 @@ if($row=mysqli_fetch_array($result)){
     $TUID=$row["TUID"];
     }
     echo"Work";
-    $finally.= "<th scope="col" class='dynamicTag' data-dynamicContent='graphHeaderRetrieve'>$text</th>";
+    $finally.= "<th scope='col' class='dynamicTag' data-dynamicContent='graphHeaderRetrieve'>$text</th>";
 }
     echo $finally;
 ?>

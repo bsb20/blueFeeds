@@ -17,7 +17,7 @@ if($row=mysqli_fetch_array($result)){
     }
     
     $finally.=      "<td class='dynamicTag' data-dynamicContent='graphHeaderRetrieve'>
-      					$text
+      					$20
                                         </td>";
 }
 echo $finally;

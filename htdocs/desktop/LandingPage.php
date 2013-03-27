@@ -61,7 +61,57 @@ if($row=mysqli_fetch_array($result)){
 					<p>
 						$spec
 					</p>					
-				</div>;"
+				</div>;";
+
+				
+$table="`test`.`comments`";
+$sql = "SELECT * FROM ".$table."WHERE `UUID`='$UUID' ORDER BY 'date' DESC";
+$result=$db->query($sql);
+$recentcomment2="";
+for($i=0; $i<mysqli_num_rows($result); $i++){
+	if($row=mysqli_fetch_array($result)){
+		$title=$row["title"];
+		$text=$row["text"];
+		$CUID=$row["CUID"];
+		$SUID=$row["SUID"];		
+		$date=$row["date"];
+		$time=strtotime($date);
+		$formattedDate=date("m/d/y",$time);
+	}
+	$recentComment2="					</br>
+					</br>
+					</br>
+					<h3>Description: </h3>					
+					<br>
+					<p id="RecentCommentText">
+						$text
+					</p>";
+	break;
+}
+$_SESSION["recentComment2"]=$recentComment2;	
+
+$table="`test`.`students`";
+$sql = "SELECT * FROM ".$table." WHERE `SUID`='$SUID';";
+$result=$db->query($sql);
+if($row=mysqli_fetch_array($result)){
+	$student=$row["user"];
+	$recentComment1="					<h2>Most Recent Comment:</h2>
+					<br>
+					<div id="RecentCommentDiv">
+						<h3>To: </h3>
+						<br>
+						<p id="RecentCommentText">
+							$student
+						</p>
+					</div>
+					<div id="RecentCommentDiv">					
+						<h3>On: </h3>
+						<p id="RecentCommentText">
+							$date
+						</p>	
+					</div>";
+}
+$_SESSION["recentComment1"]=$recentComment1;				
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -186,18 +236,10 @@ The findings are described in a new study in the journal Nature.
             <p>A great read. Captivating. I couldn't put it down. I would have given it five stars, but sadly there were too many distracting typos. For example: 46453 13987. Hopefully they will correct them in the next edition.</p>           -->
 			<div class="tile double bg-color-green" style="height:100%; width: 100%; float: left;">
 				<div class="tile-content">
-					<h2>Most Recent Comment:</h2>
-					<br>
-					<h3>To: </h3>
-					<br>
-					<p id="RecentCommentText">
-						Robert Chase
-					</p>
-					<h3>Description: </h3>					
-					<br>
-					<p id="RecentCommentText">
-						I hired Chase because his dad made a phone call.
-					</p>
+					<?php
+						echo $_SESSION['recentComment1'];
+						echo $_SESSION['recentComment2'];						
+					?>					
 				</div>				
 			</div>			
         </div>

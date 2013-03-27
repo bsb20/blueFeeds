@@ -196,6 +196,11 @@ li
 	
 }
 
+#RecentCommentDiv{
+	padding-right: 3%;
+	float: left;
+}
+
 .AppointmentsPage{
 	padding-left: 3%;
 	padding-top: 3%;
@@ -204,3 +209,5 @@ li
 	height: 85%;
 	background-color: #1947D1;
 }
+
+

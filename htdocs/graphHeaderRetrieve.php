@@ -16,14 +16,13 @@ if($row=mysqli_fetch_array($result)){
     $TUID=$row["TUID"];
     }
     echo"Work";
-    $finally.= "	<tbody>
+    $finally.= "	
 			<tr>
 							<th scope='row'>$text</th>
 							<td>$4080</td>
 							<td>$6080</td>
 							<td>$6240</td>
 							<td>$3520</td>
-			</tr>
-            </tbody>"
+			</tr>"
     echo $finally;
 ?>

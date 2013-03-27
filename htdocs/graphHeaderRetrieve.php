@@ -17,9 +17,22 @@ if($row=mysqli_fetch_array($result)){
     $TUID=$row["TUID"];
     }
     echo"Work";
-    $finally.= "<th scope='col' class='dynamicTag' data-dynamicContent='graphHeaderRetrieve'>
-    $text
-    </th>";
+    $finally.= "<thead>
+			<tr>
+			<td>&nbsp;</td>	
+				<th scope="col">January</th>
+			</tr>
+			</thead>
+
+			<tbody>
+			<tr>
+							<th scope="row">Leadership</th>
+							<td>4080</td>
+							<td>6080</td>
+							<td>6240</td>
+							<td>3520</td>
+			</tr>
+            </tbody>"
 }
     echo $finally;
 ?>

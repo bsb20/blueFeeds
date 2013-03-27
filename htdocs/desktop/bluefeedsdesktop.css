@@ -197,6 +197,7 @@ li
 }
 
 #RecentCommentDiv{
+	padding-top: 3%;
 	padding-right: 3%;
 	float: left;
 }

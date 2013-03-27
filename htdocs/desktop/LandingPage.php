@@ -78,18 +78,18 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 		$time=strtotime($date);
 		$formattedDate=date("m/d/y",$time);
 	}
-	$recentComment2="					
-					</br>
-					</br>
-					</br>
-					<h3>Description: </h3>					
+	$recentComment2="<h2>Most Recent Comment:</h2>
 					<br>
-					<p id='RecentCommentText'>
-						$text
-					</p>";
+					<div>
+						<h3>Description: </h3>					
+						<br>
+						<p id='RecentCommentText'>
+							$text
+						</p>
+					</div>";
 	break;
 }
-$_SESSION["recentComment2"]=$recentComment2;	
+$_SESSION["recentComment1"]=$recentComment1;	
 
 $table="`test`.`students`";
 $sql = "SELECT * FROM ".$table." WHERE `SUID`='$SUID';";
@@ -97,8 +97,7 @@ $result=$db->query($sql);
 $recentcomment1="";
 if($row=mysqli_fetch_array($result)){
 	$student=$row["user"];
-	$recentComment1="<h2>Most Recent Comment:</h2>
-					<br>
+	$recentComment1="
 					<div id='RecentCommentDiv'>
 						<h3>To: </h3>
 						<br>
@@ -113,7 +112,7 @@ if($row=mysqli_fetch_array($result)){
 						</p>	
 					</div>";
 }
-$_SESSION["recentComment1"]=$recentComment1;				
+$_SESSION["recentComment2"]=$recentComment2;				
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>

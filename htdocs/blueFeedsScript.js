@@ -1,6 +1,7 @@
 //Callbacks
 //Dynamic, requiring refresh
     function onPageLoad(data,status){
+    	alert(data);
 	var id="#"+this.invokedata;
 	if($(id).attr("data-prepend")=="true"){
 	    $(id).prepend(data).trigger("create");
@@ -107,7 +108,6 @@
         $(document).on('pagechange', function (e,data) {
 	    $("[data-dynamicQuery]").each(function(index){
 		if(data.toPage.attr("id")==$(this).parents("[data-role='page']").attr("id")){
-			alert("Call - Graph");
 		    $.ajax({url: $(this).attr("data-dynamicQuery")+".php", success: onPageLoad, invokedata: $(this).attr("id"), error:onError});
 		}
 		else{

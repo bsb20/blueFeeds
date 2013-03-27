@@ -11,7 +11,6 @@ $sql = "SELECT * FROM `test`.`tags` WHERE `UUID`='$UUID'";
 echo "isCalled";
 $result=$db->query($sql);
 $finally="";
-for($i=0; $i<mysqli_num_rows($result); $i++){
 if($row=mysqli_fetch_array($result)){
     $text=$row["text"];
     $TUID=$row["TUID"];
@@ -33,6 +32,5 @@ if($row=mysqli_fetch_array($result)){
 							<td>3520</td>
 			</tr>
             </tbody>"
-}
     echo $finally;
 ?>

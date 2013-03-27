@@ -9,4 +9,12 @@ $UUID=$_SESSION["UUID"];
 $sql = "SELECT * FROM `test`.`tags` WHERE `UUID`='$UUID'";
 $result=$db->query($sql);
 $finally="";
+
+for($i=0; $i<mysqli_num_rows($result); $i++){
+if($row=mysqli_fetch_array($result)){
+    $text=$row["text"];
+    $TUID=$row["TUID"];
+    }
+    
+}
 echo $finally;

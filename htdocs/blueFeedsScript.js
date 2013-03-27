@@ -106,8 +106,8 @@
         $(document).ready(function(){
         $(document).on('pagechange', function (e,data) {
 	    $("[data-dynamicQuery]").each(function(index){
-	    	alert("Call - Graph");
 		if(data.toPage.attr("id")==$(this).parents("[data-role='page']").attr("id")){
+			alert("Call - Graph");
 		    $.ajax({url: $(this).attr("data-dynamicQuery")+".php", success: onPageLoad, invokedata: $(this).attr("id"), error:onError});
 		}
 		else{

@@ -9,7 +9,9 @@
 	else{
 	    $(id).append(data).trigger("create");
 	}
+	
         $(id).listview("refresh");
+        $(id).table("refresh");
         $(".imgTile").load(function(){
             $(this).parents("li").slideDown();
         });

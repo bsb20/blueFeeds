@@ -7,7 +7,7 @@ if($db->connect_errno){
 }
 $SUID=$_SESSION["SUID"];
 $UUID=$_SESSION["UUID"];
-$sql = "SELECT * FROM `test`.`tags` WHERE `UUID`='$UUID' AND WHERE `SUID`='$SUID'";
+$sql = "SELECT * FROM `test`.`tags` WHERE `UUID`='$UUID'";
 $result=$db->query($sql);
 $finally="<tr>
     		  <td>&nbsp;</td>";

@@ -15,7 +15,7 @@ if($row=mysqli_fetch_array($result)){
     $text=$row["text"];
     $TUID=$row["TUID"];
     }
-    $finally.= "<th scope="col" data-theme='a' class='dynamicTag' data-dynamicContent='graphHeaderRetrieve' style='margin: 1%; overflow: visible; white-space: normal;'>$text</th>";
+    $finally.= "<th scope="col" data-theme='a' class='dynamicTag' data-dynamicContent='graphHeaderRetrieve'>$text</th>";
 }
     echo $finally;
 ?>

@@ -14,3 +14,4 @@ $i=500;
 $finally.=      "<th scope='row' class='dynamicTag' data-dynamicContent='graphHeaderRetrieve'>'Leadership'</th>
                         <td>$i</td>";
 echo $finally;
+?>

@@ -11,6 +11,6 @@ $sql = "SELECT * FROM `test`.`tags` WHERE `UUID`='$UUID'";
 $result=$db->query($sql);
 $finally="";
 $i=500;
-$finally.=      "<th scope='row' class='dynamicTag' data-dynamicContent='graphHeaderRetrieve'>Leadership</th>
+$finally.=      "<th scope='row' class='dynamicTag' data-dynamicContent='graphHeaderRetrieve'>'Leadership'</th>
                         <td>$i</td>";
 echo $finally;

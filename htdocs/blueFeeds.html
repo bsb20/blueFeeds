@@ -515,7 +515,7 @@
 
 <div data-role="page" data-theme="a" id="graphViewer">
      <header data-role="header" data-theme="b">
-        <h1>Student Graphs</h1>
+        <h1>Student Grapher</h1>
         <a href="#commentspage" data-theme="a" data-iconpos="notext" data-icon="back"></a>
         <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
     </header>
@@ -529,11 +529,11 @@
 	<div id="wrapper">
 		<div class="chart">
 			<!--<h2>Number of QuickNotes from Spring 2013</h2> -->
-			<table id="data-table" border="1" cellpadding="75" cellspacing="0" summary="The Amount of QuickNotes for a Student Filtered by Tags.">
+			<table id="data-table" border="1" cellpadding="75" cellspacing="0" summary="The Amount of QuickNotes for a Student Filtered by Tags." id="graphHeaderId" data-dynamicQuery="graphHeaderRetrieve">
 			<!--<caption>Population in thousands</caption> -->
-			<thead>
-			<tr id="graphHeaderId" data-dynamicQuery="graphHeaderRetrieve"></tr> 
-		<!--	<tr>
+		<!--	<thead>
+			<tr></tr> 
+			<tr>
 			<td>&nbsp;</td>	
 				<th scope="col">January</th>
 				<th scope="col">February</th>
@@ -541,7 +541,7 @@
 				<th scope="col">April</th>
 			</tr>
 			
-		-->
+		
 			</thead>
 
 			<tbody>
@@ -568,6 +568,7 @@
 							<td>4720</td>
 						</tr>
 			</tbody>
+			-->
 		</table>
 		<h1>   </h1>
 	</div>

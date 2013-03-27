@@ -18,7 +18,7 @@ if($row=mysqli_fetch_array($result)){
     $TUID=$row["TUID"];
     }
     
-    $finally.=      "<th scope='row'>Leadership</th>
+    $finally.=      "<th scope='row' class='dynamicTag' data-dynamicContent='graphHeaderRetrieve'>Leadership</th>
                         <td>$i</td>";
 }
 echo $finally;

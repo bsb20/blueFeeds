@@ -9,8 +9,7 @@ $SUID=$_SESSION["SUID"];
 $UUID=$_SESSION["UUID"];
 $sql = "SELECT * FROM `test`.`tags` WHERE `UUID`='$UUID'";
 $result=$db->query($sql);
-$finally="<tr>
-    		  <td>&nbsp;</td>";
+$finally="<td>&nbsp;</td>";
 for($i=0; $i<mysqli_num_rows($result); $i++){
 if($row=mysqli_fetch_array($result)){
     $text=$row["text"];
@@ -19,5 +18,4 @@ if($row=mysqli_fetch_array($result)){
     $finally.= "<th scope="col" data-theme='a' class='dynamicTag' data-dynamicContent='graphHeaderRetrieve' style='margin: 1%; overflow: visible; white-space: normal;'>$text</th>";
 }
     echo $finally;
-    echo "</tr>";
 ?>

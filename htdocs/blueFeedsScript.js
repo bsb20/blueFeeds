@@ -108,6 +108,7 @@
 	    $("[data-dynamicQuery]").each(function(index){
 		if(data.toPage.attr("id")==$(this).parents("[data-role='page']").attr("id")){
 		    $.ajax({url: $(this).attr("data-dynamicQuery")+".php", success: onPageLoad, invokedata: $(this).attr("id"), error:onError});
+			echo"queryisCalled";
 		}
 		else{
 		    $("[data-dynamicContent="+$(this).attr("data-dynamicQuery")+"]").remove();

@@ -67,7 +67,7 @@ $table="`test`.`comments`";
 $sql = "SELECT * FROM ".$table."WHERE `UUID`='$UUID' ORDER BY 'date' DESC";
 $result=$db->query($sql);
 $recentcomment2="";
-$date;
+$formattedDate;
 for($i=0; $i<mysqli_num_rows($result); $i++){
 	if($row=mysqli_fetch_array($result)){
 		$title=$row["title"];
@@ -108,7 +108,7 @@ if($row=mysqli_fetch_array($result)){
 					<div id='RecentCommentDiv'>					
 						<h3>On: </h3>
 						<p id='RecentCommentText'>
-							$date
+							$formattedDate
 						</p>	
 					</div>";
 }

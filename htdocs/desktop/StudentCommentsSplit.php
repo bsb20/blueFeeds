@@ -62,7 +62,7 @@
 					echo $_SESSION['student'] . "'s Comment Page";					
 				?>				
 			</h2>
-				<div style="width:50%;height:85%;line-height:3em;padding:5px;overflow-x: hidden;">
+				<div style="width:49%;height:85%;line-height:3em;padding:5px;overflow-x: hidden;">
 					<a href="./StudentComments.php">																									
 						<button class="shortcut" id="TimeFilterButtonSplit">
 							<span class="icon">

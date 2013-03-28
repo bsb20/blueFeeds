@@ -31,7 +31,7 @@ session_start();
         <div class="BluefeedsNewsPage">
             <h2>Bluefeeds Newsletter</h2>
 				<div style="width:100%;height:85%;line-height:3em;padding:5px;overflow-x: hidden;padding-bottom: 5%;">
-					<ul class="accordion dark span10" data-role="accordion">
+					<ul class="accordion dark span10" style="width: 50%; float: left; padding-top: 2%;" data-role="accordion">
 						<li>
 							<a href="#">Benedict Departs Vatican</a>
 							<div>
@@ -51,16 +51,6 @@ session_start();
 									2/28/13, Google News
 								</div>
 							</div>
-						</li>
-						<li>
-							<a href="#">Bradley Manning pleads guilty to misusing classified data in WikiLeaks case</a>
-							<div>
-								<h3>Bradley Manning pleads guilty to misusing classified data in WikiLeaks case</h3>
-								Maecenas adipiscing nulla sed sem molestie quis pulvinar lectus convallis. Nam tortor arcu, gravida nec tristique sit amet, pretium sagittis eros. Curabitur at nisi ut ligula ornare euismod.
-								<div>
-									2/28/13, Google News
-								</div>							
-							</div>	
 						</li>
 						<li>
 							<a href="http://www.cnn.com/2013/02/28/showbiz/joan-rivers-holocaust-joke/index.html?hpt=hp_c2">Joan Rivers not apologizing for Holocaust joke</a>
@@ -106,7 +96,28 @@ session_start();
 							</div>
 						</li>
 					</ul>
-					<a href="./RSSFeedsSplit.php"><button class="big">Publish RSS</button></a>				
+					<form style="float: left;" action="updaterss.php" method="post">
+						<div class="input-control text">
+							<label for="title">Title: </label>					
+							<input type="text" name="title" placeholder="(i.e. The Supreme Court's Marriage Problem)"/>
+						</div>
+						<div class="input-control text">
+							<label for="link">Link: </label>					
+							<input type="text" name="link" placeholder="http://blog.sfgate.com/opinionshop/2013/03/27/the-supreme-courts-marriage-problem/"/>
+						</div>					
+						<div class="input-control text">
+							<label for="description">Description: </label>					
+							<input type="text" name="description" placeholder="(i.e. Description)"/>
+						</div>
+						<div class="input-control text">
+							<label for="date">Date: </label>					
+							<input type="text" name="date" placeholder="(i.e. 3/28/13)"/>
+						</div>	
+						<div style="padding-top: 3%" class="input">								
+							<label for="updaterss"></label>
+						<input type="submit" name="updaterss" value="Publish RSS" class="big">	
+						</div>
+					</form>
 				</div>
         </div>
         <div class="MenuPage">

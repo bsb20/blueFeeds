@@ -1,6 +1,7 @@
 //Callbacks
 //Dynamic, requiring refresh
     function onPageLoad(data,status){
+    	alert(data);
 	var id="#"+this.invokedata;
 	if($(id).attr("data-prepend")=="true"){
 	    $(id).prepend(data).trigger("create");
@@ -8,7 +9,9 @@
 	else{
 	    $(id).append(data).trigger("create");
 	}
+	
         $(id).listview("refresh");
+        $(id).table("refresh");
         $(".imgTile").load(function(){
             $(this).parents("li").slideDown();
         });

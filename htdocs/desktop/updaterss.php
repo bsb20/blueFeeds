@@ -2,7 +2,7 @@
 	$filepath = "/home/htdocs/desktop/bluefeedsTest.xml";
 	echo $_SERVER['DOCUMENT_ROOT'].$filepath;
 	if (file_exists($_SERVER['DOCUMENT_ROOT'].$filepath)) {
-		$xml = simplexml_load_file('$_SERVER['DOCUMENT_ROOT'].$filepath');
+		$xml = simplexml_load_file($_SERVER['DOCUMENT_ROOT'].$filepath);
  		$title=$_POST["title"];
 		$link=$_POST["link"];
 		$date=$_POST["date"];		
@@ -14,7 +14,7 @@
 		$item->addChild('date', $date);	
 		$item->addChild('description', $desc);
 		
-		if($xml->asXML('$_SERVER['DOCUMENT_ROOT'].$filepath'))
+		if($xml->asXML($_SERVER['DOCUMENT_ROOT'].$filepath))
 		{
 			echo "Success";
 			print_r($xml);			

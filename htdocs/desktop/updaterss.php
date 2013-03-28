@@ -15,8 +15,15 @@
 		$item->addChild('date', $date);	
 		$item->addChild('description', $desc);
 
-		print_r($xml);
-		
+		$dom = new DOMDocument('1.0');
+		$dom->preserveWhiteSpace = false;
+		$dom->formatOutput = true;
+		$dom->loadXML($xml->asXML());
+		echo "----------------------------";
+		echo $dom->saveXML();
+		$dom->save($_SERVER['DOCUMENT_ROOT'].$filepath);
+		echo "----------------------------";
+				
 		if($xml->asXML($_SERVER['DOCUMENT_ROOT'].$filepath))
 		{
 			echo "Success";
@@ -26,7 +33,6 @@
 		{
 			echo "Failure";
 		}
-/* 		echo $sxe->asXML();		 */			
 	}
 	else
 	{

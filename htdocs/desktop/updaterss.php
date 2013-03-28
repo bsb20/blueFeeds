@@ -15,8 +15,7 @@
 		$item->addChild('date', $date);	
 		$item->addChild('description', $desc);
 
-		$bytes <- file_put_contents($_SERVER['DOCUMENT_ROOT'].$filepath, $xml->asXML);
-		echo 'Bytes written '.$bytes;
+		print_r($xml);
 		
 		if($xml->asXML($_SERVER['DOCUMENT_ROOT'].$filepath))
 		{

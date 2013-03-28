@@ -127,6 +127,11 @@ li
 	height: 20%;
 }
 
+#TimeFilterButtonSplit {
+	width: 5%;
+	height: 20%;
+}
+
 #NewCommentArea {
 	float: left;
 	width: 80%;
@@ -210,4 +215,7 @@ li
 	background-color: #1947D1;
 }
 
+#Accordion{
+	width: 95%;
+}
 

@@ -62,9 +62,9 @@
 					echo $_SESSION['student'] . "'s Comment Page";					
 				?>				
 			</h2>
-				<div style="width:100%;height:85%;line-height:3em;padding:5px;overflow-x: hidden;">
-					<a href="./StudentProfile.php">																									
-						<button class="shortcut" id="TimeFilterButton">
+				<div style="width:50%;height:85%;line-height:3em;padding:5px;overflow-x: hidden;">
+					<a href="./StudentComments.php">																									
+						<button class="shortcut" id="TimeFilterButtonSplit">
 							<span class="icon">
 								<i class="icon-undo"></i>
 							</span>
@@ -72,16 +72,7 @@
 							</span>
 						</button>	
 					</a>
-					<a href="./StudentCommentsSplit.php">																									
-						<button class="shortcut" id="TimeFilterButton">
-							<span class="icon">
-								<i class="icon-file-pdf"></i>
-							</span>
-							<span class="label"> Split screen PDF
-							</span>
-						</button>	
-					</a>						
-					<button class="shortcut" id="TimeFilterButton">
+					<button class="shortcut" id="TimeFilterButtonSplit">
 						<span class="icon">
 							<i class="icon-clock"></i>
 						</span>
@@ -89,15 +80,7 @@
 						</span>
 						<span class="badge">11</span>
 					</button>
-					<button class="shortcut" id="TimeFilterButton">
-						<span class="icon">
-							<i class="icon-clock"></i>
-						</span>
-						<span class="label"> Next Week
-						</span>
-						<span class="badge">21</span>
-					</button>
-					<button class="shortcut" id="TimeFilterButton">
+					<button class="shortcut" id="TimeFilterButtonSplit">
 						<span class="icon">
 							<i class="icon-clock"></i>
 						</span>
@@ -105,7 +88,7 @@
 						</span>
 						<span class="badge">50</span>
 					</button>	
-					<button class="shortcut" id="TimeFilterButton">
+					<button class="shortcut" id="TimeFilterButtonSplit">
 						<span class="icon">
 							<i class="icon-clock"></i>
 						</span>
@@ -113,7 +96,7 @@
 						</span>
 						<span class="badge">100</span>						
 					</button>					
-					<ul class="accordion dark span10" data-role="accordion" data-dynamicQuery="commentRetrieveDesktop">
+					<ul class="accordion dark span10" id="Accordion" data-role="accordion" data-dynamicQuery="commentRetrieveDesktop">
 						<?php 
 							echo $_SESSION['commentList'];					
 						?>						
@@ -136,6 +119,7 @@
 							</form>
 					</div>							
 				</div>
+				<iframe style="float: left; padding-left: 2%; width:50%; height:85%;" src="http://bluefeeds.cs.duke.edu/home/htdocs/desktop/uploadsPDF/Fillable_PDF_Sample_from_TheWebJockeys_vC5.pdf" frameborder="0"></iframe>								
         </div>
         <div class="MenuPage">
 			<ul id="MenuOptions" style="padding-top: 5%">

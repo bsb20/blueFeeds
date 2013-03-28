@@ -1,4 +1,5 @@
 <?php
+	echo $_SERVER['DOCUMENT_ROOT'];
 	if (file_exists('http://bluefeeds.cs.duke.edu/home/htdocs/desktop/bluefeedsTest.xml')) {
 		$xml = simplexml_load_file('http://bluefeeds.cs.duke.edu/home/htdocs/desktop/bluefeedsTest.xml');
  		$title=$_POST["title"];

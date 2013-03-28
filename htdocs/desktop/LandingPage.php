@@ -113,7 +113,30 @@ if($row=mysqli_fetch_array($result)){
 						</p>	
 					</div>";
 }
-$_SESSION["recentComment2"]=$recentComment2;				
+$_SESSION["recentComment2"]=$recentComment2;
+
+$filepath = "/home/htdocs/desktop/bluefeedsTest.xml";
+$xml = simplexml_load_file($_SERVER['DOCUMENT_ROOT'].$filepath);
+$rss = "";
+foreach($xml->item as $item)
+{
+	$title = $item->title;
+	$link = $item->link;
+	$date = $item->date;
+	$desc = $item->description;
+	
+	$rss.="						<li>
+						<a href=$link>$title</a>
+						<div>
+							<h3>$title</h3>
+							$desc
+							<p>
+								$date
+							</p>
+						</div>
+					</li>";
+}
+$_SESSION['rss'] = $rss;
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -146,61 +169,9 @@ $_SESSION["recentComment2"]=$recentComment2;
 			<h2>Bluefeeds News</h2>
         	<div style="width:100%;height:100%;line-height:3em;padding:5px;overflow-x: hidden;padding-bottom: 5%;">
 				<ul class="accordion dark span10" data-role="accordion">
-                    <li>
-                        <a href="#">Benedict Departs Vatican</a>
-                        <div>
-                            <h3>Benedict Departs Vatican, Pledges Obedience to Next Pope</h3>
-                            Pope Benedict XVI pledged his "unconditional reverence and obedience" to his successor Thursday, then left the Vatican as the first Roman Catholic Church leader to resign in 600 years.
-                            <p>
-                                2/28/13, Google News
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="#">In Victory for Obama, House Backs Domestic Violence Law</a>
-                        <div>
-                            <h3>In Victory for Obama, House Backs Domestic Violence Law</h3>
-                            WASHINGTON - The House voted on Thursday to pass the Senate's bipartisan reauthorization of the Violence Against Women Act, in a big victory for President Obama and Democrats in Congress.
-                            <div>
-                                2/28/13, Google News
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="#">Bradley Manning pleads guilty to misusing classified data in WikiLeaks case</a>
-                        <div>
-                            <h3>Bradley Manning pleads guilty to misusing classified data in WikiLeaks case</h3>
-                            Maecenas adipiscing nulla sed sem molestie quis pulvinar lectus convallis. Nam tortor arcu, gravida nec tristique sit amet, pretium sagittis eros. Curabitur at nisi ut ligula ornare euismod.
-                            <div>
-                                2/28/13, Google News
-                            </div>							
-                        </div>	
-                    </li>
-                    <li>
-                        <a href="http://www.cnn.com/2013/02/28/showbiz/joan-rivers-holocaust-joke/index.html?hpt=hp_c2">Joan Rivers not apologizing for Holocaust joke</a>
-                        <div>
-                            <h3>Joan Rivers not apologizing for Holocaust joke</h3>
-                            Comedian Joan Rivers isn't about to apologize for a joke she made about the Holocaust.
-Rivers, while appearing Monday on "Fashion Police" on E!, talked about the dress model Heidi Klum wore to the Academy Awards
-"The last time a German looked this hot was when they were pushing Jews into the ovens," Rivers said.
-                            <div>
-                                2/28/13, CNN
-                            </div>	
-                        </div>
-                    </li>
-					                    <li>
-                        <a href="http://lightyears.blogs.cnn.com/2013/02/27/black-holes-rapidly-spinning-and-twisting-spacetime/?hpt=hp_c3">Black holes rapidly spinning and twisting spacetime</a>
-                        <div>
-                            <h3>Black holes rapidly spinning and twisting spacetime By Elizabeth Landau</h3>
-                            Scientists have been able to pin down the most accurate estimate yet for how fast a supermassive black hole is spinning. The answer is "fast": near the speed of light.
-The black hole in question is more than 2 million miles across, with a surface traveling near the speed of light. It is at the center of spiral galaxy NGC 1365 and is the equivalent of about 2 million solar masses. Don't worry, this black hole not an imminent danger to us, given that it's in a galaxy 60 million light years away.
-Two instruments helped make these measurements: NASA's Nuclear Spectroscopic Telescope Array, or NuSTAR, and the European Space Agency’s XMM-Newton X-ray satellite. Scientists used these tools to detect high-energy X-rays to determine the black hole's spin. Although similar measurements have been attempted before, this is the first time scientists have been able to show that the spin rate can be calculated conclusively.
-The findings are described in a new study in the journal Nature.
-                            <div>
-                                2/27/13, CNN
-                            </div>	
-                        </div>
-                    </li>
+					<?php
+						echo $_SESSION['rss'];
+					?>                    
                 </ul>
 				</div>
         </div>

@@ -23,12 +23,14 @@
 		
 		if($xml->asXML($_SERVER['DOCUMENT_ROOT'].$filepath))
 		{
-			echo "Success";
-			print_r($xml);			
+			header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/RSS Feeds.php');
+			/* echo "Success";
+			print_r($xml); */
 		}
 		else
-		{
-			echo "Failure";
+		{	
+			header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/RSS Feeds.php');		
+			/* echo "Failure"; */
 		}
 	}
 	else

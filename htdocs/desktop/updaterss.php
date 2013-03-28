@@ -15,6 +15,15 @@
 		$item->addChild('date', $date);	
 		$item->addChild('description', $desc);
 
+		if(chmod($_SERVER['DOCUMENT_ROOT'].$filepath, 0777))
+		{
+			echo "Privilege change success";
+		}
+		else
+		{
+			echo "Privilege change failure";			
+		}
+		
 		$dom = new DOMDocument('1.0');
 		$dom->preserveWhiteSpace = false;
 		$dom->formatOutput = true;

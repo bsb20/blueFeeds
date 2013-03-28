@@ -15,7 +15,9 @@
 		$item->addChild('date', $date);	
 		$item->addChild('description', $desc);
 
-		if(chmod($_SERVER['DOCUMENT_ROOT'].$filepath, 0777))
+		$mode = '0777';
+		$mode_dec = octdec($mode);
+		if(chmod($_SERVER['DOCUMENT_ROOT'].$filepath, $mode_dec))
 		{
 			echo "Privilege change success";
 		}

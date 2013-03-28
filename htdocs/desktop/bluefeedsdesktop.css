@@ -122,6 +122,15 @@ li
 	padding-top: 3%;
 }
 
+.StudentCommentsSplit{
+	float: right;
+	width: 77.5%;
+	height: 85%;
+	background-color: #1947D1;
+	padding-left: 3%;
+	padding-top: 2%;
+}
+
 #TimeFilterButton {
 	width: 10%;
 	height: 20%;

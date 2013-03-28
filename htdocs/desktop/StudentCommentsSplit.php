@@ -56,7 +56,7 @@
 					?>	
 				</div>
         </div>
-        <div class="BluefeedsNewsPage">
+        <div class="StudentCommentsSplit">
             <h2>
 				<?php 
 					echo $_SESSION['student'] . "'s Comment Page";					

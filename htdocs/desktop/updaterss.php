@@ -4,7 +4,7 @@
  		$title=$_POST["title"];
 		$link=$_POST["link"];
 		$date=$_POST["date"];		
-		$desc=$_POST["description"];
+		$desc=$_POST["description"]; 	
 		
 		$item = $xml->addChild('item');
 		$item->addChild('title', $title);
@@ -22,5 +22,9 @@
 			echo "Failure";
 		}
 /* 		echo $sxe->asXML();		 */			
+	}
+	else
+	{
+		echo "File missing";
 	}
 ?>

@@ -24,7 +24,7 @@ if($row=mysqli_fetch_array($result)){
 				<p class='note'>$text</p>
                                 <p class='note'><strong>$formattedDate</strong></p>
 					</li>
-				<div data-role='navbar'>
+				<div data-role='navbar' data-type='horizontal'>
 				<a href=$url data-role='button' data-theme='a'>View</a>
 				<a href='#viewcomment' data-role='button'  data-theme='a'>Remove</a>
 				</div>";

@@ -23,7 +23,7 @@ if($row=mysqli_fetch_array($result)){
     				<h1>$title</h1>
 				<p class='note'>$text</p>
                                 <p class='note'><strong>$formattedDate</strong></p>
-                                <div data-role='navbar' data-type='horizontal' align='right'>
+                                <div data-role='controlgroup' data-type='horizontal' align='right'>
 				<a href=$url data-role='button' data-theme='a'>Visit</a>
 				<a href='#viewcomment' data-role='button'  data-theme='a'>Remove</a>
 				</div>

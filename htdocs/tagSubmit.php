@@ -5,6 +5,7 @@ $db=new mysqli("127.0.0.1","root","devils","test",8889);
 if($db->connect_errno){
     echo "FAILURE";
 }
+echo "heet";
 $title=$_POST["title"];
 $user=$_SESSION["UUID"];
 $TUID=$_POST["TUID"];

@@ -23,8 +23,8 @@ if($row=mysqli_fetch_array($result)){
 						<h1>$title</h1>
 						<p class='note'>$text</p>
 						<div data-role='controlgroup' data-type='horizontal'  class='noteControl' align='right'>
-                                                <a href='#editcomment' data-role='button' data-mini='true' data-icon='plus'>Edit</a>
-						<a href='#viewcomment' data-role='button' data-mini='true' data-icon='info'>View</a>						
+                                                <a href='#editcomment' data-role='button' data-mini='true'>Edit</a>
+						<a href='#viewcomment' data-role='button' data-mini='true'>View</a>						
 						</div>
                                                 <p class='ui-li-aside'><strong>$formattedDate</strong></p>
                                                     <input type='text' name='CUID' value='$CUID' class='hiddenForm' style='display: none;'>

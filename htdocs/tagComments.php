@@ -25,10 +25,10 @@ $result=$db->query($sql);
 $finally.=        "<li data-theme='d' class='listNote dynamicComment' data-dynamicContent='tagRetrieve' style='margin: 1%; overflow: visible; white-space: normal;'>
     				      <h1>$title</h1>
 					      	<p class='note'>$text</p>
-					        	<div data-role='controlgroup' data-type='horizontal'  class='noteControl' align='right'>
-                        <a href='#editcomment' data-role='button' data-theme='b' data-mini='true' data-icon='plus'>Edit</a>
-						            <a href='#viewcomment' data-role='button'  data-theme='b' data-mini='true' data-icon='info'>View</a>						
-						        </div>
+					      	<div data-role='controlgroup' data-mini='true' data-type='horizontal' align='right'>
+						<a href='#editcomment' data-role='button' data-mini='true'>Edit</a>
+						<a href='#viewcomment' data-role='button' data-mini='true'>View</a>
+						</div>
 					        </li>";
 }
 

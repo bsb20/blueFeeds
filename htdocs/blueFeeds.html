@@ -388,54 +388,22 @@
         <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
     </header>
     <body>
-    <div data-role="navbar" data-type="horizontal">
-	<ul>
-		<li data-theme="a"><a href="#" id="reset-graph-button  data-theme="b" data-role="button">Reset Graph</a></li>
-        </ul>
-   </div>
-	<div id="wrapper">
-		<div class="chart">
-			<!--<h2>Number of QuickNotes from Spring 2013</h2> -->
-			<table id="data-table" border="1" cellpadding="75" cellspacing="0" summary="The Amount of QuickNotes for a Student Filtered by Tags.">
-			<!--<caption>Population in thousands</caption> -->
-			<thead>
-			<tr>
-				<td>&nbsp;</td>
-				<th scope="col">January</th>
-				<th scope="col">February</th>
-				<th scope="col">March</th>
-				<th scope="col">April</th>
-			</tr>
-			</thead>
-			
-			<tbody>
-			<tr>
-							<th scope="row">Leadership</th>
-							<td>4080</td>
-							<td>6080</td>
-							<td>6240</td>
-							<td>3520</td>
-						</tr>
-						
-                    	<tr>
-							<th scope="row">Bedside Manner</th>
-							<td>5680</td>
-							<td>6880</td>
-							<td>5760</td>
-							<td>5120</td>
-						</tr>
-						<tr>
-							<th scope="row">Communication</th>
-							<td>1040</td>
-							<td>1760</td>
-							<td>2880</td>
-							<td>4720</td>
-						</tr>
-			</tbody>
-		</table>
-		<h1>   </h1>
-	</div>
-	</div>
+    <div data-role="page">  
+  
+   <header data-role="header" class="<?php echo $siteName; ?>">  
+      <h1><?php echo ucwords($siteName).'+'; ?></h1>  
+   </header>  
+  
+   <div data-role="content">      
+      <ul data-role="listview" data-theme="c" data-dividertheme="d" data-counttheme="e">  
+  
+      </ul>  
+   </div>  
+  
+   <footer data-role="footer" class="<?php echo $siteName; ?>">  
+      <h4> www.tutsplus.com</h4>  
+   </footer>  
+</div>  	
 	</body>
     <footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">

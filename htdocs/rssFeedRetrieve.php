@@ -19,13 +19,15 @@ if($row=mysqli_fetch_array($result)){
     $time=strtotime($date);
     $formattedDate=date("m/d/y",$time);
     }
-    $finally.=                       "<li data-theme='d' class='listNote dynamicComment' data-dynamicContent='rssFeedRetrieve' onClick='echoComment()' style='margin: 1%; overflow: visible; white-space: normal;'>
+    $finally.=                       "<li data-theme='a' class='listNote dynamicComment' data-dynamicContent='rssFeedRetrieve' onClick='echoComment()' style='margin: 1%; overflow: visible; white-space: normal;'>
+    				<a href=$url data-role='button' data-theme='b' data-mini='true' data-icon='plus'>
     				<h1>$title</h1>
 						<p class='note'>$text</p>
 						<div data-role='controlgroup' data-type='horizontal'  class='noteControl' align='right'>
-                    <a href=$url data-role='button' data-theme='b' data-mini='true' data-icon='plus'>Visit</a>			
+                    			
 						</div>
                                                 <p class='ui-li-aside'><strong>$formattedDate</strong></p>
+                               </a>
 					</li>";
 }
     echo $finally;

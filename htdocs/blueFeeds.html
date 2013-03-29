@@ -702,8 +702,9 @@
         <textarea name="comment" id="comment">
         </textarea>
 	    <div data-role="fieldcontain">
-            <fieldset data-role="controlgroup" id="userTagList"  data-dynamicQuery="showUserTags">
-            </fieldset>
+           <!-- <fieldset data-role="controlgroup" id="userTagList"  data-dynamicQuery="showUserTags">
+            </fieldset> -->
+            <ul data-role="listview" data-role="collapsible" data-inset="false" data-prepend="true" id="userTagList" data-dynamicQuery="showUserTags"></ul>
 	    </div>
 	<button data-theme="a" type="submit" id="commentSubmit" data-validate='commentSubmit' data-destination="#studentProfile2">Save Comment</button>          
 	</form>

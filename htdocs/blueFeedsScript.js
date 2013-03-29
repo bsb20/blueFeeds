@@ -1,7 +1,6 @@
 //Callbacks
 //Dynamic, requiring refresh
     function onPageLoad(data,status){
-    	alert(data);
 	var id="#"+this.invokedata;
 	if($(id).attr("data-prepend")=="true"){
 	    $(id).prepend(data).trigger("create");

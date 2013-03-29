@@ -7,7 +7,7 @@ if($db->connect_errno){
 }
 $user=$_SESSION["UUID"];
 $student=$_SESSION["SUID"];
-$CUID=$_POST["FUID"];
+$FUID=$_POST["FUID"];
 $date=date("Y-m-d H:i:s");
 $db->real_query("DELETE FROM".$table."WHERE `FUID`='$FUID';");
 echo "true";

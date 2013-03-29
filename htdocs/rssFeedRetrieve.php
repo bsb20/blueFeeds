@@ -25,7 +25,7 @@ if($row=mysqli_fetch_array($result)){
                                 <p class='note'><strong>$formattedDate</strong></p>
                                 <div data-role='controlgroup' data-mini='true' data-type='horizontal' align='right'>
 				<a href=$url data-role='button' data-theme='a' data-mini='true'>Visit</a>
-				<a href='#StudentSelection' data-role='button' data-theme='a' data-mini='true'>Remove</a>
+				<a href='#studentSelection' data-role='button' data-theme='a' data-mini='true'>Remove</a>
 				</div>
 					</li>
 				";

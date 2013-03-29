@@ -388,18 +388,17 @@
         <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
     </header>
     <body>
-    <div class="studentSelectionCenter" data-role="content" data-theme="a">
-    		<ul data-role="listview" data-prepend="true" data-inset="true">
+    		<div class="studentSelectionCenter" data-role="content" data-theme="a">
+    			<ul data-role="listview" data-prepend="true" data-inset="true">
           	  		<li>
                 		<a href="#addRssFeed">
                 		<h1>Create New Feed</h1></a>
             			</li>
-            			<li>
-                		<a href="#listFeeds"><h1>Read RSS Feeds</h1></a>
-            			</li>
         		</ul>
-        		</div>
-</body>
+        		<ul data-role="listview" data-theme="a" id="rssFeeds" data-dynamicQuery="rssFeedRetrieve"></ul>
+        	</div>
+        	
+	</body>
     <footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">
             <ul>

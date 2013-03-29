@@ -20,11 +20,11 @@ if($row=mysqli_fetch_array($result)){
     $formattedDate=date("m/d/y",$time);
     }
     $finally.=                       "<li data-theme='c' class='listNote dynamicComment' data-dynamicContent='rssFeedRetrieve' onClick='echoComment()' style='margin: 1%; overflow: visible; white-space: normal;'>
-    				<a href=$url>
     				<h1>$title</h1>
-						<p class='note'>$text</p>
-                                                <p class='note'><strong>$formattedDate</strong></p>
-                               </a>
+				<p class='note'>$text</p>
+                                <p class='note'><strong>$formattedDate</strong></p>
+                                                <a href=$url data-role='button' data-theme='a'>View</a>
+						<a href='#viewcomment' data-role='button'  data-theme='a'>Remove</a>
 					</li>";
 }
     echo $finally;

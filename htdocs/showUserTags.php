@@ -13,7 +13,9 @@ foreach($result as $row){
         $TUID=$row["TUID"];
         $text=$row["text"];
         $toString=$toString."
-                    <input type='checkbox' name='tag[]' id='$TUID' value='$TUID' class='custom' /><label for='$TUID'>$text</label>";
+        <ls>
+        <fieldset><input type='checkbox' name='tag[]' id='$TUID' value='$TUID' class='custom' /><label for='$TUID'>$text</label></fieldset>
+        </ls>";
 }
 echo $toString;
 ?>

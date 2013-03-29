@@ -388,23 +388,22 @@
         <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
     </header>
     <body>
-    <div data-role="page">  
-  
-   <header data-role="header" class="<?php echo $siteName; ?>">  
-      <h1><?php echo ucwords($siteName).'+'; ?></h1>  
-   </header>  
-  
-   <div data-role="content">      
-      <ul data-role="listview" data-theme="c" data-dividertheme="d" data-counttheme="e">  
-  
-      </ul>  
-   </div>  
-  
-   <footer data-role="footer" class="<?php echo $siteName; ?>">  
-      <h4> www.tutsplus.com</h4>  
-   </footer>  
-</div>  	
-	</body>
+<div data-role="page" id="indexPage">
+    <div data-role="header">
+        <h1>Welcome!</h1>
+    	</div>
+    		<div data-role="content">
+     	 		<ul data-role="listview" data-inset="true">
+          	  		<li>
+                			<a href="#addRssFeed">Create New Feed</a>
+            			</li>
+            			<li>
+                	<a href="#listFeeds">Read RSS Feeds</a>
+            			</li>
+        		</ul>
+    		</div>
+	</div>
+</body>
     <footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">
             <ul>
@@ -415,6 +414,44 @@
         </nav>
     </footer>
 </div> <!--new graph page, with list-->
+
+<div data-role="page" data-theme="a" id="addRssFeed">
+     <header data-role="header" data-theme="b">
+        <h1>Add RSS Feed</h1>
+        <a href="#commentspage" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+        <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
+    </header>
+    <body>
+ 
+        <div data-role="content">
+            <form id="newFeedForm" method="post">
+                <div data-role="fieldcontain">
+                    <label for="feedName"><strong>Feed Name:</strong></label>
+                    <input type="text" name="feedName" id="feedName" value=""  />
+ 
+                    <label for="feedUrl"><strong>Feed URL:</strong></label>
+                    <input type="text" name="feedUrl" id="feedUrl" value="" />
+ 
+                    <fieldset class="ui-grid-a">
+                        <div class="ui-block-a"><a href="#indexPage" id="cancel" data-role="button">Cancel</a></div>
+                        <div class="ui-block-b"><button data-theme="b" id="submit" type="submit">Submit</button></div>
+                    </fieldset>
+                    <h3 id="message"></h3>
+                </div>
+            </form>
+        </div>
+        
+	</body>
+    <footer data-role="footer" data-theme="b" data-position="fixed">
+        <nav data-role="navbar">
+            <ul>
+                <li><a href="#appointments" data-icon="grid">Appointments</a></li>
+                <li><a href="#studentSelection" data-icon="home">My Students</a></li>
+                <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
+            </ul>
+        </nav>
+    </footer>
+</div> <!--new rssFeed edit page, with list-->
 
 <div data-role="page" id="addcomment">
     <header data-role="header" data-theme="b"><h1>Add Comment</h1>

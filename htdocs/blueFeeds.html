@@ -508,6 +508,7 @@
         <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
     </header>
 	<ul data-role="listview" data-filter="true" id="tagList" data-theme="b" data-dynamicQuery="tagRetrieve"></ul>
+	<a href="#addtag"  data-theme="a" data-role="button">Add Tag</a>
     <footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">
             <ul>
@@ -690,6 +691,28 @@
         </nav>
     </footer>
 </div> <!--adds rss feeds-->
+
+<div data-role="page" id="addtag">
+    <header data-role="header" data-theme="b"><h1>Add Tag</h1>
+    <a href="#studenttags" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+    </header>
+	<div class="commentSelection" data-role="content" data-theme="b" align="center">
+        <form id="tagForm" data-dynamicQuery="genTUID">
+        <label for="title">Name This Tag</label><input type="text" name="title">
+	   
+	<button data-theme="a" type="submit" id="tagSubmit" data-validate='tagSubmit' data-destination="#studenttags">Save Tag</button>          
+	</form>
+        </div>
+    <footer data-role="footer" data-theme="b" data-position="fixed" value="working?">
+       <nav data-role="navbar">
+            <ul>
+                <li><a href="#appointments" data-icon="grid">All Meetings</a></li>
+                <li><a href="#studentSelection" data-icon="home">My Students</a></li>
+                <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
+            </ul>
+        </nav>
+    </footer>
+</div><!--add tag to database-->
 
 <div data-role="page" id="addcomment">
     <header data-role="header" data-theme="b"><h1>Add Comment</h1>

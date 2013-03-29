@@ -19,7 +19,7 @@ if($row=mysqli_fetch_array($result)){
     $time=strtotime($date);
     $formattedDate=date("m/d/y",$time);
     }
-    $finally.=                       "<li data-theme='a' class='listNote dynamicComment' data-dynamicContent='rssFeedRetrieve' onClick='echoComment()' style='margin: 1%; overflow: visible; white-space: normal;'>
+    $finally.=                       "<li class='listNote dynamicComment' data-dynamicContent='rssFeedRetrieve' onClick='echoComment()' style='margin: 1%; overflow: visible; white-space: normal;'>
     				<a href=$url data-role='button'>
     				<h1>$title</h1>
 						<p class='note'>$text</p>

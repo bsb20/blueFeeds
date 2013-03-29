@@ -12,14 +12,14 @@ $result=$db->query($sql);
 $finally="";
 for($i=0; $i<mysqli_num_rows($result); $i++){
 if($row=mysqli_fetch_array($result)){
-    $title=$row["feedName"];
-    $url=$row["feedURL"];
+    $title=$row["title"];
+    $url=$row["url"];
     $FUID=$row["FUID"];
     $date=$row["date"];
     $time=strtotime($date);
     $formattedDate=date("m/d/y",$time);
     }
-    $finally.=                       "<li data-theme='d' class='listNote dynamicComment' data-dynamicContent='commentRetrieve' onClick='echoComment()' style='margin: 1%; overflow: visible; white-space: normal;'>
+    $finally.=                       "<li data-theme='d' class='listNote dynamicComment' data-dynamicContent='rssFeedRetrieve' onClick='echoComment()' style='margin: 1%; overflow: visible; white-space: normal;'>
   					<h1>$title</h1>
 						<p class='note'>$text</p>
 						<div data-role='controlgroup' data-type='horizontal'  class='noteControl' align='right'>

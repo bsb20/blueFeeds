@@ -11,15 +11,16 @@
 		$desc = $item->description;
 		
 		$rss.="						<li>
-							<a href=$link>$title</a>
-							<div>
-								<h3>$title</h3>
-								$desc
-								<p>
-									$date
-								</p>
-							</div>
-						</li>";
+						<a>$title</a>
+						<div>
+							<h3>$title</h3>
+							$desc
+							<p>
+								$date
+							</p>
+							<a href=$link><button class='bg-color-blueLight'> Link </button></a>							
+						</div>
+					</li>";
 	}
 	$_SESSION['rss'] = $rss;	
 ?>

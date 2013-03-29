@@ -11,15 +11,16 @@
 		$desc = $item->description;
 		
 		$rss.="						<li>
-							<a href=$link>$title</a>
-							<div>
-								<h3>$title</h3>
-								$desc
-								<p>
-									$date
-								</p>
-							</div>
-						</li>";
+						<a>$title</a>
+						<div>
+							<h3>$title</h3>
+							$desc
+							<p>
+								$date
+							</p>
+							<a href=$link><button class='bg-color-blueLight'> Link </button></a>							
+						</div>
+					</li>";
 	}
 	$_SESSION['rss'] = $rss;
 ?>
@@ -54,16 +55,6 @@
             <h2>Bluefeeds Newsletter</h2>
 				<div style="width:100%;height:85%;line-height:3em;padding:5px;overflow-x: hidden;padding-bottom: 5%;">
 					<ul class="accordion dark span10" style="width: 50%; float: left; padding-top: 2%;" data-role="accordion">
-						<li>
-							<a href="#">Benedict Departs Vatican</a>
-							<div>
-								<h3>Benedict Departs Vatican, Pledges Obedience to Next Pope</h3>
-								Pope Benedict XVI pledged his "unconditional reverence and obedience" to his successor Thursday, then left the Vatican as the first Roman Catholic Church leader to resign in 600 years.
-								<p>
-									2/28/13, Google News
-								</p>
-							</div>
-						</li>
 						<?php
 							echo $_SESSION['rss'];
 						?>							

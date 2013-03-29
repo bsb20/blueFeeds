@@ -126,13 +126,14 @@ foreach($xml->item as $item)
 	$desc = $item->description;
 	
 	$rss.="						<li>
-						<a href=$link>$title</a>
+						<a>$title</a>
 						<div>
 							<h3>$title</h3>
 							$desc
 							<p>
 								$date
 							</p>
+							<a href=$link><button class='bg-color-blueLight'> Link </button></a>							
 						</div>
 					</li>";
 }

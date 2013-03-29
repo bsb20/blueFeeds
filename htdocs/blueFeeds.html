@@ -15,6 +15,16 @@
     <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
     <script src="./blueFeedsScript.js"></script>
     <script src="./graph.js"></script>"
+    
+    <script type="text/javascript" src="../jquery.min.js"></script>
+<script type="text/javascript" src="../jquery.jqplot.min.js"></script>
+<script type="text/javascript" src="../jquery.jqplot.min.js"></script>
+<script type="text/javascript" src="../plugins/jqplot.barRenderer.min.js"></script>
+<script type="text/javascript" src="../plugins/jqplot.pieRenderer.min.js"></script>
+<script type="text/javascript" src="../plugins/jqplot.categoryAxisRenderer.min.js"></script>
+<script type="text/javascript" src="../plugins/jqplot.pointLabels.min.js"></script>
+<link rel="stylesheet" type="text/css" hrf="../jquery.jqplot.min.css" />
+    
     <meta name="apple-mobile-web-app-capable" content="yes" />
 </head>
 
@@ -351,7 +361,63 @@
     </footer>
 </div><!--tagging view page-->
 
-<div data-role="page" data-theme="a" id="graphViewer">
+<div data-role="page" data-theme="a" id="graphViewer2">
+     <header data-role="header" data-theme="b">
+        <h1>Rachel Harris</h1>
+        <a href="#commentspage" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+        <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
+    </header>
+    <body>
+    	
+    	
+    	<div id="chart2b" style="margin-top:20px; margin-left:20px; width:300px; height:300px;"></div>
+<pre class="code brush:js"></pre>
+    	
+    	<script>
+    	$(document).ready(function(){
+        var s1 = [2, 6, 7, 10];
+        var s2 = [7, 5, 3, 2];
+        var ticks = ['a', 'b', 'c', 'd'];
+         
+        plot2 = $.jqplot('chart2', [s1, s2], {
+            seriesDefaults: {
+                renderer:$.jqplot.BarRenderer,
+                pointLabels: { show: true }
+            },
+            axes: {
+                xaxis: {
+                    renderer: $.jqplot.CategoryAxisRenderer,
+                    ticks: ticks
+                }
+            }
+        });
+     
+        $('#chart2').bind('jqplotDataHighlight', 
+            function (ev, seriesIndex, pointIndex, data) {
+                $('#info2').html('series: '+seriesIndex+', point: '+pointIndex+', data: '+data);
+            }
+        );
+             
+        $('#chart2').bind('jqplotDataUnhighlight', 
+            function (ev) {
+                $('#info2').html('Nothing');
+            }
+        );
+    }); </script>
+	</body>
+    <footer data-role="footer" data-theme="b" data-position="fixed">
+        <nav data-role="navbar">
+            <ul>
+                <li><a href="#appointments" data-icon="grid">Appointments</a></li>
+                <li><a href="#studentSelection" data-icon="home">My Students</a></li>
+                <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
+            </ul>
+        </nav>
+    </footer>
+</div> <!--new graph page, with list-->
+
+
+<div data-role="page" data-theme="a" id="graphViewer2">
      <header data-role="header" data-theme="b">
         <h1>Rachel Harris</h1>
         <a href="#commentspage" data-theme="a" data-iconpos="notext" data-icon="back"></a>

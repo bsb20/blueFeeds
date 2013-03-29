@@ -11,13 +11,9 @@
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
     <link rel="stylesheet"  href="./blueFeedsStyle.css"/>
     <link rel="stylesheet" href="./graphStyle.css"/>
-    
-	<link href="jquery.jqplot.css" rel="stylesheet" type="text/css" />
-    
     <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
     <script src="./blueFeedsScript.js"></script>
-    <script src="jqplot.barRenderer.min.js" type="text/javascript"></script>
     <script src="./graph.js"></script>"
     <meta name="apple-mobile-web-app-capable" content="yes" />
 </head>
@@ -100,7 +96,7 @@
     <a  href="#login" data-role="button">Skip</a>
 </div><!-- photo upload page -->
 
-<div data-role="page" id="studentSelection" data-theme="a">
+<div data-role="page" id="studentSelection">
     <header data-role="header" data-theme="b">
         <h1>My Students</h1>
         <a href="#login" data-theme="a" data-iconpos="notext" data-icon="back"></a>
@@ -114,13 +110,13 @@
     <footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">
             <ul>
-                <li><a href="#appointments" data-icon="grid">All Meetings</a></li>
+                <li><a href="#appointments" data-icon="grid">Appointments</a></li>
                 <li><a href="#" data-icon="home">My Students</a></li>
                 <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
             </ul>
         </nav>
     </footer>
-</div><!-- student selection page-->
+</div>
 
 <div data-role="page" id="addStudent">
     <header data-role="header" data-theme="b">
@@ -170,224 +166,62 @@
     <footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">
             <ul>
-                <li><a href="#appointments" data-icon="grid">All Meetings</a></li>
+                <li><a href="#appointments" data-icon="grid">Appointments</a></li>
                 <li><a href="#studentSelection" data-icon="home">My Students</a></li>
                 <li><a href="#" data-icon="plus">Add Student</a></li>
             </ul>
         </nav>
     </footer>       
-</div><!-- add student-->
+</div>
 
-<div data-role="page" id="appointments" data-theme="a">
+<div data-role="page" id="appointments">
     <header data-role="header" data-theme="b">
         <h1>Meetings</h1>
-        <a href="#studentSelection" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+        <a href="#login" data-theme="a" data-iconpos="notext" data-icon="back"></a>
         <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
         </button>
     </header>
     <div class="appointmentCenter" data-role="content" data-theme="a">
-        <ul data-role="listview" data-filter="true" id="allApptList" class="apptList" data-dynamicQuery="allAppt">
+        <ul data-role="listview" data-filter="true">
+            <li data-role="list-divider">Wednesday, January 30, 2013 <span class="ui-li-count">2</span></li>
+            <li><a href="#">
+                    <h1>John Dorian</h1>
+                    <p>Weekly Meeting: 12p-1p</p>
+                    <img src="./jd.jpg" class="imgTile" alt="J.D"/>
+                </a>
+            </li>
+            <li><a href="#">
+                    <h1>Robert Duvall</h1>
+                    <img src="./duvall.jpg" class="imgTile" alt="Elliot"/>
+                    <p>Weekly Meeting: 4:40p 7:10p</p>
+                </a>
+            </li>
+            <li data-role="list-divider">Thursday, February 1, 2013 <span class="ui-li-count">1</span></li>
+            <li><a href="#">
+                    <h1>Janitor</h1>
+                    <img src="./janitor.jpeg" class="imgTile" alt="J.D"/>
+                    <p>8:30a-10a</p>
+                </a>
+            </li>
+            <li data-role="list-divider">Monday, February 5, 2013 <span class="ui-li-count">1</span></li>
+            <li><a href="#">
+                    <h1>Carla Espinosa</h1>
+                    <img src="./carla.jpeg" class="imgTile" alt="Carla"/>
+                    <p>11a-12p</p>
+                </a>
+            </li>
         </ul>
     </div>
     <footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">
             <ul>
-                <li><a href="#" data-icon="grid">All Meetings</a></li>
-                <li><a href="#studentSelection" data-icon="home">My Students</a></li>
-                <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
-            </ul>
-        </nav>
-    </footer>
-</div><!-- appointments -->
-
-
-<div data-role="page" data-theme="a" id="makeAppt">
-    <header data-role="header" data-theme="b">
-        <h1>Make Appointment</h1>
-        <a href="#studentProfile2" data-theme="a" data-iconpos="notext" data-icon="back"></a>
-        <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
-        </button>
-    </header>
-    <div class="makeApptCenter" data-role="content" data-theme="a">
-        <form id="apptForm">
-            <label for="title">Event Name</label><input type="text" class="input" name="title"/>
-            <label for="location">Location</label><input type="text" class="input" name="location"/>
-            <fieldset data-role="controlgroup" data-type="horizontal">
-		<legend>Meeting Date</legend>
-		<label for="month">Month</label>
-		<select name="month" id="month">
-                        <option value="jan">Jan</option>
-			<option value="feb">Feb</option>
-			<option value="mar">Mar</option>
-			<option value="apr">Apr</option>
-			<option value="may">May</option>
-			<option value="jun">Jun</option>
-			<option value="jul">Jul</option>
-			<option value="aug">Aug</option>
-			<option value="sep">Sep</option>
-			<option value="oct">Oct</option>
-			<option value="nov">Nov</option>
-			<option value="dec">Dec</option>
-		</select>
-
-		<label for="day">Day</label>
-		<select name="day" id="day">
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3">3</option>
-			<option value="4">4</option>
-			<option value="5">5</option>
-			<option value="6">6</option>
-			<option value="7">7</option>
-			<option value="8">8</option>
-			<option value="9">9</option>
-			<option value="10">10</option>
-			<option value="11">11</option>
-			<option value="12">12</option>
-			<option value="13">13</option>
-			<option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                        <option value="21">21</option>
-                        <option value="22">22</option>
-                        <option value="23">23</option>
-                        <option value="24">24</option>
-                        <option value="25">25</option>
-                        <option value="26">26</option>
-                        <option value="27">27</option>
-                        <option value="28">28</option>
-                        <option value="29">29</option>
-                        <option value="30">30</option>
-                        <option value="31">31</option>
-		</select>
-		<label for="year">Year</label>
-		<select name="year" id="year">
-                    <option value="2013">13</option>
-                    <option value="2014">14</option>
-                    <option value="2015">15</option>
-                    <option value="2016">16</option>
-                    <option value="2017">17</option>
-                </select>
-	</fieldset>
-        <fieldset data-role="controlgroup" data-type="horizontal">
-		<legend>Start Time</legend>
-
-                <select name="sHour" id="sHour">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                </select>
-
-                <select name="sMin" id="sMin">
-                    <option value="00">00</option>
-                    <option value="15">15</option>
-                    <option value="30">30</option>
-                    <option value="45">45</option>
-                </select>
-
-                <select name="sampm" id="sampm">
-                    <option value="pm">pm</option>
-                    <option value="am">am</option>
-                </select>
-        </fieldset>
-        <fieldset data-role="controlgroup" data-type="horizontal">
-		<legend>End Time</legend>
-
-                <select name="eHour" id="eHour">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                </select>
-                
-                <select name="eMin" id="eMin">
-                    <option value="00">00</option>
-                    <option value="15">15</option>
-                    <option value="30">30</option>
-                    <option value="45">45</option>
-                </select>
- 
-                <select name="eampm" id="eampm">
-                    <option value="pm">pm</option>
-                    <option value="am">am</option>
-                </select>
-        </fieldset>
-        
-                <label for="flip-1">Weekly Meeting</label>
-                <select name="flip-1" id="flip-1" data-role="slider">
-                    <option value="off">Off</option>
-                    <option value="on">On</option>
-                </select>    
-        <label for="submitAppt" class="ui-hidden-accessible" data-theme>Submit</label><input type="submit" data-theme="b" data-icon="plus" data-validate='apptSubmit' data-destination="#reminder" name="submitAppt" id ="submitAppt" value="Create Meeting">
-        </form>
-
-    </div>
-    <footer data-role="footer" data-theme="b" data-position="fixed">
-        <nav data-role="navbar">
-            <ul>
-                <li><a href="#" data-icon="grid">All Meetings</a></li>
-                <li><a href="#studentSelection" data-icon="home">My Students</a></li>
+                <li><a href="#" data-icon="grid">Appointments</a></li>
+                <li><a href="#quickNote" data-icon="star">Quick Note</a></li>
                 <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
             </ul>
         </nav>
     </footer>
 </div>
-
-<div data-role="page" id="reminder" data-theme="a">
-    <div data-role="header" data-theme="b" ><h1>Send Reminder</h1></div>
-    <div data-role="content" id="reminderCenter">
-        <ul data-role="listview" id="reminderOptions" data-prepend="true" data-dynamicQuery="getEmail" data-theme="b" >
-        <li><a data-validate='removeAppt' data-destination="#studentAppt">Remove This Meeting</a></li>
-        <li id="noReminder"><a href="#appointments">All Meetings</a></li>
-        <li id="noReminder"><a href="#studentAppt">All Meetings With This Student</a></li>
-        <ul>
-    </div>
-</div><!-- reminder dialog-->
-
-<div data-role="page" data-theme="a" id="studentAppt">
-    <header data-role="header" data-theme="b">
-        <h1>Appointments</h1>
-        <a href="#studentProfile2" data-theme="a" data-iconpos="notext" data-icon="back"></a>
-        <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
-        </button>
-    </header>
-    <div class="studentApptCenter" data-role="content" data-theme="a">
-        <ul data-role="listview" id="studentApptList" class="apptList" data-dynamicQuery="studentAppt">
-        
-        </ul>
-    </div>
-    <footer data-role="footer" data-theme="b" data-position="fixed">
-        <nav data-role="navbar">
-            <ul>
-                <li><a href="#appointments" data-icon="grid">All Meetings</a></li>
-                <li><a href="#studentSelection" data-icon="home">My Students</a></li>
-                <li><a href="#makeAppt" data-icon="alert">Add Meeting</a></li>
-            </ul>
-        </nav>
-    </footer>
-</div>
-
 
 <div data-role="page" data-theme="a" id="studentProfile2">
      <header data-role="header" data-theme="b">
@@ -401,7 +235,7 @@
 		<li data-theme="a"><a href="#studentProfile"  data-theme="b" data-role="button">Flag</a></li>
 		<li><a href="#studentProfile" data-theme="b" data-role="button">More Info</a></li>
 		<li><a href="#studentProfile" data-theme="b" data-role="button">Tips</a></li>
-
+		
         </ul>
     </div>
     <div class="studentSelectionCenter" data-role="content" data-theme="a">
@@ -417,16 +251,10 @@
 		    <p>View past comments about this student</p>
 		    <span class="ui-li-count">12</span></a>
 	    </li>
-	    <li><a href="#studentAppt">
+	    <li><a href="#appointments">
 		    <h1>Appointments</h1>
-		    <p>View and add meetings with this student</p>
-		    <span class="ui-li-count">3</span>
-		</a>
-	    </li>
-	    <li><a href="#rssFeed">
-		    <h1>RSS Feeds</h1>
-		    <p>View all rss feed sites</p>
-		    <span class="ui-li-count">4</span>
+		    <p>View upcoming meetings with this student</p>
+		    <span class="ui-li-count">0</span>
 		</a>
 	    </li>
         </ul>
@@ -434,16 +262,16 @@
     <footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">
             <ul>
-                <li><a href="#appointments" data-icon="grid">All Meetings</a></li>
+                <li><a href="#appointments" data-icon="grid">Appointments</a></li>
                 <li><a href="#studentSelection" data-icon="home">My Students</a></li>
-                <li><a href="#makeAppt" data-icon="alert">Add Meeting</a></li>
+                <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
             </ul>
         </nav>
     </footer>
 </div><!--new profile page, with list-->
 
 <div data-role="page" data-theme="a" id="commentspage">
-    <header data-role="header" data-theme="b"><h1>Comments</h1>
+    <header data-role="header" data-theme="b"><h1>KComments</h1>
     <a href="#studentProfile2" data-theme="a" data-iconpos="notext" data-icon="back"></a>
     </header>
     <div data-role="navbar" data-type="horizontal">
@@ -453,17 +281,18 @@
        	</ul> 
     </div>
     
-	<div class="commentCenter" data-role="content" data-theme="a">
+           <div class="commentCenter" data-role="content" data-theme="a">
             <div style="margin-bottom: 15%;">
             <a href="#addcomment" data-theme="b" data-role="button" data-icon="plus" class="topButton">Add Comment</a>
             </div>
             
-	<ul data-role="listview" id="parent" data-dynamicQuery="commentRetrieve"></ul>
+            
+        <ul data-role="listview" data-theme="a" id="parent" data-dynamicQuery="commentRetrieve"></ul>
 	</div>
     <footer data-role="footer" data-theme="b" data-tap-toggle="false" data-position="fixed" value="working?">
         <nav data-role="navbar">
             <ul>
-                <li><a href="#appointments" data-icon="grid">All Meetings</a></li>
+                <li><a href="#appointments" data-icon="grid">Appointments</a></li>
                 <li><a href="#studentSelection" data-icon="home">My Students</a></li>
                 <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
             </ul>
@@ -472,7 +301,7 @@
 </div><!--comments page-->
 
 <div data-role="page" data-theme="a" id="commentspageresults">
-    <header data-role="header" data-theme="b"><h1>Filtered Comments</h1>
+    <header data-role="header" data-theme="b"><h1>Comments Filtered</h1>
     <a href="#studenttags" data-theme="a" data-iconpos="notext" data-icon="back"></a>
     </header>
     <div data-role="navbar" data-type="horizontal">
@@ -482,13 +311,12 @@
        	</ul> 
     </div>
     <!--
-    </div>
 	<div class="commentCenter" data-role="content" data-theme="a">
             <div style="margin-bottom: 15%;">
             <a href="#addcomment" data-theme="b" data-role="button" data-icon="plus" class="topButton">Add Comment</a>
             </div>
      -->
-        <ul data-role="listview"  id="sister" data-prepend="true" data-dynamicQuery="tagComments"></ul>
+        <ul data-role="listview"  id="sister"  data-dynamicQuery="tagComments"></ul>
 	</div>
     <footer data-role="footer" data-theme="b" data-tap-toggle="false" data-position="fixed" value="working?">
         <nav data-role="navbar">
@@ -511,7 +339,7 @@
     	<div data-role="navbar" data-type="horizontal">
 	<ul><li data-theme="a"><a href="#graphViewer"  data-theme="b" data-role="button">View By Graphs</a></li></ul> 
 	</div>
-	<ul data-role="listview" data-filter="true" id="tagList" data-theme="b" data-dynamicQuery="tagRetrieve"></ul>
+	<ul data-role="listview" data-filter="true" id="studentTags" data-theme="b" data-prepend="true" data-dynamicQuery="tagRetrieve"></ul>
     <footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">
             <ul>
@@ -524,101 +352,78 @@
 </div><!--tagging view page-->
 
 
-
-   <div id="graphViewer" data-role="page" data-rockncoder-jspage="manageBarChart">
-   
+<div id="graphViewer" data-role="page" data-rockncoder-jspage="manageBarChart">
+<head>
+	    	<link href="jquery.mobile-1.1.0.min.css" rel="stylesheet" type="text/css" />
+	<link href="jquery.jqplot.css" rel="stylesheet" type="text/css" />
 	<script src="jquery-1.7.1.min.js" type="text/javascript"></script>
-	
-		<header data-role="header" data-position="fixed">
-			<h1>Bar Chart</h1>
-		</header>
-		<body>
-		<section data-role="content">
-			<div id="barChart" class="myChart"></div>
-			<button id="refreshBarChart" value="Refresh Chart" data-mini="true"></button>
-			<input type="range" id="pageBarSliderA" value="25" min="0" max="50" data-mini="true"/>
-			<input type="range" id="pageBarSliderB" value="25" min="0" max="50" data-mini="true"/>
-			<input type="range" id="pageBarSliderC" value="25" min="0" max="50" data-mini="true"/>
-		</section>
-	</div>
-	<script src="jquery.jqplot.min.js" type="text/javascript"></script>
+	<script src="jquery.mobile-1.1.0.min.js" type="text/javascript"></script>
+</head>
+    <header data-role="header" data-position="fixed">
+      <h1>Bar Chart</h1>
+    </header>
+    <body>
+    <section data-role="content">
+      <div id="barChart" class="myChart"></div>
+      <button id="refreshBarChart" value="Refresh Chart" data-mini="true"></button>
+      <input type="range" id="pageBarSliderA" value="25" min="0" max="50" data-mini="true"/>
+      <input type="range" id="pageBarSliderB" value="25" min="0" max="50" data-mini="true"/>
+      <input type="range" id="pageBarSliderC" value="25" min="0" max="50" data-mini="true"/>
+    </section>
+    
+    	<script src="jquery.jqplot.min.js" type="text/javascript"></script>
 	<script src="jqplot.pieRenderer.min.js" type="text/javascript"></script>
 	<script src="jqplot.barRenderer.min.js" type="text/javascript"></script>
 	<script src="jqplot.categoryAxisRenderer.min.js" type="text/javascript"></script>
 	<script src="underscore-min.js" type="text/javascript"></script>
 	<script src="hideAddressBar.js" type="text/javascript"></script>
 	<script src="app.js" type="text/javascript"></script>
-	
-		
 	</body>
-   
-   
-	<footer data-role="footer" data-theme="b" data-position="fixed">
-        <nav data-role="navbar">
-            <ul>
-                <li><a href="#appointments" data-icon="grid">Appointments</a></li>
-                <li><a href="#studentSelection" data-icon="home">My Students</a></li>
-                <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
-            </ul>
-        </nav>
-    </footer>
-	</div><!-- new graph -->
+  </div>
 
-
-
-<div data-role="page" data-theme="a" id="graphViewer2">
+<div data-role="page" data-theme="a" id="graphViewer3">
      <header data-role="header" data-theme="b">
-        <h1>Student Graoiph</h1>
+        <h1>Rachel Harris</h1>
         <a href="#commentspage" data-theme="a" data-iconpos="notext" data-icon="back"></a>
         <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
     </header>
     <body>
-    <!--
-    <div data-role="navbar" data-type="horizontal">
-	<ul>
-		<li data-theme="a"><a href="#" id="reset-graph-button  data-theme="b" data-role="button">Reset Graph</a></li>
-        </ul>
-   </div> -->
-	<div id="wrapper">
-		<div class="chart">
-			<!--<h2>Number of QuickNotes from Spring 2013</h2> -->
-
-			<table id="data-table"  border="1" cellpadding="75" cellspacing="0" summary="The Amount of QuickNotes for a Student Filtered by Tags."  >
-			<!--<caption>Population in thousands</caption>  -->
-			<thead>
-			<tr>
-			<td>&nbsp;</td>	
-				<th scope="col">January</th>
-				<th scope="col">February</th>
-				<th scope="col">March</th>
-				<th scope="col">April</th>
-			</tr>
-
-
-			</thead>
-			<!--<tbody id="doggystyle" data-dynamicQuery="graphHeaderRetrieve"></tbody> --> 
-
-			<tbody>
-
-                    	<tr>
-							<th scope="row">Bedside Manner</th>
-							<td>5680</td>
-							<td>6880</td>
-							<td>5760</td>
-							<td>5120</td>
-						</tr>
-						<tr>
-							<th scope="row">Communication</th>
-							<td>1040</td>
-							<td>1760</td>
-							<td>2880</td>
-							<td>4720</td>
-						</tr>
-				<tr id="doggy" data-dynamicQuery="graphHeaderRetrieve"></tr>
-			</tbody>
-		</table>
-	</div>
-	</div>
+    	
+    	
+    	<div id="chart2b" style="margin-top:20px; margin-left:20px; width:300px; height:300px;"></div>
+<pre class="code brush:js"></pre>
+    	
+    	<script>
+    	$(document).ready(function(){
+        var s1 = [2, 6, 7, 10];
+        var s2 = [7, 5, 3, 2];
+        var ticks = ['a', 'b', 'c', 'd'];
+         
+        plot2 = $.jqplot('chart2', [s1, s2], {
+            seriesDefaults: {
+                renderer:$.jqplot.BarRenderer,
+                pointLabels: { show: true }
+            },
+            axes: {
+                xaxis: {
+                    renderer: $.jqplot.CategoryAxisRenderer,
+                    ticks: ticks
+                }
+            }
+        });
+     
+        $('#chart2').bind('jqplotDataHighlight', 
+            function (ev, seriesIndex, pointIndex, data) {
+                $('#info2').html('series: '+seriesIndex+', point: '+pointIndex+', data: '+data);
+            }
+        );
+             
+        $('#chart2').bind('jqplotDataUnhighlight', 
+            function (ev) {
+                $('#info2').html('Nothing');
+            }
+        );
+    }); </script>
 	</body>
     <footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">
@@ -631,10 +436,11 @@
     </footer>
 </div> <!--new graph page, with list-->
 
-<div data-role="page" data-theme="a" id="rssFeed">
+
+<div data-role="page" data-theme="a" id="graphViewer2">
      <header data-role="header" data-theme="b">
-        <h1>RSS Feed Viewer</h1>
-        <a href="#studentSelection" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+        <h1>Rachel Harris</h1>
+        <a href="#commentspage" data-theme="a" data-iconpos="notext" data-icon="back"></a>
         <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
     </header>
     <body>
@@ -642,14 +448,12 @@
     			<ul data-role="listview" data-prepend="true" data-inset="true">
           	  		<li>
                 		<a href="#addRssFeed">
-                		<h1>Add New Feed</h1></a>
+                		<h1>Create New Feed</h1></a>
             			</li>
         		</ul>
-        		</div>
-        	
-        	<div class="studentSelectionCenter" data-role="content">
-        		<ul data-role="listview" data-prepend="true" id="rssFeeds" data-dynamicQuery="rssFeedRetrieve"></ul>
+        		<ul data-role="listview" data-theme="a" id="rssFeeds" data-dynamicQuery="rssFeedRetrieve"></ul>
         	</div>
+        	
 	</body>
     <footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">
@@ -660,12 +464,12 @@
             </ul>
         </nav>
     </footer>
-</div> <!--displays rss feeds-->
+</div> <!--new graph page, with list-->
 
 <div data-role="page" data-theme="a" id="addRssFeed">
      <header data-role="header" data-theme="b">
         <h1>Add RSS Feed</h1>
-        <a href="#studentSelection" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+        <a href="#commentspage" data-theme="a" data-iconpos="notext" data-icon="back"></a>
         <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
     </header>
     <body>
@@ -704,29 +508,53 @@
             </ul>
         </nav>
     </footer>
-</div> <!--adds rss feeds-->
+</div> <!--new rssFeed edit page, with list-->
 
 <div data-role="page" id="addcomment">
     <header data-role="header" data-theme="b"><h1>Add Comment</h1>
     <a href="#commentspage" data-theme="a" data-iconpos="notext" data-icon="back"></a>
     </header>
 	<div class="commentSelection" data-role="content" data-theme="b" align="center">
-        <form id="commentForm" data-dynamicQuery="genCUID">
+        <form id="commentForm">
         <label for="title">Title This Post</label><input type="text" name="title">
         <label for="textarea">What would you like to change?</label>
         <textarea name="comment" id="comment">
         </textarea>
-	    <div data-role="fieldcontain">
-            <fieldset data-role="controlgroup" id="userTagList"  data-dynamicQuery="showUserTags">
-            </fieldset>
-	    </div>
-	<button data-theme="a" type="submit" data-icon="check" id="commentSubmit" data-validate='commentSubmit' data-destination="#studentProfile2">Save Comment</button>          
-	</form>
-        </div>
+        
+       	<div data-role="navbar" data-type="horizontal">
+		<ul>	
+			<!-- STILL TO IMPLEMENT SAVE -->
+			<li data-theme="a"><button data-theme="a" type="submit" data-icon="check" id="commentSubmit" data-validate='commentSubmit' data-destination="#studentProfile2">Save</button></li>
+        		<li data-theme="a"><button data-theme="a" type="submit" data-icon="check" id="commentSubmit" data-validate='commentSubmit' data-destination="#studentProfile2">Submit</button></li>
+    		</ul>
+    	</div>
+    
+    	<div data-role="collapsible-set" data-theme="b" data-content-theme="d">     
+		<div data-role="collapsible">
+			<h2>Tags</h2>
+			<ul data-role="listview" data-divider-theme="d">
+				<fieldset data-role="controlgroup">
+					<input type="checkbox" name="checkbox-1a" id="checkbox-1a" class="custom" /><li>Leadership</li>
+                        	</fieldset>
+                        	<fieldset data-role="controlgroup">
+					<input type="checkbox" name="checkbox-1a" id="checkbox-1a" class="custom" /><li>Bedside Manner</li>
+                        	</fieldset>
+                        	<fieldset data-role="controlgroup">
+					<input type="checkbox" name="checkbox-1a" id="checkbox-1a" class="custom" /><li>Intelligence</li>
+                        	</fieldset>
+			</ul>
+		</div>
+    	</div>
+        <!--
+        	<button data-theme="a" type="submit" data-icon="check" id="commentSubmit" data-validate='commentSubmit' data-destination="#studentProfile2">Save Comment</button>     
+       		<button data-theme="a" data-icon="star">Flag Comment</button> 
+        	<button data-theme="a" data-icon="edit">Tag Comment</button>                               
+		</form>
+	-->
     <footer data-role="footer" data-theme="b" data-position="fixed" value="working?">
        <nav data-role="navbar">
             <ul>
-                <li><a href="#appointments" data-icon="grid">All Meetings</a></li>
+                <li><a href="#appointments" data-icon="grid">Appointments</a></li>
                 <li><a href="#studentSelection" data-icon="home">My Students</a></li>
                 <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
             </ul>
@@ -752,7 +580,7 @@
     <footer data-role="footer" data-theme="b" data-position="fixed" value="working?">
         <nav data-role="navbar">
             <ul>
-                <li><a href="#appointments" data-icon="grid">All Meetings</a></li>
+                <li><a href="#appointments" data-icon="grid">Appointments</a></li>
                 <li><a href="#studentSelection" data-icon="home">My Students</a></li>
                 <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
             </ul>
@@ -770,7 +598,7 @@
     <footer data-role="footer" data-theme="b" data-position="fixed" value="working?">
     <nav data-role="navbar">
             <ul>
-                <li><a href="#appointments" data-icon="grid">All Meetings</a></li>
+                <li><a href="#appointments" data-icon="grid">Appointments</a></li>
                 <li><a href="#studentSelection" data-icon="home">My Students</a></li>
                 <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
             </ul>
@@ -779,5 +607,7 @@
 </div>
 
 
+
 </body>
 </html>
+

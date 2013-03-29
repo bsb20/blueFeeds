@@ -16,17 +16,8 @@
     <script src="./blueFeedsScript.js"></script>
     <script src="./graph.js"></script>"
     
-    	<link href="jquery.mobile-1.1.0.min.css" rel="stylesheet" type="text/css" />
-	<link href="jquery.jqplot.css" rel="stylesheet" type="text/css" />
-	<script src="jquery-1.7.1.min.js" type="text/javascript"></script>
-	<script src="jquery.mobile-1.1.0.min.js" type="text/javascript"></script>
-	<script src="jquery.jqplot.min.js" type="text/javascript"></script>
-	<script src="jqplot.pieRenderer.min.js" type="text/javascript"></script>
-	<script src="jqplot.barRenderer.min.js" type="text/javascript"></script>
-	<script src="jqplot.categoryAxisRenderer.min.js" type="text/javascript"></script>
-	<script src="underscore-min.js" type="text/javascript"></script>
-	<script src="hideAddressBar.js" type="text/javascript"></script>
-	<script src="app.js" type="text/javascript"></script>
+
+
     
     <meta name="apple-mobile-web-app-capable" content="yes" />
 </head>
@@ -366,9 +357,17 @@
 
 
 <div id="graphViewer" data-role="page" data-rockncoder-jspage="manageBarChart">
+<head>
+	    	<link href="jquery.mobile-1.1.0.min.css" rel="stylesheet" type="text/css" />
+	<link href="jquery.jqplot.css" rel="stylesheet" type="text/css" />
+	<script src="jquery-1.7.1.min.js" type="text/javascript"></script>
+	<script src="jquery.mobile-1.1.0.min.js" type="text/javascript"></script>
+	</head>
+</head>
     <header data-role="header" data-position="fixed">
       <h1>Bar Chart</h1>
     </header>
+    <body>
     <section data-role="content">
       <div id="barChart" class="myChart"></div>
       <button id="refreshBarChart" value="Refresh Chart" data-mini="true"></button>
@@ -376,6 +375,15 @@
       <input type="range" id="pageBarSliderB" value="25" min="0" max="50" data-mini="true"/>
       <input type="range" id="pageBarSliderC" value="25" min="0" max="50" data-mini="true"/>
     </section>
+    
+    	<script src="jquery.jqplot.min.js" type="text/javascript"></script>
+	<script src="jqplot.pieRenderer.min.js" type="text/javascript"></script>
+	<script src="jqplot.barRenderer.min.js" type="text/javascript"></script>
+	<script src="jqplot.categoryAxisRenderer.min.js" type="text/javascript"></script>
+	<script src="underscore-min.js" type="text/javascript"></script>
+	<script src="hideAddressBar.js" type="text/javascript"></script>
+	<script src="app.js" type="text/javascript"></script>
+	</body>
   </div>
 
 <div data-role="page" data-theme="a" id="graphViewer3">

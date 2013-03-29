@@ -361,7 +361,21 @@
     </footer>
 </div><!--tagging view page-->
 
-<div data-role="page" data-theme="a" id="graphViewer">
+
+<div id="graphViewer" data-role="page" data-rockncoder-jspage="manageBarChart">
+    <header data-role="header" data-position="fixed">
+      <h1>Bar Chart</h1>
+    </header>
+    <section data-role="content">
+      <div id="barChart" class="myChart"></div>
+      <button id="refreshBarChart" value="Refresh Chart" data-mini="true"></button>
+      <input type="range" id="pageBarSliderA" value="25" min="0" max="50" data-mini="true"/>
+      <input type="range" id="pageBarSliderB" value="25" min="0" max="50" data-mini="true"/>
+      <input type="range" id="pageBarSliderC" value="25" min="0" max="50" data-mini="true"/>
+    </section>
+  </div>
+
+<div data-role="page" data-theme="a" id="graphViewer3">
      <header data-role="header" data-theme="b">
         <h1>Rachel Harris</h1>
         <a href="#commentspage" data-theme="a" data-iconpos="notext" data-icon="back"></a>

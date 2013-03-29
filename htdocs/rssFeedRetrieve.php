@@ -23,9 +23,10 @@ if($row=mysqli_fetch_array($result)){
     				<h1>$title</h1>
 				<p class='note'>$text</p>
                                 <p class='note'><strong>$formattedDate</strong></p>
-                                                <a href=$url data-role='button' data-theme='a'>View</a>
-						<a href='#viewcomment' data-role='button'  data-theme='a'>Remove</a>
-					</li>";
+					</li>
+					
+				<a href=$url data-role='button' data-theme='a'>View</a>
+				<a href='#viewcomment' data-role='button'  data-theme='a'>Remove</a>";
 }
     echo $finally;
 ?>

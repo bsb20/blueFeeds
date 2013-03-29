@@ -13,9 +13,9 @@ foreach($result as $row){
         $TUID=$row["TUID"];
         $text=$row["text"];
         $toString=$toString."
-        <ls>
+        "<li data-theme='c' class='listNote dynamicComment' data-dynamicContent='commentRetrieve' onClick='echoComment()' style='margin: 1%; overflow: visible; white-space: normal;'>
         <fieldset><input type='checkbox' name='tag[]' id='$TUID' value='$TUID' class='custom' /><label for='$TUID'>$text</label></fieldset>
-        </ls>";
+        </li>";
 }
 echo $toString;
 ?>

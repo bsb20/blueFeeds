@@ -34,12 +34,12 @@ if($row=mysqli_fetch_array($result)){
     $formattedDate=date("m/d/y",$time);
     }
     if(isset($_SESSION["UUID"])){
-    $finally.=                       "<li data-theme='d' class='listNote dynamicComment' data-dynamicContent='commentRetrieve' onClick='echoComment()' style='margin: 1%; overflow: visible; white-space: normal;'>
+    $finally.=                       "<li data-theme='c' class='listNote dynamicComment' data-dynamicContent='commentRetrieve' onClick='echoComment()' style='margin: 1%; overflow: visible; white-space: normal;'>
 						<h1>$title</h1>
 						<p class='note'>$text</p>
-						<div data-role='controlgroup' data-type='horizontal'  class='noteControl' align='right'>
-                                                <a href='#editcomment' data-role='button' data-theme='b' data-mini='true' data-icon='plus'>Edit</a>
-						<a href='#viewcomment' data-role='button'  data-theme='b' data-mini='true' data-icon='info'>View</a>						
+						<div data-role='controlgroup' data-mini='true' data-type='horizontal' align='right'>
+						<a href='#editcomment' data-role='button' data-mini='true'>Edit</a>
+						<a href='#viewcomment' data-role='button' data-mini='true'>View</a>
 						</div>
                                                 <p class='ui-li-aside'><strong>$formattedDate</strong></p>
                                                     <input type='text' name='CUID' value='$CUID' id='hiddenForm' style='display: none;'>
@@ -59,5 +59,6 @@ if($row=mysqli_fetch_array($result)){
                                                     <input type='text' name='instructors' value='$instructors' id='hiddenForm3' style='display: none;'>
 					</li>";}
     }
+
     echo $finally;
 ?>

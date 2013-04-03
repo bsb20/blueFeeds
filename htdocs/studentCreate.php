@@ -18,13 +18,14 @@ $title=$_POST['title'];
 $spec=$_POST['study'];
 $SUID=uniqid("",FALSE);
 $_SESSION["SUID"]=$SUID;
-$sql = "SELECT * FROM ".$table." WHERE `user`='".$user."';";
+$id=$_POST["id"];
+$pass=md5($_POST["password"],FALSE);
+$sql = "SELECT * FROM ".$table." WHERE `user`='".$user."' OR `id`='$id';";
 $hasDuplicatesResult=$db->query($sql);
 if(mysqli_fetch_array($hasDuplicatesResult)){
     return 2;
 }
-$db->real_query("INSERT INTO ".$table." (`user`, `email`, `SUID`, `photo`, `title`, `speciality`) VALUES ('$user','$email', '$SUID', '$photo', '$title', '$spec');");
-$db->query("INSERT INTO $joinTable (`UUID`,`SUID`) VALUES ('$UUID', '$SUID')");
+$db->real_query("INSERT INTO ".$table." (`user`, `email`, `SUID`, `photo`, `title`, `speciality`, `id`, `pass`) VALUES ('$user','$email', '$SUID', '$photo', '$title', '$spec', '$id', '$pass');");
 return 0;
 }
 switch(create()){

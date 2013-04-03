@@ -5,23 +5,33 @@ if($db->connect_errno){
     echo "FAILURE";
 }
 $UUID=$_SESSION["UUID"];
-$table1="`test`.`su`";
-$table2="`test`.`students`";
-$sql = "SELECT * FROM $table1, $table2 WHERE $table1.`SUID`=$table2.`SUID` AND $table1.`UUID`='$UUID';";
+$table1="`test`.`groups`";
+$table2="`test`.`gs`";
+$table3="`test`.`students`";
+if(!isset($_SESSION['GUID'])){
+$sql = "SELECT * FROM $table1, $table2, $table3 WHERE $table1.`UUID`='$UUID' AND $table1.`GUID`=$table2.`GUID` AND $table2.`SUID`=$table3.`SUID`;";
+}
+else{
+    $GUID=$_SESSION['GUID'];
+    $sql = "SELECT * FROM $table1, $table2, $table3 WHERE $table1.`UUID`='$UUID' AND $table1.`GUID`='$GUID' AND $table1.`GUID`=$table2.`GUID` AND $table2.`SUID`=$table3.`SUID`;";
+}
 $result=$db->query($sql);
 $name;
 $photo;
 $title;
 $spec;
 $html="";
+$repeated=array();
 for($i=0; $i<mysqli_num_rows($result); $i++){
 if($row=mysqli_fetch_array($result)){
+    if(!in_array($row["SUID"],$repeated)){
+    array_push($repeated, $row["SUID"]);
     $name=$row["user"];
     $photo=$row["photo"];
     $title=$row["title"];
     $spec=$row["speciality"];
     $SUID=$row["SUID"];
-    }
+
 $html.=           " <li class='dynamicSelection' data-dynamicContent='selection'>
                     <a href='#studentProfile2'>
                     <h1>$name</h1>
@@ -30,6 +40,8 @@ $html.=           " <li class='dynamicSelection' data-dynamicContent='selection'
                     </a>
                     <input type='text' id='no' style='display:none' value='$SUID'>
             </li>";
+    }
+    }
 }
 echo $html;
 

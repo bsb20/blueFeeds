@@ -10,10 +10,27 @@ $sql = "SELECT * FROM ".$table." WHERE `user`='".$user."';";
 $result=$db->query($sql);
 if($row=mysqli_fetch_array($result) and $row["pass"]==md5($pass,FALSE)){
         session_start();
+        if(isset($_SESSION["GUID"])){
+            unset($_SESSION["GUID"]);
+        }
         $_SESSION["UUID"]=$row["UUID"];
-        echo "true";
+        echo "instructor";
     }
-
-else{echo "Username/Password combo was incorrect!";
+else{
+    $table="`test`.`students`";
+    $sql="SELECT * FROM ".$table." WHERE `id`='".$user."';";
+    $result=$db->query($sql);
+    if($row=mysqli_fetch_array($result) and $row["pass"]==md5($pass,FALSE)){
+        session_start();
+        if(isset($_SESSION["GUID"])){
+            unset($_SESSION["GUID"]);
+        }
+        if(isset($_SESSION["UUID"])){
+            unset($_SESSION["UUID"]);
+        }
+        $_SESSION["SUID"]=$row["SUID"];
+        echo "student";
+    }
+//echo "Username/Password combo was incorrect!";
 }
 ?>

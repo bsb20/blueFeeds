@@ -10,6 +10,24 @@
             background-repeat:no-repeat;
             background-position:50% 20%;
         }
+	
+	.container{
+	    margin-top: 25%;
+	    margin-left: 7%;
+	    margin-right: 7%;
+	    color: rgb(0,0,0);
+	    background-image: url(./duke.gif);
+	    background-position: center;
+	    opacity: 25%;
+	    background-size:80%;
+	    background-repeat: no-repeat;
+	    background-color: rgb(227,244,249);
+	    -moz-border-radius: 20px;
+	    -webkit-border-radius: 20px;
+	    -khtml-border-radius: 20px;
+	    border-radius: 20px;
+	    text-align: center;
+	}
 
         #commentText{
             margin-left:3%;

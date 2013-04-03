@@ -41,7 +41,8 @@
     </div>
     <footer data-role="footer" data-theme="a" data-position="fixed"><nav data-role="navbar">
         <ul>    
-            <li><a href="#newAcct" data-icon="plus">New Account</a></li>
+            <li><a href="#newAcct" data-icon="plus">New Instructor</a></li>
+            <li><a href="#addStudent" data-icon="plus">New Student</a></li>
         </ul>
     </nav></footer>
 </div><!--login page-->
@@ -100,7 +101,7 @@
     <header data-role="header" data-theme="b">
         <h1>My Students</h1>
         <a href="#login" data-theme="a" data-iconpos="notext" data-icon="back"></a>
-        <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
+        <a href="#courseCreate" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
         </button>
     </header>
     <div class="studentSelectionCenter" data-role="content" data-theme="a">
@@ -112,7 +113,7 @@
             <ul>
                 <li><a href="#appointments" data-icon="grid">All Meetings</a></li>
                 <li><a href="#" data-icon="home">My Students</a></li>
-                <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
+                <li><a href="#courses" data-icon="arrow-u" data-transition="slideup">Courses</a></li>
             </ul>
         </nav>
     </footer>
@@ -143,21 +144,12 @@
             <div data-role="fieldcontain" class="input">
                 <label for="study" >Area of Study</label><input type="text" class="input" name="study" data-mini="true"/>
             </div>
-            <div data-role="fieldcontain">
-                            <fieldset data-role="controlgroup">
-                                <legend>Scheduled Work Days</legend>
-                            <label for="tag1">Monday</label>
-                            <input type="checkbox" name="tag1" id="tag1" data-mini="true"/>
-                            <label for="tag2">Tuesday</label>
-                            <input type="checkbox" name="tag2" id="tag2" data-mini="true"/>
-                            <label for="tag4">Wednesday</label>
-                            <input type="checkbox" name="tag4" id="tag4" data-mini="true"/>
-                            <label for="tag3">Thursday</label>
-                            <input type="checkbox" name="tag3" id="tag3" data-mini="true"/>
-                            <label for="tag5">Friday</label>
-                            <input type="checkbox" name="tag5" id="tag5" data-mini="true"/>
-                            </fieldset>  
-                        </div>
+            <div data-role="fieldcontain" class="input">
+                <label for="id" >Username</label><input type="text" class="input" name="id" data-mini="true"/>
+            </div>
+            <div data-role="fieldcontain" class="input">
+                <label for="password">Password</label><input type="password" class="input" name="password" data-mini="true"/>
+            </div>
             <div data-role="fieldcontain" class="input">
                 <label for="submit" class="ui-hidden-accessible" data-theme>Submit</label><input type="submit" data-theme="b" data-icon="plus" data-validate='studentCreate' data-destination="#photoUpload" name="submit" id ="studentCreateSubmit" value="Add Student">
             </div>        
@@ -448,7 +440,7 @@
             <a href="#addcomment" data-theme="b" data-role="button" data-icon="plus" class="topButton">Add Comment</a>
             </div>
             
-	<ul data-role="listview" id="parent" data-dynamicQuery="commentRetrieve"></ul>
+	<ul data-role="listview" class="parent" id="parent" data-dynamicQuery="commentRetrieve"></ul>
 	</div>
     <footer data-role="footer" data-theme="b" data-tap-toggle="false" data-position="fixed" value="working?">
         <nav data-role="navbar">
@@ -460,6 +452,29 @@
         </nav>
     </footer>
 </div><!--comments page-->
+
+<div data-role="page" data-theme="a" id="studentCourse">
+    <header data-role="header" data-theme="b"><h1>Comments</h1>
+    <a href="#studentProfile2" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+    </header>
+    <div data-role="navbar" data-type="horizontal">
+	<ul>
+		<li data-theme="a"><a href="#graphViewer"  data-theme="b" data-role="button">View By Graphs</a></li>
+                <li data-theme="a"><a href="#studenttags"  data-theme="b" data-role="button">View By Tags</a></li>
+       	</ul> 
+    </div>
+    
+	<div class="commentCenter" data-role="content" data-theme="a">
+	<ul data-role="listview" id="parent2" data-dynamicQuery="commentRetrieve"></ul>
+	</div>
+    <footer data-role="footer" data-theme="b" data-tap-toggle="false" data-position="fixed" value="working?">
+        <nav data-role="navbar">
+            <ul>
+                <li><a href="#courses" data-icon="arrow-u">Courses</a></li>
+            </ul>
+        </nav>
+    </footer>
+</div><!--student course comment page-->
 
 <div data-role="page" data-theme="a" id="commentspageresults">
     <header data-role="header" data-theme="b"><h1>Filtered Comments</h1>
@@ -591,6 +606,20 @@
         <label for="textarea">What would you like to change?</label>
         <textarea name="comment" id="comment">
         </textarea>
+        <div data-role="fieldcontain">
+        <label for="students">Release to Student</label>
+        <select name="students" id="students" data-role="slider" data-mini="true">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+        </div>
+        <div data-role="fieldcontain">
+        <label for="instructors">Release to Instructors</label>
+        <select name="instructors" id="instructors" data-role="slider" data-mini="true">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+        </div>
 	    <div data-role="fieldcontain">
             <fieldset data-role="controlgroup" id="userTagList"  data-dynamicQuery="showUserTags">
             </fieldset>
@@ -608,7 +637,20 @@
         </nav>
     </footer>
 </div><!--add comments page-->
-
+<div data-role="page" id="courseCreate" data-theme="a">
+    <header data-role="header" data-theme="b"><h1>New Course</h1>
+    <a href="#studentSelection" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+    </header>
+    <div data-role="content">
+        <form id="courseCreateForm" data-theme="b">
+        <label for="title">Course Name</label><input type="text" name="title">
+        <label for="textarea">Description</label>
+        <textarea name="info" id="info">
+        </textarea>
+        <button type="submit" id="courseCreate" data-validate='courseCreate' data-destination="#studentSelection" data-icon="check" data-theme="b">Create New Course</button>
+        </form>
+    </div>
+</div><!--add course page-->
 <div data-role="page" id="editcomment">
     <header data-role="header" data-theme="b"><h1>Edit Comment</h1>
     <a href="#commentspage" data-theme="a" data-iconpos="notext" data-icon="back"></a>
@@ -619,6 +661,20 @@
         <textarea name="comment" id="commentBox">
         </textarea>
         <input type="text" name="CUID" id="CUID" style="display:none;">
+        <div data-role="fieldcontain">
+        <label for="students">Release to Student</label>
+        <select name="students" id="students2" data-role="slider" data-mini="true">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+        </div>
+        <div data-role="fieldcontain">
+        <label for="instructors">Release to Instructors</label>
+        <select name="instructors" id="instructors2" data-role="slider" data-mini="true">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+        </div>
         <button data-theme="a" type="submit" id="commentEdit" data-validate='commentEdit' data-destination="#studentProfile2" data-icon="check">Save Comment</button>     
         <button data-theme="a" data-icon="star">Flag Comment</button> 
         <button data-theme="a" data-icon="delete" id="commentDelete" data-validate='commentDelete' data-destination="#studentProfile2">Discard Comment</button>                               
@@ -653,6 +709,87 @@
     </footer>
 </div>
 
+<div data-role="page" data-theme="a" id="courses">
+    <header data-role="header" data-theme="b">
+        <a href="#" data-theme="a" data-iconpos="notext" data-icon="arrow-l"></a>
+        <h1 class="title"></h1>
+        <a href="#" data-theme="a" data-iconpos="notext" data-icon="arrow-r"></a>
+    </header>
+    <div data-role="content" class="container"></div>
+    <footer data-role="footer" data-theme="b" data-position="fixed" value="working?">
+    <nav data-role="navbar">
 
+            <ul>
+                <li class="setCourse"><a href="#studentSelection" data-theme="b" class="selector" data-role="button" data-icon="arrow-d" data-transition="slidedown">Select Course</a>
+                <input type='text' class="courseKey" style="display: none">
+                </li>
+                <li class="setCourse"><a href="#courseManage" data-theme="b" class="manager" data-role="button" data-icon="arrow-u" data-transition="slidedown">Manage Course</a>
+                    <input type='text' class="courseKey" style="display: none">
+                </li>
+            </ul>
+            
+        </nav>
+    </footer>
+</div>
+
+<div data-role="page" data-theme="a" id="courses2">
+    <header data-role="header" data-theme="b">
+        <a href="#" data-theme="a" data-iconpos="notext" data-icon="arrow-l"></a>
+        <h1 class="title"></h1>
+        <a href="#" data-theme="a" data-iconpos="notext" data-icon="arrow-r"></a>
+    </header>
+    <div data-role="content" class="container"></div>
+    <footer data-role="footer" data-theme="b" data-position="fixed" value="working?">
+    <nav data-role="navbar">
+            <ul>
+                <li class="setCourse"><a href="#studentSelection" data-theme="b" class="selector" data-role="button" data-icon="arrow-d" data-transition="slidedown">Select Course</a>
+                    <input type='text' class="courseKey" style="display: none">
+                </li>
+                <li class="setCourse"><a href="#courseManage" data-theme="b" data-role="button" class="manager" data-icon="arrow-u" data-transition="slidedown">Manage Course</a>
+                    <input type='text' class="courseKey" style="display: none">
+                </li>
+            </ul>
+        </nav>
+    </footer>
+</div>
+<div data-role="page" data-theme="a" id="courseManage">
+    <header data-role="header" data-theme="b">
+        <a href="#courses" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+        <h1>Manage Course</h1>
+    </header>
+    <ul data-role="listview" id="manage">
+        <li>
+            <a href="#addInstructor" data-rel="dialog" data-transition="slidedown">Add Instructors</a>
+        </li>
+        <li>
+            <a href="#addStudents" data-rel="dialog" data-transition="slidedown">Add Students</a>
+        </li>
+    </ul>
+</div>
+<div data-role="page" id="addInstructor">
+    <header data-role="header" data-theme="b">
+        <h1>Add Instructors</h1>
+    </header>
+    <div data-role="content">
+        <form id="newInstructorForm">
+        <label for="instructors">Enter the user names of the instructors you want to add, separated by commas</label>
+        <input type="text" name="instructors" id="instructors">
+        <button data-theme="a" type="submit" id="addInstructor" data-validate='addInstructor' data-destination="#courseManage" data-icon="plus">Add Instructors</button>                  
+	</form>
+    </div>
+</div>
+
+<div data-role="page" id="addStudents">
+    <header data-role="header" data-theme="b">
+        <h1>Add Students</h1>
+    </header>
+    <div data-role="content">
+        <form id="newStudentForm">
+        <label for="instructors">Enter the user names of the students you want to add, separated by commas</label>
+        <input type="text" name="students" id="students">
+        <button data-theme="a" type="submit" id="addStudent" data-validate='addStudent' data-destination="#courseManage" data-icon="plus">Add Students</button>                  
+	</form>
+    </div>
+</div>
 </body>
 </html>

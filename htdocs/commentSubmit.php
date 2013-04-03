@@ -9,13 +9,15 @@ if($db->connect_errno){
 }
 $text=$_POST["comment"];
 $title=$_POST["title"];
+$instructors=$_POST["instructors"];
+$students=$_POST["students"];
 $user=$_SESSION["UUID"];
+$GUID=$_SESSION["GUID"];
 $student=$_SESSION["SUID"];
-$isReleased=0;
 $CUID=$_POST["CUID"];
 $tags=$_POST["tag"];
 $date=date("Y-m-d H:i:s");
-$db->real_query("INSERT INTO ".$table." (`UUID`, `SUID`, `date`, `text`, `isReleased`, `CUID`, `title`) VALUES ('$user', '$student', '$date', '$text', '$isReleased', '$CUID','$title');");
+$db->real_query("INSERT INTO ".$table." (`UUID`, `SUID`, `date`, `text`, `CUID`, `title`, `instructors`, `students`, `GUID`) VALUES ('$user', '$student', '$date', '$text', '$CUID','$title', '$instructors','$students', '$GUID');");
 foreach ($tags as $TUID){
 	$db->real_query("INSERT INTO ".$tag_table." (`TUID`, `CUID`) VALUES ('$TUID', '$CUID');");
 }

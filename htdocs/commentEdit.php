@@ -6,11 +6,12 @@ if($db->connect_errno){
     echo "FAILURE";
 }
 $text=$_POST["comment"];
+$students=$_POST["students"];
+$instructors=$_POST["instructors"];
 $user=$_SESSION["UUID"];
 $student=$_SESSION["SUID"];
 $CUID=$_POST["CUID"];
-$isReleased=0;
 $date=date("Y-m-d H:i:s");
-$db->real_query("UPDATE ".$table." SET `text`='$text' WHERE `CUID`='$CUID';");
+$db->real_query("UPDATE ".$table." SET `text`='$text', `instructors`='$instructors', `students`='$students' WHERE `CUID`='$CUID';");
 echo "true";
 ?>

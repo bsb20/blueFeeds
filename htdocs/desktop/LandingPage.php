@@ -1,0 +1,225 @@
+<?php
+session_start();
+date_default_timezone_set("America/New_York");
+$table="`test`.`students`";
+$table2="`test`.`appointments`";
+$db=new mysqli("127.0.0.1","root","devils","test",8889);
+if($db->connect_errno){
+    echo "FAILURE";
+}
+$UUID=$_SESSION["UUID"];
+$final="";
+$sql = "SELECT * FROM $table,$table2 WHERE $table.`SUID`=$table2.`SUID` AND $table2.`UUID`='$UUID' ORDER BY `start`;";
+$result=$db->query($sql);
+$recentAppt = "";
+for($i=0; $i<mysqli_num_rows($result); $i++){
+    if($row=mysqli_fetch_array($result)){
+            $name=$row["user"];
+            $photo=$row["photo"];
+            $title=$row["title"];
+            $spec=$row["speciality"];
+			$past=strtotime($row['start'])>time() || $row['isWeekly'] ? "a" : "d";
+			$pastMessage= strtotime($row['start'])>time() || $row['isWeekly'] ? "":"Past Meeting Time";
+			$duration=$row['duration'];
+			$start=strtotime($row['start']);
+			$formattedStart=date("g:i A",$start);
+			$end=date("g:i", strtotime($row['end']));
+			$weekly= $row['isWeekly'] ? "Weekly: ".date("l",$start) : date("l, M j", $start);
+			$title=$row['title'];
+			$loc=$row['location'];
+			$AUID=$row["AUID"];
+			$today=getDate();
+			$testday = $today['mday'];
+			$day=intval(date("j",$start));
+			$month=intval(date("n",$start));
+			$year=intval(date("Y",$start));
+			if($today['mday']==$day and $today['mon']==$month and $today['year']==$year)
+			{
+				$recentAppt.="								<li id='CurrentAppointments'>$name at $formattedStart</li>";								
+			}
+	}
+}
+$_SESSION['appointments'] = $recentAppt;
+
+$table="`test`.`users`";
+$sql = "SELECT * FROM ".$table." WHERE `UUID`='$UUID';";
+$result=$db->query($sql);
+$name;
+$email;
+$title;
+$spec;
+if($row=mysqli_fetch_array($result)){
+	$name=$row["user"];
+	$email=$row["email"];
+	$title=$row["title"];
+	$spec=$row["speciality"];
+	}
+$_SESSION['profile'] = " <div class='tile-content'>
+				<img src='./images/Doctor-house.jpg' class='place-left' id='ProfilePic'/>
+				<h2>$name</h2>
+				<h5>$title</h5>
+				<p>
+					$spec
+				</p>					
+			</div>;";
+			
+$table="`test`.`comments`";
+$sql = "SELECT * FROM ".$table."WHERE `UUID`='$UUID' ORDER BY 'date' DESC";
+$result=$db->query($sql);
+$recentcomment2="";
+$formattedDate;
+for($i=0; $i<mysqli_num_rows($result); $i++){
+	if($row=mysqli_fetch_array($result)){
+		$title=$row["title"];
+		$text=$row["text"];
+		$CUID=$row["CUID"];
+		$SUID=$row["SUID"];		
+		$date=$row["date"];
+		$time=strtotime($date);
+		$formattedDate=date("m/d/y",$time);
+	}
+	$recentComment1="<h2>Most Recent Comment:</h2>
+					<br>
+					<div>
+						<h3>Description: </h3>					
+						<br>
+						<p id='RecentCommentText'>
+							$text
+						</p>
+					</div>";
+	break;
+}
+$_SESSION["recentComment1"]=$recentComment1;	
+
+$table="`test`.`students`";
+$sql = "SELECT * FROM ".$table." WHERE `SUID`='$SUID';";
+$result=$db->query($sql);
+$recentcomment1="";
+if($row=mysqli_fetch_array($result)){
+	$student=$row["user"];
+	$recentComment2="
+					<div id='RecentCommentDiv'>
+						<h3>To: </h3>
+						<br>
+						<p id='RecentCommentText'>
+							$student
+						</p>
+					</div>
+					<div id='RecentCommentDiv'>					
+						<h3>On: </h3>
+						<br>						
+						<p id='RecentCommentText'>
+							$formattedDate
+						</p>	
+					</div>";
+}
+$_SESSION["recentComment2"]=$recentComment2;
+
+$filepath = "/home/htdocs/desktop/bluefeedsTest.xml";
+$xml = simplexml_load_file($_SERVER['DOCUMENT_ROOT'].$filepath);
+$rss = "";
+foreach($xml->item as $item)
+{
+	$title = $item->title;
+	$link = $item->link;
+	$date = $item->date;
+	$desc = $item->description;
+	
+	$rss.="						<li>
+						<a>$title</a>
+						<div>
+							<h3>$title</h3>
+							$desc
+							<p>
+								$date
+							</p>
+							<a href=$link><button class='bg-color-blueLight'> Link </button></a>
+							<a href='#'><button class='bg-color-green'> Edit </button></a>
+							<a href='#'><button class='bg-color-red'> Delete </button></a>							
+						</div>
+					</li>";
+}
+$_SESSION['rss'] = $rss;
+?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="./Windows Metro Theme/css/modern.css" rel="stylesheet">
+    <link href="./Windows Metro Theme/css/modern-responsive.css" rel="stylesheet">
+    <link href="./Windows Metro Theme/css/site.css" rel="stylesheet" type="text/css">
+    <link href="js/google-code-prettify/prettify.css" rel="stylesheet" type="text/css">
+    <link href="bluefeedsdesktop.css" rel="stylesheet" type="text/css">		
+
+    <script type="text/javascript" src="./javascript/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="./javascript/assets/jquery.mousewheel.min.js"></script>	
+	<script type="text/javascript" src="./javascript/accordion.js"></script>
+<!--    <link href="js/google-code-prettify/prettify.css" rel="stylesheet" type="text/css">-->
+
+<title>Bluefeeds Test Page</title>
+
+</head>
+<header><h1>BlueFeeds Lobby</h1></header>
+<body>
+    <div class="container">
+        <div class="ProfilePage">
+				<div class="tile double bg-color-purple" id="ProfileTile">	
+					<?php
+						echo $_SESSION['profile'];
+					?>
+				</div>
+        </div>
+        <div class="BluefeedsNewsLandingPage">
+			<h2>Bluefeeds News</h2>
+        	<div style="width:100%;height:100%;line-height:3em;padding:5px;overflow-x: hidden;padding-bottom: 5%;">
+				<ul class="accordion dark span10" data-role="accordion">
+					<?php
+						echo $_SESSION['rss'];
+					?>                    
+                </ul>
+				</div>
+        </div>
+        <div class="MenuPage">
+			<ul id="MenuOptions" style="padding-top: 5%">
+            	<li><a href="./LandingPage.php"><button class="big" id="MenuButtons">Home<i class="icon-home icon-small"></i></button></a></li>			
+            	<li><a href="./Appointments.php"><button class="big" id="MenuButtons">Appointments<i class="icon-clipboard-2 icon-small"></i></button></a></li>
+                <li><a href="./StudentSelection.php"><button class="big" id="MenuButtons">Students<i class="icon-user-2 icon-small"></i></button></a></li>
+                <li><a href="./RSS Feeds.php"><button class="big" id="MenuButtons">RSS Feeds<i class="icon-feed icon-small"></i></button></a></li>
+                <li><a href="./Add Appointment.php"><button class="big" id="MenuButtons">Schedule Appointment<i class="icon-clipboard icon-small"></i></button></a></li>
+                <li><a href="./Add Student.php"><button class="big" id="MenuButtons">Add New Students<i class="icon-plus-2 icon-small"></i></button></a></li>               
+            </ul>                   
+        </div>
+        <div class="NextAppointmentPage">         
+			<div class="tile double bg-color-orange" style="height:100%; width: 100%; float: left;">
+				<div class="tile-content">
+					<h2>Today's appointments:</h2>
+					<br>
+					<p>
+						<div style="width:100%;height:100%;line-height:3em;padding:5px;overflow-x: hidden;padding-bottom: 5%;">
+							<ul>
+								<?php
+									echo $_SESSION['appointments'];
+								?>							
+							</ul>							
+						</div>
+					</p>
+				</div>				
+			</div>
+        </div>
+        <div class="MostRecentCommentPage">
+<!--         	<head><b>Your most recent comment was made:</b></head>
+            <p>2/28/13 3:30 P.M.</p>          
+        	<head><b>You said:</b></head>
+            <p>A great read. Captivating. I couldn't put it down. I would have given it five stars, but sadly there were too many distracting typos. For example: 46453 13987. Hopefully they will correct them in the next edition.</p>           -->
+			<div class="tile double bg-color-green" style="height:100%; width: 100%; float: left;">
+				<div class="tile-content">
+					<?php
+						echo $_SESSION['recentComment1'];
+						echo $_SESSION['recentComment2'];						
+					?>					
+				</div>				
+			</div>			
+        </div>
+    </div>​
+</body>
+</html>
+

@@ -651,6 +651,16 @@
         	<div class="studentSelectionCenter" data-role="content">
         		<ul data-role="listview" data-prepend="true" id="rssFeeds" data-dynamicQuery="rssFeedRetrieve"></ul>
         	</div>
+        	
+        	<?php  
+    		foreach($feed->query->results->item as $item) { ?>  
+  			 <li>  
+      				<h2>  
+       	 				<?php echo $item->title; ?> 
+      				</h2>   
+  			</li>  
+  		<?php  } ?> 
+  		
 	</body>
     <footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">

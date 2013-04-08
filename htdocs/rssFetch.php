@@ -1,0 +1,25 @@
+<?php
+session_start();
+$table="`test`.`feeds`";
+$db=new mysqli("127.0.0.1","root","devils","test",8889);
+if($db->connect_errno){
+    echo "FAILURE";
+}
+
+$url=$_POST["feedUrl"];
+$title=$_POST["feedName"];
+$user=$_SESSION["UUID"];
+$FUID=$_POST["FUID"];
+
+// YQL query (SELECT * from feed ... ) // Split for readability // Organizes yahoo queries  
+$path = "http://query.yahooapis.com/v1/public/yql?q=";  
+$path .= urlencode("SELECT * FROM feed WHERE url='$url'");  
+$path .= "&format=json"; 
+
+$feed = file_get_contents($path, true);
+$feed = json_decode($feed);
+
+$date=date("Y-m-d H:i:s");
+$db->real_query("INSERT INTO ".$table." (`UUID`, `date`, `url`, `FUID`, `title`) VALUES ('$user', '$date', '$url', '$FUID','$title');");
+echo "true";
+?>

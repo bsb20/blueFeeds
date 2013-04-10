@@ -128,7 +128,7 @@ var courses;
 	    $(".parent").on("click", "li", function(e){
                 if($.trim($(e.target).parents('a').text())=='Edit'){
                     $("#commentBox").val($(this).children(".note").text());
-                    $("#CUID").val($(this).children("#hiddenForm").val());
+                    $("#keybox").val($(this).children("#hiddenForm").val());
 		    $("#students2").val($(this).children("#hiddenForm2").val());
 		    $("#instructors2").val($(this).children("#hiddenForm3").val());
                 }

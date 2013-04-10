@@ -13,8 +13,8 @@ foreach($newList as $value){
     $result=$db->query($sql);
     if($row=mysqli_fetch_array($result)){
         $SUID=$row["SUID"];
-        $table="`test`.`gs`";
-        $sql="INSERT INTO $table (`SUID`,`GUID`) VALUES ('$SUID','$GUID');";
+        $table2="`test`.`gs`";
+        $sql="INSERT INTO $table2 (`SUID`,`GUID`) VALUES ('$SUID','$GUID');";
         $db->real_query($sql);
     }
 }

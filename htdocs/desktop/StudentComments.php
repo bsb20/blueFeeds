@@ -2,13 +2,16 @@
 	session_start();
 	$table="`test`.`comments`";
 	$db=new mysqli("127.0.0.1","root","devils","test",8889);
-	if($db->connect_errno){
+	if($db->connect_errno)
+	{
 		echo "FAILURE";
 	}
 	$SUID=$_SESSION["SUID"];
 	$sql = "SELECT * FROM ".$table."WHERE `SUID`='$SUID' ORDER BY 'date' DESC";
 	$result=$db->query($sql);
 	$commentList="";
+	
+	/* Time Filtering */
 	for($i=0; $i<mysqli_num_rows($result); $i++){
 		if($row=mysqli_fetch_array($result)){
 			$title=$row["title"];
@@ -17,16 +20,71 @@
 			$date=$row["date"];
 			$time=strtotime($date);
 			$formattedDate=date("m/d/y",$time);
+			
+			$today=getDate();
+			$testday = $today['mday'];
+			$day=intval(date("j",$time));
+			$month=intval(date("n",$time));
+			$year=intval(date("Y",$time));				
 		}
-		$commentList.="						<li>
-								<a href='#'>$title</a>
-								<div>
-									$text
-									<p>
-										$formattedDate
-									</p>
-								</div>
-							</li>";
+		
+		if(empty($_GET))
+		{
+			$timeframe="thisweek";
+		}
+		else
+		{
+			$timeframe=$_GET["filter"];
+		}		
+		
+		switch ($timeframe)
+		{
+			case "thisweek":
+				$beginweek = $today['mday'] - $today['mday']%7;
+				$endweek = $today['mday']+7 - ($today['mday']+7)%7;		
+				if($beginweek <= $day and $day <= $endweek and $today['mon']==$month and $today['year']==$year)
+				{
+					$commentList.="						<li>
+											<a href='#'>$title</a>
+											<div>
+												$text
+												<p>
+													$formattedDate
+												</p>
+											</div>
+										</li>";
+				}
+				break;
+			case "month":
+				if($today['mon']==$month and $today['year']==$year)
+				{
+					$commentList.="						<li>
+											<a href='#'>$title</a>
+											<div>
+												$text
+												<p>
+													$formattedDate
+												</p>
+											</div>
+										</li>";
+				}				
+				break;
+			case "all":
+				if($today['year']==$year)
+				{
+					$commentList.="						<li>
+											<a href='#'>$title</a>
+											<div>
+												$text
+												<p>
+													$formattedDate
+												</p>
+											</div>
+										</li>";
+				}				
+				break;
+		}
+
 	}
 	$_SESSION["commentList"]=$commentList;	
 ?>
@@ -37,7 +95,6 @@
     <link href="./Windows Metro Theme/css/modern-responsive.css" rel="stylesheet">
     <link href="./Windows Metro Theme/css/site.css" rel="stylesheet" type="text/css">
 	<link href="bluefeedsdesktop.css" rel="stylesheet" type="text/css">		
-<!--     <link href="js/google-code-prettify/prettify.css" rel="stylesheet" type="text/css"> -->    
 
     <script type="text/javascript" src="./javascript/jquery-1.9.0.min.js"></script>
     <script type="text/javascript" src="./javascript/assets/jquery.mousewheel.min.js"></script>	
@@ -80,23 +137,27 @@
 							<span class="label"> Split screen PDF
 							</span>
 						</button>	
-					</a>						
-					<button class="shortcut" id="TimeFilterButton">
-						<span class="icon">
-							<i class="icon-clock"></i>
-						</span>
-						<span class="label"> This Week
-						</span>
-						<span class="badge">11</span>
-					</button>
-					<button class="shortcut" id="TimeFilterButton">
-						<span class="icon">
-							<i class="icon-clock"></i>
-						</span>
-						<span class="label"> Next Week
-						</span>
-						<span class="badge">21</span>
-					</button>
+					</a>		
+					<a href="./StudentCommentsTags.php">																														
+						<button class="shortcut" id="TimeFilterButton">
+							<span class="icon">
+								<i class="icon-tag"></i>
+							</span>
+							<span class="label"> Search by Tags
+							</span>
+						</button>	
+					</a>
+					<a href="./StudentCommentsSplit.php?filter=thisweek">																														
+						<button class="shortcut" id="TimeFilterButton">
+							<span class="icon">
+								<i class="icon-clock"></i>
+							</span>
+							<span class="label"> This Week
+							</span>
+							<span class="badge">11</span>
+						</button>
+					</a>
+					<a href="./StudentCommentsSplit.php?filter=month">																																			
 					<button class="shortcut" id="TimeFilterButton">
 						<span class="icon">
 							<i class="icon-clock"></i>
@@ -105,14 +166,17 @@
 						</span>
 						<span class="badge">50</span>
 					</button>	
+					</a>
+					<a href="./StudentCommentsSplit.php?filter=all">																																			
 					<button class="shortcut" id="TimeFilterButton">
 						<span class="icon">
 							<i class="icon-clock"></i>
 						</span>
-						<span class="label"> All Time
+						<span class="label"> All
 						</span>
 						<span class="badge">100</span>						
-					</button>					
+					</button>	
+					</a>
 					<ul class="accordion dark span10" data-role="accordion" data-dynamicQuery="commentRetrieveDesktop">
 						<?php 
 							echo $_SESSION['commentList'];					

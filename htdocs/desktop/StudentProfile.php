@@ -124,7 +124,7 @@
 					</div>				
 				</div>	
 				<div class="tile double bg-color-pink">
-					<a href="./StudentComments.php">				
+					<a href="./StudentComments.php?filter=thisweek">				
 					<div class="tile-content">
 					<h2>Recent Comment:</h2>
 						<?php

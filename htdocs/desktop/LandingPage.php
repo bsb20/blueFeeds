@@ -62,10 +62,10 @@ if($row=mysqli_fetch_array($result)){
 $_SESSION['profile'] = " <div class='tile-content'>
 				<img src=$photo class='place-left' id='ProfilePic'/>
 				<h2>$name</h2>
-				<h5>$title</h5>
-				<p>
+				<h3>$title</h5>
+				<h4>
 					$spec
-				</p>					
+				</h4>					
 			</div>;";
 			
 $table="`test`.`comments`";
@@ -186,7 +186,7 @@ $_SESSION['rss'] = $rss;
         <div class="MenuPage">
 			<ul id="MenuOptions" style="padding-top: 5%">
             	<li><a href="./LandingPage.php"><button class="big" id="MenuButtons">Home<i class="icon-home icon-small"></i></button></a></li>			
-            	<li><a href="./Appointments.php"><button class="big" id="MenuButtons">Appointments<i class="icon-clipboard-2 icon-small"></i></button></a></li>
+            	<li><a href="./Appointments.php?filter=thisweek><button class="big" id="MenuButtons">Appointments<i class="icon-clipboard-2 icon-small"></i></button></a></li>
                 <li><a href="./StudentSelection.php"><button class="big" id="MenuButtons">Students<i class="icon-user-2 icon-small"></i></button></a></li>
                 <li><a href="./RSS Feeds.php"><button class="big" id="MenuButtons">RSS Feeds<i class="icon-feed icon-small"></i></button></a></li>
                 <li><a href="./Add Appointment.php"><button class="big" id="MenuButtons">Schedule Appointment<i class="icon-clipboard icon-small"></i></button></a></li>

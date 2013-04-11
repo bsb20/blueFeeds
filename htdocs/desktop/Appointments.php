@@ -21,6 +21,7 @@
 							</thead>
 							<tbody>";
 	
+	$numAppt = 0;
 	/* Filtering */
 	for($i=0; $i<mysqli_num_rows($result); $i++){
 		if($row=mysqli_fetch_array($result)){
@@ -44,7 +45,7 @@
 				$day=intval(date("j",$start));
 				$month=intval(date("n",$start));
 				$year=intval(date("Y",$start));	
-				
+
 				if(empty($_GET))
 				{
 					$timeframe="thisweek";
@@ -64,11 +65,12 @@
 													<td class='right'>$title</td>
 													<td class='right'>$loc</td>
 													<td class='right'>$weekly $formattedStart - $end</td>
-												</tr>";				
+												</tr>";		
+							$numAppt++;
 						}				
 						break;
 						
-					case "thisweek";
+					case "thisweek":
 						$beginweek = $today['mday'] - $today['mday']%7;
 						$endweek = $today['mday']+7 - ($today['mday']+7)%7;						
 						if($beginweek <= $day and $day <= $endweek and $today['mon']==$month and $today['year']==$year)
@@ -79,10 +81,11 @@
 													<td class='right'>$loc</td>
 													<td class='right'>$weekly $formattedStart - $end</td>
 												</tr>";				
+							$numAppt++;
 						}				
 						break;
 
-					case "month";
+					case "month":
 						if($today['mon']==$month and $today['year']==$year)
 						{
 							$table.="							<tr>
@@ -90,12 +93,12 @@
 													<td class='right'>$title</td>
 													<td class='right'>$loc</td>
 													<td class='right'>$weekly $formattedStart - $end</td>
-												</tr>";				
+												</tr>";	
+							$numAppt++;
 						}				
 						break;
 						
-					case "all";
-					
+					case "all":
 						if($today['year']==$year)
 						{
 							$table.="							<tr>
@@ -104,11 +107,13 @@
 													<td class='right'>$loc</td>
 													<td class='right'>$weekly $formattedStart - $end</td>
 												</tr>";				
+							$numAppt++;
 						}				
 						break;						
 				}
 		}
 	}
+	$_SESSION['numAppt'] = $numAppt;
 	$_SESSION['appointments'] = $table;
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -173,29 +178,27 @@
 			</a>			
 			<div class="tile double bg-color-green">
 				<div class="tile-content">
-					<h2>
+					<h1>
 					<script type="text/javascript">
 						<!-- 
 							writeDate()
 						-->
 					</script>
-					<h5>It is now  
+					</h1>
+					<h2>It is now  
 					<script type="text/javascript">
 					<!--
 						writeTime();
 					//-->
 					</script>
-					</h5>
-					<p>
-						Reminder: Pick up milk on the way home.
-					</p>
+					</h2>
 				</div>				
             </div>
 			<div style="width:100%;height:100%;line-height:3em;padding:5px;overflow-x: hidden;">
 				<head><b>Here are your appointments today:</b></head>
 					<table class="striped">
 						<?php
-							if(!$_SESSION['appointments']="")
+							if(!$_SESSION['numAppt']==0)
 							{
 								echo $_SESSION['appointments'];								
 							}

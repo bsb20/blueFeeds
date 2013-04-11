@@ -1,60 +1,120 @@
 <?php
-session_start();
-date_default_timezone_set("America/New_York");
-$table="`test`.`students`";
-$table2="`test`.`appointments`";
-$db=new mysqli("127.0.0.1","root","devils","test",8889);
-if($db->connect_errno){
-    echo "FAILURE";
-}
-$UUID=$_SESSION["UUID"];
-$final="";
-$sql = "SELECT * FROM $table,$table2 WHERE $table.`SUID`=$table2.`SUID` AND $table2.`UUID`='$UUID' ORDER BY `start`;";
-$result=$db->query($sql);
-$recentAppt = "";
-for($i=0; $i<mysqli_num_rows($result); $i++){
-    if($row=mysqli_fetch_array($result)){
-            $name=$row["user"];
-            $photo=$row["photo"];
-            $title=$row["title"];
-            $spec=$row["speciality"];
-			$past=strtotime($row['start'])>time() || $row['isWeekly'] ? "a" : "d";
-			$pastMessage= strtotime($row['start'])>time() || $row['isWeekly'] ? "":"Past Meeting Time";
-			$duration=$row['duration'];
-			$start=strtotime($row['start']);
-			$formattedStart=date("g:i A",$start);
-			$end=date("g:i", strtotime($row['end']));
-			$weekly= $row['isWeekly'] ? "Weekly: ".date("l",$start) : date("l, M j", $start);
-			$title=$row['title'];
-			$loc=$row['location'];
-			$AUID=$row["AUID"];
-			$today=getDate();
-			if($today['year']==date("Y",$start) and $today['mon']==date("n",$start) and $today['mday']==date("j",$start))){
-				$recentAppt.="								<li id='CurrentAppointments'>$name at $formattedStart</li>";				
-			}
+	session_start();
+	date_default_timezone_set("America/New_York");
+	$table="`test`.`students`";
+	$table2="`test`.`appointments`";
+	$db=new mysqli("127.0.0.1","root","devils","test",8889);
+	if($db->connect_errno){
+		echo "FAILURE";
 	}
-}
-$_SESSION['appointments'] = $recentAppt;
+	$UUID=$_SESSION["UUID"];
+	$final="";
+	$sql = "SELECT * FROM $table,$table2 WHERE $table.`SUID`=$table2.`SUID` AND $table2.`UUID`='$UUID' ORDER BY `start`;";
+	$result=$db->query($sql);
+	$table = "						<thead>
+								<tr>
+									<th>Name</th>
+									<th class='right'>Title</th>
+									<th class='right'>Location</th>
+									<th class='right'>Time and Date</th>
+								</tr>
+							</thead>
+							<tbody>";
+	
+	$numAppt = 0;
+	$timeframe = "week";
+	/* Filtering */
+	for($i=0; $i<mysqli_num_rows($result); $i++){
+		if($row=mysqli_fetch_array($result)){
+				$name=$row["user"];
+				$photo=$row["photo"];
+				$title=$row["title"];
+				$spec=$row["speciality"];
+				$past=strtotime($row['start'])>time() || $row['isWeekly'] ? "a" : "d";
+				$pastMessage= strtotime($row['start'])>time() || $row['isWeekly'] ? "":"Past Meeting Time";
+				$duration=$row['duration'];
+				$start=strtotime($row['start']);
+				$formattedStart=date("g:i A",$start);
+				$end=date("g:i A", strtotime($row['end']));
+				$weekly= $row['isWeekly'] ? "Weekly: ".date("l",$start) : date("l, M j", $start);
+				$title=$row['title'];
+				$loc=$row['location'];
+				$AUID=$row["AUID"];
+				
+				$today=getDate();
+				$testday = $today['mday'];
+				$day=intval(date("j",$start));
+				$month=intval(date("n",$start));
+				$year=intval(date("Y",$start));	
+				
+				if(empty($_GET))
+				{
+					$timeframe="thisweek";
+				}
+				else
+				{
+					$timeframe=$_GET["filter"];
+				}
+				
+				switch ($timeframe)
+				{
+					case "today":
+						if($today['mday']==$day and $today['mon']==$month and $today['year']==$year)
+						{
+							$table.="							<tr>
+													<td>$name</td>
+													<td class='right'>$title</td>
+													<td class='right'>$loc</td>
+													<td class='right'>$weekly $formattedStart - $end</td>
+												</tr>";		
+							$numAppt++;
+						}				
+						break;
+						
+					case "thisweek";
+						$beginweek = $today['mday'] - $today['mday']%7;
+						$endweek = $today['mday']+7 - ($today['mday']+7)%7;						
+						if($beginweek <= $day and $day <= $endweek and $today['mon']==$month and $today['year']==$year)
+						{
+							$table.="							<tr>
+													<td>$name</td>
+													<td class='right'>$title</td>
+													<td class='right'>$loc</td>
+													<td class='right'>$weekly $formattedStart - $end</td>
+												</tr>";				
+							$numAppt++;
+						}				
+						break;
 
-$table="`test`.`users`";
-$sql = "SELECT * FROM ".$table." WHERE `UUID`='$UUID';";
-$result=$db->query($sql);
-$name;
-$email;
-$title;
-$spec;
-if($row=mysqli_fetch_array($result)){
-	$name=$row["user"];
-	$email=$row["email"];
-	$title=$row["title"];
-	$spec=$row["speciality"];
+					case "month";
+						if($today['mon']==$month and $today['year']==$year)
+						{
+							$table.="							<tr>
+													<td>$name</td>
+													<td class='right'>$title</td>
+													<td class='right'>$loc</td>
+													<td class='right'>$weekly $formattedStart - $end</td>
+												</tr>";	
+							$numAppt++;
+						}				
+						break;
+						
+					case "all";
+					
+						if($today['year']==$year)
+						{
+							$table.="							<tr>
+													<td>$name</td>
+													<td class='right'>$title</td>
+													<td class='right'>$loc</td>
+													<td class='right'>$weekly $formattedStart - $end</td>
+												</tr>";				
+							$numAppt++;
+						}				
+						break;						
+				}
+		}
 	}
-	$_SESSION['profile'] = " <div class='tile-content'>
-					<img src='./images/Doctor-house.jpg' class='place-left' id='ProfilePic'/>
-					<h2>$name</h2>
-					<h5>$title</h5>
-					<p>
-						$spec
-					</p>					
-				</div>;"
+	$_SESSION['numAppt'] = $numAppt;
+	$_SESSION['appointments'] = $table;
 ?>

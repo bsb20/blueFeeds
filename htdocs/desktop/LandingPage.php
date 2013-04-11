@@ -53,9 +53,11 @@ if($row=mysqli_fetch_array($result)){
 	$email=$row["email"];
 	$title=$row["title"];
 	$spec=$row["speciality"];
+	$photo=$row["photo"];
+	
 	}
 $_SESSION['profile'] = " <div class='tile-content'>
-				<img src='./images/Doctor-house.jpg' class='place-left' id='ProfilePic'/>
+				<img src=$photo class='place-left' id='ProfilePic'/>
 				<h2>$name</h2>
 				<h5>$title</h5>
 				<p>

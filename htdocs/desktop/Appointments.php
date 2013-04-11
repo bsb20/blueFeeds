@@ -23,7 +23,7 @@
 	
 	$numAppt = 0;
 	$apptToday = 0;
-	/* Filtering */
+	/* Time Filtering */
 	for($i=0; $i<mysqli_num_rows($result); $i++){
 		if($row=mysqli_fetch_array($result)){
 				$name=$row["user"];
@@ -215,8 +215,8 @@
 					</script>
 					</h2>
 					<h4>
-						<?php>
-							echo "You have " . $_SESSION['apptToday'] . " appointments today."
+						<?php
+							echo "You have " . $_SESSION['apptToday'] . " appointments today.";
 						?>
 					</h4>
 				</div>				

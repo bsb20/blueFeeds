@@ -54,7 +54,7 @@ if($row=mysqli_fetch_array($result)){
 		$title=$row["title"];
 		$spec=$row["speciality"];
 		$photo=$row["photo"];
-		if($photo="")
+		if($photo=="")
 		{
 			$photo="http://bluefeeds.cs.duke.edu/home/htdocs/uploads/nophoto.gif";
 		}

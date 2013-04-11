@@ -49,12 +49,15 @@ $email;
 $title;
 $spec;
 if($row=mysqli_fetch_array($result)){
-	$name=$row["user"];
-	$email=$row["email"];
-	$title=$row["title"];
-	$spec=$row["speciality"];
-	$photo=$row["photo"];
-	
+		$name=$row["user"];
+		$email=$row["email"];
+		$title=$row["title"];
+		$spec=$row["speciality"];
+		$photo=$row["photo"];
+		if($photo="")
+		{
+			$photo="http://bluefeeds.cs.duke.edu/home/htdocs/uploads/nophoto.gif"
+		}
 	}
 $_SESSION['profile'] = " <div class='tile-content'>
 				<img src=$photo class='place-left' id='ProfilePic'/>

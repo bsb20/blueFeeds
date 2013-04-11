@@ -45,7 +45,15 @@
 				$month=intval(date("n",$start));
 				$year=intval(date("Y",$start));	
 				
-				$timeframe=$_GET["filter"];
+				if(empty($_GET))
+				{
+					$timeframe="thisweek";
+				}
+				else
+				{
+					$timeframe=$_GET["filter"];
+				}
+				
 				switch ($timeframe)
 				{
 					case "today":

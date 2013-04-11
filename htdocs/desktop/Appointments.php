@@ -22,6 +22,7 @@
 							<tbody>";
 	
 	$numAppt = 0;
+	$apptToday = 0;
 	/* Filtering */
 	for($i=0; $i<mysqli_num_rows($result); $i++){
 		if($row=mysqli_fetch_array($result)){
@@ -53,6 +54,11 @@
 				else
 				{
 					$timeframe=$_GET["filter"];
+				}
+				
+				if($today['mday']==$day and $today['mon']==$month and $today['year']==$year)
+				{
+					$apptToday++;
 				}
 				
 				switch ($timeframe)
@@ -117,13 +123,18 @@
 	{
 		case "today":
 			$_SESSION['message'] = "Here are your appointments for today:";	
+			break;
 		case "thisweek":
 			$_SESSION['message'] = "Here are your appointments for this week:";
+			break;
 		case "month":
 			$_SESSION['message'] = "Here are your appointments for this month:";
+			break;
 		case "all":
 			$_SESSION['message'] = "Here is your history of appointments:";
+			break;
 	}
+	$_SESSION['apptToday'] = $apptToday;
 	$_SESSION['numAppt'] = $numAppt;
 	$_SESSION['appointments'] = $table;
 ?>
@@ -189,13 +200,13 @@
 			</a>			
 			<div class="tile double bg-color-green">
 				<div class="tile-content">
-					<h1>
+					<h2>
 					<script type="text/javascript">
 						<!-- 
 							writeDate()
 						-->
 					</script>
-					</h1>
+					</h2>
 					<h2>It is now  
 					<script type="text/javascript">
 						<!--
@@ -203,9 +214,14 @@
 						//-->
 					</script>
 					</h2>
+					<h4>
+						<?php>
+							echo "You have " . $_SESSION['apptToday'] . " appointments today."
+						?>
+					</h4>
 				</div>				
             </div>
-			<div style="width:100%;height:100%;line-height:3em;padding:5px;overflow-x: hidden;">
+			<div style="width:100%;height:68%;line-height:3em;padding:5px;overflow-x: hidden;">
 				<head>
 					<b>
 						<?php

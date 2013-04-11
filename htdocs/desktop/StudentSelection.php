@@ -30,7 +30,7 @@ if($row=mysqli_fetch_array($result)){
 	$html.=           "<li>
 							<a href='$profilelink'>
 								<div class='icon'>
-									<img src=$photo/>
+									<img src=$photo>
 								</div>
 								<div class='data'>
 									<h4>$name</h4>

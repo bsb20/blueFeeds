@@ -147,7 +147,7 @@
 							</span>
 						</button>	
 					</a>
-					<a href="./StudentCommentsSplit.php?filter=thisweek">																														
+					<a href="./StudentComments.php?filter=thisweek">																														
 						<button class="shortcut" id="TimeFilterButton">
 							<span class="icon">
 								<i class="icon-clock"></i>
@@ -157,7 +157,7 @@
 							<span class="badge">11</span>
 						</button>
 					</a>
-					<a href="./StudentCommentsSplit.php?filter=month">																																			
+					<a href="./StudentComments.php?filter=month">																																			
 					<button class="shortcut" id="TimeFilterButton">
 						<span class="icon">
 							<i class="icon-clock"></i>
@@ -167,7 +167,7 @@
 						<span class="badge">50</span>
 					</button>	
 					</a>
-					<a href="./StudentCommentsSplit.php?filter=all">																																			
+					<a href="./StudentComments.php?filter=all">																																			
 					<button class="shortcut" id="TimeFilterButton">
 						<span class="icon">
 							<i class="icon-clock"></i>

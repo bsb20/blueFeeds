@@ -18,7 +18,7 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 if($row=mysqli_fetch_array($result)){
     $name=$row["user"];
     $photo=$row["photo"];
-	$photo = 'http://bluefeeds.cs.duke.edu/home/htdocs/' + $photo;
+	$photo = "http://bluefeeds.cs.duke.edu/home/htdocs/" . $photo;
     $title=$row["title"];
     $spec=$row["speciality"];
     $SUID=$row["SUID"];
@@ -27,7 +27,7 @@ if($row=mysqli_fetch_array($result)){
 	$html.=           "<li>
 							<a href='$profilelink'>
 								<div class='icon'>
-									<img src='$photo'/>
+									<img src=$photo/>
 								</div>
 								<div class='data'>
 									<h4>$name</h4>

@@ -133,6 +133,7 @@
 					</div>				
 				</div>
 				<div class="tile double bg-color-orange">
+					<a href="./Appointments.php?filter=thisweek">								
 					<div class="tile-content">
 					<h2>Upcoming Appointments:</h2>
 					<p style="font-size: 15px">

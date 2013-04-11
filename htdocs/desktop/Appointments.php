@@ -1,58 +1,107 @@
 <?php
-session_start();
-date_default_timezone_set("America/New_York");
-$table="`test`.`students`";
-$table2="`test`.`appointments`";
-$db=new mysqli("127.0.0.1","root","devils","test",8889);
-if($db->connect_errno){
-    echo "FAILURE";
-}
-$UUID=$_SESSION["UUID"];
-$final="";
-$sql = "SELECT * FROM $table,$table2 WHERE $table.`SUID`=$table2.`SUID` AND $table2.`UUID`='$UUID' ORDER BY `start`;";
-$result=$db->query($sql);
-$table = "						<thead>
-							<tr>
-								<th>Name</th>
-								<th class='right'>Title</th>
-								<th class='right'>Location</th>
-								<th class='right'>Time and Date</th>
-							</tr>
-						</thead>
-						<tbody>";
-for($i=0; $i<mysqli_num_rows($result); $i++){
-    if($row=mysqli_fetch_array($result)){
-            $name=$row["user"];
-            $photo=$row["photo"];
-            $title=$row["title"];
-            $spec=$row["speciality"];
-			$past=strtotime($row['start'])>time() || $row['isWeekly'] ? "a" : "d";
-			$pastMessage= strtotime($row['start'])>time() || $row['isWeekly'] ? "":"Past Meeting Time";
-			$duration=$row['duration'];
-			$start=strtotime($row['start']);
-			$formattedStart=date("g:i A",$start);
-			$end=date("g:i A", strtotime($row['end']));
-			$weekly= $row['isWeekly'] ? "Weekly: ".date("l",$start) : date("l, M j", $start);
-			$title=$row['title'];
-			$loc=$row['location'];
-			$AUID=$row["AUID"];
-			$today=getDate();
-			$testday = $today['mday'];
-			$day=intval(date("j",$start));
-			$month=intval(date("n",$start));
-			$year=intval(date("Y",$start));	
-			if($today['mday']==$day and $today['mon']==$month and $today['year']==$year)
-			{
-				$table.="							<tr>
-										<td>$name</td>
-										<td class='right'>$title</td>
-										<td class='right'>$loc</td>
-										<td class='right'>$weekly $formattedStart - $end</td>
-									</tr>";				
-			}
+	session_start();
+	date_default_timezone_set("America/New_York");
+	$table="`test`.`students`";
+	$table2="`test`.`appointments`";
+	$db=new mysqli("127.0.0.1","root","devils","test",8889);
+	if($db->connect_errno){
+		echo "FAILURE";
 	}
-}
-$_SESSION['appointments'] = $table;
+	$UUID=$_SESSION["UUID"];
+	$final="";
+	$sql = "SELECT * FROM $table,$table2 WHERE $table.`SUID`=$table2.`SUID` AND $table2.`UUID`='$UUID' ORDER BY `start`;";
+	$result=$db->query($sql);
+	$table = "						<thead>
+								<tr>
+									<th>Name</th>
+									<th class='right'>Title</th>
+									<th class='right'>Location</th>
+									<th class='right'>Time and Date</th>
+								</tr>
+							</thead>
+							<tbody>";
+	
+	/* Filtering */
+	for($i=0; $i<mysqli_num_rows($result); $i++){
+		if($row=mysqli_fetch_array($result)){
+				$name=$row["user"];
+				$photo=$row["photo"];
+				$title=$row["title"];
+				$spec=$row["speciality"];
+				$past=strtotime($row['start'])>time() || $row['isWeekly'] ? "a" : "d";
+				$pastMessage= strtotime($row['start'])>time() || $row['isWeekly'] ? "":"Past Meeting Time";
+				$duration=$row['duration'];
+				$start=strtotime($row['start']);
+				$formattedStart=date("g:i A",$start);
+				$end=date("g:i A", strtotime($row['end']));
+				$weekly= $row['isWeekly'] ? "Weekly: ".date("l",$start) : date("l, M j", $start);
+				$title=$row['title'];
+				$loc=$row['location'];
+				$AUID=$row["AUID"];
+				
+				$today=getDate();
+				$testday = $today['mday'];
+				$day=intval(date("j",$start));
+				$month=intval(date("n",$start));
+				$year=intval(date("Y",$start));	
+				
+				$timeframe=$_GET["filter"];
+				switch ($timeframe)
+				{
+					case "today":
+						if($today['mday']==$day and $today['mon']==$month and $today['year']==$year)
+						{
+							$table.="							<tr>
+													<td>$name</td>
+													<td class='right'>$title</td>
+													<td class='right'>$loc</td>
+													<td class='right'>$weekly $formattedStart - $end</td>
+												</tr>";				
+						}				
+						break;
+						
+					case "thisweek";
+						$beginweek = $today['mday'] - $today['mday']%7;
+						$endweek = $today['mday']+7 - ($today['mday']+7)%7;						
+						if($beginweek <= $day and $day <= $endweek and $today['mon']==$month and $today['year']==$year)
+						{
+							$table.="							<tr>
+													<td>$name</td>
+													<td class='right'>$title</td>
+													<td class='right'>$loc</td>
+													<td class='right'>$weekly $formattedStart - $end</td>
+												</tr>";				
+						}				
+						break;
+
+					case "month";
+						if($today['mon']==$month and $today['year']==$year)
+						{
+							$table.="							<tr>
+													<td>$name</td>
+													<td class='right'>$title</td>
+													<td class='right'>$loc</td>
+													<td class='right'>$weekly $formattedStart - $end</td>
+												</tr>";				
+						}				
+						break;
+						
+					case "all";
+					
+						if($today['year']==$year)
+						{
+							$table.="							<tr>
+													<td>$name</td>
+													<td class='right'>$title</td>
+													<td class='right'>$loc</td>
+													<td class='right'>$weekly $formattedStart - $end</td>
+												</tr>";				
+						}				
+						break;						
+				}
+		}
+	}
+	$_SESSION['appointments'] = $table;
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -78,43 +127,54 @@ $_SESSION['appointments'] = $table;
 				</div>
         </div>
         <div class="AppointmentsPage">
-			<button class="shortcut" style="width: 15%; height: 28.5%;">
-				<span class="icon">
-					<i class="icon-clock"></i>
-				</span>
-				<span class="label" style="text-align: center;"> This Week
-				</span>
-				<span class="badge">11</span>
-			</button>
-			<button class="shortcut" style="width: 15%; height: 28.5%;">
-				<span class="icon">
-					<i class="icon-clock"></i>
-				</span>
-				<span class="label" style="text-align: center;"> Next Week
-				</span>
-				<span class="badge">21</span>
-			</button>
-			<button class="shortcut" style="width: 15%; height: 28.5%;">
-				<span class="icon">
-					<i class="icon-clock"></i>
-				</span>
-				<span class="label" style="text-align: center;"> This Month
-				</span>
-				<span class="badge">50</span>
-			</button>
+			<a href="./Appointments.php?filter=today">																									
+				<button class="shortcut" style="width: 15%; height: 28.5%;">
+					<span class="icon">
+						<i class="icon-clock"></i>
+					</span>
+					<span class="label" style="text-align: center;"> Today
+					</span>
+				</button>	
+			</a>
+			<a href="./Appointments.php?filter=thisweek">																												
+				<button class="shortcut" style="width: 15%; height: 28.5%;">
+					<span class="icon">
+						<i class="icon-clock"></i>
+					</span>
+					<span class="label" style="text-align: center;"> This Week
+					</span>
+				</button>
+			</a>
+			<a href="./Appointments.php?filter=month">																															
+				<button class="shortcut" style="width: 15%; height: 28.5%;">
+					<span class="icon">
+						<i class="icon-clock"></i>
+					</span>
+					<span class="label" style="text-align: center;"> This Month
+					</span>
+				</button>
+			</a>
+			<a href="./Appointments.php?filter=all">																															
+				<button class="shortcut" style="width: 15%; height: 28.5%;">
+					<span class="icon">
+						<i class="icon-clock"></i>
+					</span>
+					<span class="label" style="text-align: center;"> All
+					</span>
+				</button>
+			</a>			
 			<div class="tile double bg-color-green">
 				<div class="tile-content">
 					<h2>
 					<script type="text/javascript">
-					<!-- 
-					writeDate()
-					-->
+						<!-- 
+							writeDate()
+						-->
 					</script>
-					
 					<h5>It is now  
 					<script type="text/javascript">
 					<!--
-					writeTime();
+						writeTime();
 					//-->
 					</script>
 					</h5>
@@ -127,7 +187,16 @@ $_SESSION['appointments'] = $table;
 				<head><b>Here are your appointments today:</b></head>
 					<table class="striped">
 						<?php
-							echo $_SESSION['appointments'];
+							if(!$_SESSION['appointments']="")
+							{
+								echo $_SESSION['appointments'];								
+							}
+							else
+							{
+								echo "					<p>
+						You have no current appointments in this timeframe.
+					</p>";
+							}
 						?>						
 					</table>	
 			</div>

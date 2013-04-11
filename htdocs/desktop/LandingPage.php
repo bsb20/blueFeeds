@@ -56,7 +56,7 @@ if($row=mysqli_fetch_array($result)){
 		$photo=$row["photo"];
 		if($photo="")
 		{
-			$photo="http://bluefeeds.cs.duke.edu/home/htdocs/uploads/nophoto.gif"
+			$photo="http://bluefeeds.cs.duke.edu/home/htdocs/uploads/nophoto.gif";
 		}
 	}
 $_SESSION['profile'] = " <div class='tile-content'>

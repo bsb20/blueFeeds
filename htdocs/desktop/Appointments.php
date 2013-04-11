@@ -67,7 +67,7 @@
 													<td class='right'>$weekly $formattedStart - $end</td>
 												</tr>";		
 							$numAppt++;
-						}				
+						}		
 						break;
 						
 					case "thisweek":
@@ -112,6 +112,17 @@
 						break;						
 				}
 		}
+	}
+	switch($timeframe)
+	{
+		case "today":
+			$_SESSION['message'] = "Here are your appointments for today:";	
+		case "thisweek":
+			$_SESSION['message'] = "Here are your appointments for this week:";
+		case "month":
+			$_SESSION['message'] = "Here are your appointments for this month:";
+		case "all":
+			$_SESSION['message'] = "Here is your history of appointments:";
 	}
 	$_SESSION['numAppt'] = $numAppt;
 	$_SESSION['appointments'] = $table;
@@ -187,15 +198,21 @@
 					</h1>
 					<h2>It is now  
 					<script type="text/javascript">
-					<!--
-						writeTime();
-					//-->
+						<!--
+							writeTime();
+						//-->
 					</script>
 					</h2>
 				</div>				
             </div>
 			<div style="width:100%;height:100%;line-height:3em;padding:5px;overflow-x: hidden;">
-				<head><b>Here are your appointments today:</b></head>
+				<head>
+					<b>
+						<?php
+							echo $_SESSION['message'];
+						?>
+					</b>
+				</head>
 					<table class="striped">
 						<?php
 							if(!$_SESSION['numAppt']==0)

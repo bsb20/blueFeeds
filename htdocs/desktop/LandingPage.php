@@ -186,7 +186,7 @@ $_SESSION['rss'] = $rss;
         <div class="MenuPage">
 			<ul id="MenuOptions" style="padding-top: 5%">
             	<li><a href="./LandingPage.php"><button class="big" id="MenuButtons">Home<i class="icon-home icon-small"></i></button></a></li>			
-            	<li><a href="./Appointments.php?filter=thisweek><button class="big" id="MenuButtons">Appointments<i class="icon-clipboard-2 icon-small"></i></button></a></li>
+            	<li><a href="./Appointments.php?filter=thisweek"><button class="big" id="MenuButtons">Appointments<i class="icon-clipboard-2 icon-small"></i></button></a></li>
                 <li><a href="./StudentSelection.php"><button class="big" id="MenuButtons">Students<i class="icon-user-2 icon-small"></i></button></a></li>
                 <li><a href="./RSS Feeds.php"><button class="big" id="MenuButtons">RSS Feeds<i class="icon-feed icon-small"></i></button></a></li>
                 <li><a href="./Add Appointment.php"><button class="big" id="MenuButtons">Schedule Appointment<i class="icon-clipboard icon-small"></i></button></a></li>
@@ -211,10 +211,6 @@ $_SESSION['rss'] = $rss;
 			</div>
         </div>
         <div class="MostRecentCommentPage">
-<!--         	<head><b>Your most recent comment was made:</b></head>
-            <p>2/28/13 3:30 P.M.</p>          
-        	<head><b>You said:</b></head>
-            <p>A great read. Captivating. I couldn't put it down. I would have given it five stars, but sadly there were too many distracting typos. For example: 46453 13987. Hopefully they will correct them in the next edition.</p>           -->
 			<div class="tile double bg-color-green" style="height:100%; width: 100%; float: left;">
 				<div class="tile-content">
 					<?php

@@ -15,7 +15,7 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 if($row=mysqli_fetch_array($result)){
     $info=$row["info"];
     $title=$row["title"];
-    $GUID=$row{"GUID"];
+    $GUID=$row["GUID"];
 }
 echo "trice";
 echo $title;

@@ -9,7 +9,6 @@ if($db->connect_errno){
 $UUID=$_SESSION["UUID"];
 $sql = "SELECT * FROM `test`.`courses` WHERE `UUID`='$UUID'";
 $result=$db->query($sql);
- echo "HERE";
 $finally="";
 for($i=0; $i<mysqli_num_rows($result); $i++){
 if($row=mysqli_fetch_array($result)){
@@ -17,8 +16,6 @@ if($row=mysqli_fetch_array($result)){
     $title=$row["title"];
     $GUID=$row["GUID"];
 }
-echo "trice";
-echo $title;
  $finally.=                       "<li data-theme='a' class='dynamicTag' data-dynamicContent='courseRetriever' style='margin: 1%; overflow: visible; white-space: normal;'>
       			<a href='#studentProfile2'>    
 						<div data-role='controlgroup' data-type='horizontal'  class='noteControl'>

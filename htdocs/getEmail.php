@@ -1,7 +1,7 @@
 <?php
 session_start();
 echo "HELLO";
-echo $_SESSION["SUID"];
+echo $_SESSION["UUID"];
 echo isset($_SESSION["SUID"]);
 $table="`test`.`students`";
 $db=new mysqli("127.0.0.1","root","devils","test",8889);

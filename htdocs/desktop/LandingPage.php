@@ -145,6 +145,23 @@ foreach($xml->item as $item)
 					</li>";
 }
 $_SESSION['rss'] = $rss;
+
+$table="`test`.`groups`";
+$table1="`test`.`courses`";
+$sql="SELECT * FROM $table1, ".$table." WHERE $table.`UUID`='".$UUID."' AND $table1.`GUID`=$table.`GUID`;";
+$result=$db->query($sql);
+
+$buttons = "";
+for($i=0; $i<mysqli_num_rows($result); $i++){
+	if($row=mysqli_fetch_array($result)){
+		$info=$row["info"];
+		$title=$row['title'];
+		$GUID=$row['GUID'];
+		$link = "./setGUID.php?course=" . $GUID;
+		$buttons.="<a href=$link><button id='courseButton'><i class='icon-bookmark'></i>$title</button></a>";
+	}
+}
+$_SESSION['buttons'] = $buttons;
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -163,7 +180,18 @@ $_SESSION['rss'] = $rss;
 <title>Bluefeeds Test Page</title>
 
 </head>
-<header><h1>BlueFeeds Lobby</h1></header>
+<header>
+	<div>
+		<h1 style="display: inline-block">
+			BlueFeeds Lobby
+		</h1>		
+		<div style="display: inline-block; padding: 1.5%; float: right; height: 65px; width: 50%; overflow-y: scroll; overflow-x: hidden;">
+			<?php
+				echo $_SESSION['buttons'];
+			?>
+		</div>
+	</div>
+</header>
 <body>
     <div class="container">
         <div class="ProfilePage">

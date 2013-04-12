@@ -52,17 +52,19 @@
 						<input type="submit" class="big" value="Add Student">	
 					</div> 						
 				</form>
-			
 			</div>	
 			<div style="float: left; padding-left: 3%;" class="input-control textarea">
-				<h2>Photo</h2>							
-				<form data-ajax="false" enctype="multipart/form-data" method="post" action="photo.php">
-					<div class="input-control file">	
-						Choose a photo:
-						<input type="file" name="photo" id="photo" accept="image/*;capture=camera" style="display:none">
-						<input id="submitPhoto" class="big" type="submit" value="Upload Photo">
+				<h2>Course Information Form</h2>
+				<form action="courseCreate.php" method="post" style="float: left;">
+					<div class="input-control text">
+						<label for="title">Title: </label>
+						<input type="text" name="title" placeholder="Course Name"/>
 					</div>
-				</form>										
+					<div class="input-control text">
+						<label for="info">Info: </label>
+						<input type="text" name="info" placeholder="Description"/>
+					</div>					
+				</form>
 			</div>
         </div>
         <div class="MenuPage">

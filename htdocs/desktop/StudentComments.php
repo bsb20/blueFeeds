@@ -193,6 +193,16 @@
 									<label for="comment">Comment: </label>
 									<textarea name="comment" placeholder="Description"/></textarea>
 								</div>	
+								<label for="instructors">Release to Instructors</label>
+									<select name="instructors" id="instructors">
+										<option value="0">No</option>
+										<option value="1">Yes</option>
+									</select>	
+								<label for="students">Release to Students</label>
+									<select name="students" id="students">
+										<option value="0">No</option>
+										<option value="1">Yes</option>
+									</select>									
 								<div class="input-control text">
 									<label for="submit"></label>
 									<input type="submit" class="big" name="submit" value="Add Comment" style="float: left;">	

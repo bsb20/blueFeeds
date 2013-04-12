@@ -56,7 +56,18 @@ $_SESSION['studentpage'] = $html;
 
 <title>Bluefeeds Test Page</title>
 </head>
-<header><h1>Student Selection</h1></header>
+<header>
+	<div>
+		<h1 style="display: inline-block">
+			Student Selection
+		</h1>		
+		<div style="display: inline-block; padding: 1.5%; float: right; height: 65px; width: 50%; overflow-y: scroll; overflow-x: hidden;">
+			<?php
+				echo $_SESSION['buttons'];
+			?>
+		</div>
+	</div>
+</header>
 <body>
     <div class="container">
         <div class="ProfilePage">

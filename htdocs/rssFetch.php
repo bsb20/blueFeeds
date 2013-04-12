@@ -22,7 +22,7 @@ $finally="";
 //$description = $feed->description;
 echo $url;
 $rss = new DOMDocument();
-    $rss->load($url'/');
+    $rss->load('$url');
     echo " url is loaded";
 	$feed = array();
 	foreach ($rss->getElementsByTagName('item') as $node) {

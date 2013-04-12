@@ -17,7 +17,7 @@ if($row=mysqli_fetch_array($result)){
     $GUID=$row["GUID"];
 }
  $finally.=                       "<li data-theme='a' class='dynamicTag' data-dynamicContent='courseRetriever' style='margin: 1%; overflow: visible; white-space: normal;'>
-      			<a href='#studentProfile2'>    
+      			<a href='#studentSelection'>    
 						<div data-role='controlgroup' data-type='horizontal'  class='noteControl'>
                   <h1>$title</h1>
                       <p>$info</p>

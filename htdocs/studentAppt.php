@@ -48,7 +48,6 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
                     <p class='ui-li-aside'><strong>$pastMessage</strong></p>
                 </a>
                 <input type='text' id='no' style='display:none' value='$AUID'>
-                <input type='text' id='no2' value='$SUID'>
             </li>";
     }
 }

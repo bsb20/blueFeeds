@@ -15,7 +15,13 @@ $user=$_SESSION["UUID"];
 $GUID=$_SESSION["GUID"];
 $student=$_SESSION["SUID"];
 $CUID=$_POST["CUID"];
+$newTag=$_POST["new"];
 $tags=$_POST["tag"];
+if(strlen(trim($newTag)) !=0){
+	$newTUID=uniqid("",FALSE);
+	array_push($tags,$newTUID);
+	$db->real_query("INSERT INTO `test`.`tags` (`tag`, `TUID`, `UUID`) VALUES ('$newTag', '$newTUID', '$user');");
+}
 $date=date("Y-m-d H:i:s");
 $db->real_query("INSERT INTO ".$table." (`UUID`, `SUID`, `date`, `text`, `CUID`, `title`, `instructors`, `students`, `GUID`) VALUES ('$user', '$student', '$date', '$text', '$CUID','$title', '$instructors','$students', '$GUID');");
 foreach ($tags as $TUID){

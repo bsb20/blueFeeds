@@ -33,7 +33,7 @@ $rss = new DOMDocument();
 			'date' => $node->getElementsByTagName('pubDate')->item(0)->nodeValue,
 			);
 		array_push($feed, $item);
-	
+	}
 	$limit = 5;
 	for($x=0;$x<$limit;$x++) {
 		$title = str_replace(' & ', ' &amp; ', $feed[$x]['title']);
@@ -42,7 +42,6 @@ $rss = new DOMDocument();
 		$date = date('l F d, Y', strtotime($feed[$x]['date']));		
 $finally.= "<li data-theme='a' class='dynamicTag' data-dynamicContent='rssFetch' style='margin: 1%; overflow: visible; white-space: normal;'>
   		</li>"
-	}
 	}
 }
 echo $finally;

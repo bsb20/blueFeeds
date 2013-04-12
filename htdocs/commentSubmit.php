@@ -18,7 +18,6 @@ $CUID=$_POST["CUID"];
 $newTag=$_POST["new"];
 $tags=$_POST["tag"];
 if(strlen(trim($newTag)) !=0){
-	echo "FOUND";
 	$newTUID=uniqid("",FALSE);
 	array_push($tags,$newTUID);
 	$db->real_query("INSERT INTO `test`.`tags` (`text`, `TUID`, `UUID`) VALUES ('$newTag', '$newTUID', '$user');");

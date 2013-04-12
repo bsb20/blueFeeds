@@ -7,13 +7,24 @@
     <link href="./Windows Metro Theme/css/modern.css" rel="stylesheet">
     <link href="./Windows Metro Theme/css/modern-responsive.css" rel="stylesheet">
     <link href="./Windows Metro Theme/css/site.css" rel="stylesheet" type="text/css">
-    <link href="bluefeedsdesktop.css" rel="stylesheet" type="text/css">		
+    <link href="bluefeedsdesktop.css" rel="stylesheet" type="text/css">
 	
 <!--    <link href="js/google-code-prettify/prettify.css" rel="stylesheet" type="text/css">-->
 
 <title>Bluefeeds Test Page</title>
 </head>
-<header><h1>Add Student</h1></header>
+<header>
+	<div>
+		<h1 style="display: inline-block">
+			Add Student
+		</h1>		
+		<div style="display: inline-block; padding: 1.5%; float: right; height: 65px; width: 50%; overflow-y: scroll; overflow-x: hidden;">
+			<?php
+				echo $_SESSION['buttons'];
+			?>
+		</div>
+	</div>
+</header>
 <body>
     <div class="container">
         <div class="ProfilePage">

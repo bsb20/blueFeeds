@@ -33,7 +33,9 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 			$day=intval(date("j",$start));
 			$month=intval(date("n",$start));
 			$year=intval(date("Y",$start));
-			if($today['mday']==$day and $today['mon']==$month and $today['year']==$year)
+			$beginweek = $today['mday'] - $today['mday']%7;
+			$endweek = $today['mday']+7 - ($today['mday']+7)%7;			
+			if($beginweek <= $day and $day <= $endweek and $today['mon']==$month and $today['year']==$year)
 			{
 				$recentAppt.="								<li id='CurrentAppointments'>$name at $formattedStart</li>";								
 			}
@@ -69,7 +71,7 @@ $_SESSION['profile'] = " <div class='tile-content'>
 			</div>;";
 			
 $table="`test`.`comments`";
-$sql = "SELECT * FROM ".$table."WHERE `UUID`='$UUID' ORDER BY 'date' DESC";
+$sql = "SELECT * FROM ".$table."WHERE `UUID`='$UUID' ORDER BY 'date' ASC";
 $result=$db->query($sql);
 $recentcomment2="";
 $formattedDate;
@@ -217,7 +219,7 @@ $_SESSION['buttons'] = $buttons;
         <div class="NextAppointmentPage">         
 			<div class="tile double bg-color-orange" style="height:100%; width: 100%; float: left;">
 				<div class="tile-content">
-					<h2>Today's appointments:</h2>
+					<h2>This week's appointments:</h2>
 					<br>
 					<p>
 						<div style="width:100%;height:100%;line-height:3em;padding:5px;overflow-x: hidden;padding-bottom: 5%;">

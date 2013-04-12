@@ -14,3 +14,4 @@
 	$db->real_query("INSERT INTO ".$table." (`UUID`, `SUID`, `date`, `text`, `isReleased`, `CUID`, `title`) VALUES ('$user', '$student', '$date', '$text', '$CUID','$title');");
 	header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/StudentComments.php?filter=all');
 ?>
+

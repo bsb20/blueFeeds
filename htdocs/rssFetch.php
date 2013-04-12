@@ -43,6 +43,7 @@ $rss = new DOMDocument();
 $finally.= "<li data-theme='a' class='dynamicTag' data-dynamicContent='rssFetch' style='margin: 1%; overflow: visible; white-space: normal;'>
   		</li>"
 	}
+	}
 }
 echo $finally;
   

@@ -22,7 +22,7 @@ echo $title;
       			<a href='#commentspageresults'>    
 						<div data-role='controlgroup' data-type='horizontal'  class='noteControl'>
                   <h1>$title</h1>
-                      <p>$title</p>
+                      <p>$info</p>
                       </div>
                       </a>
                       </li>";

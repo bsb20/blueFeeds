@@ -23,7 +23,7 @@ echo "LOVE";
 $finally="";
 //$description = $feed->description;
 $rss = new DOMDocument();
-    $rss->load('$url');
+    $rss->load('http://wordpress.org/news/feed/');
 	$feed = array();
 	foreach ($rss->getElementsByTagName('item') as $node) {
 		$item = array ( 

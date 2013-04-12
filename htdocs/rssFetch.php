@@ -41,7 +41,7 @@ $rss = new DOMDocument();
 		$description = $feed[$x]['desc'];
 		$date = date('l F d, Y', strtotime($feed[$x]['date']));
 		
-$finally = "<li data-theme='a' class='dynamicTag' data-dynamicContent='rssFetch' style='margin: 1%; overflow: visible; white-space: normal;'>
+$finally.= "<li data-theme='a' class='dynamicTag' data-dynamicContent='rssFetch' style='margin: 1%; overflow: visible; white-space: normal;'>
   		<a href='$link'>
   		<h1> $title </h1> <p> $date </p>
   		<p> $description </p> </a> </li>"

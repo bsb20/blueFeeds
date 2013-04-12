@@ -16,11 +16,11 @@ if($row=mysqli_fetch_array($result)){
     $info=$row["info"];
     $title=$row["title"];
     }
-    $finally.=         
-    			"<li>	<h1>$title</h1>
-				    <p>$info</p>	
+ //   $finally.=         
+  //  			"<li>	<h1>$title</h1>
+//				    <p>$info</p>	
             
-            </li>";
+ //           </li>";
     }
 }
     echo $finally;

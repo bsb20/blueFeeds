@@ -29,6 +29,3 @@ echo $finally;
   
 ?>
 
-//$date=date("Y-m-d H:i:s");
-//$db->real_query("INSERT INTO ".$table." (`feed`, `UUID`, `date`, `url`, `FUID`, `title`) VALUES (`$feed`, '$user', '$date', '$url', '$FUID','$title');");
-//echo "true";

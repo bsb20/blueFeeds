@@ -20,10 +20,8 @@ if($row=mysqli_fetch_array($result)){
 }
 $finally="";
 //$description = $feed->description;
-echo $url;
 $rss = new DOMDocument();
     $rss->load($url);
-    echo " url is loaded";
 	$feed = array();
 	foreach ($rss->getElementsByTagName('item') as $node) {
 		$item = array ( 

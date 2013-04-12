@@ -19,7 +19,7 @@ if($row=mysqli_fetch_array($result)){
     }
 foreach($feed->query->results->item as $item){
 
-    $finally.=                       "<li data-theme='c' class='listNote dynamicComment' data-dynamicContent='rssFeedRetrieve' onClick='echoComment()' style='margin: 1%; overflow: visible; white-space: normal;'>
+    $finally.=                       "<li data-theme='c'  style='margin: 1%; overflow: visible; white-space: normal;'>
         		<h1>$title</h1>
 				    <p>$Info</p>	
             

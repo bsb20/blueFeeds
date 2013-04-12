@@ -17,6 +17,7 @@ if($row=mysqli_fetch_array($result)){
     $title=$row["title"];
     $GUID=$row["GUID"];
     }
+     echo "Repeat";
 foreach($feed->query->results->item as $item){
 
     $finally.=                       "<li data-theme='c' class='listNote dynamicComment' data-dynamicContent='courseRetriever' onClick='echoComment()' style='margin: 1%; overflow: visible; white-space: normal;'>

@@ -23,7 +23,22 @@ $path .= urlencode("SELECT * FROM feed WHERE url='$url'");
 $path .= "&format=json"; 
 $feed = file_get_contents($path, true);
 $feed = json_decode($feed);
-$description = $feed->description;
+//$description = $feed->description;
+
+$rss = new DOMDocument();
+    $rss->load('$url');
+	$feed = array();
+	foreach ($rss->getElementsByTagName('item') as $node) {
+		$item = array ( 
+			'title' => $node->getElementsByTagName('title')->item(0)->nodeValue,
+			'desc' => $node->getElementsByTagName('description')->item(0)->nodeValue,
+			'link' => $node->getElementsByTagName('link')->item(0)->nodeValue,
+			'date' => $node->getElementsByTagName('pubDate')->item(0)->nodeValue,
+			);
+		array_push($feed, $item);
+	}
+
+
 
 echo $finally;
   

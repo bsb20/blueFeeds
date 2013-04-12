@@ -22,7 +22,7 @@ $finally="";
 //$description = $feed->description;
 echo $url;
 $rss = new DOMDocument();
-    $rss->load('http://rss.nytimes.com/service/');
+    $rss->load('http://wordpress.org/news/feed/');
     echo " url is loaded";
 	$feed = array();
 	foreach ($rss->getElementsByTagName('item') as $node) {

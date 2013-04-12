@@ -19,8 +19,7 @@ if($row=mysqli_fetch_array($result)){
     }
      echo "Repeat";
     $finally.=         
-    			"<li data-theme='c' class='dynamicComment' data-dynamicContent='courseRetriever' onClick='echoComment()' style='margin: 1%; overflow: visible; white-space: normal;'>
-        		<h1>$title</h1>
+    			"<li>	<h1>$title</h1>
 				    <p>$Info</p>	
             
             </li>";

@@ -11,4 +11,10 @@ $sql = "SELECT * FROM `test`.`courses` WHERE `UUID`='$UUID'";
 $result=$db->query($sql);
  echo "HERE";
 $finally="";
+for($i=0; $i<mysqli_num_rows($result); $i++){
+if($row=mysqli_fetch_array($result)){
+    $info=$row["info"];
+    $title=$row["title"];
+}
+}
 ?>

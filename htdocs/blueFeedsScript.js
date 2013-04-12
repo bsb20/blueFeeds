@@ -176,7 +176,7 @@ var courses;
 	
 	$(document).ready(
 	function(){
-	    $(".setCourse").click(function(e){
+	    $(".courseList").on("click","li", (function(e){
                 var found=$(this).find(".courseKey").val();
                 $.ajax({type: "POST", url: "setCourse.php", data: {'key':found}, error: onError})
 		});	    

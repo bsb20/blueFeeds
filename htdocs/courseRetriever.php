@@ -18,7 +18,8 @@ if($row=mysqli_fetch_array($result)){
     $GUID=$row["GUID"];
     }
      echo "Repeat";
-    $finally.=                       "<li data-theme='c' class='listNote dynamicComment' data-dynamicContent='courseRetriever' onClick='echoComment()' style='margin: 1%; overflow: visible; white-space: normal;'>
+    $finally.=         
+    			"<li data-theme='c' class='dynamicComment' data-dynamicContent='courseRetriever' onClick='echoComment()' style='margin: 1%; overflow: visible; white-space: normal;'>
         		<h1>$title</h1>
 				    <p>$Info</p>	
             

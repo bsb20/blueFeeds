@@ -14,5 +14,6 @@ $db->real_query($sql);
 $table="`test`.`groups`";
 $sql="INSERT INTO $table (`UUID`,`GUID`) VALUES ('$UUID', '$GUID');";
 $db->real_query($sql);
+header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/LandingPage.php');		
 echo "true";
 ?>

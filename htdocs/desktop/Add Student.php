@@ -63,20 +63,17 @@
 					<div class="input-control text">
 						<label for="info">Info: </label>
 						<input type="text" name="info" placeholder="Description"/>
-					</div>					
+					</div>	
+					<div style="padding-top: 3%" class="input">
+						<label for="submit"></label>
+						<input type="submit" class="big" value="Add Course">	
+					</div> 						
 				</form>
 			</div>
         </div>
-        <div class="MenuPage">
-			<ul id="MenuOptions" style="padding-top: 5%">
-            	<li><a href="./LandingPage.php"><button class="big" id="MenuButtons">Home<i class="icon-home icon-small"></i></button></a></li>			
-            	<li><a href="./Appointments.php"><button class="big" id="MenuButtons">Appointments<i class="icon-clipboard-2 icon-small"></i></button></a></li>
-                <li><a href="./StudentSelection.php"><button class="big" id="MenuButtons">Students<i class="icon-user-2 icon-small"></i></button></a></li>
-                <li><a href="./RSS Feeds.php"><button class="big" id="MenuButtons">RSS Feeds<i class="icon-feed icon-small"></i></button></a></li>
-                <li><a href="./Add Appointment.php"><button class="big" id="MenuButtons">Schedule Appointment<i class="icon-clipboard icon-small"></i></button></a></li>
-                <li><a href="./Add Student.php"><button class="big" id="MenuButtons">Add New Students<i class="icon-plus-2 icon-small"></i></button></a></li>               
-            </ul>                   
-        </div>
+		<?php
+			include 'menu.php';
+		?>
     </div>​
 </body>
 </html>

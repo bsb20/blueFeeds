@@ -18,18 +18,14 @@ if($row=mysqli_fetch_array($result)){
     $url=$row["url"];
 }
 $finally="";
-$rss = new DOMDocument();
-    $rss->load('$url');
-	$feed = array();
-	foreach ($rss->getElementsByTagName('item') as $node) {
-		$item = array ( 
-			'title' => $node->getElementsByTagName('title')->item(0)->nodeValue,
-			'desc' => $node->getElementsByTagName('description')->item(0)->nodeValue,
-			'link' => $node->getElementsByTagName('link')->item(0)->nodeValue,
-			'date' => $node->getElementsByTagName('pubDate')->item(0)->nodeValue,
-			);
-		array_push($feed, $item);
-	}
+
+$path = "http://query.yahooapis.com/v1/public/yql?q=";  
+$path .= urlencode("SELECT * FROM feed WHERE url='$url'");  
+$path .= "&format=json"; 
+$feed = file_get_contents($path, true);
+$feed = json_decode($feed);
+//$description = $feed->description;
+
 
 
 

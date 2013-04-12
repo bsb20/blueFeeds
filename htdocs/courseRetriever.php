@@ -12,6 +12,7 @@ $result=$db->query($sql);
  echo "HERE";
 $finally="";
 for($i=0; $i<mysqli_num_rows($result); $i++){
+	 echo "From For Loop";
 if($row=mysqli_fetch_array($result)){
     $info=$row["info"];
     $title=$row["title"];

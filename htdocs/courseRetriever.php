@@ -16,5 +16,8 @@ if($row=mysqli_fetch_array($result)){
     $info=$row["info"];
     $title=$row["title"];
 }
+ $finally.=                       "<li data-theme='a' class='dynamicTag' data-dynamicContent='tagRetrieve' style='margin: 1%; overflow: visible; white-space: normal;'>
+      				<h1> $title </h1>
+                      </li>";
 }
 ?>

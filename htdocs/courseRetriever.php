@@ -19,8 +19,12 @@ if($row=mysqli_fetch_array($result)){
 echo "trice";
 echo $title;
  $finally.=                       "<li data-theme='a' class='dynamicTag' data-dynamicContent='courseRetriever' style='margin: 1%; overflow: visible; white-space: normal;'>
-      				<h1> $title </h1>
+      			<a href='#commentspageresults'>    
+						<div data-role='controlgroup' data-type='horizontal'  class='noteControl'>
+                  <h1> $title </h1>
                       <p> $title </p>
+                      </div>
+                      </a>
                       </li>";
 }
 ?>

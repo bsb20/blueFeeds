@@ -21,7 +21,7 @@ if(strlen(trim($newTag)) !=0){
 	echo "FOUND";
 	$newTUID=uniqid("",FALSE);
 	array_push($tags,$newTUID);
-	$db->real_query("INSERT INTO `test`.`tags` (`tag`, `TUID`, `UUID`) VALUES ('$newTag', '$newTUID', '$user');");
+	$db->real_query("INSERT INTO `test`.`tags` (`text`, `TUID`, `UUID`) VALUES ('$newTag', '$newTUID', '$user');");
 }
 $date=date("Y-m-d H:i:s");
 $db->real_query("INSERT INTO ".$table." (`UUID`, `SUID`, `date`, `text`, `CUID`, `title`, `instructors`, `students`, `GUID`) VALUES ('$user', '$student', '$date', '$text', '$CUID','$title', '$instructors','$students', '$GUID');");

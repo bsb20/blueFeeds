@@ -21,15 +21,9 @@ if($row=mysqli_fetch_array($result)){
 }
 echo "LOVE";
 $finally="";
-
-$path = "http://query.yahooapis.com/v1/public/yql?q=";  
-$path .= urlencode("SELECT * FROM feed WHERE url='$url'");  
-$path .= "&format=json"; 
-$feed = file_get_contents($path, true);
-$feed = json_decode($feed);
 //$description = $feed->description;
 $rss = new DOMDocument();
-    $rss->load('http://wordpress.org/news/feed/');
+    $rss->load('$url');
 	$feed = array();
 	foreach ($rss->getElementsByTagName('item') as $node) {
 		$item = array ( 
@@ -46,9 +40,11 @@ $rss = new DOMDocument();
 		$link = $feed[$x]['link'];
 		$description = $feed[$x]['desc'];
 		$date = date('l F d, Y', strtotime($feed[$x]['date']));
-		echo '<p><strong><a href="'.$link.'" title="'.$title.'">'.$title.'</a></strong><br />';
-		echo '<small><em>Posted on '.$date.'</em></small></p>';
-		echo '<p>'.$description.'</p>';
+		
+$finally = "<li data-theme='a' class='dynamicTag' data-dynamicContent='tagRetrieve' style='margin: 1%; overflow: visible; white-space: normal;'>
+  		<a href='$link'>
+  		<h1> $title </h1> <p> $date </p>
+  		<p> $description </p> </a> </li>"
 	}
 }
 echo $finally;

@@ -20,6 +20,7 @@ if($row=mysqli_fetch_array($result)){
 }
 $finally="";
 //$description = $feed->description;
+echo $url;
 $rss = new DOMDocument();
     $rss->load('$url');
 	$feed = array();

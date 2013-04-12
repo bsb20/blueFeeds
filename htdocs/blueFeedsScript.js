@@ -48,7 +48,7 @@ var courses;
 	    return;
 	}
 	if(data=="instructor"){
-	    $.mobile.changePage("#studentSelection");
+	    $.mobile.changePage("#rssFeed");
 	}
         else{
             alert(data);

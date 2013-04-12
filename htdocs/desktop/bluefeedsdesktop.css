@@ -228,3 +228,8 @@ li
 	width: 95%;
 }
 
+#courseButton {
+	float: right;
+	margin-bottom: 5%;
+}
+

@@ -12,13 +12,11 @@ $result=$db->query($sql);
  echo "HERE";
 $finally="";
 for($i=0; $i<mysqli_num_rows($result); $i++){
-	 echo "From For Loop";
 if($row=mysqli_fetch_array($result)){
     $info=$row["info"];
     $title=$row["title"];
     $GUID=$row["GUID"];
     }
-     echo "Repeat";
     $finally.=         
     			"<li>	<h1>$title</h1>
 				    <p>$info</p>	

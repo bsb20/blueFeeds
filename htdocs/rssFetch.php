@@ -17,6 +17,7 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 if($row=mysqli_fetch_array($result)){
     $url=$row["url"];
 }
+$finally="";
 $path = "http://query.yahooapis.com/v1/public/yql?q=";  
 $path .= urlencode("SELECT * FROM feed WHERE url='$url'");  
 $path .= "&format=json"; 

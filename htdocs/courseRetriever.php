@@ -20,6 +20,7 @@ echo "trice";
 echo $title;
  $finally.=                       "<li data-theme='a' class='dynamicTag' data-dynamicContent='courseRetriever' style='margin: 1%; overflow: visible; white-space: normal;'>
       				<h1> $title </h1>
+                      <p> $title </p>
                       </li>";
 }
 ?>

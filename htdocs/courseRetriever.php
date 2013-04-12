@@ -31,7 +31,7 @@ if($row=mysqli_fetch_array($result)){
                       <p>$info</p>
                       </div>
                       </a>
-                      <input type='text' id='no' style='display:none' value='$GUID'>
+                      <input type='text' class='courseKey' style='display:none' value='$GUID'>
                       </li>";
 }
 echo $finally;

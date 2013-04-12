@@ -11,6 +11,8 @@ $title=$_POST["feedName"];
 $user=$_SESSION["UUID"];
 $FUID=$_POST["FUID"];
 
+$sql = "SELECT * FROM `test`.`feeds` WHERE `UUID`='$UUID'";
+$result=$db->query($sql);
 
 // YQL query (SELECT * from feed ... ) // Split for readability // Organizes yahoo queries  
 for($i=0; $i<mysqli_num_rows($result); $i++){

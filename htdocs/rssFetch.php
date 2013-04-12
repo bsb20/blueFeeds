@@ -8,7 +8,7 @@ if($db->connect_errno){
 echo "PRELOVE";
 $url=$_POST["feedUrl"];
 $title=$_POST["feedName"];
-$user=$_SESSION["UUID"];
+$UUID=$_SESSION["UUID"];
 $FUID=$_POST["FUID"];
 
 $sql = "SELECT * FROM `test`.`feeds` WHERE `UUID`='$UUID'";

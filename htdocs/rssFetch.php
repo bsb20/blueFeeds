@@ -21,7 +21,7 @@ if($row=mysqli_fetch_array($result)){
 $finally="";
 //$description = $feed->description;
 $rss = new DOMDocument();
-    $rss->load('http://wordpress.org/news/feed/');
+    $rss->load('$url');
 	$feed = array();
 	foreach ($rss->getElementsByTagName('item') as $node) {
 		$item = array ( 

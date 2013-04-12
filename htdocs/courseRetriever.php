@@ -27,4 +27,5 @@ echo $title;
                       </a>
                       </li>";
 }
+echo $finally;
 ?>

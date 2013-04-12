@@ -162,15 +162,13 @@ var courses;
 	function(){
 	    $(".apptList").on("click", "li", function(e){
                 var found=$(this).find("#no").val();
-                var student=$(this).find("#no2").val();
                 $.ajax({type: "POST", url: "setAppt.php", data: {'key':found}, error: onError})
-                $.ajax({type: "POST", url: "setStudent.php", data: {'key':student}, error: onError})
 		});	    
 	    });        
 
         $(document).ready(
 	function(){
-	    $(".apptList").on("click", "li", function(e){
+	    $(".allApptList").on("click", "li", function(e){
                 var found=$(this).find("#student").val();
                 $.ajax({type: "POST", url: "setStudent.php", data: {'key':found}, error: onError})
 		});	    

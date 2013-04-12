@@ -7,7 +7,7 @@ if($db->connect_errno){
     echo "FAILURE";
 }
 $UUID=$_SESSION["UUID"];
-$sql = "SELECT * FROM `test`.`courses` WHERE `UUID`='$UUID'";
+$sql = "SELECT * FROM `test`.`courses`";
 $result=$db->query($sql);
  echo "HERE";
 $finally="";

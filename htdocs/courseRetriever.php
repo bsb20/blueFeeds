@@ -21,8 +21,8 @@ echo $title;
  $finally.=                       "<li data-theme='a' class='dynamicTag' data-dynamicContent='courseRetriever' style='margin: 1%; overflow: visible; white-space: normal;'>
       			<a href='#commentspageresults'>    
 						<div data-role='controlgroup' data-type='horizontal'  class='noteControl'>
-                  <h1> $title </h1>
-                      <p> $title </p>
+                  <h1>$title</h1>
+                      <p>$title</p>
                       </div>
                       </a>
                       </li>";

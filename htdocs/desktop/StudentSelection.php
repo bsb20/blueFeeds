@@ -22,6 +22,10 @@ if($row=mysqli_fetch_array($result)){
 	{
 		$photo = "http://bluefeeds.cs.duke.edu/home/htdocs/uploads/nophoto.gif";
 	}
+	else
+	{
+		$photo = "http://bluefeeds.cs.duke.edu/home/htdocs/" . $photo;
+	}
     $title=$row["title"];
     $spec=$row["speciality"];
     $SUID=$row["SUID"];

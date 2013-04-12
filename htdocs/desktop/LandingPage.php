@@ -71,7 +71,7 @@ $_SESSION['profile'] = " <div class='tile-content'>
 			</div>;";
 			
 $table="`test`.`comments`";
-$sql = "SELECT * FROM ".$table."WHERE `UUID`='$UUID' ORDER BY 'date' ASC";
+$sql = "SELECT * FROM ".$table."WHERE `UUID`='$UUID' ORDER BY date DESC";
 $result=$db->query($sql);
 $recentcomment2="";
 $formattedDate;

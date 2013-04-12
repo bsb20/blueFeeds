@@ -6,10 +6,11 @@ $db=new mysqli("127.0.0.1","root","devils","test",8889);
 if($db->connect_errno){
     echo "FAILURE";
 }
-if(isset($_SESSION["UUID"]){
+if(isset($_SESSION["UUID"])){
 $UUID=$_SESSION["UUID"];
-$sql = "SELECT * FROM `test`.`courses` WHERE `UUID`='$UUID'";}
+$sql = "SELECT * FROM `test`.`courses` WHERE `UUID`='$UUID'";
 $link="#studentSelection";
+}
 else{
 $SUID=$_SESSION["SUID"];
 $sql="SELECT * FROM `test`.`gs`, `test`.`courses` WHERE `test`.`gs`.`SUID`='$SUID' AND `test`.`courses`.`GUID`=`test`.`gs`.`GUID`;";

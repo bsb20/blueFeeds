@@ -80,6 +80,17 @@
 						<input type="submit" class="big" value="Add Course">	
 					</div> 						
 				</form>
+				<h2>Create New Tag</h2>				
+				<form action="tagCreate.php" method="post">
+					<div class="input-control text">
+						<label for="tag">Tag: </label>
+						<input type="text" name="tag" placeholder="Tag Title"/>
+					</div>
+					<div style="padding-top: 3%" class="input">
+						<label for="submit"></label>
+						<input type="submit" class="big" value="Add Tag">	
+					</div> 						
+				</form>
 			</div>
         </div>
 		<?php

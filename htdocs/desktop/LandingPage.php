@@ -225,7 +225,14 @@ $_SESSION['buttons'] = $buttons;
 						<div style="width:100%;height:100%;line-height:3em;padding:5px;overflow-x: hidden;padding-bottom: 5%;">
 							<ul>
 								<?php
-									echo $_SESSION['appointments'];
+									if($_SESSION['appointments']=="")
+									{
+										echo "<h3>You have no appointments this week.</h3>";
+									}
+									else
+									{
+										echo $_SESSION['appointments'];
+									}
 								?>							
 							</ul>							
 						</div>

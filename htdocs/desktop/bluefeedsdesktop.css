@@ -63,7 +63,7 @@ li
 .MenuPage{
 	float: left;
 	width: 22.5%;
-	height: 57.5%;
+	height: 62.5%;
 	background-color: #6A6A6E;
 }
 
@@ -79,7 +79,7 @@ li
 .ScheduleAppointmentPage {
 	float: right;
 	width: 77.5%;
-	height: 85%;
+	height: 90%;
 	background-color: #1947D1;
 	padding-left: 3%;
 	padding-top: 2%;			
@@ -88,7 +88,7 @@ li
 .AddStudentPage{
 	float: right;
 	width: 77.5%;
-	height: 85%;
+	height: 90%;
 	background-color: #1947D1;
 	padding-left: 3%;
 	padding-top: 2%;		
@@ -97,7 +97,7 @@ li
 .StudentSelectionPage{
 	float: right;
 	width: 77.5%;
-	height: 85%;
+	height: 90%;
 	background-color: #1947D1;
 	padding-left: 3%;
 	padding-top: 2%;		
@@ -106,7 +106,7 @@ li
 .StudentProfilePage{
 	float: right;
 	width: 77.5%;
-	height: 85%;
+	height: 90%;
 	background-color: #1947D1;
 	padding-left: 3%;
 	padding-top: 2%;		
@@ -116,7 +116,7 @@ li
 .BluefeedsNewsPage{
 	float: right;
 	width: 77.5%;
-	height: 85%;
+	height: 90%;
 	background-color: #1947D1;
 	padding-left: 5%;
 	padding-top: 3%;
@@ -150,7 +150,7 @@ li
 .BluefeedsNewsPage{
 	float: right;
 	width: 77.5%;
-	height: 85%;
+	height: 90%;
 	background-color: #1947D1;
 	padding-left: 5%;
 	padding-top: 3%;
@@ -179,7 +179,7 @@ li
 .BluefeedsNewsLandingPage{
 	float: right;
 	width: 77.5%;
-	height: 50%;
+	height: 55%;
 	background-color: #1947D1;
 	padding-left: 3%;
 	padding-top: 2%;		
@@ -220,7 +220,7 @@ li
 	padding-top: 3%;
 	float: right;
 	width: 77.5%;
-	height: 85%;
+	height: 90%;
 	background-color: #1947D1;
 }
 

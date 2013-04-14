@@ -198,6 +198,37 @@
     </footer>
 </div><!-- appointments -->
 
+<div data-role="page" id="appointmentsStudent" data-theme="a">
+    <header data-role="header" data-theme="b">
+        <h1>Meetings</h1>
+        <a href="#studentSelection" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+        <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
+        </button>
+    </header>
+    
+    <div class="studentSelectionCenter" data-role="content">
+    			<ul data-role="listview" data-prepend="true" data-inset="true">
+          	  		<li>
+                		<a href="#makeAppt">
+                		<h1>Add Meeting</h1></a>
+            			</li>
+        		</ul>
+    </div>
+        		
+    <div class="appointmentCenter" data-role="content" data-theme="a">
+        <ul data-role="listview" data-filter="true" id="allApptListStudent" class="allApptListStudent" data-dynamicQuery="allApptStudent">
+        </ul>
+    </div>
+    <footer data-role="footer" data-theme="b" data-position="fixed">
+        <nav data-role="navbar">
+            <ul>
+                <li><a href="#courses" data-icon="arrow-u" data-transition="slideup">Courses</a></li>
+            </ul>
+        </nav>
+    </footer>
+</div><!-- appointments Student-->
+
+
 
 <div data-role="page" data-theme="a" id="makeAppt">
     <header data-role="header" data-theme="b">

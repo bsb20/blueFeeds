@@ -7,9 +7,14 @@ $db=new mysqli("127.0.0.1","root","devils","test",8889);
 if($db->connect_errno){
     echo "FAILURE";
 }
-$UUID=$_SESSION["UUID"];
+$UID=$_SESSION["UUID"];
+$ID="UUID";
+if(isset($_SESSION["isStudent"])){
+ $UID=$_SESSION["SUID"];
+ $ID="SUID"
+}
 $final="";
-$sql = "SELECT * FROM $table,$table2 WHERE $table.`SUID`=$table2.`SUID` AND $table2.`UUID`='$UUID' ORDER BY `start`;";
+$sql = "SELECT * FROM $table,$table2 WHERE $table.`SUID`=$table2.`SUID` AND $table2.`$ID`='$UID' ORDER BY `start`;";
 $result=$db->query($sql);
 for($i=0; $i<mysqli_num_rows($result); $i++){
     if($row=mysqli_fetch_array($result)){

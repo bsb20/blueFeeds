@@ -11,7 +11,7 @@ $UID=$_SESSION["UUID"];
 $ID="UUID";
 if(isset($_SESSION["isStudent"])){
  $UID=$_SESSION["SUID"];
- $ID="SUID"
+ $ID="SUID";
 }
 $final="";
 $sql = "SELECT * FROM $table,$table2 WHERE $table.`SUID`=$table2.`SUID` AND $table2.`$ID`='$UID' ORDER BY `start`;";

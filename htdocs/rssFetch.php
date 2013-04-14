@@ -22,8 +22,10 @@ $finally="";
 //$description = $feed->description;
 $rss = new DOMDocument();
     $rss->load($url);
+    echo $url;
 	$feed = array();
 	foreach ($rss->getElementsByTagName('item') as $node) {
+		echo "it was in here";
 		$item = array ( 
 			'title' => $node->getElementsByTagName('title')->item(0)->nodeValue,
 			'desc' => $node->getElementsByTagName('description')->item(0)->nodeValue,

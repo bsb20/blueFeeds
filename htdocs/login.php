@@ -29,6 +29,7 @@ else{
             unset($_SESSION["UUID"]);
         }
         $_SESSION["SUID"]=$row["SUID"];
+        $_SESSION["isStudent"]="true";
         echo "student";
     }
 //echo "Username/Password combo was incorrect!";

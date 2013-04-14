@@ -8,7 +8,7 @@
 		$date=$_POST["date"];		
 		$desc=$_POST["description"]; 	
 		
-		$item = $xml->addChild('item');
+		$item = $xml->channel->addChild('item');
 		$item->addChild('title', $title);
 		$item->addChild('link', $link);
 		$item->addChild('date', $date);	

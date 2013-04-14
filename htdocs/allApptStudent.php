@@ -7,6 +7,7 @@ $db=new mysqli("127.0.0.1","root","devils","test",8889);
 if($db->connect_errno){
     echo "FAILURE";
 }
+
 $SUID=$_SESSION["SUID"];
 $final="";
 $sql = "SELECT * FROM $table,$table2 WHERE $table.`SUID`=$table2.`SUID` AND $table2.`SUID`='$SUID' ORDER BY `start`;";

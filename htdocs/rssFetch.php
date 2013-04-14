@@ -18,37 +18,31 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 if($row=mysqli_fetch_array($result)){
     $url=$row["url"];
 }
-$finally="";
 //$description = $feed->description;
-$rss = new DOMDocument();
-    $rss->load($url);
-    echo $url;
-	$feed = array();
-	foreach ($rss->getElementsByTagName('item') as $node) {
-		echo "TROUBLE";
-		$item = array ( 
-			'title' => $node->getElementsByTagName('title')->item(0)->nodeValue,
-			'desc' => $node->getElementsByTagName('description')->item(0)->nodeValue,
-			'link' => $node->getElementsByTagName('link')->item(0)->nodeValue,
-			'date' => $node->getElementsByTagName('date')->item(0)->nodeValue,
-			);
-		array_push($feed, $item);
-	}
-	$limit = 5;
-	for($x=0;$x<$limit;$x++) {
-		$title = str_replace(' & ', ' &amp; ', $feed[$x]['title']);
-		$link = $feed[$x]['link'];
-		$description = $feed[$x]['desc'];
-		$date = date('l F d, Y', strtotime($feed[$x]['date']));	
-		$finally.="<li data-theme='c' class='dynamicTag' data-dynamicContent='rssFetch' style='margin: 1%; overflow: visible; white-space: normal;'>
-		<a href='$link'>	
-		<h1> $title </h1>
-		<p> <small><em>Posted on $date</em></small></p>
-  		<p> $description </p> 
-  		</a>
-		</li>";
-  		
-	}
+
+$filepath = "/home/htdocs/desktop/bluefeedsTest.xml";
+	$xml = simplexml_load_file($_SERVER['DOCUMENT_ROOT'].$filepath);
+	$finally = "";
+	foreach($xml->channel->item as $item)
+	{
+		$title = $item->title;
+		$link = $item->link;
+		$date = $item->date;
+		$desc = $item->description;
+
+		$finally.="						<li>
+						<a>$title</a>
+						<div>
+							<h3>$title</h3>
+							$desc
+							<p>
+								$date
+							</p>
+							<a href=$link><button class='bg-color-blueLight'> Link </button></a>
+							<a href='#'><button class='bg-color-green'> Edit </button></a>
+							<a href='#'><button class='bg-color-red'> Delete </button></a>							
+						</div>
+					</li>";
 }
 echo $finally;
   

@@ -17,14 +17,19 @@
 			$date=$row["date"];
 			$time=strtotime($date);
 			$formattedDate=date("m/d/y",$time);
+			$editlink = "editComment.php?CUID=" . $CUID;
+			$deletelink = "deleteComment.php?CUID=" . $CUID;
+			
 		}
 		$commentList.="						<li>
-								<a href='#'>$title</a>
+								<a>$title</a>
 								<div>
 									$text
 									<p>
 										$formattedDate
 									</p>
+									<a href=$editlink><button class='bg-color-blueLight'> Edit </button></a>
+									<a href=$deletelink><button class='bg-color-red'> Delete </button></a>																
 								</div>
 							</li>";
 	}
@@ -67,11 +72,10 @@
 				?>				
 			</h2>
 				<div style="width:100%;height:85%;line-height:3em;padding:1.5px;overflow-x: hidden; float: left;">
-					<form action="">
-						<label for="filter"></label>										
-						<input id="filter" type="text" size="31" />
-						<label for="submit"></label>						
-						<input type="submit" alue="Filter" />
+					<form action="tagRetrieve.php" method="post">
+						<label for="filter"></label>
+						<input name="filter" id="filter" type="text" size="31" />
+						<input type="submit" value="Search" />
 					</form>					
 				</div>
 				<ul class="accordion dark span10" data-role="accordion">

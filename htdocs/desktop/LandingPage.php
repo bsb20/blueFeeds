@@ -125,7 +125,7 @@ $_SESSION["recentComment2"]=$recentComment2;
 $filepath = "/home/htdocs/desktop/bluefeedsTest.xml";
 $xml = simplexml_load_file($_SERVER['DOCUMENT_ROOT'].$filepath);
 $rss = "";
-foreach($xml->item as $item)
+foreach($xml->channel->item as $item)
 {
 	$title = $item->title;
 	$link = $item->link;

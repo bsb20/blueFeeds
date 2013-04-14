@@ -29,20 +29,13 @@ $filepath = "/home/htdocs/desktop/bluefeedsTest.xml";
 		$link = $item->link;
 		$date = $item->date;
 		$desc = $item->description;
-
-		$finally.="						<li>
-						<a>$title</a>
-						<div>
-							<h3>$title</h3>
-							$desc
-							<p>
-								$date
-							</p>
-							<a href=$link><button class='bg-color-blueLight'> Link </button></a>
-							<a href='#'><button class='bg-color-green'> Edit </button></a>
-							<a href='#'><button class='bg-color-red'> Delete </button></a>							
-						</div>
-					</li>";
+$finally.="<li data-theme='c' class='dynamicTag' data-dynamicContent='rssFetch' style='margin: 1%; overflow: visible; white-space: normal;'>
+		<a href='$link'>	
+		<h1> $title </h1>
+		<p> <small><em>Posted on $date</em></small></p>
+  		<p> $desc </p> 
+  		</a>
+		</li>";
 }
 }
 echo $finally;

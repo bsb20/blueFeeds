@@ -60,13 +60,6 @@
 </header>
 <body>
     <div class="container">
-        <div class="ProfilePage">
-				<div class="tile double bg-color-purple" id="ProfileTile">
-					<?php 
-						echo $_SESSION['profile'];					
-					?>	
-				</div>
-        </div>
         <div class="StudentCommentsSplit">
             <h2>
 				<?php 
@@ -132,8 +125,5 @@
 				</div>
 				<iframe style="float: left; padding-left: 2%; width:50%; height:85%;" src="http://bluefeeds.cs.duke.edu/home/htdocs/desktop/uploadsPDF/Fillable_PDF_Sample_from_TheWebJockeys_vC5.pdf" frameborder="0"></iframe>								
         </div>
-		<?php
-			include 'menu.php';
-		?>
 </body>
 </html>

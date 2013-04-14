@@ -123,7 +123,7 @@
 							</form>
 					</div>							
 				</div>
-				<iframe style="float: left; padding-left: 2%; width:50%; height:85%;" src="http://bluefeeds.cs.duke.edu/home/htdocs/desktop/uploadsPDF/Fillable_PDF_Sample_from_TheWebJockeys_vC5.pdf" frameborder="0"></iframe>								
+				<iframe style="float: left; padding-left: 2%; width:50%; height:85%;" src="https://crocodoc.com/view/S2ZRKWOYpXbaAlfZAEz2WjfW5SRgkZw2prIF0WljVwB6NXhq3GEu7RiycWYAfmUK8NPZyh3QCkTxS9n2EgRXGL8YVvOVDdZqJNNSzwrr8osqxg9KYruknKeCksP9X05_cmmZdRbdboYKu3u4hVkwMTcK_A4xEedW7gkbs1TGjFgvyHJfYEAI1fc5PfaBHOjltFc" frameborder="0"></iframe>								
         </div>
 </body>
 </html>

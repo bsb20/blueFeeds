@@ -44,6 +44,7 @@ $filepath = "/home/htdocs/desktop/bluefeedsTest.xml";
 						</div>
 					</li>";
 }
+}
 echo $finally;
   
 ?>

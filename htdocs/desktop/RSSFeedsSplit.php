@@ -46,7 +46,7 @@
 <header>
 	<div>
 		<h1 style="display: inline-block">
-			Bluefeeds Newsletter
+			Bluefeeds Newsfeed
 		</h1>		
 		<div style="display: inline-block; padding: 1.5%; float: right; height: 65px; width: 50%; overflow-y: scroll; overflow-x: hidden;">
 			<?php

@@ -76,13 +76,14 @@
 						<label for="filter"></label>
 						<input name="filter" id="filter" type="text" size="31" />
 						<input type="submit" value="Search" />
-					</form>					
+					</form>	
+					<ul class="accordion dark span10" data-role="accordion">
+						<?php 
+							echo $_SESSION['commentList'];					
+						?>						
+					</ul>		
 				</div>
-				<ul class="accordion dark span10" data-role="accordion">
-					<?php 
-						echo $_SESSION['commentList'];					
-					?>						
-				</ul>				
+		
         </div>
 </body>
 </html>

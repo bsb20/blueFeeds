@@ -25,9 +25,8 @@ $rss = new DOMDocument();
     echo $url;
 	$feed = array();
 	echo $feed;
-	echo ($rss->getElementsByTagName('item') as $node)->length;
 	foreach ($rss->getElementsByTagName('item') as $node) {
-		echo "it was in here";
+		echo "TROUBLE";
 		$item = array ( 
 			'title' => $node->getElementsByTagName('title')->item(0)->nodeValue,
 			'desc' => $node->getElementsByTagName('description')->item(0)->nodeValue,

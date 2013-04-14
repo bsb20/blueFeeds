@@ -6,6 +6,7 @@ $db=new mysqli("127.0.0.1","root","devils","test",8889);
 if($db->connect_errno){
     echo "FAILURE";
 }
+$_SESSION['commentList'] = "";
 $UUID=$_SESSION["UUID"];
 $sql = "SELECT * FROM `test`.`tags` WHERE `UUID`='$UUID'";
 $result=$db->query($sql);
@@ -46,9 +47,10 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 								</div>
 							</li>";
 			}
+			header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/StudentCommentsTags.php');
 		}
     }
 }
 $_SESSION['commentList'] = $commentList;
-header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/StudentCommentsTags.php');		
+header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/StudentCommentsTags.php');	
 ?>

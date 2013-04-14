@@ -25,6 +25,7 @@ $rss = new DOMDocument();
     echo $url;
 	$feed = array();
 	echo $feed;
+	echo rss->saveXML();
 	foreach ($rss->getElementsByTagName('item') as $node) {
 		echo "TROUBLE";
 		$item = array ( 

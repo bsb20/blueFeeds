@@ -84,6 +84,9 @@
 					</ul>		
 				</div>
 		
-        </div>
+    </div>
+	<?php
+		include 'menu.php';
+	?>		
 </body>
 </html>

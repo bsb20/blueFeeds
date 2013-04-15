@@ -31,6 +31,13 @@
 </header>
 <body>
     <div class="container">
+        <div class="ProfilePage">
+				<div class="tile double bg-color-purple" id="ProfileTile">
+					<?php 
+						echo $_SESSION['profile'];					
+					?>					
+				</div>
+        </div>		
         <div class="StudentCommentsSplit">
             <h2>
 				<?php 
@@ -49,10 +56,10 @@
 						?>						
 					</ul>		
 				</div>
-		
+			<?php
+				include 'menu.php';
+			?>
     </div>
-	<?php
-		include 'menu.php';
-	?>		
+
 </body>
 </html>

@@ -9,4 +9,5 @@ if($db->connect_errno){
 $tag=$_POST["tag"];
 $TUID=uniqid("",FALSE);
 $db->real_query("INSERT INTO ".$table." (`tag`, `TUID`, `UUID`) VALUES ('$tag', '$TUID', '$UUID');");
+header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/Add Student.php');
 ?>

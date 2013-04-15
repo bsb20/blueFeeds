@@ -11,6 +11,7 @@ $UUID=$_SESSION["UUID"];
 $sql = "SELECT * FROM `test`.`tags` WHERE `UUID`='$UUID'";
 $result=$db->query($sql);
 $commentList="";
+$filter = $_POST['filter'];
 for($i=0; $i<mysqli_num_rows($result); $i++){
 	if($row=mysqli_fetch_array($result)){
 		$text=$row["text"];
@@ -47,7 +48,7 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 								</div>
 							</li>";
 			}
-			header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/StudentCommentsTags.php');
+			header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/StudentCommentsTags.php?filter=' . $filter);
 		}
     }
 }

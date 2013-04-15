@@ -204,7 +204,7 @@ $_SESSION['buttons'] = $buttons;
 				</div>
         </div>
         <div class="BluefeedsNewsLandingPage">
-			<h2>Bluefeeds News</h2>
+			<h2><font color="white">Bluefeeds News</font></h2>
         	<div style="width:100%;height:100%;line-height:3em;padding:5px;overflow-x: hidden;padding-bottom: 5%;">
 				<ul class="accordion dark span10" data-role="accordion">
 					<?php

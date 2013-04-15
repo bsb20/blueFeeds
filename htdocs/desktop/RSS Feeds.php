@@ -65,7 +65,7 @@
 				</div>
         </div>
         <div class="BluefeedsNewsPage">
-            <h2>Bluefeeds Newsfeed</h2>
+            <font color="white"><h2>Bluefeeds Newsfeed</h2></font>
 				<div style="width:100%;height:85%;line-height:3em;padding:5px;overflow-x: hidden;padding-bottom: 5%;">
 					<ul class="accordion dark span10" data-role="accordion">
 						<?php

@@ -38,9 +38,6 @@
 					?>					
 				</div>
         </div>		
-		<?php
-			include 'menu.php';
-		?>			
         <div class="StudentCommentsSplit">
             <h2>
 				<?php 
@@ -60,7 +57,9 @@
 				</ul>		
 			</div>
 		</div>
-	
+		<?php
+			include 'menu.php';
+		?>		
 	</div>
 </body>
 </html>

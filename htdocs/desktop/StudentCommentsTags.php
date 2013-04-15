@@ -38,28 +38,29 @@
 					?>					
 				</div>
         </div>		
+		<?php
+			include 'menu.php';
+		?>			
         <div class="StudentCommentsSplit">
             <h2>
 				<?php 
 					echo $_SESSION['student'] . "'s Comment Search Page";					
 				?>				
 			</h2>
-				<div style="width:100%;height:85%;line-height:3em;padding:1.5px;overflow-x: hidden; float: left;">
-					<form action="tagRetrieve.php" method="post">
-						<label for="filter"></label>
-						<input name="filter" id="filter" type="text" size="31" />
-						<input type="submit" value="Search" />
-					</form>	
-					<ul class="accordion dark span10" data-role="accordion">
-						<?php 
-							echo $_SESSION['commentList'];					
-						?>						
-					</ul>		
-				</div>
+			<div style="width:100%;height:85%;line-height:3em;padding:1.5px;overflow-x: hidden; float: left;">
+				<form action="tagRetrieve.php" method="post">
+					<label for="filter"></label>
+					<input name="filter" id="filter" type="text" size="31" />
+					<input type="submit" value="Search" />
+				</form>	
+				<ul class="accordion dark span10" data-role="accordion">
+					<?php 
+						echo $_SESSION['commentList'];					
+					?>						
+				</ul>		
+			</div>
 		</div>
-		<?php
-			include 'menu.php';
-		?>		
+	
 	</div>
 </body>
 </html>

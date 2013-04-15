@@ -56,10 +56,11 @@
 						?>						
 					</ul>		
 				</div>
-			<?php
-				include 'menu.php';
-			?>
-    </div>
+		</div>
+		<?php
+			include 'menu.php';
+		?>		
+	</div>
 
 </body>
 </html>

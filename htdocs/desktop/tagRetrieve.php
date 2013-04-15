@@ -53,5 +53,5 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
     }
 }
 $_SESSION['commentList'] = $commentList;
-header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/StudentCommentsTags.php');	
+header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/StudentCommentsTags.php?filter=' . $filter);	
 ?>

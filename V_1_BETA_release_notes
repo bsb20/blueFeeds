@@ -1,0 +1,22 @@
+Release Notes:
+
+The current functionality is as follows:
+
+-Instructor/Student account creation
+
+-Appointment Scheduling/sending of email reminders
+
+-Creation of and tagging of comments
+
+-Desktop viewing of comments
+
+-Desktop filling of pdf forms which can be saved to disk
+
+-Viewing of RSS feeds
+
+-Desktop publishing to RSS feed
+
+Tested and known to work on:
+-Safari (mobile)
+
+-Chrome and Firefox (desktop)

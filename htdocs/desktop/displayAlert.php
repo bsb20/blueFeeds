@@ -2,8 +2,8 @@
 	echo "<script>
 $(document).ready(function(){
         $.Dialog({
-            'title'       : 'Please select a course before visiting the student page.',
-            'content'     : 'Course selection can be found in the top right corner of this webpage',
+            'title'       : 'Please select a course before navigating to the students page.',
+            'content'     : 'Course selection can be completed in top right hand corner of this screen.',
             'draggable'   : true,
             'overlay'     : true,
             'closeButton' : true,
@@ -11,6 +11,8 @@ $(document).ready(function(){
             'position'    : {
                 'zone'    : 'center'
             },
+            'buttons'     : {
+            }
         });
     });
 </script>";

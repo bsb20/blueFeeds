@@ -8,14 +8,11 @@
 		$date=$_POST["date"];		
 		$desc=$_POST["description"]; 	
 		
-		$channel = $xml->channel;
-		$item = $channel->addChild('item');
+		$item = $xml->channel->addChild('item');
 		$item->addChild('title', $title);
 		$item->addChild('link', $link);
 		$item->addChild('date', $date);	
 		$item->addChild('description', $desc);
-		
-		$channel->appendChild($item);
 		
 		$dom = new DOMDocument('1.0');
 		$dom->preserveWhiteSpace = false;

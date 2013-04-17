@@ -7,6 +7,6 @@
 	}
 	else
 	{
-		header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/StudentSelection.php');		
+		header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/StudentSelection.php?GUID' . $_SESSION['GUID']);		
 	}
 ?>

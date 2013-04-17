@@ -10,7 +10,7 @@ if($db->connect_errno){
 $UUID=$_SESSION["UUID"];
 if(!isset($_SESSON['alert']))
 {
-	$_SESSION['alert'] = False;
+	$_SESSION['alert'] = FALSE;
 }
 $final="";
 $sql = "SELECT * FROM $table,$table2 WHERE $table.`SUID`=$table2.`SUID` AND $table2.`UUID`='$UUID' ORDER BY `start`;";

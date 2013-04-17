@@ -2,7 +2,7 @@
 	session_start();
 	if(!isset($_SESSION['GUID']))
 	{
-		$_SESSION['alert'] = True;
+		$_SESSION['alert'] = TRUE;
 		header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/LandingPage.php?alert' . $_SESSION['alert']);
 	}
 	else

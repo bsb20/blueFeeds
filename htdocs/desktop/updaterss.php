@@ -15,6 +15,8 @@
 		$item->addChild('date', $date);	
 		$item->addChild('description', $desc);
 		
+		$channel->appendChild($item);
+		
 		$dom = new DOMDocument('1.0');
 		$dom->preserveWhiteSpace = false;
 		$dom->formatOutput = true;

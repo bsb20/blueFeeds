@@ -8,7 +8,10 @@ if($db->connect_errno){
     echo "FAILURE";
 }
 $UUID=$_SESSION["UUID"];
-$_SESSION['alert'] = False;
+if(!isset($_SESSON['alert']))
+{
+	$_SESSION['alert'] = False;
+}
 $final="";
 $sql = "SELECT * FROM $table,$table2 WHERE $table.`SUID`=$table2.`SUID` AND $table2.`UUID`='$UUID' ORDER BY `start`;";
 $result=$db->query($sql);
@@ -180,7 +183,7 @@ $_SESSION['buttons'] = $buttons;
 	<script type="text/javascript" src="./javascript/accordion.js"></script>
 	<script type="text/javascript" src="./javascript/dialog.js"></script>
 	<?php
-		if($_SESSION['alert'] == TRUE)
+		if($_SESSION['alert'])
 		{
 			include 'displayAlert.php';
 		}

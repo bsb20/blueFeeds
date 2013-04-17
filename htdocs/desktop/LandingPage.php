@@ -183,7 +183,7 @@ $_SESSION['buttons'] = $buttons;
 	<script type="text/javascript" src="./javascript/accordion.js"></script>
 	<script type="text/javascript" src="./javascript/dialog.js"></script>
 	<?php
-		if($_SESSION['alert'])
+		if($_SESSION['alert']==1)
 		{
 			include 'displayAlert.php';
 		}

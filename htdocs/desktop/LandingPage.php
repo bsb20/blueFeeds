@@ -177,6 +177,13 @@ $_SESSION['buttons'] = $buttons;
     <script type="text/javascript" src="./javascript/jquery-1.9.0.min.js"></script>
     <script type="text/javascript" src="./javascript/assets/jquery.mousewheel.min.js"></script>	
 	<script type="text/javascript" src="./javascript/accordion.js"></script>
+	<script type="text/javascript" src="./javascript/dialog.js"></script>
+	<?php
+		if($_SESSION['alert'] == TRUE)
+		{
+			include 'displayAlert.php';
+		}
+	?>
 <!--    <link href="js/google-code-prettify/prettify.css" rel="stylesheet" type="text/css">-->
 
 <title>Bluefeeds Test Page</title>

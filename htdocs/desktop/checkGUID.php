@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	if(empty($_SESSION['GUID']))
+	if(isset($_SESSION['GUID']))
 	{
 		$_SESSION['alert'] = True;
 		header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/LandingPage.php');

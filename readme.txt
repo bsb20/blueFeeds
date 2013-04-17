@@ -10,7 +10,7 @@ The proejct uses the following resources
 -mySQL 5.5.27
 -Ubuntu 12.10
 -jQueryMobile 1.7.0
--magemagick
+-imagemagick
 To deploy this project, the main requirement is setting up a mySQL database to recieve and store all data generated
 by the application.  This should look as follows, for a databse named 'test'
 

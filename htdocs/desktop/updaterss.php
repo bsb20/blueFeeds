@@ -9,9 +9,7 @@
 		$desc=$_POST["description"]; 	
 		
 		$rss = file_get_contents($_SERVER['DOCUMENT_ROOT'].$filepath);
-		$dom = new DOMDocument();
-		$dom->preserveWhiteSpace = false;
-		$dom->formatOutput = true;		
+		$dom = new DOMDocument();	
 		$dom->loadXML($rss);
 		
 		$channelList = $dom->getElementsByTagName('channel');

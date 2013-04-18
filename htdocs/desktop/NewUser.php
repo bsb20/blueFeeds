@@ -18,7 +18,7 @@
 <header><h1>BlueFeeds Registration</h1></header>
 <body id="logincenter">
 	<div>
-        <div id="LoginPage"> 
+        <div id="UserCreate"> 
 			<div style="display: inline-block;">
 				<form action="usrCreate.php" method="post">
 					<div class="input-control text">

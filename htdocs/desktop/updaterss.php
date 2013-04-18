@@ -14,7 +14,8 @@
 		$dom->formatOutput = true;
 		$dom->loadXML($xml->asXML());
 		
-		$channel = $dom->getElementsByTagName('channel');
+		$channelList = $dom->getElementsByTagName('channel');
+		$channel = $channelList->item(0);
 		$item = $dom->createElement('item');
 		$item->appendChild($dom->createElement('title', $title));		
 		$item->appendChild($dom->createElement('link', $link));		

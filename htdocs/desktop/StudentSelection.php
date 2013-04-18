@@ -99,7 +99,7 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 		}
     }
 $_SESSION['studentpage'] = $html;
-	
+}
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>

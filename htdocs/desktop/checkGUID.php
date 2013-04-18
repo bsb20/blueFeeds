@@ -2,7 +2,8 @@
 	session_start();
 	if(!isset($_SESSION['GUID']))
 	{
-		$_SESSION['alert'] = TRUE;
+		// Turn on the dialog to prompt user to select a course
+		$_SESSION['alert'] = TRUE;	
 		header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/LandingPage.php');
 	}
 	else

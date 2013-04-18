@@ -8,17 +8,28 @@
 		$date=$_POST["date"];		
 		$desc=$_POST["description"]; 	
 		
-		$item = $xml->channel->createElement('item');
-		$item->addChild('title', $title);
-		$item->addChild('link', $link);
-		$item->addChild('date', $date);	
-		$item->addChild('description', $desc);
-		$xml->channel.appendChild($item);
+
 		
 		$dom = new DOMDocument('1.0');
 		$dom->preserveWhiteSpace = false;
 		$dom->formatOutput = true;
 		$dom->loadXML($xml->asXML());
+		
+		$channel = $dom->getElementsByTagName('channel');
+		$item = $channel->createElement('item');
+		$item->appendChild($dom->createElement('title', $title));		
+		$item->appendChild($dom->createElement('link', $link));		
+		$item->appendChild($dom->createElement('date', $date));	
+		$item->appendChild($dom->createElement('description', $desc));		
+		$channel->appendChild($item);
+		
+		/*
+		$item->addChild('title', $title);
+		$item->addChild('link', $link);
+		$item->addChild('date', $date);	
+		$item->addChild('description', $desc);
+		*/
+		
 		$dom->saveXML();	
 		$dom->save($_SERVER['DOCUMENT_ROOT'].$filepath);
 		

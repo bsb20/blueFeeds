@@ -35,15 +35,15 @@
 					</div>						
 					<div class="input-control text">
 						<label for="email">Email: </label>
-						<input type="text" name="usr" class="with-helper" placeholder="jsmith@hotmail.com" maxlength="40"/>
+						<input type="text" name="email" class="with-helper" placeholder="jsmith@hotmail.com" maxlength="40"/>
 					</div>			
 					<div class="input-control text">
 						<label for="title">Title: </label>
-						<input type="text" name="usr" class="with-helper" placeholder="Doctor" maxlength="40"/>
+						<input type="text" name="title" class="with-helper" placeholder="Doctor" maxlength="40"/>
 					</div>	
 					<div class="input-control text">
 						<label for="specialty">Specialty: </label>
-						<input type="text" name="usr" class="with-helper" placeholder="Radiology" maxlength="40"/>
+						<input type="text" name="specialty" class="with-helper" placeholder="Radiology" maxlength="40"/>
 					</div>			
 					<div>
 						<label for="file">Photo:</label>

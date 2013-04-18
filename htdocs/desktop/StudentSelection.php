@@ -77,6 +77,14 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 			array_push($repeated, $row["SUID"]);
 			$name=$row["user"];
 			$photo=$row["photo"];
+			if($photo=="./uploads/nophoto.gif")
+			{
+				$photo = "http://bluefeeds.cs.duke.edu/home/htdocs/uploads/nophoto.gif";
+			}
+			else
+			{
+				$photo = "http://bluefeeds.cs.duke.edu/home/htdocs/" . $photo;
+			}			
 			$title=$row["title"];
 			$spec=$row["speciality"];
 			$SUID=$row["SUID"];

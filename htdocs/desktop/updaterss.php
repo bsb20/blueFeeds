@@ -3,19 +3,19 @@
 	$filepath = "/home/htdocs/desktop/bluefeedsTest.xml";
 	
 	if (file_exists($_SERVER['DOCUMENT_ROOT'].$filepath)) {
-		$xml = simplexml_load_file($_SERVER['DOCUMENT_ROOT'].$filepath);
  		$title=$_POST["title"];
 		$link=$_POST["link"];
 		$date=$_POST["date"];		
 		$desc=$_POST["description"]; 	
 		
-		$dom = new DOMDocument('1.0');
+		$rss = file_get_contents($_SERVER['DOCUMENT_ROOT'].$filepath);
+		$dom = new DOMDocument();
 		$dom->preserveWhiteSpace = false;
-		$dom->formatOutput = true;
-		$dom->loadXML($xml->asXML());
+		$dom->formatOutput = true;		
+		$dom->loadXML($rss);
 		
 		$channelList = $dom->getElementsByTagName('channel');
-		$channel = $channelList->item(0);
+		$channel = $channelList->item(0);		
 		$item = $dom->createElement('item');
 		$item->appendChild($dom->createElement('title', $title));		
 		$item->appendChild($dom->createElement('link', $link));		
@@ -23,26 +23,9 @@
 		$item->appendChild($dom->createElement('description', $desc));		
 		$channel->appendChild($item);
 		
-		/*
-		$item->addChild('title', $title);
-		$item->addChild('link', $link);
-		$item->addChild('date', $date);	
-		$item->addChild('description', $desc);
-		*/
-		$dom->saveXML();	
-		$dom->save($_SERVER['DOCUMENT_ROOT'].$filepath);
-		
-		if($xml->asXML($_SERVER['DOCUMENT_ROOT'].$filepath))
-		{
-			header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/RSS Feeds.php');
-			/* echo "Success";
-			print_r($xml); */
-		}
-		else
-		{	
-			header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/RSS Feeds.php');		
-			/* echo "Failure"; */
-		}
+		$rss = $dom->saveXML();	
+
+		file_put_contents($_SERVER['DOCUMENT_ROOT'].$filepath, $rss);
 	}
 	else
 	{

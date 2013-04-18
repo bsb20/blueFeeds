@@ -15,23 +15,44 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
 </head>
-<header><h1>BlueFeeds Login</h1></header>
+<header><h1>BlueFeeds Registration</h1></header>
 <body id="logincenter">
 	<div>
         <div id="LoginPage"> 
 			<div style="display: inline-block;">
-				<form action="login.php" method="post">
+				<form action="usrCreate.php" method="post">
 					<div class="input-control text">
 						<label for="usr">Username: </label>
-						<input type="text" name="usr" class="with-helper" placeholder="John" maxlength="40"/>
+						<input type="text" name="usr" class="with-helper" placeholder="John Smith" maxlength="40"/>
 					</div>		
 					<div class="input-control password">
 						<label for="pass">Password: </label>
 						<input type="password" name="pass" class="with-helper" placeholder="Password" maxlength="40"/>
 					</div>	
+					<div class="input-control password">
+						<label for="passc">Confirm Password: </label>
+						<input type="password" name="passc" class="with-helper" placeholder="Password" maxlength="40"/>
+					</div>						
+					<div class="input-control text">
+						<label for="email">Email: </label>
+						<input type="text" name="usr" class="with-helper" placeholder="jsmith@hotmail.com" maxlength="40"/>
+					</div>			
+					<div class="input-control text">
+						<label for="title">Title: </label>
+						<input type="text" name="usr" class="with-helper" placeholder="Doctor" maxlength="40"/>
+					</div>	
+					<div class="input-control text">
+						<label for="specialty">Specialty: </label>
+						<input type="text" name="usr" class="with-helper" placeholder="Radiology" maxlength="40"/>
+					</div>			
+					<div>
+						<label for="file">Photo:</label>
+						<input type="file" name="file" id="file">				
+					<div>
+					</br>
 					<div id="signinbutton">		
 						<label for="submit"></label>
-						<input type="submit" value="Log In" class="big">
+						<input type="submit" value="Register" class="big">
 					</div> 					
 				</form>				
 			</div>				

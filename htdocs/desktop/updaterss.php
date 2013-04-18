@@ -25,7 +25,14 @@
 		
 		$rss = $dom->saveXML();	
 
-		file_put_contents($_SERVER['DOCUMENT_ROOT'].$filepath, $rss);
+		if(file_put_contents($_SERVER['DOCUMENT_ROOT'].$filepath, $rss))
+		{
+			header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/RSS Feeds.php');			
+		}
+		else
+		{
+			header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/RSS Feeds.php');				
+		}
 	}
 	else
 	{

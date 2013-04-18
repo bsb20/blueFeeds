@@ -25,11 +25,11 @@
 		$bytes = file_put_contents($_SERVER['DOCUMENT_ROOT'].$filepath, $rss);
 		if($bytes)
 		{
-			header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/RSS Feeds.php?bytes=' . $bytes);			
+			header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/RSS Feeds.php?success=' . $bytes);			
 		}
 		else
 		{
-			header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/RSS Feeds.php?bytes=' . $bytes);				
+			header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/RSS Feeds.php?failure=' . $bytes);				
 		}
 	}
 	else

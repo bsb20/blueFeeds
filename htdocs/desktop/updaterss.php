@@ -28,7 +28,6 @@
 		$item->addChild('date', $date);	
 		$item->addChild('description', $desc);
 		*/
-		
 		$dom->saveXML();	
 		$dom->save($_SERVER['DOCUMENT_ROOT'].$filepath);
 		

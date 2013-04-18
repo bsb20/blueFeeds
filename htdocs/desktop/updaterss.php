@@ -1,4 +1,5 @@
 <?php
+	error_reporting(-1);
 	$filepath = "/home/htdocs/desktop/bluefeedsTest.xml";
 	
 	if (file_exists($_SERVER['DOCUMENT_ROOT'].$filepath)) {

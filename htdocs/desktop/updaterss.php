@@ -1,5 +1,5 @@
 <?php
-	error_reporting(-1);
+	error_reporting(E_ALL);
 	$filepath = "/home/htdocs/desktop/bluefeedsTest.xml";
 	
 	if (file_exists($_SERVER['DOCUMENT_ROOT'].$filepath)) {
@@ -9,15 +9,13 @@
 		$date=$_POST["date"];		
 		$desc=$_POST["description"]; 	
 		
-
-		
 		$dom = new DOMDocument('1.0');
 		$dom->preserveWhiteSpace = false;
 		$dom->formatOutput = true;
 		$dom->loadXML($xml->asXML());
 		
 		$channel = $dom->getElementsByTagName('channel');
-		$item = $channel->createElement('item');
+		$item = $dom->createElement('item');
 		$item->appendChild($dom->createElement('title', $title));		
 		$item->appendChild($dom->createElement('link', $link));		
 		$item->appendChild($dom->createElement('date', $date));	

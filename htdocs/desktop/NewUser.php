@@ -57,7 +57,6 @@
 				</form>				
 			</div>				
         </div>
-        <a href='./NewUser.php'><button style="bottom: 1.5%; left: 1.5%;" class='big'>New User</button></a>       											
     </div>
 </body>
 </html>

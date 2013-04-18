@@ -28,11 +28,14 @@ return 0;
 switch(create()){
     case(1):
         echo "passwords did not match!";
+		header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/login.html?alert=1');		
         break;
     case(2):
         echo "username is already in use, try again!";
+		header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/login.html?alert=2');				
         break;
     default:
+		header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/login.html?alert=3');			
         echo "true";
     }
 

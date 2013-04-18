@@ -42,8 +42,8 @@
 						<input type="text" name="title" class="with-helper" placeholder="Doctor" maxlength="40"/>
 					</div>	
 					<div class="input-control text">
-						<label for="specialty">Specialty: </label>
-						<input type="text" name="specialty" class="with-helper" placeholder="Radiology" maxlength="40"/>
+						<label for="speciality">Specialty: </label>
+						<input type="text" name="speciality" class="with-helper" placeholder="Radiology" maxlength="40"/>
 					</div>			
 					<div>
 						<label for="file">Photo:</label>

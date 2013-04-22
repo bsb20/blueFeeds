@@ -1,4 +1,5 @@
 <?php
+	/* Student comments page with a collated annotatable pdf on the right */
 	session_start();
 	$table="`test`.`comments`";
 	$db=new mysqli("127.0.0.1","root","devils","test",8889);
@@ -100,7 +101,7 @@
 						</span>
 						<span class="badge">100</span>						
 					</button>					
-					<ul class="accordion dark span10" id="Accordion" data-role="accordion" data-dynamicQuery="commentRetrieveDesktop">
+					<ul class="accordion dark span10" id="Accordion" data-role="accordion">
 						<?php 
 							echo $_SESSION['commentList'];					
 						?>						

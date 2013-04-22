@@ -1,5 +1,6 @@
 <?php
-	error_reporting(E_ALL);
+	/* Updates the xml file within /desktop/bluefeedsTest.xml */
+	/* Takes the following values: title, link, date, description */
 	$filepath = "/home/htdocs/desktop/bluefeedsTest.xml";
 	
 	if (file_exists($_SERVER['DOCUMENT_ROOT'].$filepath)) {

@@ -1,4 +1,5 @@
-<?php
+<?php 
+/* Creates a new user with the values user, password, email, photo, title, specialty and adds a unique user id for that user */
 function create(){
 session_start();
 $table="`test`.`users`";
@@ -25,6 +26,7 @@ if(mysqli_fetch_array($hasDuplicatesResult)){
 $db->real_query("INSERT INTO ".$table." (`user`, `pass`, `email`, `UUID`, `photo`, `title`, `speciality`) VALUES ('$user', '$password', '$email', '$UUID', '$photo', '$title', '$spec');");
 return 0;
 }
+/* Different cases for each different possibility */
 switch(create()){
     case(1):
         echo "passwords did not match!";

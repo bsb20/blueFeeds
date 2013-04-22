@@ -1,4 +1,5 @@
 <?php
+/* Defines a function to create a new student */
 function create(){
 session_start();
 $table="`test`.`students`";
@@ -27,6 +28,8 @@ $db->real_query("INSERT INTO ".$table." (`user`, `email`, `SUID`, `photo`, `titl
 $db->query("INSERT INTO $joinTable (`UUID`,`SUID`) VALUES ('$UUID', '$SUID')");
 return 0;
 }
+
+/* Calls function that creates student and echos the result */
 switch(create()){
     case(1):
         echo "passwords did not match!";

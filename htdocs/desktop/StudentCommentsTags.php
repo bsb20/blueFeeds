@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	/* Student Comments Search Page for Tags */
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>

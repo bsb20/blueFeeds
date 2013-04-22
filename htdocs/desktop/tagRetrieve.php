@@ -1,6 +1,6 @@
 <?php
+/* Retrieves all comments for a specific student with a specific tag and then stores the html list in the commentList session variable */
 session_start();
-error_reporting(E_ALL);
 $table="`test`.`tags`";
 $db=new mysqli("127.0.0.1","root","devils","test",8889);
 if($db->connect_errno){

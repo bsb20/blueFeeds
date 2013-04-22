@@ -1,4 +1,5 @@
 <?php
+	/* Student profile page */
 	session_start();
 	date_default_timezone_set("America/New_York");
 	$table1="`test`.`students`";
@@ -8,6 +9,8 @@
 	if($db->connect_errno){
 		echo "FAILURE";
 	}
+	
+	/* Gets student information */
 	$SUID=$_GET["SUID"];
 	$_SESSION["SUID"]=$SUID;
 	$sql1 = "SELECT * FROM ".$table1." WHERE `SUID`='$SUID';";
@@ -18,6 +21,8 @@
 		$_SESSION["spec"]=$row["specialty"];
 		$_SESSION["email"]=$row["email"];		
 	}
+	
+	/* Populates recent appointments tile */
 	$UUID=$_SESSION["UUID"];
 	$recentAppt="";
 	$sql2 = "SELECT * FROM $table1,$table2 WHERE $table1.`SUID`=$table2.`SUID` AND $table2.`UUID`='$UUID' ORDER BY `start` DESC;";
@@ -41,6 +46,8 @@
 			break;
 		}
 	}
+	
+	/* Populates recent comment tile */
 	$sql3 = "SELECT * FROM ".$table3." WHERE `SUID`='$SUID' ORDER BY 'date' DESC";
 	$result3=$db->query($sql3);
 	$recentComment="";

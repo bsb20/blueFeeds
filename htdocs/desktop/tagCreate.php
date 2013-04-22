@@ -1,4 +1,5 @@
 <?php
+/* Creates a new tag for the current user */
 session_start();
 $table="`test`.`tags`";
 $UUID=$_SESSION["UUID"];

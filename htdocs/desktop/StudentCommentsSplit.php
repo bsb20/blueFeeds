@@ -19,6 +19,7 @@
 			$time=strtotime($date);
 			$formattedDate=date("m/d/y",$time);
 		}
+		/* Populates all comments */
 		$commentList.="						<li>
 								<a href='#'>$title</a>
 								<div>
@@ -26,6 +27,8 @@
 									<p>
 										$formattedDate
 									</p>
+									<a href='#'><button class='bg-color-green'> Edit </button></a>
+									<a href='#'><button class='bg-color-red'> Delete </button></a>									
 								</div>
 							</li>";
 	}

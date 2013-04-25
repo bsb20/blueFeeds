@@ -54,6 +54,8 @@
 												<p>
 													$formattedDate
 												</p>
+												<a href='#'><button class='bg-color-green'> Edit </button></a>
+												<a href='#'><button class='bg-color-red'> Delete </button></a>													
 											</div>
 										</li>";
 				}
@@ -68,6 +70,8 @@
 												<p>
 													$formattedDate
 												</p>
+												<a href='#'><button class='bg-color-green'> Edit </button></a>
+												<a href='#'><button class='bg-color-red'> Delete </button></a>													
 											</div>
 										</li>";
 				}				
@@ -82,6 +86,8 @@
 												<p>
 													$formattedDate
 												</p>
+												<a href='#'><button class='bg-color-green'> Edit </button></a>
+												<a href='#'><button class='bg-color-red'> Delete </button></a>													
 											</div>
 										</li>";
 				}				
@@ -205,7 +211,10 @@
 									<select name="students" id="students">
 										<option value="0">No</option>
 										<option value="1">Yes</option>
-									</select>									
+									</select>
+								<?php
+									include 'showUserTags.php';
+								?>
 								<div class="input-control text">
 									<label for="submit"></label>
 									<input type="submit" class="big" name="submit" value="Add Comment" style="float: left;">	

@@ -39,7 +39,7 @@
 					?>					
 				</div>
         </div>		
-        <div class="StudentCommentsTags">
+        <div class="BluefeedsNewsPage">
             <h2>
 				<?php 
 					echo $_SESSION['student'] . "'s Comment Search Page";					
@@ -58,9 +58,9 @@
 				</ul>		
 			</div>
 		</div>	
-	</div>
 		<?php
 			include 'menu.php';
-		?>		
+		?>			
+	</div>
 </body>
 </html>

@@ -163,7 +163,6 @@
 							</span>
 							<span class="label"> This Week
 							</span>
-							<span class="badge">11</span>
 						</button>
 					</a>
 					<a href="./StudentComments.php?filter=month">																																			
@@ -173,7 +172,6 @@
 						</span>
 						<span class="label"> This Month
 						</span>
-						<span class="badge">50</span>
 					</button>	
 					</a>
 					<a href="./StudentComments.php?filter=all">																																			
@@ -183,7 +181,6 @@
 						</span>
 						<span class="label"> All
 						</span>
-						<span class="badge">100</span>						
 					</button>	
 					</a>
 					<ul class="accordion dark span10" data-role="accordion" data-dynamicQuery="commentRetrieveDesktop">

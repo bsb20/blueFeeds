@@ -7,6 +7,7 @@
 		echo "FAILURE";
 	}
 	$CUID=$_GET["CUID"];
+	$_SESSION['CUID'] = $CUID;
 	$SUID=$_SESSION["SUID"];
 	$sql = "SELECT * FROM `test`.`comments` WHERE `SUID`='$SUID'";
 	$result=$db->query($sql);
@@ -68,7 +69,7 @@
 								</div>	
 								<div class="input-control text">
 									<label for="submit"></label>
-									<input type="submit" class="big" name="submit" value="Add Comment" style="float: left;">	
+									<input type="submit" class="big" name="submit" value="Edit Comment" style="float: left;">	
 								</div>
 							</form>
 					</div>							

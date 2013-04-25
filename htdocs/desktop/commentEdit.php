@@ -10,7 +10,7 @@ $title=$_POST["title"];
 $text=$_POST["comment"];
 $user=$_SESSION["UUID"];
 $student=$_SESSION["SUID"];
-$CUID=$_POST["CUID"];
+$CUID=$_SESSION["CUID"];
 $isReleased=0;
 $date=date("Y-m-d H:i:s");
 $db->real_query("UPDATE ".$table." SET `text`='$text' WHERE `CUID`='$CUID';");

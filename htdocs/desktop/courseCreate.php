@@ -14,6 +14,19 @@ $db->real_query($sql);
 $table="`test`.`groups`";
 $sql="INSERT INTO $table (`UUID`,`GUID`) VALUES ('$UUID', '$GUID');";
 $db->real_query($sql);
+
+$newString=$_POST["students"];
+$newList=explode(",", $newString);
+foreach($newList as $value){
+    $sql="SELECT * FROM $table WHERE `id`='$value';";
+    $result=$db->query($sql);
+    if($row=mysqli_fetch_array($result)){
+        $SUID=$row["SUID"];
+        $table2="`test`.`gs`";
+        $sql="INSERT INTO $table2 (`SUID`,`GUID`) VALUES ('$SUID','$GUID');";
+        $db->real_query($sql);
+    }
+}
 header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/LandingPage.php');		
 echo "true";
 ?>

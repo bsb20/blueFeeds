@@ -74,7 +74,11 @@
 					<div class="input-control text">
 						<label for="info">Info: </label>
 						<input type="text" name="info" placeholder="Description"/>
-					</div>	
+					</div>
+					<div class="input-control text">
+						<label for="students">Students: </label>
+						<input type="text" name="students" placeholder="John Smit, Jane Doe"/>
+					</div>					
 					<div style="padding-top: 3%" class="input">
 						<label for="submit"></label>
 						<input type="submit" class="big" value="Add Course">	

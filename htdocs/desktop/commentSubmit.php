@@ -14,7 +14,7 @@ $students=$_POST["students"];
 $user=$_SESSION["UUID"];
 $GUID=$_SESSION["GUID"];
 $student=$_SESSION["SUID"];
-$CUID=$_POST["CUID"];
+$CUID=uniqid("",FALSE);
 $tags=$_POST["tag"];
 $date=date("Y-m-d H:i:s");
 $db->real_query("INSERT INTO ".$table." (`UUID`, `SUID`, `date`, `text`, `CUID`, `title`, `instructors`, `students`, `GUID`) VALUES ('$user', '$student', '$date', '$text', '$CUID','$title', '$instructors','$students', '$GUID');");

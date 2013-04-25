@@ -17,11 +17,6 @@
 		{
 			$_SESSION['title']=$row["title"];
 			$_SESSION['text']=$row["text"];
-			$date=$row["date"];			
-			$_SESSION['date']=$date;
-			$_SESSION['time']=strtotime($date);	
-			$_SESSION['formattedDate']=date("m/d/y",$_SESSION['time']);
-			
 		}
 	}
 	

@@ -28,7 +28,7 @@
 										$formattedDate
 									</p>
 									<a href='./EditStudentComment.php?CUID='$CUID'><button class='bg-color-green'> Edit </button></a>
-									<a href='./commentDelete.php?CUID='$CUID'><button class='bg-color-red'> Delete </button></a>									
+									<a href='./commentDelete.php?CUID=$CUID'><button class='bg-color-red'> Delete </button></a>									
 								</div>
 							</li>";
 	}

@@ -57,10 +57,10 @@
 					?>						
 				</ul>		
 			</div>
-		</div>
+		</div>	
+	</div>
 		<?php
 			include 'menu.php';
 		?>		
-	</div>
 </body>
 </html>

@@ -64,11 +64,7 @@
 								</div>	
 								<div class="input-control text">
 									<label for="comment">Comment: </label>
-									<textarea name="comment" placeholder="Description"/>
-										<?php
-											echo $_SESSION['text'];
-										?>									
-									</textarea>
+									<textarea name="comment" placeholder="Description"/><?php echo $_SESSION['text']; ?></textarea>
 								</div>	
 								<div class="input-control text">
 									<label for="submit"></label>

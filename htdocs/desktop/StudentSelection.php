@@ -61,8 +61,9 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 						</li>";
 		}
     }
-$_SESSION['studentpage'] = $html;
 }
+$_SESSION['studentpage'] = $html;
+
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -75,9 +76,6 @@ $_SESSION['studentpage'] = $html;
 <!--    <link href="js/google-code-prettify/prettify.css" rel="stylesheet" type="text/css">-->
 
 <title>Bluefeeds Test Page</title>
-<?php
-	echo $_SESSION['GUID'];
-?>
 </head>
 <header>
 	<div>

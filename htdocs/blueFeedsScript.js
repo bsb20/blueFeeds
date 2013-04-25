@@ -156,7 +156,7 @@ var courses;
 	});
 	
 	function change(){
-		$.mobile.changePage("#login","fade");
+		$.mobile.changePage("#studentSelection","fade");
 	}
 	
 	$(document).ready(

@@ -63,7 +63,7 @@ if($row=mysqli_fetch_array($result)){
 	}
 $_SESSION['profile'] = " <div class='tile-content'>
 				<img src=$photo class='place-left' id='ProfilePic'/>
-				<h2>$name</h2>
+				<h3>$name</h3>
 				<h3>$title</h5>
 				<h4>
 					$spec

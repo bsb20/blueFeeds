@@ -39,7 +39,7 @@
 					?>					
 				</div>
         </div>		
-        <div class="StudentCommentsSplit">
+        <div class="StudentCommentsTags">
             <h2>
 				<?php 
 					echo $_SESSION['student'] . "'s Comment Search Page";					

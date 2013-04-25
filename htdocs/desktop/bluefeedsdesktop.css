@@ -123,6 +123,15 @@ li
 	padding-top: 3%;
 }
 
+.StudentCommentTags{
+	float: right;
+	width: 77.5%;
+	height: 90%;
+	background-color: #1947D1;
+	padding-left: 2%;
+	padding-top: 1%;
+}
+
 .StudentCommentsSplit{
 	float: right;
 	width: 100%;

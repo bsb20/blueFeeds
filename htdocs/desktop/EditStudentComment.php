@@ -12,14 +12,14 @@
 	$result=$db->query($sql);
 	$finally="";
 	for($i=0; $i<mysqli_num_rows($result); $i++){
-	if($row=mysqli_fetch_array($result)){
-		if($CUID==$row["CUID"])
-		{
-			$_SESSION['title']=$row["title"];
-			$_SESSION['text']=$row["text"];
+		if($row=mysqli_fetch_array($result)){
+			if($CUID==$row["CUID"])
+			{
+				$_SESSION['title']=$row["title"];
+				$_SESSION['text']=$row["text"];
+			}
 		}
 	}
-	
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>

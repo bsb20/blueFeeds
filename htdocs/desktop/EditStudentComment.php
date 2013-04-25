@@ -54,7 +54,7 @@
 			</h2>
 				<div style="width:100%;height:85%;line-height:3em;padding:5px;overflow-x: hidden;">
 					<div id="NewCommentArea" class="input-control textarea">
-						<h2>Edit Comment</h2>			
+						<h2>Edit Comment</h2>
 							<form action="commentEdit.php" method="post">
 								<div class="input-control text">
 									<label for="title">Title: </label>

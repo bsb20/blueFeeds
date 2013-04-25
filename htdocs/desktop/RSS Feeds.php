@@ -1,5 +1,9 @@
 <?php
+	/* Rss feed display page */
+	
 	session_start();
+	/* Set this variable to the location of the xml file */
+	/* Note: the xml file has to have read and write privileges which can be changed with chmod */
 	$filepath = "/home/htdocs/desktop/bluefeedsTest.xml";
 	$xml = simplexml_load_file($_SERVER['DOCUMENT_ROOT'].$filepath);
 	$rss = "";
@@ -9,6 +13,7 @@
 		$link = $item->link;
 		$date = $item->date;
 		$desc = $item->description;
+		
 		
 		$rss.="						<li>
 						<a>$title</a>

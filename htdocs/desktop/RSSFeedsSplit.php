@@ -1,4 +1,5 @@
 <?php
+	/* RSS Feed split with the publishing form on the right */
 	session_start();
 	$filepath = "/home/htdocs/desktop/bluefeedsTest.xml";
 	$xml = simplexml_load_file($_SERVER['DOCUMENT_ROOT'].$filepath);
@@ -10,6 +11,7 @@
 		$date = $item->date;
 		$desc = $item->description;
 		
+		/* Populates rss feed split html with links and buttons */
 		$rss.="						<li>
 						<a>$title</a>
 						<div>

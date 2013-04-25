@@ -1,4 +1,5 @@
 <?php
+/* Populates the profile tile with user information */
 session_start();
 $table="`test`.`students`";
 $db=new mysqli("127.0.0.1","root","devils","test",8889);

@@ -1,4 +1,5 @@
 <?php
+/* Uploads a photo for a student */
 if (!empty($_FILES))
 {
 session_start();

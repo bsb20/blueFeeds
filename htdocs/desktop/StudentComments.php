@@ -1,4 +1,5 @@
 <?php
+	/* Student comments page */
 	session_start();
 	$table="`test`.`comments`";
 	$db=new mysqli("127.0.0.1","root","devils","test",8889);
@@ -28,6 +29,7 @@
 			$year=intval(date("Y",$time));				
 		}
 		
+		/* Sets default filtering to this week if filter is empty */
 		if(empty($_GET))
 		{
 			$timeframe="thisweek";
@@ -37,6 +39,7 @@
 			$timeframe=$_GET["filter"];
 		}		
 		
+		/* Populates student comments by filter */
 		switch ($timeframe)
 		{
 			case "thisweek":

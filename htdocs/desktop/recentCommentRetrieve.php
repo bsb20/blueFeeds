@@ -1,4 +1,5 @@
 <?php
+/* Retrieves the most recent comment made by the user and populates the session variable commentList */
 session_start();
 $table="`test`.`comments`";
 $db=new mysqli("127.0.0.1","root","devils","test",8889);

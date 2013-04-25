@@ -1,4 +1,6 @@
 <?php
+	/* The left menu that exists for all pages of the Bluefeeds website */
+	/* Any edits to this php will update all menu buttons for every page that contains the left menu */
 	echo "<div class='MenuPage'>
 			<ul id='MenuOptions' style='padding-top: 5%'>
             	<li><a href='./LandingPage.php'><button class='big' id='MenuButtons'>Home<i class='icon-home icon-small'></i></button></a></li>			

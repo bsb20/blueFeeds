@@ -18,7 +18,9 @@ $db->real_query($sql);
 $table="`test`.`students`";
 $newString=$_POST["students"];
 $newList=explode(",", $newString);
-foreach($newList as $value){
+foreach($newList as $value)
+{
+	$value = trim($value);
     $sql="SELECT * FROM $table WHERE `user`='$value';";
     $result=$db->query($sql);
     if($row=mysqli_fetch_array($result)){

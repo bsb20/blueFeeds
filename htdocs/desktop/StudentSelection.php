@@ -75,6 +75,9 @@ $_SESSION['studentpage'] = $html;
 <!--    <link href="js/google-code-prettify/prettify.css" rel="stylesheet" type="text/css">-->
 
 <title>Bluefeeds Test Page</title>
+<?php
+	echo $_SESSION['GUID'];
+?>
 </head>
 <header>
 	<div>

@@ -15,10 +15,11 @@ $table="`test`.`groups`";
 $sql="INSERT INTO $table (`UUID`,`GUID`) VALUES ('$UUID', '$GUID');";
 $db->real_query($sql);
 
+$table="`test`.`students`";
 $newString=$_POST["students"];
 $newList=explode(",", $newString);
 foreach($newList as $value){
-    $sql="SELECT * FROM $table WHERE `id`='$value';";
+    $sql="SELECT * FROM $table WHERE `user`='$value';";
     $result=$db->query($sql);
     if($row=mysqli_fetch_array($result)){
         $SUID=$row["SUID"];

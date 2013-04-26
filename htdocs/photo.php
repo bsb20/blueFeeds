@@ -1,4 +1,10 @@
 <?php
+
+/*
+This php script submits handles all photo-based applications within the app. Specifically, it allows the user (UUID) to
+access the phones camera and upload profile pictures for themselves (and possibly for students).
+*/
+
 error_reporting(E_ALL);
 ini_set('display_errors',1);
 if (!empty($_FILES))

@@ -1,4 +1,9 @@
 <?php
+
+/*
+This php script allows a user (UUID) to update the text (note) of a comment for a given student (SUID) in the database.
+*/
+
 session_start();
 $table="`test`.`comments`";
 $db=new mysqli("127.0.0.1","root","devils","test",8889);

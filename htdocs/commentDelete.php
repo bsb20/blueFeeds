@@ -1,4 +1,7 @@
 <?php
+
+
+
 session_start();
 $table="`test`.`comments`";
 $db=new mysqli("127.0.0.1","root","devils","test",8889);

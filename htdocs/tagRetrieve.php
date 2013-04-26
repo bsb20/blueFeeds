@@ -1,4 +1,10 @@
 <?php
+
+/*
+This php script retieves all tags for a specific user (UUID) and displays them in html-based jquerymobile listviews.
+*/
+
+
 session_start();
 $table="`test`.`tags`";
 $db=new mysqli("127.0.0.1","root","devils","test",8889);

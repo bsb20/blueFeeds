@@ -4,8 +4,6 @@ It includes functions that fetch page information upon reloading, functions that
 and many more.
 */
 
-
-
 //Dynamic, requiring refresh
 var coursePage=0;
 var courses;

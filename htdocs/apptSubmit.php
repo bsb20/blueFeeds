@@ -1,4 +1,10 @@
 <?php
+
+/*
+This php script submits appointments for a given user (UUID) and student (SUID) to our online database for retrieval later.
+As parameters it taked the appointment start and end times, location, title, and the student and user information.
+*/
+
 session_start();
 date_default_timezone_set("America/New_York");
 $table="`test`.`appointments`";

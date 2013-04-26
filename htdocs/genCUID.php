@@ -1,7 +1,7 @@
 <?php
 
 /*
-This php script updates the Comment ID (CUID) value. It is called from a jquery function after a comment is selected.
+This php script genereates a new Comment ID (CUID) value.
 */
 
     $CUID=uniqid("",FALSE);

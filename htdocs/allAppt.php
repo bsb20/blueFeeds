@@ -1,4 +1,10 @@
 <?php
+
+/*
+This php script retrieves appointments for a given user (UUID) in the order in which events are listed. These independent
+appointment events are then outputted in an list <html jquery mobile> format.
+*/
+
 session_start();
 date_default_timezone_set("America/New_York");
 $table="`test`.`students`";

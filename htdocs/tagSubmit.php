@@ -1,4 +1,10 @@
 <?php
+
+/*
+This php script allows the user to create and sublmit a tag (TUID) for a specific user (UUID). Parameters include
+only a tag name.
+*/
+
 session_start();
 $table="`test`.`tags`";
 $db=new mysqli("127.0.0.1","root","devils","test",8889);

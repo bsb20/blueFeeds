@@ -1,4 +1,10 @@
 <?php
+
+/*
+This php script, called within the course selection page, loads all courses for a given user (UUID) and displays them in
+html formatted jquerymobile.
+*/
+
 session_start();
 date_default_timezone_set("America/New_York");
 $table="`test`.`courses`";

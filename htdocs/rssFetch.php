@@ -1,4 +1,10 @@
 <?php
+
+/*
+This php script retrieves and displays rss entries from the desktop managed BlueFeeds Rss Site.
+*/
+
+
 session_start();
 $table="`test`.`feeds`";
 $db=new mysqli("127.0.0.1","root","devils","test",8889);

@@ -21,7 +21,6 @@
 								$date
 							</p>
 							<a href=$link><button class='bg-color-blueLight'> Link </button></a>	
-							<a href='#'><button class='bg-color-green'> Edit </button></a>
 							<a href='#'><button class='bg-color-red'> Delete </button></a>							
 						</div>
 					</li>";

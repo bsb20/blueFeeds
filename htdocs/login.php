@@ -1,4 +1,10 @@
 <?php
+
+/*
+Using user inserted login credentials, this script verifies the authorization of the user with the database. 
+As parameters, it takes in a username and password.
+*/
+
 $table="`test`.`users`";
 $db=new mysqli("127.0.0.1","root","devils","test",8889);
 if($db->connect_errno){

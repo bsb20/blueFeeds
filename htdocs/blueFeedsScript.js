@@ -1,4 +1,11 @@
-//Callbacks
+/*
+This JavaScript file contains all the javascipt encoding and callback functionality for out application.
+It includes functions that fetch page information upon reloading, functions that store and update user and studet ids,
+and many more.
+*/
+
+
+
 //Dynamic, requiring refresh
 var coursePage=0;
 var courses;

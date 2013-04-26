@@ -1,4 +1,10 @@
 <?php
+
+/*
+This php script is by the main page of the blueFeeds application login page to add a user student profile to out database. 
+Student profiles are created with a new student id and group id. 
+*/
+
 session_start();
 $table="`test`.`students`";
 $GUID=$_SESSION["GUID"];

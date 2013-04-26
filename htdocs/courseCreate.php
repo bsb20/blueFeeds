@@ -1,4 +1,10 @@
 <?php
+
+/*
+This php script allows a user to create a new course for user (UUID) with a title and short
+descripton within the database table. 
+*/
+
 session_start();
 $UUID=$_SESSION["UUID"];
 $table="`test`.`courses`";

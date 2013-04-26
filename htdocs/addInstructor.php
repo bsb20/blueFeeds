@@ -1,4 +1,10 @@
 <?php
+
+/*
+This php script is by the main page of the blueFeeds application login page to add a user instructor profile to out database. 
+User profiles are created with a new user id and group id. 
+*/
+
 session_start();
 $table="`test`.`users`";
 $GUID=$_SESSION["GUID"];

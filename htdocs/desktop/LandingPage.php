@@ -154,6 +154,7 @@ $sql="SELECT * FROM $table1, ".$table." WHERE $table.`UUID`='".$UUID."' AND $tab
 $result=$db->query($sql);
 
 $buttons = "";
+$buttons.="<a href='./HelpPage.php'><button id='courseButton'><i class='icon-help'></i>Help</button></a>";
 for($i=0; $i<mysqli_num_rows($result); $i++){
 	if($row=mysqli_fetch_array($result)){
 		$info=$row["info"];
@@ -163,7 +164,6 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 		$buttons.="<a href=$link><button id='courseButton'><i class='icon-bookmark'></i>$title</button></a>";
 	}
 }
-$buttons.="<a href='./HelpPage.php'><button id='courseButton'><i class='icon-help'></i>Help</button></a>";
 $_SESSION['buttons'] = $buttons;
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">

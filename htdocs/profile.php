@@ -1,4 +1,10 @@
 <?php
+
+/*
+This php script allows the user (UUID) retrieves all main profile information (name, specialty, photo) 
+for a given student (SUID).
+*/
+
 session_start();
 $table="`test`.`students`";
 $db=new mysqli("127.0.0.1","root","devils","test",8889);

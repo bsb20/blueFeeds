@@ -1,4 +1,9 @@
 <?php
+
+/*
+This php script retrieves all tags (TUID) for a specific user (UUID) and displays them in listview jquerymobile formatting.
+*/
+
 session_start();
 $table="`test`.`tu`";
 $table2="`test`.`comments`";

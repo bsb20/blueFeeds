@@ -1,4 +1,10 @@
 <?php
+
+/*
+This php script retrives all comments in the database for a specific user (UUID) and student (SUID) in the database.
+It then outputs the comments in html format through jquerymobile.
+*/
+
 session_start();
 date_default_timezone_set("America/New_York");
 $table="`test`.`comments`";

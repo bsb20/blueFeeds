@@ -1,8 +1,8 @@
 <?php
 
 /*
-This php script loads all courses for a user to select and their respective course information. It also loads both
-private and public variables for the user, after a course has been selected. 
+This php script loads all courses for a user to select and their respective course information links. It is called 
+directly after a course has been selected and sets both private and public variables for the user repsectively. 
 */
 
 session_start();

@@ -1,4 +1,9 @@
 <?php
+
+/*
+This php script creates a new user for the application. Accessible from the login page, this script handles all user information.
+*/
+
 function create(){
 session_start();
 $table="`test`.`users`";

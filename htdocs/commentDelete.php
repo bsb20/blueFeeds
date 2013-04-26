@@ -1,5 +1,8 @@
 <?php
 
+/*
+This php script deletes the selected comment of a user (UUID) for a given student (SUID) from the database.
+*/
 
 
 session_start();

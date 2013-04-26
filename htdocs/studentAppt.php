@@ -1,4 +1,11 @@
 <?php
+
+/*
+This php script retrieves all student appointments for a specific student (SUID) and user (UUID). This script also 
+denotes differences between past appointments and futurs appointments, using color as an indicator. 
+*/
+
+
 session_start();
 date_default_timezone_set("America/New_York");
 $table="`test`.`students`";

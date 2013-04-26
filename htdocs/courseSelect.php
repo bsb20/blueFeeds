@@ -1,4 +1,10 @@
 <?php
+
+/*
+This php script loads all courses for a user to select and their respective course information. It also loads both
+private and public variables for the user, after a course has been selected. 
+*/
+
 session_start();
 $table="`test`.`groups`";
 $table1="`test`.`courses`";

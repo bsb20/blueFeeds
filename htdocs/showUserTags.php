@@ -1,4 +1,9 @@
 <?php
+
+/*
+This php script loads all viable comment tags for a specific user (UUID).
+*/
+
 session_start();
 $table="`test`.`tags`";
 $db=new mysqli("127.0.0.1","root","devils","test",8889);

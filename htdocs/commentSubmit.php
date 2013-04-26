@@ -1,4 +1,10 @@
 <?php
+
+/*
+This php script submits comments for a given user (UUID) and student (SUID) to our online database for retrieval later.
+As parameters it taked the comments text, comments tags, and the student and user information.
+*/
+
 session_start();
 date_default_timezone_set("America/New_York");
 $table="`test`.`comments`";

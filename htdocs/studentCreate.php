@@ -1,4 +1,9 @@
 <?php
+
+/*
+This php script adds a student for a pecific user (UUID) to the database. 
+*/
+
 function create(){
 session_start();
 $table="`test`.`students`";

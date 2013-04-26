@@ -1,4 +1,9 @@
 <?php
+
+/*
+This php script deletes an appointment (AUID) from the database.
+*/
+
 session_start();
 $table="`test`.`appointments`";
 $db=new mysqli("127.0.0.1","root","devils","test",8889);

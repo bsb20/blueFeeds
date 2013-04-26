@@ -1,4 +1,8 @@
 <?php
+
+/*
+This php script allows the user to create a new tag (TUID) and adds it to the database. 
+*/
 session_start();
 $table="`test`.`tags`";
 $UUID=$_SESSION["UUID"];

@@ -6,6 +6,12 @@ User profiles are created with a new user id and group id.
 */
 
 session_start();
+if(!isset($_SESSION['GUID']))
+{
+	// Turn on the dialog to prompt user to select a course
+	$_SESSION['alert'] = TRUE;	
+	header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/LandingPage.php');
+}
 $table="`test`.`users`";
 $GUID=$_SESSION["GUID"];
 $db=new mysqli("127.0.0.1","root","devils","test",8889);

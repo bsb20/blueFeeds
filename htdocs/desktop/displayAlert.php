@@ -2,8 +2,8 @@
 	echo "<script>
 $(document).ready(function(){
         $.Dialog({
-            'title'       : 'Please select a course before navigating to the students page.',
-            'content'     : 'Course selection can be completed in top right hand corner of this screen.',
+            'title'       : 'Please select a course before continuing.',
+            'content'     : 'Course selection can be completed in top right hand corner of this screen. If you are receiving this alert, it is because you have attempted to perform an action without having selected a course such as: adding instructors or navigating to the student selection page.',
             'draggable'   : true,
             'overlay'     : true,
             'closeButton' : true,

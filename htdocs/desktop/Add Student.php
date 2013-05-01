@@ -97,7 +97,7 @@
 				</form>
 			</div>
 			<div style="float: left; padding-left: 3%; width: 30%" class="input-control textarea">
-				<h2>Add Instructors</h2>				
+				<h2>Add Instructors to Current Course</h2>				
 				<form action="addInstructor.php" method="post">
 					<div class="input-control text">
 						<label for="instructors">Enter the user names of instructors you want to add, separated by commas: </label>

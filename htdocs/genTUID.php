@@ -1,6 +1,7 @@
 <?php
 
 /*
+Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
 This php script genereates a new Tag ID (TUID) value.
 */
 

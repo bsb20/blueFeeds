@@ -171,8 +171,8 @@
     </div>​
     </div>​
 	<?php
-		echo "UUID: " . %_SESSION["UUID"];
-		echo " SUID: " . %_SESSION["SUID"];
+		echo %_SESSION["UUID"];
+		echo %_SESSION["SUID"];
 	?>
 </body>
 </html>

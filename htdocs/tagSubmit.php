@@ -1,6 +1,7 @@
 <?php
 
 /*
+Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
 This php script allows the user to create and sublmit a tag (TUID) for a specific user (UUID). Parameters include
 only a tag name.
 */

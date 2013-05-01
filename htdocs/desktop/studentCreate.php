@@ -17,6 +17,7 @@ $email=$_POST['email'];
 $photo="./uploads/nophoto.gif";
 $title=$_POST['title'];
 $spec=$_POST['study'];
+
 $SUID=uniqid("",FALSE);
 $_SESSION["SUID"]=$SUID;
 $sql = "SELECT * FROM ".$table." WHERE `user`='".$user."';";

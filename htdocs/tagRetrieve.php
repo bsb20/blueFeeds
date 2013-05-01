@@ -1,6 +1,7 @@
 <?php
 
 /*
+Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
 This php script retieves all tags for a specific user (UUID) and displays them in html-based jquerymobile listviews.
 */
 

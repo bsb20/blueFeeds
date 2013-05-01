@@ -252,8 +252,20 @@ $_SESSION['buttons'] = $buttons;
 			<div class="tile double bg-color-green" style="height:100%; width: 100%; float: left;">
 				<div class="tile-content">
 					<?php
-						echo $_SESSION['recentComment1'];
-						echo $_SESSION['recentComment2'];						
+						$comment1 = $_SESSION['recentComment1'];
+						$comment2 = $_SESSION['recentComment2'];
+						if($comment1 == '' && $comment2 == '')
+						{
+							echo "					<h2>Recent Comments:<h2>
+					<br>
+					<h2>No recent comments to display.</h2>";
+						}
+						else
+						{
+							echo $_SESSION['recentComment1'];
+							echo $_SESSION['recentComment2'];							
+						}
+					
 					?>					
 				</div>				
 			</div>			

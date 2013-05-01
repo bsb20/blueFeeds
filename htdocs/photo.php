@@ -1,6 +1,7 @@
 <?php
 
 /*
+Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
 This php script submits handles all photo-based applications within the app. Specifically, it allows the user (UUID) to
 access the phones camera and upload profile pictures for themselves (and possibly for students).
 */

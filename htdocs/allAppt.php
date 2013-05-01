@@ -1,6 +1,7 @@
 <?php
 
 /*
+Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
 This php script retrieves appointments for a given user (UUID) in the order in which events are listed. These independent
 appointment events are then outputted in an list <html jquery mobile> format.
 */

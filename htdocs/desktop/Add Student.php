@@ -35,7 +35,7 @@
 				</div>
         </div>
         <div class="AddStudentPage">
-			<div style="float: left;">
+			<div style="float: left; width: 30%;">
 				<h2>Student Information</h2>
 				<form action="studentCreate.php" method="post" style="float: left;">
 					<div class="input-control text">
@@ -64,7 +64,7 @@
 					</div> 						
 				</form>
 			</div>	
-			<div style="float: left; padding-left: 3%;" class="input-control textarea">
+			<div style="float: left; padding-left: 3%; width: 30%;" class="input-control textarea">
 				<h2>Course Information Form</h2>
 				<form action="courseCreate.php" method="post" style="float: left;">
 					<div class="input-control text">
@@ -96,6 +96,19 @@
 					</div> 						
 				</form>
 			</div>
+			<div style="float: left; padding-left: 3%; width: 30%" class="input-control textarea">
+				<h2>Add Instructors</h2>				
+				<form action="addInstructor.php" method="post">
+					<div class="input-control text">
+						<label for="instructors">Enter the user names of instructors you want to add, separated by commas: </label>
+						<input type="text" name="instructors" placeholder=""/>
+					</div>
+					<div style="padding-top: 3%" class="input">
+						<label for="submit"></label>
+						<input type="submit" class="big" value="Add Instructors">	
+					</div> 						
+				</form>
+			</div>	
         </div>
 		<?php
 			include 'menu.php';

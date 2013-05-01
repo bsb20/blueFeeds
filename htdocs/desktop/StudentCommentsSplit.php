@@ -20,18 +20,71 @@
 			$time=strtotime($date);
 			$formattedDate=date("m/d/y",$time);
 		}
-		/* Populates all comments */
-		$commentList.="						<li>
-								<a href='#'>$title</a>
-								<div>
-									$text
-									<p>
-										$formattedDate
-									</p>
-									<a href='./EditStudentComment.php?CUID=$CUID'><button class='bg-color-green'> Edit </button></a>
-									<a href='./commentDelete.php?CUID=$CUID'><button class='bg-color-red'> Delete </button></a>									
-								</div>
-							</li>";
+		
+		/* Sets default filtering to this week if filter is empty */
+		if(empty($_GET))
+		{
+			$timeframe="thisweek";
+		}
+		else
+		{
+			$timeframe=$_GET["filter"];
+		}		
+		
+		/* Populates student comments by filter */
+		switch ($timeframe)
+		{
+			case "thisweek":
+				$beginweek = $today['mday'] - $today['mday']%7;
+				$endweek = $today['mday']+7 - ($today['mday']+7)%7;		
+				if($beginweek <= $day and $day <= $endweek and $today['mon']==$month and $today['year']==$year)
+				{
+					$commentList.="						<li>
+											<a href='#'>$title</a>
+											<div>
+												$text
+												<p>
+													$formattedDate
+												</p>
+												<a href='./EditStudentComment.php?CUID=$CUID'><button class='bg-color-green'> Edit </button></a>
+												<a href='./commentDelete.php?CUID=$CUID'><button class='bg-color-red'> Delete </button></a>													
+											</div>
+										</li>";
+				}
+				break;
+			case "month":
+				if($today['mon']==$month and $today['year']==$year)
+				{
+					$commentList.="						<li>
+											<a href='#'>$title</a>
+											<div>
+												$text
+												<p>
+													$formattedDate
+												</p>
+												<a href='./EditStudentComment.php?CUID=$CUID'><button class='bg-color-green'> Edit </button></a>
+												<a href='./commentDelete.php?CUID=$CUID'><button class='bg-color-red'> Delete </button></a>													
+											</div>
+										</li>";
+				}				
+				break;
+			case "all":
+				if($today['year']==$year)
+				{
+					$commentList.="						<li>
+											<a href='#'>$title</a>
+											<div>
+												$text
+												<p>
+													$formattedDate
+												</p>
+												<a href='./EditStudentComment.php?CUID=$CUID'><button class='bg-color-green'> Edit </button></a>
+												<a href='./commentDelete.php?CUID=$CUID'><button class='bg-color-red'> Delete </button></a>													
+											</div>
+										</li>";
+				}				
+				break;
+		}
 	}
 	$_SESSION["commentList"]=$commentList;	
 ?>
@@ -118,6 +171,20 @@
 									<label for="comment">Comment: </label>
 									<textarea name="comment" placeholder="Description"/></textarea>
 								</div>	
+								<label for="instructors">Release to Instructors</label>
+									<select name="instructors" id="instructors">
+										<option value="0">No</option>
+										<option value="1">Yes</option>
+									</select>	
+								<label for="students">Release to Students</label>
+									<select name="students" id="students">
+										<option value="0">No</option>
+										<option value="1">Yes</option>
+									</select>
+								</br>
+								<?php
+									include 'showUserTags.php';
+								?>
 								<div class="input-control text">
 									<label for="submit"></label>
 									<input type="submit" class="big" name="submit" value="Add Comment" style="float: left;">	

@@ -1,6 +1,7 @@
 <?php
 
 /*
+Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
 This php script retrieves all student appointments for a specific student (SUID) and user (UUID). This script also 
 denotes differences between past appointments and futurs appointments, using color as an indicator. 
 */

@@ -170,6 +170,10 @@
 		?>
     </div>​
     </div>​
+	<?php
+		echo "UUID: " . %_SESSION["UUID"];
+		echo " SUID: " . %_SESSION["SUID"];
+	?>
 </body>
 </html>
 

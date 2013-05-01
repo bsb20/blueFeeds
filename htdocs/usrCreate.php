@@ -1,6 +1,7 @@
 <?php
 
 /*
+Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
 This php script creates a new user for the application. Accessible from the login page, this script handles all user information.
 */
 

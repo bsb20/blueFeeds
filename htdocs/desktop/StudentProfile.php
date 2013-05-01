@@ -163,7 +163,7 @@
 				<a href=""><button class="big">Delete Profile <i class="icon-remove icon-small"></i></button></a>						
 			</div>
 			<?php
-				echo $_SESSION['UUID'];
+				echo $_SESSION["SUID"];
 			?>
         </div>
 		<?php

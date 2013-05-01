@@ -28,8 +28,7 @@
 	$sql2 = "SELECT * FROM $table1,$table2 WHERE $table1.`SUID`=$table2.`SUID` AND $table2.`UUID`='$UUID' ORDER BY `start` DESC;";
 	$result2=$db->query($sql2);
 	for($i=0; $i<mysqli_num_rows($result2); $i++){
-		if($row=mysqli_fetch_array($result2))
-		{
+		if($row=mysqli_fetch_array($result2)){
 			$past=strtotime($row['start'])>time() || $row['isWeekly'] ? "a" : "d";
 			$pastMessage= strtotime($row['start'])>time() || $row['isWeekly'] ? "":"Past Meeting Time";
 			$duration=$row['duration'];
@@ -53,23 +52,22 @@
 	$result3=$db->query($sql3);
 	$recentComment="";
 	for($i=0; $i<mysqli_num_rows($result3); $i++){
-		if($row=mysqli_fetch_array($result3))
-		{
-			$title=$row["title"];
-			$text=$row["text"];
-			$CUID=$row["CUID"];
-			$date=$row["date"];
-			$time=strtotime($date);
-			$formattedDate=date("m/d/y",$time);
-			$recentComment="						<p style='font-size: 15px'>
-									$text
-								</p>
-								<p>
-									$formattedDate
-								</p>";
-			$_SESSION["recentCmmnt"]=$recentComment;	
-			break;				
+	if($row=mysqli_fetch_array($result3)){
+		$title=$row["title"];
+		$text=$row["text"];
+		$CUID=$row["CUID"];
+		$date=$row["date"];
+		$time=strtotime($date);
+		$formattedDate=date("m/d/y",$time);
 		}
+		$recentComment="						<p style='font-size: 15px'>
+								$text
+							</p>
+							<p>
+								$formattedDate
+							</p>";
+		$_SESSION["recentCmmnt"]=$recentComment;	
+		break;
 	}
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -170,10 +168,6 @@
 		?>
     </div>​
     </div>​
-	<?php
-		echo %_SESSION["UUID"];
-		echo %_SESSION["SUID"];
-	?>
 </body>
 </html>
 

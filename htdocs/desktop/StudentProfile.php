@@ -1,5 +1,9 @@
 <?php
-	/* Student profile page */
+	/* 
+	Student profile page 
+	This page contains links to the comments and appointments pages
+	Student information is displayed in tiles and users can create new comments or appointments from this page
+	*/
 	session_start();
 	date_default_timezone_set("America/New_York");
 	$table1="`test`.`students`";
@@ -25,7 +29,7 @@
 	/* Populates recent appointments tile */
 	$UUID=$_SESSION["UUID"];
 	$recentAppt="";
-	$sql2 = "SELECT * FROM $table1,$table2 WHERE $table1.`SUID`=$table2.`SUID` AND $table2.`UUID`='$UUID' ORDER BY `start` DESC;";
+	$sql2 = "SELECT * FROM $table1,$table2 WHERE $table1.`SUID`='$SUID' AND $table2.`SUID`='$SUID' AND $table2.`UUID`='$UUID' ORDER BY `start` DESC;";
 	$result2=$db->query($sql2);
 	for($i=0; $i<mysqli_num_rows($result2); $i++){
 		if($row=mysqli_fetch_array($result2)){
@@ -48,7 +52,8 @@
 	}
 	
 	/* Populates recent comment tile */
-	$sql3 = "SELECT * FROM ".$table3." WHERE `SUID`='$SUID' ORDER BY 'date' DESC";
+	$GUID=$_SESSION["GUID"];
+	$sql3 = "SELECT * FROM $table3 WHERE `SUID`='$SUID' AND `GUID`='$GUID' ORDER BY 'date' DESC";
 	$result3=$db->query($sql3);
 	$recentComment="";
 	for($i=0; $i<mysqli_num_rows($result3); $i++){

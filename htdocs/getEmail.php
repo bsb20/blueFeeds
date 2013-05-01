@@ -47,7 +47,9 @@ $list="<li data-dynamicContent='getEmail' data-theme='a' style='display:none;'>
                     <p>$formattedDay, $formattedTime</p>
                 </a>
             </li>";
-
+/*
+This is the text for the prewritten email.  Must be written as html encoded string.  Feel free to change this!
+*/
 $list.= "<li data-theme='b' data-dynamicContent='getEmail'><a id='sendReminder'  href='mailto:$email?subject=Meeting&body=
 $student,%0A%20This%20is%20a%20reminder%20for%20our%20meeting%20on%20$formattedDay%20at%20$formattedTime.%0A-$user
 '>Send Reminder</a></li>";

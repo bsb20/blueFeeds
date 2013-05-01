@@ -1,4 +1,10 @@
 <?php
+/*
+Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
+Retrieves information to populate a pre-written email to send an appointment reminder.
+Joins current student ID to current appointment ID and retirves user info from current user ID.
+Populates email based on student email address and user name, uses appointment info in email body
+*/
 session_start();
 $table="`test`.`students`";
 $db=new mysqli("127.0.0.1","root","devils","test",8889);

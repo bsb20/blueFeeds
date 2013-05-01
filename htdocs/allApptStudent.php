@@ -1,4 +1,7 @@
 <?php
+/*Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
+Retrieves all appointments for a particular student
+*/
 session_start();
 date_default_timezone_set("America/New_York");
 $table="`test`.`students`";
@@ -10,6 +13,9 @@ if($db->connect_errno){
 
 $SUID=$_SESSION["SUID"];
 $final="";
+/*
+join appointments table to students table, select for appointments with the current SUID
+*/
 $sql = "SELECT * FROM $table,$table2 WHERE $table.`SUID`=$table2.`SUID` AND $table2.`SUID`='$SUID' ORDER BY `start`;";
 $result=$db->query($sql);
 for($i=0; $i<mysqli_num_rows($result); $i++){

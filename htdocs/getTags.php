@@ -1,4 +1,9 @@
 <?php
+/*
+Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
+Retrieves tages for a particular user.  Looks for all TUID's associated with current UUID, and then retrieves corresponding
+tag names
+*/
 session_start();
 $table="`test`.`tags`";
 $db=new mysqli("127.0.0.1","root","root","test",8889);

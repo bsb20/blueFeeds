@@ -1,6 +1,7 @@
 <?php
 
 /*
+Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
 This php script allows a user (UUID) to update the text (note) of a comment for a given student (SUID) in the database.
 */
 

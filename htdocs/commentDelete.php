@@ -1,6 +1,7 @@
 <?php
 
 /*
+Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
 This php script deletes the selected comment of a user (UUID) for a given student (SUID) from the database.
 */
 

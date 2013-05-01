@@ -1,6 +1,7 @@
 <?php
 
 /*
+Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
 This php script retrives all comments in the database for a specific user (UUID) and student (SUID) in the database.
 It then outputs the comments in html format through jquerymobile.
 */

@@ -1,6 +1,7 @@
 <?php
 
 /*
+Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
 This php script allows a user to create a new course for user (UUID) with a title and short
 descripton within the database table. 
 */

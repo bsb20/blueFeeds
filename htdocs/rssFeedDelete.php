@@ -1,6 +1,7 @@
 <?php
 
 /*
+Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
 This php script removes an desktop updated rssfeed from the live rss feed page and correspondind database location.
 */
 

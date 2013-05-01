@@ -1,6 +1,7 @@
 <?php
 
 /*
+Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
 This php script retrieves and displays rss entries from the desktop managed BlueFeeds Rss Site.
 */
 

@@ -7,7 +7,8 @@
 		echo "FAILURE";
 	}
 	$SUID=$_SESSION["SUID"];
-	$sql = "SELECT * FROM ".$table."WHERE `SUID`='$SUID' ORDER BY 'date' DESC";
+	$GUID=$_SESSION["GUID"];	
+	$sql = "SELECT * FROM ".$table."WHERE `SUID`='$SUID' AND `GUID`='$GUID' ORDER BY 'date' DESC";
 	$result=$db->query($sql);
 	$commentList="";
 	for($i=0; $i<mysqli_num_rows($result); $i++){
@@ -86,7 +87,6 @@
 						</span>
 						<span class="label"> This Week
 						</span>
-						<span class="badge">11</span>
 					</button>
 					<button class="shortcut" id="TimeFilterButtonSplit">
 						<span class="icon">
@@ -94,7 +94,6 @@
 						</span>
 						<span class="label"> This Month
 						</span>
-						<span class="badge">50</span>
 					</button>	
 					<button class="shortcut" id="TimeFilterButtonSplit">
 						<span class="icon">
@@ -102,7 +101,6 @@
 						</span>
 						<span class="label"> All Time
 						</span>
-						<span class="badge">100</span>						
 					</button>					
 					<ul class="accordion dark span10" id="Accordion" data-role="accordion">
 						<?php 

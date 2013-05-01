@@ -22,7 +22,8 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 			$table2="`test`.`comments`";
 			$UUID=$_SESSION["UUID"];
 			$SUID=$_SESSION["SUID"];
-			$sql = "SELECT * FROM `test`.`tu` INNER JOIN `test`.`comments` ON `test`.`tu`.`CUID` = `test`.`comments`.`CUID` WHERE `test`.`comments`.`SUID` ='".$SUID."' AND `test`.`tu`.`TUID` ='".$TUID."';";
+			$GUID=$_SESSION["GUID"];
+			$sql = "SELECT * FROM `test`.`tu` INNER JOIN `test`.`comments` ON `test`.`tu`.`CUID` = `test`.`comments`.`CUID` WHERE `test`.`comments`.`SUID` ='".$SUID."' AND `GUID`='$GUID' AND `test`.`tu`.`TUID` ='".$TUID."';";
 			$result=$db->query($sql);
 			for($i=0; $i<mysqli_num_rows($result); $i++){
 				if($row=mysqli_fetch_array($result))

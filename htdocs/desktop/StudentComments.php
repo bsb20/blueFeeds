@@ -7,11 +7,11 @@
 	{
 		echo "FAILURE";
 	}
+	$GUID=$_SESSION["GUID"];
 	$SUID=$_SESSION["SUID"];
-	$sql = "SELECT * FROM ".$table."WHERE `SUID`='$SUID' ORDER BY 'date' DESC";
+	$sql = "SELECT * FROM ".$table."WHERE `SUID`='$SUID' AND `GUID`='$GUID' ORDER BY 'date' DESC";
 	$result=$db->query($sql);
 	$commentList="";
-	
 	/* Time Filtering */
 	for($i=0; $i<mysqli_num_rows($result); $i++){
 		if($row=mysqli_fetch_array($result)){
@@ -143,7 +143,7 @@
 							<span class="icon">
 								<i class="icon-file-pdf"></i>
 							</span>
-							<span class="label"> Split screen PDF
+							<span class="label"> Annotate Form
 							</span>
 						</button>	
 					</a>		

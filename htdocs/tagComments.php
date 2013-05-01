@@ -1,6 +1,7 @@
 <?php
 
 /*
+Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
 This php script retrieves all tags (TUID) for a specific user (UUID) and displays them in listview jquerymobile formatting.
 */
 

@@ -1,6 +1,7 @@
 <?php
 
 /*
+Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
 Using user inserted login credentials, this script verifies the authorization of the user with the database. 
 As parameters, it takes in a username and password.
 */

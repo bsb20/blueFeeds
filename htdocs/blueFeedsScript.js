@@ -1,4 +1,5 @@
 /*
+Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
 This JavaScript file contains all the javascipt encoding and callback functionality for out application.
 It includes functions that fetch page information upon reloading, functions that store and update user and studet ids,
 and many more.
@@ -7,6 +8,7 @@ and many more.
 //Dynamic, requiring refresh
 var coursePage=0;
 var courses;
+//perform data-dynamicQuery requests and append requested data
     function onPageLoad(data,status){
 	var id="#"+this.invokedata;
 	if($(id).attr("data-prepend")=="true"){
@@ -20,7 +22,9 @@ var courses;
         $(".imgTile").load(function(){
             $(this).parents("li").slideDown();
         });
-    }  
+    }
+//retrieve course information (must be done slightly differently than general case).  Retrieves a JSON object containing
+//course information, and populates a formatted list item with the info
     function onCourses(data,status){
 	courses=jQuery.parseJSON(data);
 	var id ="."+this.invokedata;
@@ -30,7 +34,8 @@ var courses;
 	$(".courseKey").val(selected.key)
     }
     
-//onTrue corresponds to data-validate attributes
+//onTrue corresponds to data-validate attributes, waits for "true" response in general case, waits for "instructor" or
+//"student" response in login cases
     function onTrue(data,status){
         if(data=="true"){
 	    if(this.invokedata.role=="dialog"){
@@ -67,7 +72,7 @@ var courses;
     
     
     $(document).bind('pageinit');
-
+//Looks for form submissions, and submits data via ajax to a named php file
         $(document).ready(function(){
             $("[data-validate]").click(function(){
                     var formData=$(this).parents("form").serialize();
@@ -77,6 +82,8 @@ var courses;
         });
         
 //Functions using on()
+//These handle screen events for elements that were injected dyanmically, and thus cannot have events handled in the normal
+//way
 	    $(document).ready(
 		function(){
 		    $(".container").swipeleft(function(){
@@ -127,7 +134,7 @@ var courses;
 			});
 		}
 		)
-
+//Looks for edit request, populates text box with existing comment text
         $(document).ready(
 	function(){
 	    $(".parent").on("click", "li", function(e){
@@ -146,7 +153,7 @@ var courses;
 		});	    
 	    });
 
-            
+//Sets SUID for a partiuclar student who has been selected by an instructor            
         $(document).ready(
 	function(){
 	    $("#selectionList").on("click", "li", function(e){
@@ -154,7 +161,8 @@ var courses;
                 $.ajax({type: "POST", url: "setStudent.php", data: {'key':found}, error: onError})
 		});	    
 	    });
-	
+
+//Handles start page, changes after a few seconds to login page	
 	$(document).ready(
 	function(){
 		setTimeout(change,2000);	
@@ -163,7 +171,7 @@ var courses;
 	function change(){
 		$.mobile.changePage("#login","fade");
 	}
-	
+//Sets tag ID for filtering by tags	
 	$(document).ready(
 	function(){
 	    $("#tagList").on("click", "li", function(e){
@@ -171,7 +179,7 @@ var courses;
                 $.ajax({type: "POST", url: "setTag.php", data: {'key':found}, error: onError})
 		});	    
 	    });
-
+//Sets AUID to allow viewing of page for a particular appointment
         $(document).ready(
 	function(){
 	    $(".apptList").on("click", "li", function(e){
@@ -179,7 +187,7 @@ var courses;
                 $.ajax({type: "POST", url: "setAppt.php", data: {'key':found}, error: onError})
 		});	    
 	    });        
-
+//Sets SUID to allow retieval of info for a particualr appointment page
         $(document).ready(
 	function(){
 	    $(".allApptList").on("click", "li", function(e){
@@ -187,7 +195,7 @@ var courses;
                 $.ajax({type: "POST", url: "setStudent.php", data: {'key':found}, error: onError})
 		});	    
 	    });  
-	
+//Sets CUID to allow viewing of students for a particular course based on selection	
 	$(document).ready(
 	function(){
 	    $("#courseList").on("click","li", function(e){
@@ -204,7 +212,8 @@ var courses;
 
 
 //Page change insert/remove functions
-
+//Code for data-dynamicQuery system, looks for dynamic elements to remove, makes query for new information, passes desintation
+//page name to callback function
         $(document).ready(function(){
         $(document).on('pagechange', function (e,data) {
 	    if(data.toPage.attr("id")=="courses" && courses==null){

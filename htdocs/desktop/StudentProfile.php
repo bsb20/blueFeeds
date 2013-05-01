@@ -162,6 +162,9 @@
 				<a href="./Add Appointment.php"><button class="big">New Appointment <i class="icon-clipboard-2 icon-small"></i></button></a>
 				<a href=""><button class="big">Delete Profile <i class="icon-remove icon-small"></i></button></a>						
 			</div>
+			<?php
+				echo $_SESSION['UUID'];
+			?>
         </div>
 		<?php
 			include 'menu.php';

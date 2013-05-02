@@ -23,7 +23,7 @@
 	if($row=mysqli_fetch_array($result1)){
 		$_SESSION["student"]=$row["user"];
 		$_SESSION["title"]=$row["title"];
-		$_SESSION["spec"]=$row["specialty"];
+		$_SESSION["spec"]=$row["speciality"];
 		$_SESSION["email"]=$row["email"];		
 	}
 	

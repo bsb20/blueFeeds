@@ -93,7 +93,7 @@
 			Student Profile Page
 		</h1>	
 			<?php
-				echo "GUID " . $_SESSION['GUID'] . " SUID " . $_SESSION['SUID'];
+				echo "GUID " . $_SESSION['GUID'] . " SUID1 " . $_SESSION['SUID'] . " SUID2 " . $SUID;
 			?>		
 		<div style="display: inline-block; padding: 1.5%; float: right; height: 65px; width: 50%; overflow-y: scroll; overflow-x: hidden;">
 			<?php

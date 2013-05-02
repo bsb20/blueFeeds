@@ -14,7 +14,7 @@
 		echo "FAILURE";
 	}
 	
-	$GUID=$_SESSION["GUID"];	
+	$GUID=$_SESSION['GUID'];	
 	/* Gets student information */
 	$SUID=$_GET["SUID"];
 	$_SESSION["SUID"]=$SUID;

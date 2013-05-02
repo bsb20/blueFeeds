@@ -121,7 +121,7 @@
         <div class="StudentCommentsSplit">
             <h2>
 				<?php 
-					echo $_SESSION['student'] . "'s Comment Page";					
+					echo $_SESSION['student'] . "'s Comment Page " . $_SESSION['GUID'];					
 				?>				
 			</h2>
 				<div style="width:50%;height:85%;line-height:3em;padding:1.5px;overflow-x: hidden; float: left;">

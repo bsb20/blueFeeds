@@ -100,26 +100,29 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 $_SESSION["recentComment1"]=$recentComment1;	
 
 $table="`test`.`students`";
-$sql = "SELECT * FROM ".$table." WHERE `SUID`='$SUID' AND `GUID`='$GUID';";
+$sql = "SELECT * FROM ".$table." WHERE `SUID`='$SUID';";
 $result=$db->query($sql);
 $recentcomment1="";
 if($row=mysqli_fetch_array($result)){
 	$student=$row["user"];
-	$recentComment2="
-					<div id='RecentCommentDiv'>
-						<h3>To: </h3>
-						<br>
-						<p id='RecentCommentText'>
-							$student
-						</p>
-					</div>
-					<div id='RecentCommentDiv'>					
-						<h3>On: </h3>
-						<br>						
-						<p id='RecentCommentText'>
-							$formattedDate
-						</p>	
-					</div>";
+	if($recentComment1 !== "")
+	{
+		$recentComment2="
+						<div id='RecentCommentDiv'>
+							<h3>To: </h3>
+							<br>
+							<p id='RecentCommentText'>
+								$student
+							</p>
+						</div>
+						<div id='RecentCommentDiv'>					
+							<h3>On: </h3>
+							<br>						
+							<p id='RecentCommentText'>
+								$formattedDate
+							</p>	
+						</div>";		
+	}
 }
 $_SESSION["recentComment2"]=$recentComment2;
 

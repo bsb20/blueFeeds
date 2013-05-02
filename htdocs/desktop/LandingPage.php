@@ -199,6 +199,9 @@ $_SESSION['buttons'] = $buttons;
 	<div>
 		<h1 style="display: inline-block">
 			BlueFeeds Lobby
+			<?php
+				echo " " . $_SESSION['GUID'];
+			?>
 		</h1>		
 		<div style="display: inline-block; padding: 1.5%; float: right; height: 65px; width: 50%; overflow-y: scroll; overflow-x: hidden;">
 			<?php

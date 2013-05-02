@@ -1,6 +1,5 @@
 <?php
 	/* Rss feed display page */
-	
 	session_start();
 	/* Set this variable to the location of the xml file */
 	/* Note: the xml file has to have read and write privileges which can be changed with chmod */

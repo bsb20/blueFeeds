@@ -45,7 +45,7 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 $_SESSION['appointments'] = $recentAppt;
 
 $table="`test`.`users`";
-$sql = "SELECT * FROM ".$table." WHERE `UUID`='$UUID';";
+$sql = "SELECT * FROM ".$table." WHERE `UUID`='$UUID' AND `GUID`='$GUID';";
 $result=$db->query($sql);
 $name;
 $email;
@@ -72,7 +72,7 @@ $_SESSION['profile'] = " <div class='tile-content'>
 			</div>;";
 			
 $table="`test`.`comments`";
-$sql = "SELECT * FROM ".$table."WHERE `UUID`='$UUID' ORDER BY date DESC";
+$sql = "SELECT * FROM ".$table."WHERE `UUID`='$UUID' AND `GUID`='$GUID' ORDER BY date DESC";
 $result=$db->query($sql);
 $recentcomment2="";
 $formattedDate;

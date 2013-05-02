@@ -91,10 +91,10 @@
 	<div>
 		<h1 style="display: inline-block">
 			Student Profile Page
+		</h1>	
 			<?php
-				echo $_SESSION['GUID'];
-			?>
-		</h1>		
+				echo "GUID " . $_SESSION['GUID'] . " SUID " . $_SESSION['SUID'];
+			?>		
 		<div style="display: inline-block; padding: 1.5%; float: right; height: 65px; width: 50%; overflow-y: scroll; overflow-x: hidden;">
 			<?php
 				echo $_SESSION['buttons'];

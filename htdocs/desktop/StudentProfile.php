@@ -51,6 +51,7 @@
 			break;
 		}
 	}
+	$_SESSION["recentAppt"]=$recentAppt;				
 	
 	/* Populates recent comment tile */
 	$sql3 = "SELECT * FROM $table3 WHERE `SUID`='$SUID' AND `GUID`='$GUID' AND (`UUID`='$UUID' OR `instructors`='1') ORDER BY 'date' DESC";
@@ -153,8 +154,16 @@
 					<div class="tile-content">
 					<h2>Recent Comment:</h2>
 						<?php
-							echo $_SESSION['recentCmmnt'];							
-						?>
+							$recent = $_SESSION['recentCmmnt'];
+							if($recent == '')
+							{
+								echo "No recent comments have been made.";
+							}
+							else
+							{
+								echo $recent;															
+							}
+						?>						
 					</div>				
 				</div>
 				<div class="tile double bg-color-orange">
@@ -163,7 +172,15 @@
 					<h2>Upcoming Appointments:</h2>
 					<p style="font-size: 15px">
 						<?php
-							echo $_SESSION['recentAppt'];							
+							$recentAppt = $_SESSION['recentAppt'];
+							if($recentAppt == '')
+							{
+								echo "No recent appointments have been made.";
+							}
+							else
+							{
+								echo $recentAppt;
+							}
 						?>
 					</p>
 					</div>				

@@ -75,6 +75,7 @@
 		break;
 		}
 	}
+	$_SESSION["recentCmmnt"]=$recentComment;		
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>

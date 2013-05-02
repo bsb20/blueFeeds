@@ -7,6 +7,7 @@ $db=new mysqli("127.0.0.1","root","devils","test",8889);
 if($db->connect_errno){
     echo "FAILURE";
 }
+$GUID=$_SESSION["GUID"];
 $UUID=$_SESSION["UUID"];
 $final="";
 $sql = "SELECT * FROM $table,$table2 WHERE $table.`SUID`=$table2.`SUID` AND $table2.`UUID`='$UUID' ORDER BY `start`;";
@@ -159,8 +160,8 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 	if($row=mysqli_fetch_array($result)){
 		$info=$row["info"];
 		$title=$row['title'];
-		$GUID=$row['GUID'];
-		$link = "./setGUID.php?course=" . $GUID;
+		$BUTTONGUID=$row['GUID'];
+		$link = "./setGUID.php?course=" . $BUTTONGUID;
 		$buttons.="<a href=$link><button id='courseButton'><i class='icon-bookmark'></i>$title</button></a>";
 	}
 }

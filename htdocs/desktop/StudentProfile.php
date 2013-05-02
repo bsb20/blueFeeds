@@ -69,6 +69,7 @@
 							</p>
 							<p>
 								$formattedDate
+								$GUID
 							</p>";
 		$_SESSION["recentCmmnt"]=$recentComment;	
 		break;

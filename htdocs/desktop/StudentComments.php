@@ -112,7 +112,16 @@
 
 <title>Bluefeeds Test Page</title>
 </head>
-<header><h1>Comment Page</h1></header>
+<header>
+	<h1 style="display: inline-block">
+		Comment Page
+	</h1>
+	<div style="display: inline-block; padding: 1.5%; float: right; height: 65px; width: 50%; overflow-y: scroll; overflow-x: hidden;">
+		<?php
+			echo $_SESSION['buttons'];
+		?>
+	</div>	
+</header>
 <body>
     <div class="container">
         <div class="ProfilePage">

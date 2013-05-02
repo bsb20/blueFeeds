@@ -1,12 +1,20 @@
 <?php
-$token = 'V0dDkJz3i64l87CbSFq2EIXm';
-$pdfurl = 'http://bluefeeds.cs.duke.edu/home/htdocs/desktop/uploadsPDF/Fillable_PDF_Sample_from_TheWebJockeys_vC5.pdf';
-$uploadurl = "https://crocodoc.com/api/v2/document/upload";
-$endpoint = $uploadurl . '?token=${' . $token . '}&url=' . $pdfurl;
+$croco  = new Crocodoc();
+$uuids  = "eea37c77-1255-4858-ae83-748543f3313f";
+$status = $croco->getStatus($uuids);
+var_dump($status);
 
-$session = curl_init($endpoint);
-curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
-$data = curl_exec($session);
-curl_close($session);
-echo $data;
+class Crocodoc { 
+    public $api_key = 'V0dDkJz3i64l87CbSFq2EIXm';
+    public $api_url = 'https://crocodoc.com/api/v2/';
+
+    public function getStatus($uuids){
+        $url = $this->api_url.'document/status';
+        $token = $this->api_key;
+        $dataStr = '?token='.$token.'&uuids='.$uuids;
+
+        // this is a GET request
+        return file_get_contents($url.$dataStr);
+    }
+}
 ?>

@@ -133,34 +133,18 @@
 						<?php
 							echo "Area of Study: " . $_SESSION['spec'];
 							echo "</br>";
+							echo "Email: " . $_SESSION['email'];							
 						?>
 					</p>
 					</div>				
 				</div>	
 				<div class="tile double bg-color-green">
-					<?php
-						$email=$_SESSION['email'];
-						if($email == '')
-						{
-							echo "					<div class='tile-content'>
-					<h2>Contact via email:</h2>
-					<p style='font-size: 15px'>
-						This user does not have a specified email.
+					<div class="tile-content">
+					<h2>Workdays:</h2>
+					<p style="font-size: 15px">
+						Monday, Tuesday, Wednesday, Thursday, Friday
 					</p>
-					</div>";
-						}
-						else
-						{
-							echo "					<a href='mailto:$email?Subject='>
-					<div class='tile-content'>
-					<h2>Contact via email:</h2>
-					<p style='font-size: 15px'>
-						Email: $email
-					</p>
-					</div>
-					</a>";
-						}
-					?>			
+					</div>				
 				</div>	
 				<div class="tile double bg-color-pink">
 					<a href="./StudentComments.php?filter=thisweek">				

@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL);
 $croco  = new Crocodoc();
 $uuids  = "eea37c77-1255-4858-ae83-748543f3313f";
 /* $status = $croco->getStatus($uuids); */

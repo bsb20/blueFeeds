@@ -100,7 +100,7 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 $_SESSION["recentComment1"]=$recentComment1;	
 
 $table="`test`.`students`";
-$sql = "SELECT * FROM ".$table." WHERE `SUID`='$SUID';";
+$sql = "SELECT * FROM ".$table." WHERE `SUID`='$SUID' AND `GUID`='$GUID';";
 $result=$db->query($sql);
 $recentcomment1="";
 if($row=mysqli_fetch_array($result)){
@@ -123,6 +123,7 @@ if($row=mysqli_fetch_array($result)){
 }
 $_SESSION["recentComment2"]=$recentComment2;
 
+/* Populates the rss with the links from the xml file */
 $filepath = "/home/htdocs/desktop/bluefeedsTest.xml";
 $xml = simplexml_load_file($_SERVER['DOCUMENT_ROOT'].$filepath);
 $rss = "";

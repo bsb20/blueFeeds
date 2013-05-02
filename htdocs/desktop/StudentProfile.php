@@ -38,6 +38,14 @@
 			$duration=$row['duration'];
 			$start=strtotime($row['start']);
 			$formattedStart=date("g:i",$start);
+			if(data("G",$start)>=12)
+			{
+				$formattedStart.= " PM";
+			}
+			else
+			{
+				$formattedStart.= " AM";				
+			}
 			$end=date("g:i", strtotime($row['end']));
 			$weekly= $row['isWeekly'] ? "Weekly: ".date("l",$start) : date("l, M j", $start);
 			$title=$row['title'];

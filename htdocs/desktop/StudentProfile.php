@@ -30,7 +30,7 @@
 	/* Populates recent appointments tile */
 	$UUID=$_SESSION["UUID"];
 	$recentAppt="";
-	$sql2 = "SELECT * FROM $table1,$table2 WHERE $table1.`SUID`='$SUID' AND $table2.`SUID`='$SUID' AND $table2.`UUID`='$UUID' ORDER BY `start` DESC;";
+	$sql2 = "SELECT * FROM ".$table2." WHERE `SUID`='$SUID' AND `UUID`='$UUID' ORDER BY `start` DESC;";
 	$result2=$db->query($sql2);
 	for($i=0; $i<mysqli_num_rows($result2); $i++){
 		if($row=mysqli_fetch_array($result2)){
@@ -93,7 +93,7 @@
 			Student Profile Page
 		</h1>	
 			<?php
-				echo "GUID " . $_SESSION['GUID'] . " SUID1 " . $_SESSION['SUID'] . " SUID2 " . $SUID;
+				echo "GUID1 " . $_SESSION['GUID'] . "GUID2 " . $GUID . " SUID1 " . $_SESSION['SUID'] . " SUID2 " . $SUID;
 			?>		
 		<div style="display: inline-block; padding: 1.5%; float: right; height: 65px; width: 50%; overflow-y: scroll; overflow-x: hidden;">
 			<?php

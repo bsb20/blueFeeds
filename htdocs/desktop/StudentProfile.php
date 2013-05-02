@@ -94,9 +94,6 @@
 		<h1 style="display: inline-block">
 			Student Profile Page
 		</h1>	
-			<?php
-				echo "GUID1 " . $_SESSION['GUID'] . "GUID2 " . $GUID . " SUID1 " . $_SESSION['SUID'] . " SUID2 " . $SUID;
-			?>		
 		<div style="display: inline-block; padding: 1.5%; float: right; height: 65px; width: 50%; overflow-y: scroll; overflow-x: hidden;">
 			<?php
 				echo $_SESSION['buttons'];

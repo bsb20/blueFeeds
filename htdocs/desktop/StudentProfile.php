@@ -53,7 +53,7 @@
 	
 	/* Populates recent comment tile */
 	$GUID=$_SESSION["GUID"];
-	$sql3 = "SELECT * FROM $table3 WHERE `SUID`='$SUID' AND `GUID`='$GUID' ORDER BY 'date' DESC";
+	$sql3 = "SELECT * FROM $table3 WHERE `SUID`='$SUID' AND `GUID`='$GUID' AND (`UUID`='$UUID' OR `instructors`='1') ORDER BY 'date' DESC";
 	$result3=$db->query($sql3);
 	$recentComment="";
 	for($i=0; $i<mysqli_num_rows($result3); $i++){

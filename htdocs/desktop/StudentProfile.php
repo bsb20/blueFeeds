@@ -14,6 +14,7 @@
 		echo "FAILURE";
 	}
 	
+	$GUID=$_SESSION["GUID"];	
 	/* Gets student information */
 	$SUID=$_GET["SUID"];
 	$_SESSION["SUID"]=$SUID;
@@ -52,7 +53,6 @@
 	}
 	
 	/* Populates recent comment tile */
-	$GUID=$_SESSION["GUID"];
 	$sql3 = "SELECT * FROM $table3 WHERE `SUID`='$SUID' AND `GUID`='$GUID' AND (`UUID`='$UUID' OR `instructors`='1') ORDER BY 'date' DESC";
 	$result3=$db->query($sql3);
 	$recentComment="";
@@ -91,6 +91,9 @@
 	<div>
 		<h1 style="display: inline-block">
 			Student Profile Page
+			<?php
+				echo $_SESSION['GUID'];
+			?>
 		</h1>		
 		<div style="display: inline-block; padding: 1.5%; float: right; height: 65px; width: 50%; overflow-y: scroll; overflow-x: hidden;">
 			<?php
@@ -168,9 +171,6 @@
 				<a href="./Add Appointment.php"><button class="big">New Appointment <i class="icon-clipboard-2 icon-small"></i></button></a>
 				<a href=""><button class="big">Delete Profile <i class="icon-remove icon-small"></i></button></a>						
 			</div>
-			<?php
-				echo $_SESSION["SUID"];
-			?>
         </div>
 		<?php
 			include 'menu.php';

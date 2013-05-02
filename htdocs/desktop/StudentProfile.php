@@ -37,15 +37,7 @@
 			$pastMessage= strtotime($row['start'])>time() || $row['isWeekly'] ? "":"Past Meeting Time";
 			$duration=$row['duration'];
 			$start=strtotime($row['start']);
-			$formattedStart=date("g:i",$start);
-			if(intval(data("G",$start))>=12)
-			{
-				$formattedStart.= " PM";
-			}
-			else
-			{
-				$formattedStart.= " AM";				
-			}
+			$formattedStart=date("g:i A",$start);
 			$end=date("g:i", strtotime($row['end']));
 			$weekly= $row['isWeekly'] ? "Weekly: ".date("l",$start) : date("l, M j", $start);
 			$title=$row['title'];

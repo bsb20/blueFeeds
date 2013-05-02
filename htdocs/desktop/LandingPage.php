@@ -24,6 +24,7 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 			$duration=$row['duration'];
 			$start=strtotime($row['start']);
 			$formattedStart=date("g:i A",$start);
+			$formattedDate=date("m/d/y",$start);
 			$end=date("g:i", strtotime($row['end']));
 			$weekly= $row['isWeekly'] ? "Weekly: ".date("l",$start) : date("l, M j", $start);
 			$title=$row['title'];
@@ -38,7 +39,7 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 			$endweek = $today['mday']+7 - ($today['mday']+7)%7;			
 			if($beginweek <= $day and $day <= $endweek and $today['mon']==$month and $today['year']==$year)
 			{
-				$recentAppt.="								<li id='CurrentAppointments'>$name at $formattedStart</li>";								
+				$recentAppt.="								<li id='CurrentAppointments'>$name at $formattedStart on $formattedDate</li>";								
 			}
 	}
 }
@@ -166,7 +167,14 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 		$title=$row['title'];
 		$BUTTONGUID=$row['GUID'];
 		$link = "./setGUID.php?course=" . $BUTTONGUID;
-		$buttons.="<a href=$link><button id='courseButton'><i class='icon-bookmark'></i>$title</button></a>";
+		if($GUID !== '' && $BUTTONGUID==$GUID)
+		{
+			$buttons.="<a href=$link><button id='courseButton' class='bg-color-green'><i class='icon-bookmark'></i>$title</button></a>";			
+		}
+		else
+		{
+			$buttons.="<a href=$link><button id='courseButton'><i class='icon-bookmark'></i>$title</button></a>";			
+		}
 	}
 }
 $_SESSION['buttons'] = $buttons;

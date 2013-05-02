@@ -38,7 +38,7 @@
 			$duration=$row['duration'];
 			$start=strtotime($row['start']);
 			$formattedStart=date("g:i",$start);
-			if(intval(data("G",$start)>=12))
+			if(intval(data("G",$start))>=12)
 			{
 				$formattedStart.= " PM";
 			}

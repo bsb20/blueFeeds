@@ -138,14 +138,7 @@
 					</p>
 					</div>				
 				</div>	
-				<div class="tile double bg-color-green">
-					<div class="tile-content">
-					<h2>Workdays:</h2>
-					<p style="font-size: 15px">
-						Monday, Tuesday, Wednesday, Thursday, Friday
-					</p>
-					</div>				
-				</div>	
+
 				<div class="tile double bg-color-pink">
 					<a href="./StudentComments.php?filter=thisweek">				
 					<div class="tile-content">

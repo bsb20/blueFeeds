@@ -139,13 +139,30 @@
 					</div>				
 				</div>	
 				<div class="tile double bg-color-green">
-					<div class="tile-content">
-					<h2>Workdays:</h2>
-					<p style="font-size: 15px">
-						Monday, Tuesday, Wednesday, Thursday, Friday
+					<?php
+						$email=$_SESSION['email'];
+						if($email == '')
+						{
+							echo "					<div class='tile-content'>
+					<h2>Contact via email:</h2>
+					<p style='font-size: 15px'>
+						This user does not have a specified email.
 					</p>
-					</div>				
-				</div>	
+					</div>";
+						}
+						else
+						{
+							echo "					<a href='mailto:$email?Subject='>
+					<div class='tile-content'>
+					<h2>Contact via email:</h2>
+					<p style='font-size: 15px'>
+						Email: $email
+					</p>
+					</div>
+					</a>";
+						}
+					?>			
+				</div>		
 				<div class="tile double bg-color-pink">
 					<a href="./StudentComments.php?filter=thisweek">				
 					<div class="tile-content">

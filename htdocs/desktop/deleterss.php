@@ -25,8 +25,8 @@
 			}
 			if($remove == TRUE)
 			{
-				$dom->removeChild($node);
-				$remove = FALSE;
+				$node->parentNode->removeChild($node);
+				break;
 			}
 		}
 		

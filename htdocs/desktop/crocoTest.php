@@ -25,6 +25,7 @@ class Crocodoc {
         $url = $this->api_url.'session/create';
         $token = $this->api_key;
         $dataStr = '?token='.$token.'&uuid='.$uuid;
+		echo $url.$dataStr;
 
         // this is a GET request
         return file_get_contents($url.$dataStr);

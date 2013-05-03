@@ -3,6 +3,8 @@
 	/* Takes the following values: title */
 	session_start();
 	$filepath = "/home/htdocs/desktop/bluefeedsTest.xml";
+	
+	$debug = "";
 
 	if (file_exists($_SERVER['DOCUMENT_ROOT'].$filepath)) {
 		$rss = file_get_contents($_SERVER['DOCUMENT_ROOT'].$filepath);
@@ -12,6 +14,7 @@
 		$items = $dom->getElementsByTagName('item');
 		foreach($items as $node)
 		{
+			$debug.="visited";
 			$title = $node->title;
 			if($title == $_GET['title'])
 			{

@@ -15,8 +15,8 @@
 			$title = $node->title;
 			if($title == $_GET['title'])
 			{
-				$domnode=dom_import_simplexml($node);
-				$domnode->parentNode->removeChild($node);			
+				$dom->removeChild($node);
+				break;
 			}
 		}
 		
@@ -24,11 +24,11 @@
 		$bytes = file_put_contents($_SERVER['DOCUMENT_ROOT'].$filepath, $rss);
 		if($bytes)
 		{
-			header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/RSS Feeds.php?success=' . $bytes);			
+			header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/RSS Feeds.php?success=' . $rss);			
 		}
 		else
 		{
-			header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/RSS Feeds.php?failure=' . $bytes);				
+			header('Location: http://bluefeeds.cs.duke.edu/home/htdocs/desktop/RSS Feeds.php?failure=' . $rss);				
 		}
 	}
 	else

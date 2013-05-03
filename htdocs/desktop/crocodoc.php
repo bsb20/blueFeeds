@@ -1,7 +1,7 @@
 <?php
 
 class Crocodoc { 
-	public $api_key = 'V0dDkJz3i64l87CbSFq2EIXm';
+	public $api_key = 'Bo3uaQcNXrdhtCU17PMqkZsw';
 	public $api_url = 'https://crocodoc.com/api/v2/';
 
 	private function doCurlPost($url, $data){
@@ -59,8 +59,7 @@ class Crocodoc {
 		$url = $this->api_url.'session/create';
 		$data = array(
 		'token' =>  $this->api_key,
-		'uuid'   =>  $uuid,
-		'duration' => 604800);
+		'uuid'   =>  $uuid);
 		//this is a POST request
 		$output = $this->doCurlPost($url, $data);
 		return $output;

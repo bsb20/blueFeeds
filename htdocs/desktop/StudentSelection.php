@@ -27,7 +27,7 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 			/* Converts photo path to the correct one */
 			if($photo=="./uploads/nophoto.gif")
 			{
-				$photo = "http://bluefeeds.cs.duke.edu/home/htdocs/uploads/nophoto.gif";
+				$photo = "http://bluefeeds.cs.duke.edu/ui_branch/blueFeeds/htdocs/uploads/nophoto.gif";
 			}
 			else
 			{

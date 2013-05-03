@@ -1,6 +1,6 @@
 <?php
-  /* Updates the xml file within /desktop/bluefeedsTest.xml */
-	/* Takes the following values: title, link, date, description */
+  	/* Deletes the xml file with a specified title within /desktop/bluefeedsTest.xml */
+	/* Takes the following values: title */
 	session_start();
 	$filepath = "/home/htdocs/desktop/bluefeedsTest.xml";
 
@@ -9,7 +9,8 @@
 		$dom = new DOMDocument();	
 		$dom->loadXML($rss);
 		
-		foreach($dom->child as $node)
+		$items = $dom->getElementsByTagName('item');
+		foreach($items as $node)
 		{
 			$title = $node->title;
 			if($title == $_GET['title'])

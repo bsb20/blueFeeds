@@ -31,7 +31,7 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 			}
 			else
 			{
-				$photo = "http://bluefeeds.cs.duke.edu/home/htdocs/" . $photo;
+				$photo = "http://bluefeeds.cs.duke.edu/ui_branch/blueFeeds/htdocs/" . $photo;
 			}			
 			$title=$row["title"];
 			$spec=$row["speciality"];

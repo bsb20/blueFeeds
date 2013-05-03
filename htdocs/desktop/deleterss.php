@@ -14,10 +14,10 @@
 		$items = $dom->getElementsByTagName('item');
 		foreach($items as $node)
 		{
-			$debug.="visited";
 			$title = $node->title;
 			if($title == $_GET['title'])
 			{
+				$debug.="visited";				
 				$dom->removeChild($node);
 			}
 		}

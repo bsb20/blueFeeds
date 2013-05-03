@@ -25,7 +25,7 @@
 			}
 			if($remove == TRUE)
 			{
-				$dom->removedChild($node);
+				$dom->removeChild($node);
 				break;
 			}
 		}

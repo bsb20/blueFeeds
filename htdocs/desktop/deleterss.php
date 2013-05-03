@@ -26,7 +26,7 @@
 			if($remove == TRUE)
 			{
 				$dom->removeChild($node);
-				break;
+				$remove = FALSE;
 			}
 		}
 		

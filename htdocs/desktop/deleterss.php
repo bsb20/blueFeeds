@@ -15,9 +15,9 @@
 		foreach($items as $node)
 		{
 			$title = $node->title;
+			$debug.=$title;			
 			if($title == $_GET['title'])
-			{
-				$debug.="visited";				
+			{				
 				$dom->removeChild($node);
 			}
 		}

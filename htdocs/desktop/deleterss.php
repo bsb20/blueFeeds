@@ -23,11 +23,6 @@
 					$remove = TRUE;
 				}
 			}
-			if($remove)
-			{				
-				$dom->removeChild($node);
-				break;
-			}
 		}
 		
 		$rss = $dom->saveXML();	

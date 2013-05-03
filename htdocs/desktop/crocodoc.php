@@ -1,7 +1,7 @@
 <?php
 
 class Crocodoc { 
-	public $api_key = 'Bo3uaQcNXrdhtCU17PMqkZsw';
+	public $api_key = 'V0dDkJz3i64l87CbSFq2EIXm';
 	public $api_url = 'https://crocodoc.com/api/v2/';
 
 	private function doCurlPost($url, $data){

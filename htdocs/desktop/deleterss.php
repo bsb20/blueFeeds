@@ -19,7 +19,7 @@
 			{
 				if($child->nodeValue == $_GET['title'])
 				{
-					$title = $child->nodeValue;
+					$debug.="match";
 				}
 			}
 			if($title == $_GET['title'])

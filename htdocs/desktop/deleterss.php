@@ -13,18 +13,20 @@
 		
 		$items = $dom->getElementsByTagName('item');
 		$title = "";
+		$remove = FALSE;
 		foreach($items as $node)
 		{
 			foreach ($node->childNodes As $child)
 			{
 				if($child->nodeValue == $_GET['title'])
 				{
-					$debug.="match";
+					$remove = TRUE;
 				}
 			}
-			if($title == $_GET['title'])
+			if($remove)
 			{				
 				$dom->removeChild($node);
+				break;
 			}
 		}
 		

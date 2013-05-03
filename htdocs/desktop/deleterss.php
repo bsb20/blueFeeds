@@ -14,7 +14,7 @@
 		$items = $dom->getElementsByTagName('item');
 		foreach($items as $node)
 		{
-			$title = $node->item(0);			
+			$node->children();			
 			$debug.=$title;			
 			if($title == $_GET['title'])
 			{				

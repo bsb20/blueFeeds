@@ -15,7 +15,7 @@
 		$title = "";
 		foreach($items as $node)
 		{
-			foreach ($nodes->childNodes As $child)
+			foreach ($node->childNodes As $child)
 			{
 				$debug.="visited";
 			}

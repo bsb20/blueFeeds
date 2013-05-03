@@ -17,7 +17,7 @@
 		{
 			foreach ($nodes->childNodes As $child)
 			{
-				$debug.=$child;
+				$debug.=$child->nodeValue;
 			}
 			if($title == $_GET['title'])
 			{				

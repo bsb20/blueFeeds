@@ -12,10 +12,13 @@
 		$dom->loadXML($rss);
 		
 		$items = $dom->getElementsByTagName('item');
+		$title = "";
 		foreach($items as $node)
 		{
-			$node->children();			
-			$debug.=$title;			
+			foreach ($nodes->childNodes As $child)
+			{
+				$debug.=$child;
+			}
 			if($title == $_GET['title'])
 			{				
 				$dom->removeChild($node);

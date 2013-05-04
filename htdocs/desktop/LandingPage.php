@@ -218,7 +218,7 @@ $_SESSION['buttons'] = $buttons;
 <body>
     <div class="container">
         <div class="ProfilePage">
-				<div class="tile double bg-color-purple" id="ProfileTile">	
+				<div class="tile double bg-color-Darken" id="ProfileTile">	
 					<?php
 						echo $_SESSION['profile'];
 					?>
@@ -238,7 +238,7 @@ $_SESSION['buttons'] = $buttons;
 			include 'menu.php';
 		?>
         <div class="NextAppointmentPage">         
-			<div class="tile double bg-color-orange" style="height:100%; width: 100%; float: left;">
+			<div class="tile double bg-color-blueDark" style="height:100%; width: 100%; float: left;">
 				<div class="tile-content">
 					<h2>This week's appointments:</h2>
 					<br>
@@ -262,7 +262,7 @@ $_SESSION['buttons'] = $buttons;
 			</div>
         </div>
         <div class="MostRecentCommentPage">
-			<div class="tile double bg-color-green" style="height:100%; width: 100%; float: left;">
+			<div class="tile double bg-color-purple" style="height:100%; width: 100%; float: left;">
 				<div class="tile-content">
 					<?php
 						$comment1 = $_SESSION['recentComment1'];

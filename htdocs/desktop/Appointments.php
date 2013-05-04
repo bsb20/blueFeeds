@@ -166,7 +166,7 @@
 <body>
     <div class="container">
         <div class="ProfilePage">
-				<div class="tile double bg-color-purple" id="ProfileTile">	
+				<div class="tile double bg-color-Darken" id="ProfileTile">	
 					<?php
 						echo $_SESSION['profile'];
 					?>	
@@ -209,7 +209,7 @@
 					</span>
 				</button>
 			</a>			
-			<div class="tile double bg-color-green">
+			<div class="tile double bg-color-blueDark">
 				<div class="tile-content">
 					<h2>
 					<script type="text/javascript">

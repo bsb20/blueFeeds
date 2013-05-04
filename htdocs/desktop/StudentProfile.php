@@ -137,7 +137,7 @@
 					</p>
 					</div>				
 				</div>	
-				<div class="tile double bg-color-green">
+				<div class="tile double" style="background-color: #6C4587;">
 					<?php
 						$email=$_SESSION['email'];
 						if($email == '')
@@ -179,7 +179,7 @@
 						?>						
 					</div>				
 				</div>
-				<div class="tile double bg-color-orange">
+				<div class="tile double bg-color-blueDark">
 					<a href="./Appointments.php?filter=thisweek">								
 					<div class="tile-content">
 					<h2>Upcoming Appointments:</h2>

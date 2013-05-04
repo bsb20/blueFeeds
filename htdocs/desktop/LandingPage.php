@@ -169,7 +169,7 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 		$link = "./setGUID.php?course=" . $BUTTONGUID;
 		if($GUID !== '' && $BUTTONGUID==$GUID)
 		{
-			$buttons.="<a href=$link><button id='courseButton' class='bg-color-green'><i class='icon-bookmark'></i>$title</button></a>";			
+			$buttons.="<a href=$link><button id='courseButton' class='bg-color-blueDark'><i class='icon-bookmark'></i>$title</button></a>";			
 		}
 		else
 		{

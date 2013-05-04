@@ -33,7 +33,7 @@
 <body>
     <div class="container">
         <div class="ProfilePage">
-				<div class="tile double bg-color-Dark" id="ProfileTile">
+				<div class="tile double bg-color-darken" id="ProfileTile">
 					<?php 
 						echo $_SESSION['profile'];					
 					?>					

@@ -14,12 +14,11 @@ if($db->connect_errno){
 $UUID=$_SESSION["UUID"];
 $sql = "SELECT * FROM $table WHERE `UUID`='$UUID'";
 $result=$db->query($sql);
-$finally="";
+$toString="<fieldset data-role='controlgroup' class='tagBox' data-dynamicContent='showUserTags'>";
 foreach($result as $row){
         $TUID=$row["TUID"];
         $text=$row["text"];
-        $toString=$toString."
-                    <input type='checkbox' name='tag[]' id='$TUID' value='$TUID' class='custom' /><label for='$TUID'>$text</label>";
+        $toString=$toString."<input type='checkbox' name='tag[]' id='$TUID' value='$TUID'/><label for='$TUID'>$text</label>";
 }
-echo $toString;
+echo $toString."</fieldset>";
 ?>

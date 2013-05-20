@@ -27,9 +27,9 @@ if($row=mysqli_fetch_array($result)){
 						<div data-role='controlgroup' data-type='horizontal'  class='noteControl'>
                                                	<h1>$text</h1>
 						</div>
-						</a>
+					</a>
 						<input type='text' id='no' style='display:none' value='$TUID'>
-                                        </li>";
+                                    </li>";
 }
     echo $finally;
 ?>

@@ -209,15 +209,6 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
         <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
         </button>
     </header>
-    
-    <div class="studentSelectionCenter" data-role="content">
-    			<ul data-role="listview" data-prepend="true" data-inset="true">
-          	  		<li>
-                		<a href="#makeAppt">
-                		<h1>Add Meeting</h1></a>
-            			</li>
-        		</ul>
-    </div>
         		
     <div class="appointmentCenter" data-role="content" data-theme="a">
         <ul data-role="listview" data-filter="true" id="allApptList" class="allApptList" data-dynamicQuery="allAppt">
@@ -792,7 +783,7 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
 
 <div data-role="page" id="addcomment">
     <header data-role="header" data-theme="b"><h1>Add Note</h1>
-    <a href="#commentspage" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+    <a href="#studentProfile2" data-theme="a" data-iconpos="notext" data-icon="back"></a>
     </header>
 	<div class="commentSelection" data-role="content" data-theme="b" align="center">
         <form id="commentForm" data-dynamicQuery="genCUID">
@@ -814,9 +805,7 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
             <option value="1">Yes</option>
         </select>
         </div>
-	   <div data-role="fieldcontain">
-            <fieldset data-role="controlgroup" id="userTagList"  data-dynamicQuery="showUserTags">
-            </fieldset>
+	   <div data-role="fieldcontain" data-dynamicQuery="showUserTags" id="userTagList" data-prepend="true">
             <label class="ui-hidden-accessible" for="new"></label><input type="text" placeholder="New Tag" name="new" id="new" style="margin-top:1%;">
 	   </div>
 	<button data-theme="a" type="submit" id="commentSubmit" data-validate='commentSubmit' data-destination="#studentProfile2">Save Comment</button>          

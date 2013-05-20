@@ -77,7 +77,12 @@ var courses;
             $("[data-validate]").click(function(){
                     var formData=$(this).parents("form").serialize();
                     $.ajax({type:"POST", url: $(this).attr('data-validate')+".php", data: formData, success: onTrue, invokedata:{destination:$(this).attr('data-destination'), role: $(this).attr('data-rel')}, error:onError});
-                    return false;
+                    $(this).parents("form").find(':input')
+		    .not(':button, :submit, :reset, :hidden')
+		    .val('')
+		    .removeAttr('checked')
+		    .removeAttr('selected');
+		    return false;
                 });
         });
         

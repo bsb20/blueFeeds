@@ -14,7 +14,6 @@ if($db->connect_errno){
 $SUID=$_SESSION["SUID"];
 $UUID=$_SESSION["UUID"];
 $AUID=$_SESSION["AUID"];
-echo $AUID;
 $sql = "SELECT * FROM ".$table." WHERE `SUID`='".$SUID."';";
 $result=$db->query($sql);
 $student;

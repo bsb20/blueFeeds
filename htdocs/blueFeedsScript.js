@@ -191,7 +191,15 @@ var courses;
                 var found=$(this).find("#no").val();
                 $.ajax({type: "POST", url: "setAppt.php", data: {'key':found}, error: onError})
 		});	    
-	    });        
+	    });     
+	    
+	$(document).ready(
+	function(){
+	    $(".allApptList").on("click", "li", function(e){
+                var found=$(this).find("#no").val();
+                $.ajax({type: "POST", url: "setAppt.php", data: {'key':found}, error: onError})
+		});	    
+	    });     
 //Sets SUID to allow retieval of info for a particualr appointment page
         $(document).ready(
 	function(){

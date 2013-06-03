@@ -65,7 +65,7 @@ var courses;
         }
     }
 
-//error function, don't touch this!
+//error function
     function onError(data,status){
         alert("error!!!"+data);
     }
@@ -89,56 +89,6 @@ var courses;
 //Functions using on()
 //These handle screen events for elements that were injected dyanmically, and thus cannot have events handled in the normal
 //way
-	    $(document).ready(
-		function(){
-		    $(".container").swipeleft(function(){
-			if(coursePage<courses.length-1){
-			coursePage++;
-			
-			var selected=jQuery.parseJSON(courses[coursePage]);
-			if($.mobile.activePage.attr('id')=="courses"){
-			    $("#courses2").find(".title").text(selected.head);
-			    $("#courses2").children(".container").html(selected.body);
-			    $("#courses2").find(".courseKey").val(selected.key);
-			    $.mobile.changePage("#courses2", {transition: "slide"});
-			}
-			else{
-			    $("#courses").find(".title").text(selected.head);
-			    $("#courses").children(".container").html(selected.body);
-			    $("#courses").find(".courseKey").val(selected.key);
-			    $.mobile.changePage("#courses", {transition: "slide"});
-			}
-			}
-			});
-		})
-	    $(document).ready(
-		function(){
-		    $("#class").on("swipedown")
-		}
-	    )
-	    $(document).ready(
-		function(){
-		    $(".container").swiperight(function(){
-			if(coursePage>0){
-			coursePage--;
-			
-			var selected=jQuery.parseJSON(courses[coursePage]);
-			if($.mobile.activePage.attr('id')=="courses"){
-			    $("#courses2").find(".title").text(selected.head);
-			    $("#courses2").children(".container").html(selected.body);
-			    $("#courses2").find(".courseKey").val(selected.key);
-			    $.mobile.changePage("#courses2", {transition: "slide", reverse:true});
-			}
-			else{
-			    $("#courses").find(".title").text(selected.head);
-			    $("#courses").children(".container").html(selected.body);
-			    $("#courses").find(".courseKey").val(selected.key);
-			    $.mobile.changePage("#courses", {transition: "slide", reverse:true});
-			}
-			}
-			});
-		}
-		)
 //Looks for edit request, populates text box with existing comment text
         $(document).ready(
 	function(){

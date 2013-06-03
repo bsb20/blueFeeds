@@ -43,7 +43,7 @@ if($row=mysqli_fetch_array($result)){
 						<a href='#viewcomment' data-role='button' data-mini='true'>View</a>
 						</div>
                                                 <p class='ui-li-aside'><strong>$formattedDate</strong></p>
-                                                    <input type='text' name='CUID' value='$CUID' id='hiddenForm' style='display: none;'>
+                                                    <input type='text' name='CUID' value='$CUID' class='hiddenForm' style='display: none;'>
                                                     <input type='text' name='students' value='$students' id='hiddenForm2' style='display: none;'>
                                                     <input type='text' name='instructors' value='$instructors' id='hiddenForm3' style='display: none;'>
 					</li>";}

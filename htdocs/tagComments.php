@@ -31,6 +31,8 @@ $finally.=        "<li data-theme='d' class='listNote dynamicComment' data-dynam
 						<a href='#editcomment' data-role='button' data-mini='true'>Edit</a>
 						<a href='#viewcomment' data-role='button' data-mini='true'>View</a>
 						</div>
+						<p class='ui-li-aside'><strong>$formattedDate</strong></p>
+                                                    <input type='text' name='CUID' value='$CUID' class='hiddenForm' style='display: none;'>
 					        </li>";
 }
 

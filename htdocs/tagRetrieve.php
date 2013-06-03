@@ -5,13 +5,8 @@ Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
 This php script retieves all tags for a specific user (UUID) and displays them in html-based jquerymobile listviews.
 */
 
-
-session_start();
+include("initialize.php");
 $table="`test`.`tags`";
-$db=new mysqli("127.0.0.1","root","devils","test",8889);
-if($db->connect_errno){
-    echo "FAILURE";
-}
 $UUID=$_SESSION["UUID"];
 $sql = "SELECT * FROM `test`.`tags` WHERE `UUID`='$UUID'";
 $result=$db->query($sql);

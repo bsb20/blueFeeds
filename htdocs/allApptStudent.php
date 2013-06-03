@@ -2,15 +2,9 @@
 /*Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
 Retrieves all appointments for a particular student
 */
-session_start();
-date_default_timezone_set("America/New_York");
+include("initialize.php");
 $table="`test`.`students`";
 $table2="`test`.`appointments`";
-$db=new mysqli("127.0.0.1","root","devils","test",8889);
-if($db->connect_errno){
-    echo "FAILURE";
-}
-
 $SUID=$_SESSION["SUID"];
 $final="";
 /*

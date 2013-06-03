@@ -5,15 +5,9 @@ Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
 This php script retrieves appointments for a given user (UUID) in the order in which events are listed. These independent
 appointment events are then outputted in an list <html jquery mobile> format.
 */
-
-session_start();
-date_default_timezone_set("America/New_York");
+include("initialize.php");
 $table="`test`.`students`";
 $table2="`test`.`appointments`";
-$db=new mysqli("127.0.0.1","root","devils","test",8889);
-if($db->connect_errno){
-    echo "FAILURE";
-}
 $UID=$_SESSION["UUID"];
 $ID="UUID";
 if(isset($_SESSION["isStudent"])){
@@ -25,10 +19,10 @@ $sql = "SELECT * FROM $table,$table2 WHERE $table.`SUID`=$table2.`SUID` AND $tab
 $result=$db->query($sql);
 for($i=0; $i<mysqli_num_rows($result); $i++){
     if($row=mysqli_fetch_array($result)){
-            $name=$row["user"];
-            $photo=$row["photo"];
-            $title=$row["title"];
-            $spec=$row["speciality"];
+        $name=$row["user"];
+        $photo=$row["photo"];
+        $title=$row["title"];
+        $spec=$row["speciality"];
         $past=strtotime($row['start'])>time() || $row['isWeekly'] ? "a" : "d";
         $pastMessage= strtotime($row['start'])>time() || $row['isWeekly'] ? "":"Past Meeting Time";
         $duration=$row['duration'];

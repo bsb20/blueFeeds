@@ -5,12 +5,8 @@ Retrieves information to populate a pre-written email to send an appointment rem
 Joins current student ID to current appointment ID and retirves user info from current user ID.
 Populates email based on student email address and user name, uses appointment info in email body
 */
-session_start();
+include("initialize.php");
 $table="`test`.`students`";
-$db=new mysqli("127.0.0.1","root","devils","test",8889);
-if($db->connect_errno){
-    echo "FAILURE";
-}
 $SUID=$_SESSION["SUID"];
 $UUID=$_SESSION["UUID"];
 $AUID=$_SESSION["AUID"];

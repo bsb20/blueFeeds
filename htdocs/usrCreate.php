@@ -6,12 +6,8 @@ This php script creates a new user for the application. Accessible from the logi
 */
 
 function create(){
-session_start();
+include("initialize.php");    
 $table="`test`.`users`";
-$db=new mysqli("127.0.0.1","root","devils","test",8889);
-if($db->connect_errno){
-    echo "FAILURE";
-}
 if($_POST["pass"]!=$_POST["passc"]){
     return 1;
 }

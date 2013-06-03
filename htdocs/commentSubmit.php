@@ -6,14 +6,10 @@ This php script submits comments for a given user (UUID) and student (SUID) to o
 As parameters it taked the comments text, comments tags, and the student and user information.
 */
 
-session_start();
-date_default_timezone_set("America/New_York");
+
+include("initialize.php");
 $table="`test`.`comments`";
 $tag_table="`test`.`tu`";
-$db=new mysqli("127.0.0.1","root","devils","test",8889);
-if($db->connect_errno){
-    echo "FAILURE";
-}
 $text=$_POST["comment"];
 $title=$_POST["title"];
 $instructors=$_POST["instructors"];

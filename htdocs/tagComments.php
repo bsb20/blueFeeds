@@ -4,14 +4,9 @@
 Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
 This php script retrieves all tags (TUID) for a specific user (UUID) and displays them in listview jquerymobile formatting.
 */
-
-session_start();
+include("initialize.php");
 $table="`test`.`tu`";
 $table2="`test`.`comments`";
-$db=new mysqli("127.0.0.1","root","devils","test",8889);
-if($db->connect_errno){
-    echo "FAILURE";
-}
 $TUID=$_SESSION["TUID"];
 $UUID=$_SESSION["UUID"];
 $SUID=$_SESSION["SUID"];

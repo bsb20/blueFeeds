@@ -6,17 +6,11 @@ This php script submits handles all photo-based applications within the app. Spe
 access the phones camera and upload profile pictures for themselves (and possibly for students).
 */
 
-error_reporting(E_ALL);
-ini_set('display_errors',1);
+include("initialize.php");
 if (!empty($_FILES))
 {
 echo $_FILES['photo']['error'];
-session_start();
 $table="`test`.`students`";
-$db=new mysqli("127.0.0.1","root","devils","test",8889);
-if($db->connect_errno){
-    echo "FAILURE";
-}
 $fileExtension=$_SESSION["SUID"];
     // PATH TO THE DIRECTORY WHERE FILES UPLOADS
     $file_src   =   'uploads/'.$_FILES['photo']['name'];

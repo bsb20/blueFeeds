@@ -6,11 +6,9 @@ Using user inserted login credentials, this script verifies the authorization of
 As parameters, it takes in a username and password.
 */
 
+
+include("initialize.php");
 $table="`test`.`users`";
-$db=new mysqli("127.0.0.1","root","devils","test",8889);
-if($db->connect_errno){
-    echo "FAILURE";
-}
 $user=$_POST["usr"];
 $pass=$_POST["pass"];
 $sql = "SELECT * FROM ".$table." WHERE `user`='".$user."';";

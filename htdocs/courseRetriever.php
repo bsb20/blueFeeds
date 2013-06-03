@@ -5,14 +5,8 @@ Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
 This php script, called within the course selection page, loads all courses for a given user (UUID) and displays them in
 html formatted jquerymobile.
 */
-
-session_start();
-date_default_timezone_set("America/New_York");
+include("initialize.php");
 $table="`test`.`courses`";
-$db=new mysqli("127.0.0.1","root","devils","test",8889);
-if($db->connect_errno){
-    echo "FAILURE";
-}
 if(isset($_SESSION["UUID"])){
 $UUID=$_SESSION["UUID"];
 $sql = "SELECT * FROM `test`.`courses` WHERE `UUID`='$UUID'";

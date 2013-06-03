@@ -5,12 +5,8 @@ This php script allows the user (UUID) retrieves all main profile information (n
 for a given student (SUID).
 */
 
-session_start();
+include("initialize.php");
 $table="`test`.`students`";
-$db=new mysqli("127.0.0.1","root","devils","test",8889);
-if($db->connect_errno){
-    echo "FAILURE";
-}
 $SUID=$_SESSION["SUID"];
 $sql = "SELECT * FROM ".$table." WHERE `SUID`='".$SUID."';";
 $result=$db->query($sql);

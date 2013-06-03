@@ -223,7 +223,21 @@ var courses;
 		})    
 	});
 
-
+	$(document).ready(function(){
+	    alert("HELLO2");
+	    $(".allApptList").on("swipeleft","li", function(e){
+		$(this).find(".dismiss").slideDown();
+		});
+	    $(".allApptList").on("swiperight","li", function(e){
+	    	$(this).find(".dismiss").slideUp();
+		});
+	    $(".allApptList").on("click", ".remove", function(e){
+		var found=$(this).parents("li").find("#no").val();
+                $.ajax({type: "POST", async:false, url: "setAppt.php", data: {'key':found}, error: onError});
+		$.ajax({type: "POST", url: "removeAppt.php", error: onError});
+		$(this).parents("li").remove();
+		});
+	    });
 //Page change insert/remove functions
 //Code for data-dynamicQuery system, looks for dynamic elements to remove, makes query for new information, passes desintation
 //page name to callback function

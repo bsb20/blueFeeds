@@ -14,7 +14,7 @@ if($db->connect_errno){
 }
 $title=$_POST["title"];
 $user=$_SESSION["UUID"];
-$TUID=$_POST["TUID"];
-$db->real_query("INSERT INTO ".$table." (`TUID`, `FUID`, `title`) VALUES ('$user', '$FUID','$title');");
+$TUID=uniqid("", false);
+$db->real_query("INSERT INTO ".$table." (`UUID`, `TUID`, `text`) VALUES ('$user', '$TUID','$title');");
 echo "true";
 ?>

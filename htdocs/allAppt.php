@@ -40,13 +40,15 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
         $loc=$row['location'];
         $AUID=$row["AUID"];
         $SUID=$row["SUID"];
-        $final.=" <li data-theme='$past' data-dynamicContent='allAppt'><a href='#reminder'>
+        $final.=" <li data-theme='$past' class='appt' data-dynamicContent='allAppt'><a href='#reminder'>
                     <h1>$name</h1>
-                    <h2>$title</h2>
-                    <p><strong>$loc</strong></p>
-                    <p>$weekly $formattedStart-$end</p>
+                    <p><strong>$title</strong></p>
+                    <p>$loc: $weekly $formattedStart-$end</p>
                     <p class='ui-li-aside'><strong>$pastMessage</strong></p>
                 </a>
+                <div style='display:none; padding:1%;' class='dismiss'>
+                <button class='remove' data-theme='b'>Remove</button>
+                </div>
                 <input type='text' id='no' style='display:none' value='$AUID'>
                 <input type='text' id='student' style='display:none' value='$SUID'>
             </li>";

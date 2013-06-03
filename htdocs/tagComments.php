@@ -15,9 +15,10 @@ if($db->connect_errno){
 $TUID=$_SESSION["TUID"];
 $UUID=$_SESSION["UUID"];
 $SUID=$_SESSION["SUID"];
+$GUID=$_SESSION["GUID"];
 $finally="";
 
-$sql = "SELECT * FROM `test`.`tu` INNER JOIN `test`.`comments` ON `test`.`tu`.`CUID` = `test`.`comments`.`CUID` WHERE `test`.`comments`.`SUID` ='".$SUID."' AND `test`.`tu`.`TUID` ='".$TUID."';";
+$sql = "SELECT * FROM `test`.`tu` INNER JOIN `test`.`comments` ON `test`.`tu`.`CUID` = `test`.`comments`.`CUID` WHERE `test`.`comments`.`SUID` ='".$SUID."' AND `test`.`tu`.`TUID` ='".$TUID."' AND `comments`.`GUID`='$GUID';";
 $result=$db->query($sql);
 
 

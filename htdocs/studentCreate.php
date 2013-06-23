@@ -4,13 +4,15 @@
 Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
 This php script adds a student for a pecific user (UUID) to the database. 
 */
-include("initialize.php");
+
 function create(){
+include("initialize.php");
 $table="`test`.`students`";
 $joinTable="`test`.`su`";
 if($_POST["pass"]!=$_POST["passc"]){
     return 1;
 }
+
 $UUID=$_SESSION["UUID"];
 $user=$_POST['first']." ".$_POST["last"];
 $email=$_POST['email'];

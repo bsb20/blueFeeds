@@ -52,9 +52,6 @@ var courses;
 	    $(".selector").each(function(){
 		$(this).attr('href','#studentCourse');
 		});
-	    $(".manager").each(function(){
-		$(this).attr('href','#studentManager');
-		});
 	    return;
 	}
 	if(data=="instructor"){

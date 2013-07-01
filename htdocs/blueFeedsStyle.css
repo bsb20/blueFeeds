@@ -13,18 +13,19 @@
 	
 	.contain{
 	    margin-top: 5%;
-	    margin-left: 7%;
-	    margin-right: 7%;
+	    margin-left: 3%;
+	    margin-right: 3%;
 	    color: rgb(10,10,127);
 	    background-position: center;
 	    opacity: 25%;
+	    padding:3%;
 	    background-size:80%;
 	    background-repeat: no-repeat;
 	    background-color: rgb(227,244,249);
 	    -moz-border-radius: 20px;
 	    -webkit-border-radius: 20px;
 	    -khtml-border-radius: 20px;
-	    border-radius: 20px;
+	    border-radius: 10px;
 	    text-align: center;
 	}
 

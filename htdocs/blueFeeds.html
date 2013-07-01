@@ -932,7 +932,7 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
             <a href="#addInstructor" data-rel="dialog" data-transition="slidedown">Add Instructors</a>
         </li>
         <li>
-            <a href="#addStudents" data-rel="dialog" data-transition="slidedown">Add Students</a>
+            <a href="#addStudents" data-transition="slidedown">Add Students</a>
         </li>
     </ul>
 </div><!-- course management, allows adding of students and instructors-->
@@ -950,17 +950,31 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
     </div>
 </div><!--add instructors to course-->
 
-<div data-role="page" id="addStudents">
+<!--<div data-role="page" id="addStudents">
     <header data-role="header" data-theme="b">
         <h1>Add Students</h1>
     </header>
     <div data-role="content">
         <form id="newStudentForm">
-        <label for="instructors">Enter the user names of the students you want to add, separated by commas</label>
+        <label for="instructors">Enter the Usernames of the students you want to add, separated by commas</label>
         <input type="text" name="students" id="students">
         <button data-theme="a" type="submit" id="addStudent" data-validate='addStudent' data-destination="#courseManage" data-icon="plus">Add Students</button>                  
 	</form>
     </div>
-</div><!-- add students to course-->
+</div> add students to course-->
+
+<div data-role="page" id="addStudents" data-theme="a">
+    <header data-role="header" data-theme="b">
+        <a href="#studentSelection" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+        <h3>Enroll Students</h3>
+    </header>
+    <form id="searchTerms">
+        <input type="text" data-type="search" name="search" id="search" placeholder="Name, Username, NetID">
+    </form>
+    <button data-theme="b" id="go">Search</button>
+    <ul id="searchResult" data-role="listview">
+        
+    </ul>
+</div>
 </body>
 </html>

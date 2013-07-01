@@ -23,6 +23,12 @@ var courses;
             $(this).parents("li").slideDown();
         });
     }
+    
+    function studentAdded(data, status){
+	if(data == "true"){
+	    alert("student was enrolled!");
+	}
+    }
 //retrieve course information (must be done slightly differently than general case).  Retrieves a JSON object containing
 //course information, and populates a formatted list item with the info
     function onCourses(data,status){
@@ -169,7 +175,12 @@ var courses;
 		$("#photo").click();
 		})    
 	});
-
+	$(document).ready(function(){
+	    $("#searchResult").on("click", "li", function(e){
+		var found= $(this).find("#suid").val();
+		$.ajax({type: "POST", url: "addStudent.php", data: {'suid':found}, error: onError, success: studentAdded})
+		});
+	    });
 	$(document).ready(function(){
 	    $(".allApptList").on("swipeleft","li", function(e){
 		$(this).find(".dismiss").slideDown();
@@ -202,3 +213,10 @@ var courses;
 		});
 	    });
         });
+    $(document).ready(function(){
+	$("#go").click(function(){
+		$("#searchResult").empty();
+		var formData= $("#searchTerms").serialize();
+		$.ajax({url: "findStudent.php", type: "POST", success: onPageLoad, data:formData, invokedata: "searchResult", error:onError});
+	    });
+	});

@@ -17,14 +17,9 @@
 	    margin-right: 1%;
 	    background-position: center;
 	    opacity: 25%;
-	    padding:1%;
+	    color:white;
 	    background-size:80%;
 	    background-repeat: no-repeat;
-	    background-color: rgb(36,153,203);
-	    -moz-border-radius: 20px;
-	    -webkit-border-radius: 20px;
-	    -khtml-border-radius: 20px;
-	    border-radius: 5px;
 	    text-align: center;
 	}
 

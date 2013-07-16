@@ -10,7 +10,6 @@ var coursePage=0;
 var courses;
 //perform data-dynamicQuery requests and append requested data
     function onPageLoad(data,status){
-	alert(data);
 	var id="#"+this.invokedata;
 	if($(id).attr("data-prepend")=="true"){
 	    $(id).prepend(data).trigger("create");

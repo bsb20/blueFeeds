@@ -40,6 +40,6 @@ switch($orient){
 ?>
 <html>
 <head>
-<meta http-equiv="REFRESH" content="0;url=http://bluefeeds.cs.duke.edu/ui_branch/blueFeeds/htdocs/blueFeeds.html">
+<meta http-equiv="REFRESH" content="0;url=http://198.61.175.216/bluefeeds/htdocs/blueFeeds.html">
 </head>
 </html>

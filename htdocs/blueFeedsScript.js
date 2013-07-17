@@ -30,6 +30,12 @@ var courses;
 	    alert("student was enrolled!");
 	}
     }
+    
+    function instructorAdded(data, status){
+	if(data == "true"){
+	    alert("instructor added to course!");
+	}
+    }
 //retrieve course information (must be done slightly differently than general case).  Retrieves a JSON object containing
 //course information, and populates a formatted list item with the info
     function onCourses(data,status){
@@ -178,9 +184,15 @@ var courses;
 		})    
 	});
 	$(document).ready(function(){
-	    $("#searchResult").on("click", "li", function(e){
-		var found= $(this).find("#suid").val();
+	    $("#foundStudents").on("click", "li", function(e){
+		var found= $(this).find(".suid").val();
 		$.ajax({type: "POST", url: "addStudent.php", data: {'suid':found}, error: onError, success: studentAdded})
+		});
+	    });
+	$(document).ready(function(){
+	    $("#foundInstructors").on("click", "li", function(e){
+		var found= $(this).find(".uuid").val();
+		$.ajax({type: "POST", url: "addInstructor.php", data: {'uuid':found}, error: onError, success: instructorAdded})
 		});
 	    });
 	$(document).ready(function(){
@@ -215,10 +227,12 @@ var courses;
 		});
 	    });
         });
+//generic search bar function	
     $(document).ready(function(){
-	$("#go").click(function(){
-		$("#searchResult").empty();
-		var formData= $("#searchTerms").serialize();
-		$.ajax({url: "findStudent.php", type: "POST", success: onPageLoad, data:formData, invokedata: "searchResult", error:onError});
+	$(".go").click(function(){
+		$(this).parents("[data-role='page']").find(".searchResult").empty();
+		var formData= $(this).parents("[data-role='page']").find(".searchTerms").serialize();
+		var id= $(this).parents("[data-role='page']").find(".searchResult").attr("id");
+		$.ajax({url: $(this).attr("data-search")+".php", type: "POST", success: onPageLoad, data:formData, invokedata: id, error:onError});
 	    });
 	});

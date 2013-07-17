@@ -27,7 +27,7 @@ $repeated=array();
                     <img src='$photo' class='imgTile'alt='getarealphone'/>
                     <p>$title, $spec</p>
                     </a>
-                    <input type='text' id='suid' style='display:none' value='$SUID'>
+                    <input type='text' class='suid' style='display:none' value='$SUID'>
                     </li>";
                 }
              }

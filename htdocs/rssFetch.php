@@ -17,11 +17,11 @@ $sql = "SELECT * FROM `test`.`feeds` WHERE `UUID`='$UUID' OR `UUID`='a'";
 $result=$db->query($sql);
 $finally = "";
 for($i=0; $i<mysqli_num_rows($result); $i++){
-    if($row=mysqli_fetch_array($result)){
+if($row=mysqli_fetch_array($result)){
 	$url=$row["url"];
     }
-    $xml =simplexml_load_file($url);
-    foreach($xml->channel->item as $item)
+    $xml =simplexml_load_file("$url");
+foreach($xml->channel->item as $item)
 	{
 	    $title = $item->title;
 	    $link = $item->link;

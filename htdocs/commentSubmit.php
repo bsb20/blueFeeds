@@ -20,6 +20,9 @@ $student=$_SESSION["SUID"];
 $CUID=$_POST["CUID"];
 $newTag=$_POST["new"];
 $tags=$_POST["tag"];
+if(!isset($tags)){
+$tags=array();
+}
 if(strlen(trim($newTag)) !=0){
 	$newTUID=uniqid("",FALSE);
 	array_push($tags,$newTUID);

@@ -10,6 +10,7 @@ var coursePage=0;
 var courses;
 //perform data-dynamicQuery requests and append requested data
     function onPageLoad(data,status){
+//	alert(data);
 	var id="#"+this.invokedata;
 	if($(id).attr("data-prepend")=="true"){
 	    $(id).prepend(data).trigger("create");
@@ -43,6 +44,7 @@ var courses;
 //onTrue corresponds to data-validate attributes, waits for "true" response in general case, waits for "instructor" or
 //"student" response in login cases
     function onTrue(data,status){
+//	alert(data);
         if(data=="true"){
 	    if(this.invokedata.role=="dialog"){
 		$.mobile.changePage(this.invokedata.destination, {transition: "pop", role:"dialog"});

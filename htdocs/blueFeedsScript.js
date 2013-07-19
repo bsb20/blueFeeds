@@ -10,6 +10,10 @@ var coursePage=0;
 var courses;
 //perform data-dynamicQuery requests and append requested data
     function onPageLoad(data,status){
+    	if(data.substring(0,1) === "~"){
+    		$.mobile.changePage("login");
+    		return;
+    	}
 	var id="#"+this.invokedata;
 	if($(id).attr("data-prepend")=="true"){
 	    $(id).prepend(data).trigger("create");
@@ -25,12 +29,20 @@ var courses;
     }
     
     function studentAdded(data, status){
+    	if(data.substring(0,1) === "~"){
+    		$.mobile.changePage("login");
+    		return;
+    	}
 	if(data == "true"){
 	    alert("student was enrolled!");
 	}
     }
     
     function instructorAdded(data, status){
+    	if(data.substring(0,1) === "~"){
+    		$.mobile.changePage("login");
+    		return;
+    	}
 	if(data == "true"){
 	    alert("instructor added to course!");
 	}
@@ -38,6 +50,10 @@ var courses;
 //retrieve course information (must be done slightly differently than general case).  Retrieves a JSON object containing
 //course information, and populates a formatted list item with the info
     function onCourses(data,status){
+    	if(data.substring(0,1) === "~"){
+    		$.mobile.changePage("login");
+    		return;
+    	}
 	courses=jQuery.parseJSON(data);
 	var id ="."+this.invokedata;
 	var selected=jQuery.parseJSON(courses[coursePage]);
@@ -49,6 +65,10 @@ var courses;
 //onTrue corresponds to data-validate attributes, waits for "true" response in general case, waits for "instructor" or
 //"student" response in login cases
     function onTrue(data,status){
+    	if(data.substring(0,1) === "~"){
+    		$.mobile.changePage("login");
+    		return;
+    	}
         if(data=="true"){
 	    if(this.invokedata.role=="dialog"){
 		$.mobile.changePage(this.invokedata.destination, {transition: "pop", role:"dialog"});
@@ -76,6 +96,10 @@ var courses;
 
 //error function
     function onError(data,status){
+    	if(data.substring(0,1) === "~"){
+    		$.mobile.changePage("login");
+    		return;
+    	}
         alert("error!!!"+data);
     }
     

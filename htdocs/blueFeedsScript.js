@@ -65,6 +65,16 @@ var courses;
 //onTrue corresponds to data-validate attributes, waits for "true" response in general case, waits for "instructor" or
 //"student" response in login cases
     function onTrue(data,status){
+    	if(data=="~student"){
+	    $.mobile.changePage("#courses");
+	    $(".selector").each(function(){
+		$(this).attr('href','#studentCourse');
+		});
+	    return;
+	}
+	if(data=="~instructor"){
+	    $.mobile.changePage("#rssFeed");
+	}
     	if(data.substring(0,1) === "~"){
     		$.mobile.changePage("login");
     		return;
@@ -79,16 +89,6 @@ var courses;
 		return;
 	    }
         }
-	if(data=="student"){
-	    $.mobile.changePage("#courses");
-	    $(".selector").each(function(){
-		$(this).attr('href','#studentCourse');
-		});
-	    return;
-	}
-	if(data=="instructor"){
-	    $.mobile.changePage("#rssFeed");
-	}
         else{
             alert(data);
         }

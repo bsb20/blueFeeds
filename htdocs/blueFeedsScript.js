@@ -65,14 +65,14 @@ var courses;
 //onTrue corresponds to data-validate attributes, waits for "true" response in general case, waits for "instructor" or
 //"student" response in login cases
     function onTrue(data,status){
-    	if(data=="~student"){
+    	if(data=="~student" || data =="student"){
 	    $.mobile.changePage("#courses");
 	    $(".selector").each(function(){
 		$(this).attr('href','#studentCourse');
 		});
 	    return;
 	}
-	if(data=="~instructor"){
+	if(data=="~instructor" || data=="instructor"){
 	    $.mobile.changePage("#rssFeed");
 	    return;
 	}

@@ -74,6 +74,7 @@ var courses;
 	}
 	if(data=="~instructor"){
 	    $.mobile.changePage("#rssFeed");
+	    return;
 	}
     	if(data.substring(0,1) === "~"){
     		$.mobile.changePage("login");

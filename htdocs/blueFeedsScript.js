@@ -121,6 +121,25 @@ var courses;
                 });
         });
         
+	
+	$(document).ready(
+	    function(){
+		$("#removeCourse").click(function(){
+		    if($(".dynamicTag").data("icon")=="arrow-r"){
+		    $(this).buttonMarkup({theme:"b"});
+		    $(".dynamicTag").buttonMarkup({ icon: "minus-red"});
+		    $(".dynamicTag").find("a").attr("href", "#");
+		    $("#courseList").listview('refresh');}
+		    else{
+			$(this).buttonMarkup({theme:"a"});
+			$(".dynamicTag").buttonMarkup({ icon: "arrow-r"});
+			$(".dynamicTag").find("a").attr("href", "#studentSelection");
+			$("#courseList").listview('refresh');
+			
+		    }
+		    });
+	    }
+	)
 //Functions using on()
 //These handle screen events for elements that were injected dyanmically, and thus cannot have events handled in the normal
 //way
@@ -190,7 +209,7 @@ var courses;
 	function(){
 	    $(".allApptList").on("click", "li", function(e){
                 var found=$(this).find("#student").val();
-                $.ajax({type: "POST", url: "setStudent.php", data: {'key':found}, error: onError})
+                $.ajax({type: "POST", url: "setStudent.php", data: {'key':found}, error: onError});
 		});	    
 	    });  
 //Sets CUID to allow viewing of students for a particular course based on selection	
@@ -198,7 +217,15 @@ var courses;
 	function(){
 	    $("#courseList").on("click","li", function(e){
                 var found=$(this).find(".courseKey").val();
-                $.ajax({type: "POST", url: "setCourse.php", data: {'key':found}, error: onError})
+		if($("#removeCourse").data("theme") == "a"){
+                $.ajax({type: "POST", url: "setCourse.php", data: {'key':found}, error: onError});}
+		else{
+		    var remove=confirm("Are you sure you want to leave/remove this course?");
+		    if(remove){
+		    $.ajax({type: "POST", url: "removeCourse.php", data: {'key':found}, error: onError});
+		    $(this).remove();
+		    }
+		}
 		});	    
 	    });
 	$(document).ready(

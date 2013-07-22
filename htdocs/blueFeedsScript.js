@@ -66,7 +66,7 @@ var courses;
 //"student" response in login cases
     function onTrue(data,status){
     	if(data=="~student" || data =="student"){
-	    $.mobile.changePage("#courses");
+	    $.mobile.changePage("#coursesStudent");
 	    $(".selector").each(function(){
 		$(this).attr('href','#studentCourse');
 		});
@@ -200,6 +200,14 @@ var courses;
                 $.ajax({type: "POST", url: "setCourse.php", data: {'key':found}, error: onError})
 		});	    
 	    });
+	$(document).ready(
+	function(){
+	    $("#courseListStudent").on("click","li", function(e){
+                var found=$(this).find(".courseKey").val();
+                $.ajax({type: "POST", url: "setCourse.php", data: {'key':found}, error: onError})
+		});	    
+	    });
+	
 	
 	$(document).ready(function(){
 	    $("#fileProxy").click(function(){

@@ -10,7 +10,9 @@
             background-repeat:no-repeat;
             background-position:50% 20%;
         }
-	
+	.ui-icon-minus-red {
+	    background-image: url("./remove.jpg");
+	}
 	.contain{
 	    margin-top: 3%;
 	    margin-left: 1%;

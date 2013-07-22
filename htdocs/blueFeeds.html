@@ -76,6 +76,7 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
 </div><!--login page-->
 
 
+
 <div data-role="page" id="newAcct">
     <header data-role="header" data-theme="b"><h1>New Account</h1></header>
     <div class="newAcctCenter" data-role="content" data-theme="a">
@@ -923,11 +924,15 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
     </header>
     
     <div class="studentSelectionCenter" data-role="content">
+			<div data-role="controlgroup" data-mini="true">
+                                <a href="#courseCreate" data-role="button" data-transition="slidedown">Add Course</a>
+                                <a href="#" data-role="button" id="removeCourse">Remove Course</a>
+                        </div>
     			<ul data-role="listview" data-prepend="true" data-inset="true">
-          	  		 <li class="setCourse">
+          	  		 <!--<li class="setCourse">
                 		<a href="#courseCreate">
                 		<h1>Add Course</h1></a>
-            			</li>
+            			</li>-->
         		</ul>
         		</div>
         		
@@ -943,6 +948,11 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
         </nav>
     </footer>
 </div><!-- display list of courses-->
+
+<div data-role="page" id="newPage">
+   NEW PAGE 
+</div>
+
 
 <div data-role="page" data-theme="a" id="coursesStudent">
     <header data-role="header" data-theme="b">
@@ -972,7 +982,7 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
         </nav>
     </footer>
 </div><!-- display list of courses-->
-
+</div>
 
 
 <div data-role="page" id="addInstructor" data-theme="a">

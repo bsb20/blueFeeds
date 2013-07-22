@@ -9,7 +9,7 @@ include("initialize.php");
 $table="`test`.`courses`";
 if(isset($_SESSION["UUID"])){
 $UUID=$_SESSION["UUID"];
-$sql = "SELECT * FROM `test`.`courses` WHERE `UUID`='$UUID'";
+$sql = "SELECT * FROM `test`.`courses`, `test`.`groups` WHERE `test`.`groups`.`UUID`='$UUID' AND `test`.`courses`.`GUID`=`test`.`groups`.`GUID`";
 $link="#studentSelection";
 }
 else{
@@ -25,11 +25,11 @@ if($row=mysqli_fetch_array($result)){
     $title=$row["title"];
     $GUID=$row["GUID"];
 }
- $finally.=                       "<li data-theme='c' class='dynamicTag' data-dynamicContent='courseRetriever' style='margin: 1%; overflow: visible; white-space: normal;'>
+ $finally.=                       "<li data-theme='c' class='dynamicTag' data-icon='arrow-r' data-dynamicContent='courseRetriever' style='margin:1%; white-space:normal;'>
       			<a href='$link'>    
-						<div data-role='controlgroup' data-type='horizontal'  class='noteControl'>
+		    	<div data-role='controlgroup' data-type='horizontal'  class='noteControl'>
                   <h1>$title</h1>
-                      <p>$info</p>
+                      <p style='white-space:normal;'>$info</p>
                       </div>
                       </a>
                       <input type='text' class='courseKey' style='display:none' value='$GUID'>

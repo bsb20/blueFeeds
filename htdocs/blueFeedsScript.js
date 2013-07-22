@@ -11,7 +11,7 @@ var courses;
 //perform data-dynamicQuery requests and append requested data
     function onPageLoad(data,status){
     	if(data.substring(0,1) === "~"){
-    		$.mobile.changePage("login");
+    		$.mobile.changePage("#login");
     		return;
     	}
 	var id="#"+this.invokedata;
@@ -30,7 +30,7 @@ var courses;
     
     function studentAdded(data, status){
     	if(data.substring(0,1) === "~"){
-    		$.mobile.changePage("login");
+    		$.mobile.changePage("#login");
     		return;
     	}
 	if(data == "true"){
@@ -40,7 +40,7 @@ var courses;
     
     function instructorAdded(data, status){
     	if(data.substring(0,1) === "~"){
-    		$.mobile.changePage("login");
+    		$.mobile.changePage("#login");
     		return;
     	}
 	if(data == "true"){
@@ -51,7 +51,7 @@ var courses;
 //course information, and populates a formatted list item with the info
     function onCourses(data,status){
     	if(data.substring(0,1) === "~"){
-    		$.mobile.changePage("login");
+    		$.mobile.changePage("#login");
     		return;
     	}
 	courses=jQuery.parseJSON(data);
@@ -77,7 +77,7 @@ var courses;
 	    return;
 	}
     	if(data.substring(0,1) === "~"){
-    		$.mobile.changePage("login");
+    		$.mobile.changePage("#login");
     		return;
     	}
         if(data=="true"){

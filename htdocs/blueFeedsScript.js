@@ -48,6 +48,16 @@ var courses;
 	    alert("instructor added to course!");
 	}
     }
+
+    function courseAdded(data, status){
+	if(data.substring(0,1) === "~"){
+    		$.mobile.changePage("#login");
+    		return;
+    	}
+	if(data == "true"){
+	    alert("student added to course!");
+	}
+    }
 //retrieve course information (must be done slightly differently than general case).  Retrieves a JSON object containing
 //course information, and populates a formatted list item with the info
     function onCourses(data,status){
@@ -242,6 +252,13 @@ var courses;
 		$("#photo").click();
 		})    
 	});
+
+	$(document).ready(function(){
+	    $("#fileProxy2").click(function(){
+		$("#photo2").click();
+		})    
+	});
+
 	$(document).ready(function(){
 	    $("#foundStudents").on("click", "li", function(e){
 		var found= $(this).find(".suid").val();
@@ -254,6 +271,14 @@ var courses;
 		$.ajax({type: "POST", url: "addInstructor.php", data: {'uuid':found}, error: onError, success: instructorAdded})
 		});
 	    });
+	$(document).ready(function(){
+	    $("#foundCourses").on("click", "li", function(e){
+		$("#foundCourses").hide();
+		var found= $(this).find(".guid").val();
+		$.ajax({type: "POST", url: "addCourse.php", data: {'guid':found}, error: onError, success: courseAdded})
+		});
+	    });
+
 	$(document).ready(function(){
 	    $(".allApptList").on("swipeleft","li", function(e){
 		$(this).find(".dismiss").slideDown();

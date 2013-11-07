@@ -11,6 +11,10 @@ include("initialize.php");
 $table="`test`.`users`";
 $user=$_POST["usr"];
 $pass=$_POST["pass"];
+if(strlen($user)==0 || strlen($pass)==0){
+echo "please enter login information";
+return;
+}
 $sql = "SELECT * FROM ".$table." WHERE `user`='".$user."';";
 $result=$db->query($sql);
 if($row=mysqli_fetch_array($result) and $row["pass"]==md5($pass,FALSE)){
@@ -20,6 +24,7 @@ if($row=mysqli_fetch_array($result) and $row["pass"]==md5($pass,FALSE)){
         }
         $_SESSION["UUID"]=$row["UUID"];
         echo "instructor";
+	return;
     }
 else{
     $table="`test`.`students`";
@@ -36,7 +41,8 @@ else{
         $_SESSION["SUID"]=$row["SUID"];
         $_SESSION["isStudent"]="true";
         echo "student";
+	return;
     }
-//echo "Username/Password combo was incorrect!";
+echo "Username/Password combo was incorrect!";
 }
 ?>

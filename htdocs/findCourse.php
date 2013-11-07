@@ -4,30 +4,27 @@ $terms=$_POST['search'];
 $words= explode(" ", $terms);
 $final="";
 for($i=0; $i<count($words); $i++){
-$sql="SELECT * FROM `test`.`users` WHERE `user` LIKE '%$words[$i]%' OR `email` LIKE '%$words[$i]%'";
+$sql="SELECT * FROM `test`.`courses` WHERE `title` LIKE '%$words[$i]%'";
 $result=$db->query($sql);
-$name;
-$photo;
 $title;
-$spec;
+$info;
+$GUID;
+$SUID=$_SESSION['SUID'];
 $html="";
 $repeated=array();
     for($i=0; $i<mysqli_num_rows($result); $i++){
         if($row=mysqli_fetch_array($result)){
-            if(!in_array($row["UUID"],$repeated)){
-                array_push($repeated, $row["UUID"]);
-                 $name=$row["user"];
+            if(!in_array($row["GUID"],$repeated)){
+                array_push($repeated, $row["GUID"]);
                  $title=$row["title"];
-                 $email=$row["email"];
-		 $spec=$row["speciality"];
-                 $UUID=$row["UUID"];
+                 $info=$row["info "];
+		 $GUID=$row["GUID"];
                  $final.="<li class='dynamicSelection' data-dynamicContent='selection'>
                     <a href='#'>
-                    <h1>$name</h1>
-		    <p>$email</p>
-                    <p>$title, $spec</p>
+                    	<h1>$title</h1>
+			<p>$info</p>
                     </a>
-                    <input type='text' class='uuid' style='display:none' value='$UUID'>
+                    <input type='text' class='guid' style='display:none' value='$GUID'>
                     </li>";
                 }
              }

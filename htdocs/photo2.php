@@ -9,13 +9,13 @@ access the phones camera and upload profile pictures for themselves (and possibl
 include("initialize.php");
 if (!empty($_FILES))
 {
-echo $_FILES['photo']['error'].": ";
-$table="`test`.`students`";
-$fileExtension=$_SESSION["SUID"];
+echo $_FILES['photo2']['error'].": ";
+$table="`test`.`users`";
+$fileExtension=$_SESSION["UUID"];
     // PATH TO THE DIRECTORY WHERE FILES UPLOADS
-    $file_src   =   'uploads/'.$_FILES['photo']['name'];
+    $file_src   =   'uploads/'.$_FILES['photo2']['name'];
     // FUNCTION TO UPLOAD THE FILE
-    if(move_uploaded_file($_FILES['photo']['tmp_name'], "uploads/$fileExtension.jpg")):
+    if(move_uploaded_file($_FILES['photo2']['tmp_name'], "uploads/$fileExtension.jpg")):
     // SHOW THE SUCCESS MESSAGE AFTER THE MOVE - NO VISIBLE CHANGE
     echo 'Your file has been uploaded successfully';
     else:
@@ -23,7 +23,7 @@ $fileExtension=$_SESSION["SUID"];
     echo 'Error';
     endif;
     
-$sql = "UPDATE $table SET `photo`='uploads/$fileExtension.jpg' WHERE `SUID`='$fileExtension';";
+$sql = "UPDATE $table SET `photo`='uploads/$fileExtension.jpg' WHERE `UUID`='$fileExtension';";
 $result=$db->query($sql);
 chmod("uploads/$fileExtension.jpg",0766);
 $exif=exif_read_data("uploads/$fileExtension.jpg",0,true);
@@ -40,7 +40,7 @@ switch($orient){
 ?>
 <html>
 <head>
-<meta http-equiv="REFRESH" content="0;url=blueFeeds.html#coursesStudent">
+<meta http-equiv="REFRESH" content="0;url=blueFeeds.html#courses">
 //http://bluefeeds.cs.duke.edu/ui_branch/blueFeeds/htdocs/blueFeeds.html">
 </head>
 </html>

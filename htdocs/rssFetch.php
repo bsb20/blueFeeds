@@ -25,7 +25,7 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
 	{
 	    $title = $item->title;
 	    $link = $item->link;
-	    $date = $item->date;
+	    $date = $item->pubDate;
 	    $desc = $item->description;
 	    $finally.="<li data-theme='c' class='dynamicTag' data-dynamicContent='rssFetch' style='margin: 1%; overflow: visible; white-space: normal;'>
 	    <a href='$link'>	

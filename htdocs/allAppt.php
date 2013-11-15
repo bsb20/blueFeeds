@@ -1,28 +1,28 @@
 <?php
 
 /*
+Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
 This php script retrieves appointments for a given user (UUID) in the order in which events are listed. These independent
 appointment events are then outputted in an list <html jquery mobile> format.
 */
-
-session_start();
-date_default_timezone_set("America/New_York");
+include("initialize.php");
 $table="`test`.`students`";
 $table2="`test`.`appointments`";
-$db=new mysqli("127.0.0.1","root","devils","test",8889);
-if($db->connect_errno){
-    echo "FAILURE";
+$UID=$_SESSION["UUID"];
+$ID="UUID";
+if(isset($_SESSION["isStudent"])){
+ $UID=$_SESSION["SUID"];
+ $ID="SUID";
 }
-$UUID=$_SESSION["UUID"];
 $final="";
-$sql = "SELECT * FROM $table,$table2 WHERE $table.`SUID`=$table2.`SUID` AND $table2.`UUID`='$UUID' ORDER BY `start`;";
+$sql = "SELECT * FROM $table,$table2 WHERE $table.`SUID`=$table2.`SUID` AND $table2.`$ID`='$UID' ORDER BY `start`;";
 $result=$db->query($sql);
 for($i=0; $i<mysqli_num_rows($result); $i++){
     if($row=mysqli_fetch_array($result)){
-            $name=$row["user"];
-            $photo=$row["photo"];
-            $title=$row["title"];
-            $spec=$row["speciality"];
+        $name=$row["user"];
+        $photo=$row["photo"];
+        $title=$row["title"];
+        $spec=$row["speciality"];
         $past=strtotime($row['start'])>time() || $row['isWeekly'] ? "a" : "d";
         $pastMessage= strtotime($row['start'])>time() || $row['isWeekly'] ? "":"Past Meeting Time";
         $duration=$row['duration'];
@@ -34,13 +34,15 @@ for($i=0; $i<mysqli_num_rows($result); $i++){
         $loc=$row['location'];
         $AUID=$row["AUID"];
         $SUID=$row["SUID"];
-        $final.=" <li data-theme='$past' data-dynamicContent='allAppt'><a href='#reminder'>
+        $final.=" <li data-theme='$past' class='appt' data-dynamicContent='allAppt'><a href='#reminder'>
                     <h1>$name</h1>
-                    <h2>$title</h2>
-                    <p><strong>$loc</strong></p>
-                    <p>$weekly $formattedStart-$end</p>
+                    <p><strong>$title</strong></p>
+                    <p>$loc: $weekly $formattedStart-$end</p>
                     <p class='ui-li-aside'><strong>$pastMessage</strong></p>
                 </a>
+                <div style='display:none; padding:1%;' class='dismiss'>
+                <button class='remove' data-theme='b'>Remove</button>
+                </div>
                 <input type='text' id='no' style='display:none' value='$AUID'>
                 <input type='text' id='student' style='display:none' value='$SUID'>
             </li>";

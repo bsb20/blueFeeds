@@ -1,11 +1,13 @@
 <?php
-session_start();
-date_default_timezone_set("America/New_York");
+
+/*
+Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
+This php script retrieves all student appointments for a specific student (SUID) and user (UUID). This script also 
+denotes differences between past appointments and futurs appointments, using color as an indicator. 
+*/
+
+include("initialize.php");
 $table="`test`.`students`";
-$db=new mysqli("127.0.0.1","root","devils","test",8889);
-if($db->connect_errno){
-    echo "FAILURE";
-}
 $SUID=$_SESSION["SUID"];
 $UUID=$_SESSION["UUID"];
 $sql = "SELECT * FROM ".$table." WHERE `SUID`='".$SUID."';";

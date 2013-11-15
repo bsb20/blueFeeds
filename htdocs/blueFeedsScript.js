@@ -1,8 +1,20 @@
-//Callbacks
+/*
+Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
+This JavaScript file contains all the javascipt encoding and callback functionality for out application.
+It includes functions that fetch page information upon reloading, functions that store and update user and studet ids,
+and many more.
+*/
+
 //Dynamic, requiring refresh
 var coursePage=0;
 var courses;
+//perform data-dynamicQuery requests and append requested data
     function onPageLoad(data,status){
+//	alert(data);
+    	if(data.substring(0,1) === "~"){
+    		$.mobile.changePage("#login");
+    		return;
+    	}
 	var id="#"+this.invokedata;
 	if($(id).attr("data-prepend")=="true"){
 	    $(id).prepend(data).trigger("create");
@@ -15,8 +27,44 @@ var courses;
         $(".imgTile").load(function(){
             $(this).parents("li").slideDown();
         });
-    }  
+    }
+    
+    function studentAdded(data, status){
+    	if(data.substring(0,1) === "~"){
+    		$.mobile.changePage("#login");
+    		return;
+    	}
+	if(data == "true"){
+	    alert("student was enrolled!");
+	}
+    }
+    
+    function instructorAdded(data, status){
+    	if(data.substring(0,1) === "~"){
+    		$.mobile.changePage("#login");
+    		return;
+    	}
+	if(data == "true"){
+	    alert("instructor added to course!");
+	}
+    }
+
+    function courseAdded(data, status){
+	if(data.substring(0,1) === "~"){
+    		$.mobile.changePage("#login");
+    		return;
+    	}
+	if(data == "true"){
+	    alert("student added to course!");
+	}
+    }
+//retrieve course information (must be done slightly differently than general case).  Retrieves a JSON object containing
+//course information, and populates a formatted list item with the info
     function onCourses(data,status){
+    	if(data.substring(0,1) === "~"){
+    		$.mobile.changePage("#login");
+    		return;
+    	}
 	courses=jQuery.parseJSON(data);
 	var id ="."+this.invokedata;
 	var selected=jQuery.parseJSON(courses[coursePage]);
@@ -25,8 +73,24 @@ var courses;
 	$(".courseKey").val(selected.key)
     }
     
-//onTrue corresponds to data-validate attributes
+//onTrue corresponds to data-validate attributes, waits for "true" response in general case, waits for "instructor" or
+//"student" response in login cases
     function onTrue(data,status){
+    	if(data=="~student" || data =="student"){
+	    $.mobile.changePage("#coursesStudent");
+	    $(".selector").each(function(){
+		$(this).attr('href','#studentCourse');
+		});
+	    return;
+	}
+	if(data=="~instructor" || data=="instructor"){
+	    $.mobile.changePage("#rssFeed");
+	    return;
+	}
+    	if(data.substring(0,1) === "~"){
+    		$.mobile.changePage("#login");
+    		return;
+    	}
         if(data=="true"){
 	    if(this.invokedata.role=="dialog"){
 		$.mobile.changePage(this.invokedata.destination, {transition: "pop", role:"dialog"});
@@ -37,98 +101,65 @@ var courses;
 		return;
 	    }
         }
-	if(data=="student"){
-	    $.mobile.changePage("#courses");
-	    $(".selector").each(function(){
-		$(this).attr('href','#studentCourse');
-		});
-	    $(".manager").each(function(){
-		$(this).attr('href','#studentManager');
-		});
-	    return;
-	}
-	if(data=="instructor"){
-	    $.mobile.changePage("#studentSelection");
-	}
         else{
             alert(data);
         }
     }
 
-//error function, don't touch this!
+//error function
     function onError(data,status){
+    	if(data.substring(0,1) === "~"){
+    		$.mobile.changePage("login");
+    		return;
+    	}
         alert("error!!!"+data);
     }
     
     
     $(document).bind('pageinit');
-
+//Looks for form submissions, and submits data via ajax to a named php file
         $(document).ready(function(){
             $("[data-validate]").click(function(){
                     var formData=$(this).parents("form").serialize();
                     $.ajax({type:"POST", url: $(this).attr('data-validate')+".php", data: formData, success: onTrue, invokedata:{destination:$(this).attr('data-destination'), role: $(this).attr('data-rel')}, error:onError});
-                    return false;
+                    $(this).parents("form").find(':input')
+		    .not(':button, :submit, :reset, :hidden')
+		    .val('')
+		    .removeAttr('checked')
+		    .removeAttr('selected');
+		    return false;
                 });
         });
         
+	
+	$(document).ready(
+	    function(){
+		$("#removeCourse").click(function(){
+		    if($(".dynamicTag").data("icon")=="arrow-r"){
+		    $(this).buttonMarkup({theme:"b"});
+		    $(".dynamicTag").buttonMarkup({ icon: "minus-red"});
+		    $(".dynamicTag").find("a").attr("href", "#");
+		    $("#courseList").listview('refresh');}
+		    else{
+			$(this).buttonMarkup({theme:"a"});
+			$(".dynamicTag").buttonMarkup({ icon: "arrow-r"});
+			$(".dynamicTag").find("a").attr("href", "#studentSelection");
+			$("#courseList").listview('refresh');
+			
+		    }
+		    });
+	    }
+	)
 //Functions using on()
-	    $(document).ready(
-		function(){
-		    $(".container").swipeleft(function(){
-			if(coursePage<courses.length-1){
-			coursePage++;
-			
-			var selected=jQuery.parseJSON(courses[coursePage]);
-			if($.mobile.activePage.attr('id')=="courses"){
-			    $("#courses2").find(".title").text(selected.head);
-			    $("#courses2").children(".container").html(selected.body);
-			    $("#courses2").find(".courseKey").val(selected.key);
-			    $.mobile.changePage("#courses2", {transition: "slide"});
-			}
-			else{
-			    $("#courses").find(".title").text(selected.head);
-			    $("#courses").children(".container").html(selected.body);
-			    $("#courses").find(".courseKey").val(selected.key);
-			    $.mobile.changePage("#courses", {transition: "slide"});
-			}
-			}
-			});
-		})
-	    $(document).ready(
-		function(){
-		    $("#class").on("swipedown")
-		}
-	    )
-	    $(document).ready(
-		function(){
-		    $(".container").swiperight(function(){
-			if(coursePage>0){
-			coursePage--;
-			
-			var selected=jQuery.parseJSON(courses[coursePage]);
-			if($.mobile.activePage.attr('id')=="courses"){
-			    $("#courses2").find(".title").text(selected.head);
-			    $("#courses2").children(".container").html(selected.body);
-			    $("#courses2").find(".courseKey").val(selected.key);
-			    $.mobile.changePage("#courses2", {transition: "slide", reverse:true});
-			}
-			else{
-			    $("#courses").find(".title").text(selected.head);
-			    $("#courses").children(".container").html(selected.body);
-			    $("#courses").find(".courseKey").val(selected.key);
-			    $.mobile.changePage("#courses", {transition: "slide", reverse:true});
-			}
-			}
-			});
-		}
-		)
-
+//These handle screen events for elements that were injected dyanmically, and thus cannot have events handled in the normal
+//way
+//Looks for edit request, populates text box with existing comment text
         $(document).ready(
 	function(){
 	    $(".parent").on("click", "li", function(e){
                 if($.trim($(e.target).parents('a').text())=='Edit'){
                     $("#commentBox").val($(this).children(".note").text());
-                    $("#keybox").val($(this).children("#hiddenForm").val());
+                    $("#keybox").val($(this).children(".hiddenForm").val());
 		    $("#students2").val($(this).children("#hiddenForm2").val());
 		    $("#instructors2").val($(this).children("#hiddenForm3").val());
                 }
@@ -141,7 +172,7 @@ var courses;
 		});	    
 	    });
 
-            
+//Sets SUID for a partiuclar student who has been selected by an instructor            
         $(document).ready(
 	function(){
 	    $("#selectionList").on("click", "li", function(e){
@@ -149,7 +180,17 @@ var courses;
                 $.ajax({type: "POST", url: "setStudent.php", data: {'key':found}, error: onError})
 		});	    
 	    });
+
+//Handles start page, changes after a few seconds to login page	
+	$(document).ready(
+	function(){
+		setTimeout(change,2000);	
+	});
 	
+	function change(){
+		$.mobile.changePage("#login","fade");
+	}
+//Sets tag ID for filtering by tags	
 	$(document).ready(
 	function(){
 	    $("#tagList").on("click", "li", function(e){
@@ -157,30 +198,54 @@ var courses;
                 $.ajax({type: "POST", url: "setTag.php", data: {'key':found}, error: onError})
 		});	    
 	    });
-
+//Sets AUID to allow viewing of page for a particular appointment
         $(document).ready(
 	function(){
 	    $(".apptList").on("click", "li", function(e){
                 var found=$(this).find("#no").val();
                 $.ajax({type: "POST", url: "setAppt.php", data: {'key':found}, error: onError})
 		});	    
-	    });        
-
-        $(document).ready(
-	function(){
-	    $(".apptList").on("click", "li", function(e){
-                var found=$(this).find("#student").val();
-                $.ajax({type: "POST", url: "setStudent.php", data: {'key':found}, error: onError})
-		});	    
-	    });  
-	
+	    });     
+	    
 	$(document).ready(
 	function(){
-	    $(".setCourse").click(function(e){
+	    $(".allApptList").on("click", "li", function(e){
+                var found=$(this).find("#no").val();
+                $.ajax({type: "POST", url: "setAppt.php", data: {'key':found}, error: onError})
+		});	    
+	    });     
+//Sets SUID to allow retieval of info for a particualr appointment page
+        $(document).ready(
+	function(){
+	    $(".allApptList").on("click", "li", function(e){
+                var found=$(this).find("#student").val();
+                $.ajax({type: "POST", url: "setStudent.php", data: {'key':found}, error: onError});
+		});	    
+	    });  
+//Sets CUID to allow viewing of students for a particular course based on selection	
+	$(document).ready(
+	function(){
+	    $("#courseList").on("click","li", function(e){
+                var found=$(this).find(".courseKey").val();
+		if($("#removeCourse").data("theme") == "a"){
+                $.ajax({type: "POST", url: "setCourse.php", data: {'key':found}, error: onError});}
+		else{
+		    var remove=confirm("Are you sure you want to remove this course?");
+		    if(remove){
+		    $.ajax({type: "POST", url: "removeCourse.php", data: {'key':found}, error: onError});
+		    $(this).remove();
+		    }
+		}
+		});	    
+	    });
+	$(document).ready(
+	function(){
+	    $("#courseListStudent").on("click","li", function(e){
                 var found=$(this).find(".courseKey").val();
                 $.ajax({type: "POST", url: "setCourse.php", data: {'key':found}, error: onError})
 		});	    
 	    });
+	
 	
 	$(document).ready(function(){
 	    $("#fileProxy").click(function(){
@@ -188,9 +253,49 @@ var courses;
 		})    
 	});
 
+	$(document).ready(function(){
+	    $("#fileProxy2").click(function(){
+		$("#photo2").click();
+		})    
+	});
 
+	$(document).ready(function(){
+	    $("#foundStudents").on("click", "li", function(e){
+		var found= $(this).find(".suid").val();
+		$.ajax({type: "POST", url: "addStudent.php", data: {'suid':found}, error: onError, success: studentAdded})
+		});
+	    });
+	$(document).ready(function(){
+	    $("#foundInstructors").on("click", "li", function(e){
+		var found= $(this).find(".uuid").val();
+		$.ajax({type: "POST", url: "addInstructor.php", data: {'uuid':found}, error: onError, success: instructorAdded})
+		});
+	    });
+	$(document).ready(function(){
+	    $("#foundCourses").on("click", "li", function(e){
+		$("#foundCourses").hide();
+		var found= $(this).find(".guid").val();
+		$.ajax({type: "POST", url: "addCourse.php", data: {'guid':found}, error: onError, success: courseAdded})
+		});
+	    });
+
+	$(document).ready(function(){
+	    $(".allApptList").on("swipeleft","li", function(e){
+		$(this).find(".dismiss").slideDown();
+		});
+	    $(".allApptList").on("swiperight","li", function(e){
+	    	$(this).find(".dismiss").slideUp();
+		});
+	    $(".allApptList").on("click", ".remove", function(e){
+		var found=$(this).parents("li").find("#no").val();
+                $.ajax({type: "POST", async:false, url: "setAppt.php", data: {'key':found}, error: onError});
+		$.ajax({type: "POST", url: "removeAppt.php", error: onError});
+		$(this).parents("li").remove();
+		});
+	    });
 //Page change insert/remove functions
-
+//Code for data-dynamicQuery system, looks for dynamic elements to remove, makes query for new information, passes desintation
+//page name to callback function
         $(document).ready(function(){
         $(document).on('pagechange', function (e,data) {
 	    if(data.toPage.attr("id")=="courses" && courses==null){
@@ -206,3 +311,13 @@ var courses;
 		});
 	    });
         });
+
+//generic search bar function	
+    $(document).ready(function(){
+	$(".go").click(function(){
+		$(this).parents("[data-role='page']").find(".searchResult").empty();
+		var formData= $(this).parents("[data-role='page']").find(".searchTerms").serialize();
+		var id= $(this).parents("[data-role='page']").find(".searchResult").attr("id");
+		$.ajax({url: $(this).attr("data-search")+".php", type: "POST", success: onPageLoad, data:formData, invokedata: id, error:onError});
+	    });
+	});

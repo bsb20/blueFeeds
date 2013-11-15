@@ -1,11 +1,13 @@
 <?php
+
+/*
+Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
+This php script creates a new user for the application. Accessible from the login page, this script handles all user information.
+*/
+
 function create(){
-session_start();
+include("initialize.php");    
 $table="`test`.`users`";
-$db=new mysqli("127.0.0.1","root","devils","test",8889);
-if($db->connect_errno){
-    echo "FAILURE";
-}
 if($_POST["pass"]!=$_POST["passc"]){
     return 1;
 }

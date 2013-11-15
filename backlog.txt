@@ -1,0 +1,13 @@
+The current backlog includes the following items:
+
+-Adding dynamic content to more complex listviews (rendering issues)
+
+-Image compression
+
+-Correct list item animation on image loading
+
+-Linking graph amounts by tag
+
+-Adding the quicknote count amount (for later) - # of rows
+
+-Adding NetID compatibility

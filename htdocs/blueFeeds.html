@@ -8,9 +8,12 @@ throughout the use of the applcation.
 The main purpose of this application is to help user (instructors and practicing medical faculty) to provide relevant and
 accurate feed back to their students and medical residents. This application uses html, php, ajax, and jqyery to function.
 
+Pages here are documented here by function.  To see particular scripts/queries executed, on a particular page, follow 
+data-dynamicQuery and data-validate tags to named php files.  For a more detailed description of this protocol, see 
+the technical documentation.
+
 Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
 -->
-
 
 <html lang="en">
 <head>
@@ -19,6 +22,9 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
     <link rel="apple-touch-icon"
     sizes="72x72"
     href="./apple-touch-icon.png"/>
+    <link rel="apple-touch-startup-image" href="./apple-touch-icon.png" />
+    <meta name="msapplication-TileColor" content="#ffffff"/>
+    <meta name="msapplication-TileImage" content="./apple-touch-icon.png"/>
 
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
     <link rel="stylesheet"  href="./blueFeedsStyle.css"/>
@@ -34,20 +40,32 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
 
 <body>
     
-    
+<div data-role="page" id="splash">
+<header data-role="header" data-theme="b"><h1>BlueFeeds</h1></header>
+	<div class="loginCenter">
+		<div data-role="content" class="container"> 
+		<p>Authors: Ben Berg, Rachel Harris, Conrad Haynes, Jack Zhang</p>
+		<p>Support From: Larry Greenblatt, Bruce Peyser</p>
+		<p>Maintained by: Brett Cadigan</p>
+		<p>Duke University</p>
+		</div>
+	</div>
+	<footer data-role="footer" data-theme="a" data-position="fixed"><h1>BlueFeeds</h1>
+    </footer>
+</div>
 <div data-role="page" id="login">
     <header data-role="header" data-theme="b"><h1>BlueFeeds Login</h1></header>
     <div class="loginCenter" data-role="content" data-theme="b">
         <fieldset>
         <form id="loginForm">
             <div data-role="fieldcontain" class="input">
-                <label for="usr" class="overBlue">Username</label><input type="text" name="usr" data-mini="true"/>
+                <label for="usr" class="overBlue">Username</label><input type="text" name="usr"  autocapitalize="off" data-mini="true"/>
              </div>
             <div data-role="fieldcontain" class="input">
                 <label for="pass" class="overBlue">Password</label><input type="password" class="input" name="pass" data-mini="true"/>
             </div>
             <div data-role="fieldcontain" class="input">
-                <label for="submit" class="ui-hidden-accessible" data-theme>Submit</label><button type="submit" data-validate='login' data-destination="#studentSelection" data-theme="b" id="submitLogin" name="submit" value="Log In">Log In</button>
+                <label for="submit" class="ui-hidden-accessible" data-theme>Submit</label><button type="submit" data-validate='login' data-destination="#rssFeed" data-theme="b" id="submitLogin" name="submit" value="Log In">Log In</button>
             </div>        
         </form>
         </fieldset>
@@ -59,6 +77,7 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
         </ul>
     </nav></footer>
 </div><!--login page-->
+
 
 
 <div data-role="page" id="newAcct">
@@ -85,7 +104,7 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
             <label for="speciality" class="ui-hidden-accessible">Speciality</label> <input type="text" class="in" name="speciality" placeholder="Speciality">
             </div>
             <div>
-            <label for="sub" class="ui-hidden-accessible"></label><input data-theme="a" id="submitNew" type="submit" data-validate='usrCreate' data-destination="#studentSelection" name="sub" value="Create Account">
+            <label for="sub" class="ui-hidden-accessible"></label><input data-theme="a" id="submitNew" type="submit" data-validate='usrCreate' data-destination="#rssFeed" name="sub" value="Create Account">
             </div>
 
         </form>
@@ -101,22 +120,49 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
 </div><!--new account page-->
 
 <div data-role="page" id="photoUpload" data-theme="a" data-url="#studentSelection">
-    <header data-role="header" data-theme="b"><h1>Photo Selection</h1></header>
+    <header data-role="header" data-theme="b">
+	<h1>Photo Selection</h1>
+    </header>
     <button id="fileProxy">Choose photo</button>
     <form data-ajax="false" enctype="multipart/form-data" method="post" action="photo.php">
-    <input type="file" name="photo" id="photo" accept="image/*;capture=camera" style="display:none">
-    <input id="submitPhoto" type="submit" value="upload photo">
+         <input type="file" name="photo" id="photo" accept="image/*;capture=camera" style="display:none">
+         <input id="submitPhoto" type="submit" value="Upload photo">
     </form>
-    <a  href="#login" data-role="button">Skip</a>
+    <a  href="#coursesStudent" data-role="button">Main Menu</a>
 </div><!-- photo upload page -->
+
+
+<div data-role="page" id="photoUpload2" data-theme="a" data-url="#studentSelection">
+    <header data-role="header" data-theme="b">
+	<h1>Photo Selection</h1>
+    </header>
+    <button id="fileProxy2">Choose photo</button>
+    <form data-ajax="false" enctype="multipart/form-data" method="post" action="photo2.php">
+         <input type="file" name="photo2" id="photo2" accept="image/*;capture=camera" style="display:none">
+         <input id="submitPhoto2" type="submit" value="Upload photo">
+    </form>
+    <a  href="#courses" data-role="button">Main Menu</a>
+</div><!-- instructor photo upload page -->
+
 
 <div data-role="page" id="studentSelection" data-theme="a">
     <header data-role="header" data-theme="b">
         <h1>My Students</h1>
-        <a href="#login" data-theme="a" data-iconpos="notext" data-icon="back"></a>
-        <a href="#courseCreate" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
+        <a href="#courses" data-theme="a" data-iconpos="notext" data-icon="back"></a>
         </button>
     </header>
+    
+    <div class="studentSelectionCenter" data-role="content">
+                            <div data-role="controlgroup" data-mini="true">
+                                <a href="#addStudents" data-role="button" data-transition="slidedown">Add Students</a>
+                                <a href="#addInstructor" data-role="button" data-transition="slidedown">Add Instructors</a>
+                            </div>
+    			<ul data-role="listview" data-prepend="true" data-inset="true">
+          	  		 <!-- <li class="setCourse"> -->
+        		</ul>
+    </div>
+                
+    
     <div class="studentSelectionCenter" data-role="content" data-theme="a">
         <ul data-role="listview" data-filter="true" id="selectionList" data-dynamicQuery="selection">
         </ul>
@@ -124,9 +170,8 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
     <footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">
             <ul>
-                <li><a href="#appointments" data-icon="grid">All Meetings</a></li>
-                <li><a href="#" data-icon="home">My Students</a></li>
-                <li><a href="#courses" data-icon="arrow-u" data-transition="slideup">Courses</a></li>
+                <li><a href="#appointments" data-icon="grid">Meetings</a></li>
+                <li><a href="#courses" data-icon="arrow-u">Courses</a></li>
             </ul>
         </nav>
     </footer>
@@ -171,9 +216,7 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
     <footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">
             <ul>
-                <li><a href="#appointments" data-icon="grid">All Meetings</a></li>
-                <li><a href="#studentSelection" data-icon="home">My Students</a></li>
-                <li><a href="#" data-icon="plus">Add Student</a></li>
+            	<li><a href="#login" data-icon="home" data-iconpos="bottom">Back to Login</a></li>
             </ul>
         </nav>
     </footer>       
@@ -186,25 +229,79 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
         <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
         </button>
     </header>
+        		
     <div class="appointmentCenter" data-role="content" data-theme="a">
-        <ul data-role="listview" data-filter="true" id="allApptList" class="apptList" data-dynamicQuery="allAppt">
+        <ul data-role="listview" data-filter="true" id="allApptList" class="allApptList" data-dynamicQuery="allAppt">
         </ul>
     </div>
     <footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">
             <ul>
-                <li><a href="#" data-icon="grid">All Meetings</a></li>
-                <li><a href="#studentSelection" data-icon="home">My Students</a></li>
-                <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
+                <li><a href="#" data-icon="grid">Meetings</a></li>
+                <li><a href="#courses" data-icon="arrow-u" data-transition="slideup">Courses</a></li>
             </ul>
         </nav>
     </footer>
 </div><!-- appointments -->
 
+<div data-role="page" id="appointments2" data-theme="a">
+    <header data-role="header" data-theme="b">
+        <h1>Meetings</h1>
+        <a href="#coursesStudent" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+        <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
+        </button>
+    </header>
+        		
+    <div class="appointmentCenter" data-role="content" data-theme="a">
+        <ul data-role="listview" data-filter="true" id="allApptList2" class="allApptList" data-dynamicQuery="allAppt">
+        </ul>
+    </div>
+    <footer data-role="footer" data-theme="b" data-position="fixed">
+        <nav data-role="navbar">
+            <ul>
+                <li><a href="#" data-icon="grid">Meetings</a></li>
+                <li><a href="#coursesStudent" data-icon="arrow-u" data-transition="slideup">Courses</a></li>
+            </ul>
+        </nav>
+    </footer>
+</div><!-- appointments -->
+
+<div data-role="page" id="appointmentsStudent" data-theme="a">
+    <header data-role="header" data-theme="b">
+        <h1>Meetings</h1>
+        <a href="#studentSelection" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+        <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
+        </button>
+    </header>
+    
+    <div class="studentSelectionCenter" data-role="content">
+    			<ul data-role="listview" data-prepend="true" data-inset="true">
+          	  		<li>
+                		<a href="#makeAppt">
+                		<h1>Add Meeting</h1></a>
+            			</li>
+        		</ul>
+    </div>
+        		
+    <div class="appointmentCenter" data-role="content" data-theme="a">
+        <ul data-role="listview" data-filter="true" id="allApptListStudent" class="allApptListStudent" data-dynamicQuery="allApptStudent">
+        </ul>
+    </div>
+    <footer data-role="footer" data-theme="b" data-position="fixed">
+        <nav data-role="navbar">
+            <ul>
+            	<li><a href="#appointments" data-icon="grid">Meetings</a></li>
+                <li><a href="#courses" data-icon="arrow-u">Courses</a></li>
+            </ul>
+        </nav>
+    </footer>
+</div><!-- appointments Student-->
+
+
 
 <div data-role="page" data-theme="a" id="makeAppt">
     <header data-role="header" data-theme="b">
-        <h1>Make Appointment</h1>
+        <h1>Create Meeting</h1>
         <a href="#studentProfile2" data-theme="a" data-iconpos="notext" data-icon="back"></a>
         <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
         </button>
@@ -347,16 +444,15 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
     <footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">
             <ul>
-                <li><a href="#" data-icon="grid">All Meetings</a></li>
-                <li><a href="#studentSelection" data-icon="home">My Students</a></li>
-                <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
+                <li><a href="#" data-icon="grid">Meetings</a></li>
+                <li><a href="#courses" data-icon="arrow-u" data-transition="slideup">Courses</a></li>
             </ul>
         </nav>
     </footer>
 </div>
 
 <div data-role="page" id="reminder" data-theme="a">
-    <div data-role="header" data-theme="b" ><h1>Send Reminder</h1></div>
+    <div data-role="header" data-theme="b" ><h1>Meeting Options</h1></div>
     <div data-role="content" id="reminderCenter">
         <ul data-role="listview" id="reminderOptions" data-prepend="true" data-dynamicQuery="getEmail" data-theme="b" >
         <li><a data-validate='removeAppt' data-destination="#studentAppt">Remove This Meeting</a></li>
@@ -368,11 +464,19 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
 
 <div data-role="page" data-theme="a" id="studentAppt">
     <header data-role="header" data-theme="b">
-        <h1>Appointments</h1>
+        <h1>Meetings</h1>
         <a href="#studentProfile2" data-theme="a" data-iconpos="notext" data-icon="back"></a>
         <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
         </button>
     </header>
+        <div class="studentSelectionCenter" data-role="content">
+    			<ul data-role="listview" data-prepend="true" data-inset="true">
+          	  		<li>
+                		<a href="#makeAppt">
+                		<h1>Add Meeting</h1></a>
+            			</li>
+        		</ul>
+    </div>
     <div class="studentApptCenter" data-role="content" data-theme="a">
         <ul data-role="listview" id="studentApptList" class="apptList" data-dynamicQuery="studentAppt">
         
@@ -381,9 +485,8 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
     <footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">
             <ul>
-                <li><a href="#appointments" data-icon="grid">All Meetings</a></li>
-                <li><a href="#studentSelection" data-icon="home">My Students</a></li>
-                <li><a href="#makeAppt" data-icon="alert">Add Meeting</a></li>
+            	<li><a href="#appointments" data-icon="grid">Meetings</a></li>
+                <li><a href="#courses" data-icon="arrow-u" data-transition="slideup">Courses</a></li>
             </ul>
         </nav>
     </footer>
@@ -397,14 +500,7 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
         <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
         </button>
     </header>
-    <div data-role="navbar" data-type="horizontal">
-	<ul>
-		<li data-theme="a"><a href="#studentProfile"  data-theme="b" data-role="button">Flag</a></li>
-		<li><a href="#studentProfile" data-theme="b" data-role="button">More Info</a></li>
-		<li><a href="#studentProfile" data-theme="b" data-role="button">Tips</a></li>
-		
-        </ul>
-    </div>
+    
     <div class="studentSelectionCenter" data-role="content" data-theme="a">
         <ul data-role="listview" id="profileInfo" data-prepend="true" data-dynamicQuery="profile">
 	    <li>
@@ -414,20 +510,13 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
 		</a>
 	    </li>
             <li><a href="#commentspage">
-		    <h1>QuickNotes</h1>
+		    <h1>Notes</h1>
 		    <p>View past comments about this student</p>
-		    <span class="ui-li-count">12</span></a>
+		   </a>
 	    </li>
 	    <li><a href="#studentAppt">
-		    <h1>Appointments</h1>
+		    <h1>Meetings</h1>
 		    <p>View and add meetings with this student</p>
-		    <span class="ui-li-count">3</span>
-		</a>
-	    </li>
-	    <li><a href="#rssFeed">
-		    <h1>RSS Feeds</h1>
-		    <p>View all rss feed sites</p>
-		    <span class="ui-li-count">4</span>
 		</a>
 	    </li>
         </ul>
@@ -435,21 +524,20 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
     <footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">
             <ul>
-                <li><a href="#appointments" data-icon="grid">All Meetings</a></li>
-                <li><a href="#studentSelection" data-icon="home">My Students</a></li>
-                <li><a href="#makeAppt" data-icon="alert">Add Meeting</a></li>
+            <li><a href="#appointments" data-icon="grid">Meetings</a></li>
+                <li><a href="#courses" data-icon="arrow-u" data-transition="slideup">Courses</a></li>
             </ul>
         </nav>
     </footer>
 </div><!--new profile page, with list-->
 
 <div data-role="page" data-theme="a" id="commentspage">
-    <header data-role="header" data-theme="b"><h1>Comments</h1>
+    <header data-role="header" data-theme="b"><h1>Notes</h1>
     <a href="#studentProfile2" data-theme="a" data-iconpos="notext" data-icon="back"></a>
     </header>
     <div data-role="navbar" data-type="horizontal">
 	<ul>
-		<li data-theme="a"><a href="#graphViewer"  data-theme="b" data-role="button">View By Graphs</a></li>
+	<!--	<li data-theme="a"><a href="#graphViewer"  data-theme="b" data-role="button">View By Graphs</a></li> -->
                 <li data-theme="a"><a href="#studenttags"  data-theme="b" data-role="button">View By Tags</a></li>
        	</ul> 
     </div>
@@ -460,7 +548,7 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
     			<ul data-role="listview" data-prepend="true" data-inset="true">
           	  		<li>
                 		<a href="#addcomment">
-                		<h1>Add Comment</h1></a>
+                		<h1>Add Note</h1></a>
             			</li>
         		</ul>
         		</div>
@@ -474,55 +562,45 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
     <footer data-role="footer" data-theme="b" data-tap-toggle="false" data-position="fixed" value="working?">
         <nav data-role="navbar">
             <ul>
-                <li><a href="#appointments" data-icon="grid">All Meetings</a></li>
-                <li><a href="#studentSelection" data-icon="home">My Students</a></li>
-                <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
+                <li><a href="#appointments" data-icon="grid">Meetings</a></li>
+                <li><a href="#courses" data-icon="arrow-u" data-transition="slideup">Courses</a></li>
             </ul>
         </nav>
     </footer>
 </div><!--comments page-->
 
 <div data-role="page" data-theme="a" id="studentCourse">
-    <header data-role="header" data-theme="b"><h1>Comments</h1>
-    <a href="#studentProfile2" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+    <header data-role="header" data-theme="b"><h1>Notes</h1>
     </header>
-    <div data-role="navbar" data-type="horizontal">
-	<ul>
-		<li data-theme="a"><a href="#graphViewer"  data-theme="b" data-role="button">View By Graphs</a></li>
-                <li data-theme="a"><a href="#studenttags"  data-theme="b" data-role="button">View By Tags</a></li>
-       	</ul> 
-    </div>
     
 	<div class="commentCenter" data-role="content" data-theme="a">
-	<ul data-role="listview" id="parent2" data-dynamicQuery="commentRetrieve"></ul>
+	<ul data-role="listview" id="parent2" class="parent" data-dynamicQuery="commentRetrieve"></ul>
 	</div>
     <footer data-role="footer" data-theme="b" data-tap-toggle="false" data-position="fixed" value="working?">
         <nav data-role="navbar">
             <ul>
-                <li><a href="#courses" data-icon="arrow-u">Courses</a></li>
+                <li><a href="#coursesStudent" data-icon="arrow-u"  data-transition="slideup">Courses</a></li>
             </ul>
         </nav>
     </footer>
 </div><!--student course comment page-->
 
 <div data-role="page" data-theme="a" id="commentspageresults">
-    <header data-role="header" data-theme="b"><h1>Filtered Comments</h1>
+    <header data-role="header" data-theme="b"><h1>Filtered Notes</h1>
     <a href="#studenttags" data-theme="a" data-iconpos="notext" data-icon="back"></a>
     </header>
     <div data-role="navbar" data-type="horizontal">
 	<ul>
-		<li data-theme="a"><a href="#graphViewer"  data-theme="b" data-role="button">View By Graphs</a></li>
+	<!--	<li data-theme="a"><a href="#graphViewer"  data-theme="b" data-role="button">View By Graphs</a></li> -->
                 <li data-theme="a"><a href="#studenttags"  data-theme="b" data-role="button">View By Tags</a></li>
        	</ul> 
     </div>
-        <ul data-role="listview"  id="sister" data-prepend="true" data-dynamicQuery="tagComments"></ul>
-	</div>
+        <ul data-role="listview" class="parent" id="sister" data-prepend="true" data-dynamicQuery="tagComments"></ul>
     <footer data-role="footer" data-theme="b" data-tap-toggle="false" data-position="fixed" value="working?">
         <nav data-role="navbar">
             <ul>
-                <li><a href="#appointments" data-icon="grid">Appointments</a></li>
-                <li><a href="#studentSelection" data-icon="home">My Students</a></li>
-                <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
+          	<li><a href="#appointments" data-icon="grid">Meetings</a></li>
+                <li><a href="#courses" data-icon="arrow-u" data-transition="slideup">Courses</a></li>
             </ul>
         </nav>
     </footer>
@@ -531,17 +609,25 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
 <div data-role="page" data-theme="a" id="studenttags">
      <header data-role="header" data-theme="b">
         <h1>Student Tags</h1>
-        <a href="#commentspage" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+        <a href="#studentProfile2" data-theme="a" data-iconpos="notext" data-icon="back"></a>
         <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
     </header>
-	<ul data-role="listview" data-filter="true" id="tagList" data-theme="b" data-dynamicQuery="tagRetrieve"></ul>
-	<a href="#addtag"  data-theme="a" data-role="button">Add Tag</a>
+    
+    <div class="studentSelectionCenter" data-role="content">
+    			<ul data-role="listview" data-prepend="true" data-inset="true">
+          	  		<li>
+                		<a href="#addtag">
+                		<h1>Add Tag</h1></a>
+            			</li>
+        		</ul>
+        		</div>
+    	<!--  data-filter="true" -->
+	<ul data-role="listview" id="tagList" data-theme="b" data-dynamicQuery="tagRetrieve"></ul>
     <footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">
             <ul>
-                <li><a href="#appointments" data-icon="grid">Appointments</a></li>
-                <li><a href="#studentSelection" data-icon="home">My Students</a></li>
-                <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
+            	<li><a href="#appointments" data-icon="grid">Meetings</a></li>
+                <li><a href="#courses" data-icon="arrow-u">Courses</a></li>
             </ul>
         </nav>
     </footer>
@@ -569,9 +655,8 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
 	<footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">
             <ul>
-                <li><a href="#appointments" data-icon="grid">Appointments</a></li>
-                <li><a href="#studentSelection" data-icon="home">My Students</a></li>
-                <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
+           	<li><a href="#appointments" data-icon="grid">Meetings</a></li>
+                <li><a href="#courses" data-icon="arrow-u">Courses</a></li>
             </ul>
         </nav>
     </footer>
@@ -636,9 +721,8 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
     <footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">
             <ul>
-                <li><a href="#appointments" data-icon="grid">Appointments</a></li>
-                <li><a href="#studentSelection" data-icon="home">My Students</a></li>
-                <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
+            	<li><a href="#appointments" data-icon="grid">Meetings</a></li>
+                <li><a href="#courses" data-icon="arrow-u">Courses</a></li>
             </ul>
         </nav>
     </footer>
@@ -646,8 +730,8 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
 
 <div data-role="page" data-theme="a" id="rssFeed">
      <header data-role="header" data-theme="b">
-        <h1>RSS Feed Viewer</h1>
-        <a href="#studentSelection" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+        <h1>News Feed</h1>
+        <a href="#login" data-theme="a" data-iconpos="notext" data-icon="back"></a>
         <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
     </header>
     <body>
@@ -661,15 +745,14 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
         		</div>
         	
         	<div class="studentSelectionCenter" data-role="content">
-        		<ul data-role="listview" data-prepend="true" id="rssFeeds" data-dynamicQuery="rssFeedRetrieve"></ul>
+        	<ul data-role="listview" data-prepend="true" id="rssFeeds" data-dynamicQuery="rssFetch"></ul>
         	</div>
 	</body>
     <footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">
             <ul>
-                <li><a href="#appointments" data-icon="grid">Appointments</a></li>
-                <li><a href="#studentSelection" data-icon="home">My Students</a></li>
-                <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
+           	<li><a href="#appointments" data-icon="grid">Meetings</a></li>
+               <li><a href="#courses" data-icon="arrow-u">Courses</a></li>
             </ul>
         </nav>
     </footer>
@@ -677,7 +760,7 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
 
 <div data-role="page" data-theme="a" id="addRssFeed">
      <header data-role="header" data-theme="b">
-        <h1>Add RSS Feed</h1>
+        <h1>Add Feed</h1>
         <a href="#studentSelection" data-theme="a" data-iconpos="notext" data-icon="back"></a>
         <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
     </header>
@@ -702,7 +785,7 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
                 </div>
             <div data-role="navbar" data-type="horizontal">
             <ul>
-                  <li><button type="submit" id="rssFeedSubmit" data-validate='rssFeedSubmit' data-destination="#studentProfile2">Submit</button></li>
+                  <li><button type="submit" id="rssFeedSubmit" data-validate='rssFeedSubmit' data-destination="#rssFeed">Submit</button></li>
                     </ul></div>
             </form>
         </div>
@@ -711,9 +794,8 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
     <footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">
             <ul>
-                <li><a href="#appointments" data-icon="grid">Appointments</a></li>
-                <li><a href="#studentSelection" data-icon="home">My Students</a></li>
-                <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
+            <li><a href="#appointments" data-icon="grid">Meetings</a></li>
+               <li><a href="#courses" data-icon="arrow-u">Courses</a></li>
             </ul>
         </nav>
     </footer>
@@ -733,55 +815,55 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
     <footer data-role="footer" data-theme="b" data-position="fixed" value="working?">
        <nav data-role="navbar">
             <ul>
-                <li><a href="#appointments" data-icon="grid">All Meetings</a></li>
-                <li><a href="#studentSelection" data-icon="home">My Students</a></li>
-                <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
+            <li><a href="#appointments" data-icon="grid">Meetings</a></li>
+                <li><a href="#courses" data-icon="arrow-u">Courses</a></li>
+                
             </ul>
         </nav>
     </footer>
 </div><!--add tag to database-->
 
 <div data-role="page" id="addcomment">
-    <header data-role="header" data-theme="b"><h1>Add Comment</h1>
-    <a href="#commentspage" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+    <header data-role="header" data-theme="b"><h1>Add Note</h1>
+    <a href="#studentProfile2" data-theme="a" data-iconpos="notext" data-icon="back"></a>
     </header>
 	<div class="commentSelection" data-role="content" data-theme="b" align="center">
         <form id="commentForm" data-dynamicQuery="genCUID">
         <label for="title">Title This Post</label><input type="text" name="title">
-        <label for="textarea">What would you like to change?</label>
+        <label for="textarea">Leave Your Comment Below:</label>
         <textarea name="comment" id="comment">
         </textarea>
         <div data-role="fieldcontain">
         <label for="students">Release to Student</label>
         <select name="students" id="students" data-role="slider" data-mini="true">
             <option value="0">No</option>
-            <option value="1">Yes</option>
+            <option value="1" selected>Yes</option>
         </select>
         </div>
-        <div data-role="fieldcontain">
+<!--        <div data-role="fieldcontain">
         <label for="instructors">Release to Instructors</label>
         <select name="instructors" id="instructors" data-role="slider" data-mini="true">
             <option value="0">No</option>
-            <option value="1">Yes</option>
+            <option value="1" selected>Yes</option>
         </select>
         </div>
-	   <div data-role="fieldcontain">
-            <fieldset data-role="controlgroup" id="userTagList"  data-dynamicQuery="showUserTags">
-            </fieldset>
+-->
+	   <div data-role="fieldcontain" data-dynamicQuery="showUserTags" id="userTagList" data-prepend="true">
+            <label class="ui-hidden-accessible" for="new"></label><input type="text" placeholder="New Tag" name="new" id="new" style="margin-top:1%;">
 	   </div>
-	<button data-theme="a" type="submit" id="commentSubmit" data-validate='commentSubmit' data-destination="#studentProfile2">Save Comment</button>          
+	<button data-theme="a" type="submit" id="commentSubmit" data-validate='commentSubmit' data-destination="#viewcomment">Save Comment</button>          
 	</form>
         </div>
     <footer data-role="footer" data-theme="b" data-position="fixed" value="working?">
        <nav data-role="navbar">
             <ul>
-                <li><a href="#appointments" data-icon="grid">All Meetings</a></li>
-                <li><a href="#studentSelection" data-icon="home">My Students</a></li>
-                <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
+            <li><a href="#appointments" data-icon="grid">Meetings</a></li>
+                <li><a href="#courses" data-icon="arrow-u">Courses</a></li>
             </ul>
         </nav>
     </footer>
 </div><!--add comments page-->
+
 <div data-role="page" id="courseCreate" data-theme="a">
     <header data-role="header" data-theme="b"><h1>New Course</h1>
     <a href="#courses" data-theme="a" data-iconpos="notext" data-icon="back"></a>
@@ -792,27 +874,29 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
         <label for="textarea">Description</label>
         <textarea name="info" id="info">
         </textarea>
-        <button type="submit" id="courseCreate" data-validate='courseCreate' data-destination="#studentSelection" data-icon="check" data-theme="b">Create New Course</button>
+        <button type="submit" id="courseCreate" data-validate='courseCreate' data-destination="#courses" data-icon="check" data-theme="b">Create New Course</button>
         </form>
     </div>
 </div><!--add course page-->
+
 <div data-role="page" id="editcomment">
-    <header data-role="header" data-theme="b"><h1>Edit Comment</h1>
+    <header data-role="header" data-theme="b"><h1>Edit Note</h1>
     <a href="#commentspage" data-theme="a" data-iconpos="notext" data-icon="back"></a>
     </header>
 	<div class="commentSelection" data-role="content" data-theme="b" align="center">
         <form id="commentEditForm">
-        <label for="textarea">What would you like to change?</label>
+        <label for="textarea">Edit Your Comment Below:</label>
         <textarea name="comment" id="commentBox">
         </textarea>
         <input type="text" name="CUID" id="keybox" style="display:none;">
         <div data-role="fieldcontain">
-        <label for="students">Release to Student</label>
+        <label for="students">Release to Student:   </label>
         <select name="students" id="students2" data-role="slider" data-mini="true">
             <option value="0">No</option>
             <option value="1">Yes</option>
         </select>
         </div>
+<!--
         <div data-role="fieldcontain">
         <label for="instructors">Release to Instructors</label>
         <select name="instructors" id="instructors2" data-role="slider" data-mini="true">
@@ -820,17 +904,17 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
             <option value="1">Yes</option>
         </select>
         </div>
+-->
         <button data-theme="a" type="submit" id="commentEdit" data-validate='commentEdit' data-destination="#studentProfile2" data-icon="check">Save Comment</button>     
         <button data-theme="a" data-icon="star">Flag Comment</button> 
-        <button data-theme="a" data-icon="delete" id="commentDelete" data-validate='commentDelete' data-destination="#studentProfile2">Discard Comment</button>                               
+        <button data-theme="a" data-icon="delete" id="commentDelete" data-validate='commentDelete' data-destination="#commentspage">Discard Comment</button>                               
 	</form>
         </div>
     <footer data-role="footer" data-theme="b" data-position="fixed" value="working?">
         <nav data-role="navbar">
             <ul>
-                <li><a href="#appointments" data-icon="grid">All Meetings</a></li>
-                <li><a href="#studentSelection" data-icon="home">My Students</a></li>
-                <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
+            <li><a href="#appointments" data-icon="grid">Meetings</a></li>
+                <li><a href="#courses" data-icon="arrow-u">Courses</a></li>
             </ul>
         </nav>
     </footer>
@@ -846,102 +930,122 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
     <footer data-role="footer" data-theme="b" data-position="fixed" value="working?">
     <nav data-role="navbar">
             <ul>
-                <li><a href="#appointments" data-icon="grid">All Meetings</a></li>
-                <li><a href="#studentSelection" data-icon="home">My Students</a></li>
-                <li><a href="#addStudent" data-icon="plus">Add Student</a></li>
+            <li><a href="#appointments" data-icon="grid">Meetings</a></li>
+                <li><a href="#courses" data-icon="arrow-u">Courses</a></li>
             </ul>
         </nav>
     </footer>
-</div>
+</div><!-- comment view page-->
 
 <div data-role="page" data-theme="a" id="courses">
     <header data-role="header" data-theme="b">
-        <a href="#" data-theme="a" data-iconpos="notext" data-icon="arrow-l"></a>
-        <h1 class="title"></h1>
-        <a href="#" data-theme="a" data-iconpos="notext" data-icon="arrow-r"></a>
+    	<a href="#rssFeed" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+        <h1>My Courses</h1>
+	<a href="#photoUpload2" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
+<!--        <a href="#courseCreate" data-theme="a" data-iconpos="notext" data-icon="plus"></a>-->
     </header>
-    <div data-role="content" class="container"></div>
+    
+    <div class="studentSelectionCenter" data-role="content">
+			<div data-role="controlgroup" data-mini="true">
+                                <a href="#courseCreate" data-role="button" data-transition="slidedown">Add Course</a>
+                                <a href="#" data-role="button" id="removeCourse">Remove Course</a>
+                        </div>
+    			<ul data-role="listview" data-prepend="true" data-inset="true">
+          	  		 <!--<li class="setCourse">
+                		<a href="#courseCreate">
+                		<h1>Add Course</h1></a>
+            			</li>-->
+        		</ul>
+        		</div>
+        		
+    <ul data-role="listview" data-prepend="true" id="courseList" data-dynamicQuery="courseRetriever"></ul>
     <footer data-role="footer" data-theme="b" data-position="fixed" value="working?">
     <nav data-role="navbar">
 
             <ul>
-                <li class="setCourse"><a href="#studentSelection" data-theme="b" class="selector" data-role="button" data-icon="arrow-d" data-transition="slidedown">Select Course</a>
-                <input type='text' class="courseKey" style="display: none">
-                </li>
-                <li class="setCourse"><a href="#courseCreate" data-theme="b" class="manager" data-role="button" data-icon="plus" data-transition="slideup">Create Course</a>
-                    <input type='text' class="courseKey" style="display: none">
-                </li>
-                <li class="setCourse"><a href="#courseManage" data-theme="b" class="manager" data-role="button" data-icon="arrow-u" data-transition="slidedown">Manage Course</a>
-                    <input type='text' class="courseKey" style="display: none">
-                </li>
+                <li><a href="#appointments" data-icon="grid">Meetings</a></li>
+                <li><a href="#courses" data-icon="arrow-u">Courses</a></li>
             </ul>
             
         </nav>
     </footer>
+</div><!-- display list of courses-->
+
+<div data-role="page" id="newPage">
+   NEW PAGE 
 </div>
 
-<div data-role="page" data-theme="a" id="courses2">
+
+<div data-role="page" data-theme="a" id="coursesStudent">
     <header data-role="header" data-theme="b">
-        <a href="#" data-theme="a" data-iconpos="notext" data-icon="arrow-l"></a>
-        <h1 class="title"></h1>
-        <a href="#" data-theme="a" data-iconpos="notext" data-icon="arrow-r"></a>
+    	<a href="#login" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+        <h1>My Courses</h1>
+        <a href="#photoUpload" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
     </header>
-    <div data-role="content" class="container"></div>
+
+   <div class="contain"><h2 style="color:white">Enter Course Name and Tap Go</h2></div>
+    <form class="searchTerms" >
+        <input data-theme="b" type="text" data-type="search" name="search" id="search" placeholder="Course Name">
+    </form>
+    <button data-theme="b" class="go" data-search="findCourse">Go!</button>
+    <ul class="searchResult" id="foundCourses" data-role="listview">
+        
+    </ul>
+   
+ <div class="studentSelectionCenter" data-role="content">
+    	<!--		<ul data-role="listview" data-prepend="true" data-inset="true">
+          	  		 <li class="setCourse">
+                		<a href="#courseCreate">
+                		<h1>Add Course</h1></a>
+            			</li>
+        		</ul>
+        		</div>-->
+        		
+                    
+    <ul data-role="listview" data-prepend="true" id="courseListStudent" data-dynamicQuery="courseRetriever"></ul>
     <footer data-role="footer" data-theme="b" data-position="fixed" value="working?">
-    <nav data-role="navbar">
+        <nav data-role="navbar">
+
             <ul>
-                <li class="setCourse"><a href="#studentSelection" data-theme="b" class="selector" data-role="button" data-icon="arrow-d" data-transition="slidedown">Select Course</a>
-                    <input type='text' class="courseKey" style="display: none">
-                </li>
-                <li class="setCourse"><a href="#courseCreate" data-theme="b" class="manager" data-role="button" data-icon="plus" data-transition="slideup">Create Course</a>
-                    <input type='text' class="courseKey" style="display: none">
-                </li>
-                <li class="setCourse"><a href="#courseManage" data-theme="b" data-role="button" class="manager" data-icon="arrow-u" data-transition="slidedown">Manage Course</a>
-                    <input type='text' class="courseKey" style="display: none">
-                </li>
+                <li><a href="#appointments2" data-icon="grid">Meetings</a></li>
+                <li><a href="#coursesStudent" data-icon="arrow-u">Courses</a></li>
             </ul>
+
         </nav>
     </footer>
+</div><!-- display list of courses-->
 </div>
 
-<div data-role="page" data-theme="a" id="courseManage">
+
+<div data-role="page" id="addInstructor" data-theme="a">
     <header data-role="header" data-theme="b">
-        <a href="#courses" data-theme="a" data-iconpos="notext" data-icon="back"></a>
-        <h1>Manage Course</h1>
+        <a href="#studentSelection" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+        <h3>Find Instructors</h3>
     </header>
-    <ul data-role="listview" id="manage">
-        <li>
-            <a href="#addInstructor" data-rel="dialog" data-transition="slidedown">Add Instructors</a>
-        </li>
-        <li>
-            <a href="#addStudents" data-rel="dialog" data-transition="slidedown">Add Students</a>
-        </li>
+    <div class="contain"><h2 style="color:white">Enter Info and Tap Go</h2></div>
+    <form class="searchTerms">
+        <input data-theme="b" type="text" data-type="search" name="search" id="search" placeholder="Username, Email Address">
+    </form>
+    <button data-theme="b" class="go" data-search="findInstructor">Go!</button>
+    <ul class="searchResult" id="foundInstructors" data-role="listview">
+        
     </ul>
 </div>
-<div data-role="page" id="addInstructor">
-    <header data-role="header" data-theme="b">
-        <h1>Add Instructors</h1>
-    </header>
-    <div data-role="content">
-        <form id="newInstructorForm">
-        <label for="instructors">Enter the user names of the instructors you want to add, separated by commas</label>
-        <input type="text" name="instructors" id="instructors">
-        <button data-theme="a" type="submit" id="addInstructor" data-validate='addInstructor' data-destination="#courseManage" data-icon="plus">Add Instructors</button>                  
-	</form>
-    </div>
-</div>
+<!--add instructors to course-->
 
-<div data-role="page" id="addStudents">
+<div data-role="page" id="addStudents" data-theme="a">
     <header data-role="header" data-theme="b">
-        <h1>Add Students</h1>
+        <a href="#studentSelection" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+        <h3>Find Students</h3>
     </header>
-    <div data-role="content">
-        <form id="newStudentForm">
-        <label for="instructors">Enter the user names of the students you want to add, separated by commas</label>
-        <input type="text" name="students" id="students">
-        <button data-theme="a" type="submit" id="addStudent" data-validate='addStudent' data-destination="#courseManage" data-icon="plus">Add Students</button>                  
-	</form>
-    </div>
+    <div class="contain"><h2 style="color:white">Enter Info and Tap Go</h2></div>
+    <form class="searchTerms" >
+        <input data-theme="b" type="text" data-type="search" name="search" id="search" placeholder="Name, Username, NetID">
+    </form>
+    <button data-theme="b" class="go" data-search="findStudent">Go!</button>
+    <ul class="searchResult" id="foundStudents" data-role="listview">
+        
+    </ul>
 </div>
 </body>
 </html>

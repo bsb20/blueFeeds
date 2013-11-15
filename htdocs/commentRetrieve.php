@@ -1,11 +1,12 @@
 <?php
-session_start();
-date_default_timezone_set("America/New_York");
+
+/*
+Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
+This php script retrives all comments in the database for a specific user (UUID) and student (SUID) in the database.
+It then outputs the comments in html format through jquerymobile.
+*/
+include("initialize.php");
 $table="`test`.`comments`";
-$db=new mysqli("127.0.0.1","root","devils","test",8889);
-if($db->connect_errno){
-    echo "FAILURE";
-}
 $SUID=$_SESSION["SUID"];
 $UUID=$_SESSION["UUID"];
 if(!isset($_SESSION["GUID"])){
@@ -42,7 +43,7 @@ if($row=mysqli_fetch_array($result)){
 						<a href='#viewcomment' data-role='button' data-mini='true'>View</a>
 						</div>
                                                 <p class='ui-li-aside'><strong>$formattedDate</strong></p>
-                                                    <input type='text' name='CUID' value='$CUID' id='hiddenForm' style='display: none;'>
+                                                    <input type='text' name='CUID' value='$CUID' class='hiddenForm' style='display: none;'>
                                                     <input type='text' name='students' value='$students' id='hiddenForm2' style='display: none;'>
                                                     <input type='text' name='instructors' value='$instructors' id='hiddenForm3' style='display: none;'>
 					</li>";}

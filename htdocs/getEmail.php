@@ -1,10 +1,12 @@
 <?php
-session_start();
+/*
+Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
+Retrieves information to populate a pre-written email to send an appointment reminder.
+Joins current student ID to current appointment ID and retirves user info from current user ID.
+Populates email based on student email address and user name, uses appointment info in email body
+*/
+include("initialize.php");
 $table="`test`.`students`";
-$db=new mysqli("127.0.0.1","root","devils","test",8889);
-if($db->connect_errno){
-    echo "FAILURE";
-}
 $SUID=$_SESSION["SUID"];
 $UUID=$_SESSION["UUID"];
 $AUID=$_SESSION["AUID"];
@@ -32,8 +34,10 @@ $formattedDay;
 $formattedTime;
 if($row=mysqli_fetch_array($result)){
     $date=$row['start'];
-    $formattedDay=date("m/d/y", strtotime($date));
-    $formattedTime=date("h:i a", strtotime($date));
+    $end=$row["end"];
+    $formattedDay=date("l, F j, Y", strtotime($date));
+    $formattedTime=date("h:i A", strtotime($date));
+    $formattedEndTime=date("h:i A", strtotime($end));
     }
 $list="<li data-dynamicContent='getEmail' data-theme='a' style='display:none;'>
                     <h1>$student</h1>
@@ -41,9 +45,11 @@ $list="<li data-dynamicContent='getEmail' data-theme='a' style='display:none;'>
                     <p>$formattedDay, $formattedTime</p>
                 </a>
             </li>";
-
+/*
+This is the text for the prewritten email.  Must be written as html encoded string.  Feel free to change this!
+*/
 $list.= "<li data-theme='b' data-dynamicContent='getEmail'><a id='sendReminder'  href='mailto:$email?subject=Meeting&body=
-$student,%0A%20This%20is%20a%20reminder%20for%20our%20meeting%20on%20$formattedDay%20at%20$formattedTime.%0A-$user
+$student,%0A%20This%20is%20a%20reminder%20for%20our%20meeting%0AWhen:%20$formattedDay%20$formattedTime-$formattedEndTime%0A-$user
 '>Send Reminder</a></li>";
 echo $list;
 ?>

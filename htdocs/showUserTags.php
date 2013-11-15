@@ -1,19 +1,21 @@
 <?php
-session_start();
+
+/*
+Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
+This php script loads all viable comment tags for a specific user (UUID).
+*/
+include("initialize.php");
 $table="`test`.`tags`";
-$db=new mysqli("127.0.0.1","root","devils","test",8889);
-if($db->connect_errno){
-    echo "FAILURE";
-}
 $UUID=$_SESSION["UUID"];
 $sql = "SELECT * FROM $table WHERE `UUID`='$UUID'";
 $result=$db->query($sql);
-$finally="";
-foreach($result as $row){
+$toString="<fieldset data-role='controlgroup' class='tagBox' data-dynamicContent='showUserTags'>";
+for($i=0; $i<mysqli_num_rows($result); $i++){
+        if($row=mysqli_fetch_array($result)){
         $TUID=$row["TUID"];
         $text=$row["text"];
-        $toString=$toString."
-                    <input type='checkbox' name='tag[]' id='$TUID' value='$TUID' class='custom' /><label for='$TUID'>$text</label>";
 }
-echo $toString;
+        $toString=$toString."<input type='checkbox' name='tag[]' id='$TUID' value='$TUID'/><label for='$TUID'>$text</label>";
+}
+echo $toString."</fieldset>";
 ?>

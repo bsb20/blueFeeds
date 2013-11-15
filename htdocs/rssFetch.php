@@ -1,25 +1,41 @@
 <?php
-session_start();
-$table="`test`.`feeds`";
-$db=new mysqli("127.0.0.1","root","devils","test",8889);
-if($db->connect_errno){
-    echo "FAILURE";
-}
 
+/*
+Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
+This php script retrieves and displays rss entries from the desktop managed BlueFeeds Rss Site.
+*/
+
+include("initialize.php");
+$table="`test`.`feeds`";
 $url=$_POST["feedUrl"];
 $title=$_POST["feedName"];
-$user=$_SESSION["UUID"];
+$UUID=$_SESSION["UUID"];
 $FUID=$_POST["FUID"];
 
-// YQL query (SELECT * from feed ... ) // Split for readability // Organizes yahoo queries  
-$path = "http://query.yahooapis.com/v1/public/yql?q=";  
-$path .= urlencode("SELECT * FROM feed WHERE url='$url'");  
-$path .= "&format=json"; 
+$sql = "SELECT * FROM `test`.`feeds` WHERE `UUID`='$UUID' OR `UUID`='a'";
 
-$feed = file_get_contents($path, true);
-$feed = json_decode($feed);
-
-$date=date("Y-m-d H:i:s");
-$db->real_query("INSERT INTO ".$table." (`feed`, `UUID`, `date`, `url`, `FUID`, `title`) VALUES (`$feed`, '$user', '$date', '$url', '$FUID','$title');");
-echo "true";
+$result=$db->query($sql);
+$finally = "";
+for($i=0; $i<mysqli_num_rows($result); $i++){
+    if($row=mysqli_fetch_array($result)){
+	$url=$row["url"];
+    }
+    $xml =simplexml_load_file($url);
+    foreach($xml->channel->item as $item)
+	{
+	    $title = $item->title;
+	    $link = $item->link;
+	    $date = $item->pubDate;
+	    $desc = $item->description;
+	    $finally.="<li data-theme='c' class='dynamicTag' data-dynamicContent='rssFetch' style='margin: 1%; overflow: visible; white-space: normal;'>
+	    <a href='$link'>	
+	    <h1> $title </h1>
+	    <p> <small><em>Posted on $date</em></small></p>
+  	    <p> $desc </p> 
+  	    </a>
+	    </li>";
+	}
+}
+echo $finally;
 ?>
+

@@ -1,11 +1,13 @@
 <?php
-session_start();
+
+/*
+Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
+This php script loads all courses for a user to select and their respective course information links. It is called 
+directly after a course has been selected and sets both private and public variables for the user repsectively. 
+*/
+include("initialize.php");
 $table="`test`.`groups`";
 $table1="`test`.`courses`";
-$db=new mysqli("127.0.0.1","root","devils","test",8889);
-if($db->connect_errno){
-    echo "FAILURE";
-}
 if(isset($_SESSION["UUID"])){
 $UUID=$_SESSION["UUID"];
 $sql="SELECT * FROM $table1, ".$table." WHERE $table.`UUID`='".$UUID."' AND $table1.`GUID`=$table.`GUID`;";

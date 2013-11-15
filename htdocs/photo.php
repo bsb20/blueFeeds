@@ -1,22 +1,23 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors',1);
+
+/*
+Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
+This php script submits handles all photo-based applications within the app. Specifically, it allows the user (UUID) to
+access the phones camera and upload profile pictures for themselves (and possibly for students).
+*/
+
+include("initialize.php");
 if (!empty($_FILES))
 {
-echo $_FILES['photo']['error'];
-session_start();
+echo $_FILES['photo']['error'].": ";
 $table="`test`.`students`";
-$db=new mysqli("127.0.0.1","root","devils","test",8889);
-if($db->connect_errno){
-    echo "FAILURE";
-}
 $fileExtension=$_SESSION["SUID"];
     // PATH TO THE DIRECTORY WHERE FILES UPLOADS
     $file_src   =   'uploads/'.$_FILES['photo']['name'];
     // FUNCTION TO UPLOAD THE FILE
     if(move_uploaded_file($_FILES['photo']['tmp_name'], "uploads/$fileExtension.jpg")):
     // SHOW THE SUCCESS MESSAGE AFTER THE MOVE - NO VISIBLE CHANGE
-    echo 'Your file have been uploaded sucessfuly';
+    echo 'Your file has been uploaded successfully';
     else:
     // SHOW ERROR MESSAGE
     echo 'Error';
@@ -39,6 +40,7 @@ switch($orient){
 ?>
 <html>
 <head>
-<meta http-equiv="REFRESH" content="0;url=http://bluefeeds.cs.duke.edu/home/htdocs/blueFeeds.html">
+<meta http-equiv="REFRESH" content="0;url=blueFeeds.html#coursesStudent">
+//http://bluefeeds.cs.duke.edu/ui_branch/blueFeeds/htdocs/blueFeeds.html">
 </head>
 </html>

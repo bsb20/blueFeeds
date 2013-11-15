@@ -1,9 +1,11 @@
 <?php
-session_start();
-$db=new mysqli("127.0.0.1","root","devils","test",8889);
-if($db->connect_errno){
-    echo "FAILURE";
-}
+
+/*
+Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
+This php script retrieves all students for a given user (UUID) and displays them in a list querymobile styled format. 
+*/
+
+include("initialize.php");
 $UUID=$_SESSION["UUID"];
 $table1="`test`.`groups`";
 $table2="`test`.`gs`";

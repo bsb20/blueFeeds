@@ -1,4 +1,9 @@
 <?php
+
+/*
+This script is no longer in use.
+*/
+
 session_start();
 date_default_timezone_set("America/New_York");
 $table="`test`.`feeds`";

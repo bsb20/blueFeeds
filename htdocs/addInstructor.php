@@ -6,7 +6,7 @@ This php script is by the main page of the blueFeeds application login page to a
 User profiles are created with a new user id and group id. 
 */
 include("initialize.php");
-$table="`test`.`users`";
+//$table="`test`.`users`";
 $GUID=$_SESSION["GUID"];
 $UUID=$_POST["uuid"];
 $table="`test`.`groups`";

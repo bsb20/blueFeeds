@@ -2,7 +2,7 @@
 
 /*
 Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
-This php script adds a student for a pecific user (UUID) to the database. 
+This php script adds a student account from the login page.
 */
 
 function create(){

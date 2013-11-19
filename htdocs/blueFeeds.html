@@ -177,6 +177,45 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
     </footer>
 </div><!-- student selection page-->
 
+
+
+
+<!--|||||||||||||||||||||||||||||||||||||||||||-->
+<!--NEW COURSE INSTRUCTOR PAGE-->
+<div data-role="page" id="instructorSelection" data-theme="a">
+    <header data-role="header" data-theme="b">
+        <h1>My Co-Instructors</h1>
+        <a href="#courses" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+        </button>
+    </header>
+    
+    <div class="studentSelectionCenter" data-role="content">
+                            <div data-role="controlgroup" data-mini="true">
+                                <a href="#addStudents" data-role="button" data-transition="slidedown">Add Students</a>
+                                <a href="#addInstructor" data-role="button" data-transition="slidedown">Add Instructors</a>
+                            </div>
+    			<ul data-role="listview" data-prepend="true" data-inset="true">
+          	  		 <!-- <li class="setCourse"> -->
+        		</ul>
+    </div>
+    <div class="studentSelectionCenter" data-role="content" data-theme="a">
+        <ul data-role="listview" data-filter="true" id="selectionList" data-dynamicQuery="selectionInstructors">
+        </ul>
+    </div>
+    <footer data-role="footer" data-theme="b" data-position="fixed">
+        <nav data-role="navbar">
+            <ul>
+                <li><a href="#appointments" data-icon="grid">Meetings</a></li>
+                <li><a href="#courses" data-icon="arrow-u">Courses</a></li>
+            </ul>
+        </nav>
+    </footer>
+</div><!-- instructor selection page-->
+<!--|||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+
+
+
 <div data-role="page" id="addStudent">
     <header data-role="header" data-theme="b">
         <h1>New Student</h1>
@@ -449,7 +488,7 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
             </ul>
         </nav>
     </footer>
-</div>
+</div><!--Make appointment-->
 
 <div data-role="page" id="reminder" data-theme="a">
     <div data-role="header" data-theme="b" ><h1>Meeting Options</h1></div>
@@ -652,7 +691,7 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
 	</body>
    
    
-	<footer data-role="footer" data-theme="b" data-position="fixed">
+    <footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">
             <ul>
            	<li><a href="#appointments" data-icon="grid">Meetings</a></li>

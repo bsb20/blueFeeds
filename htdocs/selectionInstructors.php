@@ -5,13 +5,22 @@ Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
 This php script retrieves all instructors for a given course (gUID) and displays them in a list querymobile styled format. 
 */
 include("initialize.php");
-//$GUID=$_SESSION["GUID"];
-$GUID='528bbdbe252ad';
+//phpinfo();
+$GUID=$_SESSION["GUID"];
 $tableGroups="`test`.`groups`";
 $tableUsers="`test`.`users`";
 
-//if(!isset($
-$sql = 'SELECT * FROM users LEFT JOIN groups ON groups.UUID=users.UUID WHERE groups.GUID='.$GUID.';';
+if(!isset($GUID)){
+	$GUID='528bbdbe252ad';
+	$sql = 'SELECT * FROM users LEFT JOIN groups ON groups.UUID=users.UUID WHERE groups.GUID="'.$GUID.'";';
+}else
+	$sql = 'SELECT * FROM users LEFT JOIN groups ON groups.UUID=users.UUID WHERE groups.GUID="'.$GUID.'";';
+
+//echo $sql;
+//print $sql;
+//print_r $sql;
+
+//echo "<li><h1>$sql</h1></li>";
 /*if(!isset($_SESSION['GUID'])){
 $sql = "SELECT * FROM $table1, $table2, $table3 WHERE $table1.`UUID`='$UUID' AND $table1.`GUID`=$table2.`GUID` AND $table2.`SUID`=$table3.`SUID`;";
 }
@@ -39,7 +48,7 @@ if($row=mysqli_fetch_array($result)){
 $html.=           " <li class='dynamicSelection' data-dynamicContent='selection'>
                     <a href='#studentProfile2'>
                     <h1>$name</h1>
-                    <img src='$photo' class='imgTile'alt='getarealphone'/>
+                    <img src='$photo' class='imgTile'alt='noPicture'/>
                     <p>$title, $spec</p>
                     </a>
                     <input type='text' id='no' style='display:none' value='$UUID'>

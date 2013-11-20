@@ -10,7 +10,7 @@ var coursePage=0;
 var courses;
 //perform data-dynamicQuery requests and append requested data
     function onPageLoad(data,status){
-	alert(data);
+//	alert(data);
     	if(data.substring(0,1) === "~"){
     		$.mobile.changePage("#login");
     		return;
@@ -181,6 +181,7 @@ var courses;
 		});	    
 	    });
 
+/*
 //Handles start page, changes after a few seconds to login page	
 	$(document).ready(
 	function(){
@@ -188,8 +189,10 @@ var courses;
 	});
 	
 	function change(){
+		alert("function change");
 		$.mobile.changePage("#login","fade");
 	}
+*/
 //Sets tag ID for filtering by tags	
 	$(document).ready(
 	function(){

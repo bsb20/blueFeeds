@@ -5,29 +5,16 @@ Authors: Benjamin Berg, Rachel Harris, Conrad Haynes, Jack Zhang
 This php script retrieves all instructors for a given course (gUID) and displays them in a list querymobile styled format. 
 */
 include("initialize.php");
-//phpinfo();
 $GUID=$_SESSION["GUID"];
 $tableGroups="`test`.`groups`";
 $tableUsers="`test`.`users`";
 
-if(!isset($GUID)){
+/*if(!isset($GUID)){
 	$GUID='528bbdbe252ad';
 	$sql = 'SELECT * FROM users LEFT JOIN groups ON groups.UUID=users.UUID WHERE groups.GUID="'.$GUID.'";';
-}else
+}else*/
 	$sql = 'SELECT * FROM users LEFT JOIN groups ON groups.UUID=users.UUID WHERE groups.GUID="'.$GUID.'";';
 
-//echo $sql;
-//print $sql;
-//print_r $sql;
-
-//echo "<li><h1>$sql</h1></li>";
-/*if(!isset($_SESSION['GUID'])){
-$sql = "SELECT * FROM $table1, $table2, $table3 WHERE $table1.`UUID`='$UUID' AND $table1.`GUID`=$table2.`GUID` AND $table2.`SUID`=$table3.`SUID`;";
-}
-else{
-    $GUID=$_SESSION['GUID'];
-    $sql = "SELECT * FROM $table1, $table2, $table3 WHERE $table1.`UUID`='$UUID' AND $table1.`GUID`='$GUID' AND $table1.`GUID`=$table2.`GUID` AND $table2.`SUID`=$table3.`SUID`;";
-}*/
 $result=$db->query($sql);
 $name;
 $photo;

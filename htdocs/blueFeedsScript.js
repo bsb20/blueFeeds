@@ -10,7 +10,7 @@ var coursePage=0;
 var courses;
 //perform data-dynamicQuery requests and append requested data
     function onPageLoad(data,status){
-//	alert(data);
+	alert(data);
     	if(data.substring(0,1) === "~"){
     		$.mobile.changePage("#login");
     		return;

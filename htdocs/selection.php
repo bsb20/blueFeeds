@@ -6,8 +6,7 @@ This php script retrieves all students for a given user (UUID) and displays them
 */
 
 include("initialize.php");
-phpinfo();
-/*$UUID=$_SESSION["UUID"];
+$UUID=$_SESSION["UUID"];
 $table1="`test`.`groups`";
 $table2="`test`.`gs`";
 $table3="`test`.`students`";
@@ -47,5 +46,4 @@ $html.=           " <li class='dynamicSelection' data-dynamicContent='selection'
     }
 }
 echo $html;
-*/
 ?>

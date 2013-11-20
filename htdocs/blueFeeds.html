@@ -139,7 +139,7 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
     <button id="fileProxy2">Choose photo</button>
     <form data-ajax="false" enctype="multipart/form-data" method="post" action="photo2.php">
          <input type="file" name="photo2" id="photo2" accept="image/*;capture=camera" style="display:none">
-         <input id="submitPhoto2" type="submit" value="Upload photo">
+         <input id="submitPhoto2" type="submit" value="Upload photo" data-destination="#courses">
     </form>
     <a  href="#courses" data-role="button">Main Menu</a>
 </div><!-- instructor photo upload page -->
@@ -152,6 +152,7 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
         </button>
     </header>
     
+    <a  href="#instructorSelection" data-role="button">Instructor Selection</a>
     <div class="studentSelectionCenter" data-role="content">
                             <div data-role="controlgroup" data-mini="true">
                                 <a href="#addStudents" data-role="button" data-transition="slidedown">Add Students</a>

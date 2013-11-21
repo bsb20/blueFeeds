@@ -24,7 +24,7 @@ $repeated=array();
                  $final.="<li class='dynamicSelection' data-dynamicContent='selection'>
                     <a href='#'>
                     <h1>$name</h1>
-                    <img src='$photo' class='imgTile'alt='getarealphone'/>
+                    <img src='$photo' class='imgTile'alt='No Picture!'/>
                     <p>$title, $spec</p>
                     </a>
                     <input type='text' class='suid' style='display:none' value='$SUID'>

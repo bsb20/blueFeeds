@@ -37,7 +37,7 @@ if($row=mysqli_fetch_array($result)){
 $html.=           " <li class='dynamicSelection' data-dynamicContent='selection'>
                     <a href='#studentProfile2'>
                     <h1>$name</h1>
-                    <img src='$photo' class='imgTile'alt='getarealphone'/>
+                    <img src='$photo' class='imgTile'alt='No Picture!'/>
                     <p>$title, $spec</p>
                     </a>
                     <input type='text' id='no' style='display:none' value='$SUID'>

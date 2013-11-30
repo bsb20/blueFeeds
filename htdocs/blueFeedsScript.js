@@ -181,8 +181,9 @@ var courses;
 		});	    
 	    });
 
-/*
+
 //Handles start page, changes after a few seconds to login page	
+//Also activates when any page is refreshed because refeshing breaks php-mySQL data loading
 	$(document).ready(
 	function(){
 		setTimeout(change,2000);	
@@ -192,7 +193,7 @@ var courses;
 		alert("function change");
 		$.mobile.changePage("#login","fade");
 	}
-*/
+
 //Sets tag ID for filtering by tags	
 	$(document).ready(
 	function(){

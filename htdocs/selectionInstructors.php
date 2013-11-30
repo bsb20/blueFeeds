@@ -33,11 +33,9 @@ if($row=mysqli_fetch_array($result)){
     $UUID=$row["UUID"];
 
 $html.=           " <li class='dynamicSelection' data-dynamicContent='selection'>
-                    <a href='#studentProfile2'>
                     <h1>$name</h1>
                     <img src='$photo' class='imgTile'alt='noPicture'/>
                     <p>$title, $spec</p>
-                    </a>
                     <input type='text' id='no' style='display:none' value='$UUID'>
             </li>";
     }

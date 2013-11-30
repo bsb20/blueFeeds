@@ -26,10 +26,10 @@ require_once "Mail.php";
 
 $mail = $smtp->send($to, $headers, $body);
 
- if (PEAR::isError($mail)) {
+/* if (PEAR::isError($mail)) {
    echo($mail->getMessage());
   } else {
    echo("Message successfully sent!");
-  }
+  }*/
 }
  ?>

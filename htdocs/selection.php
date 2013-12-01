@@ -46,5 +46,4 @@ $html.=           " <li class='dynamicSelection' data-dynamicContent='selection'
     }
 }
 echo $html;
-
 ?>

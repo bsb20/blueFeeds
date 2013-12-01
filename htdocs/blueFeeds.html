@@ -43,6 +43,7 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
 <div data-role="page" id="splash">
 <header data-role="header" data-theme="b"><h1>BlueFeeds</h1></header>
 	<div class="loginCenter">
+<!--		<a href="#login" data-role="button">Enter</a>	-->
 		<div data-role="content" class="container"> 
 		<p>Authors: Ben Berg, Rachel Harris, Conrad Haynes, Jack Zhang</p>
 		<p>Support From: Larry Greenblatt, Bruce Peyser</p>
@@ -140,7 +141,7 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
     <button id="fileProxy2">Choose photo</button>
     <form data-ajax="false" enctype="multipart/form-data" method="post" action="photo2.php">
          <input type="file" name="photo2" id="photo2" accept="image/*;capture=camera" style="display:none">
-         <input id="submitPhoto2" type="submit" value="Upload photo">
+         <input id="submitPhoto2" type="submit" value="Upload photo" data-destination="#courses">
     </form>
     <a  href="#courses" data-role="button">Main Menu</a>
 </div><!-- instructor photo upload page -->
@@ -156,8 +157,8 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
     <div class="studentSelectionCenter" data-role="content">
                             <div data-role="controlgroup" data-mini="true">
                                 <a href="#addStudents" data-role="button" data-transition="slidedown">Add Students</a>
-                                <a href="#addInstructor" data-role="button" data-transition="slidedown">Add Instructors</a>
-                            </div>
+    				<a href="#instructorSelection" data-role="button">View Co-Instructors</a>
+			    </div>
     			<ul data-role="listview" data-prepend="true" data-inset="true">
           	  		 <!-- <li class="setCourse"> -->
         		</ul>
@@ -177,6 +178,35 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
         </nav>
     </footer>
 </div><!-- student selection page-->
+
+<div data-role="page" id="instructorSelection" data-theme="a">
+    <header data-role="header" data-theme="b">
+        <h1>My Co-Instructors</h1>
+        <a href="#studentSelection" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+        </button>
+    </header>
+    
+    <div class="studentSelectionCenter" data-role="content">
+                            <div data-role="controlgroup" data-mini="true">
+                                <a href="#addInstructor" data-role="button" data-transition="slidedown">Add Instructor</a>
+                            </div>
+    			<ul data-role="listview" data-prepend="true" data-inset="true">
+          	  		 <!-- <li class="setCourse"> -->
+        		</ul>
+    </div>
+    <div class="studentSelectionCenter" data-role="content" data-theme="a">
+        <ul data-role="listview" data-filter="true" id="selectionList2" data-dynamicQuery="selectionInstructors">
+        </ul>
+    </div>
+    <footer data-role="footer" data-theme="b" data-position="fixed">
+        <nav data-role="navbar">
+            <ul>
+                <li><a href="#appointments" data-icon="grid">Meetings</a></li>
+                <li><a href="#courses" data-icon="arrow-u">Courses</a></li>
+            </ul>
+        </nav>
+    </footer>
+</div><!-- instructor selection page-->
 
 <div data-role="page" id="addStudent">
     <header data-role="header" data-theme="b">
@@ -450,7 +480,7 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
             </ul>
         </nav>
     </footer>
-</div>
+</div><!--Make appointment-->
 
 <div data-role="page" id="reminder" data-theme="a">
     <div data-role="header" data-theme="b" ><h1>Meeting Options</h1></div>
@@ -653,7 +683,7 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
 	</body>
    
    
-	<footer data-role="footer" data-theme="b" data-position="fixed">
+    <footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">
             <ul>
            	<li><a href="#appointments" data-icon="grid">Meetings</a></li>
@@ -1020,7 +1050,7 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
 
 <div data-role="page" id="addInstructor" data-theme="a">
     <header data-role="header" data-theme="b">
-        <a href="#studentSelection" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+        <a href="#instructorSelection" data-theme="a" data-iconpos="notext" data-icon="back"></a>
         <h3>Find Instructors</h3>
     </header>
     <div class="contain"><h2 style="color:white">Enter Info and Tap Go</h2></div>

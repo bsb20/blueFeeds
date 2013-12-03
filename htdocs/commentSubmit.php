@@ -22,20 +22,6 @@ $student=$_SESSION["SUID"];
 $CUID=$_POST["CUID"];
 $newTag=$_POST["new"];
 $tags=$_POST["tag"];
-if(!isset($tags)){
-$tags=array();
-}
-if(strlen(trim($newTag)) !=0){
-	$newTUID=uniqid("",FALSE);
-	array_push($tags,$newTUID);
-	$db->real_query("INSERT INTO `test`.`tags` (`text`, `TUID`, `UUID`) VALUES ('$newTag', '$newTUID', '$user');");
-}
-$date=date("Y-m-d H:i:s");
-$db->real_query("INSERT INTO ".$table." (`UUID`, `SUID`, `date`, `text`, `CUID`, `title`, `instructors`, `students`, `GUID`) VALUES ('$user', '$student', '$date', '$text', '$CUID','$title', '$instructors','$students', '$GUID');");
-foreach ($tags as $TUID){
-	$db->real_query("INSERT INTO ".$tag_table." (`TUID`, `CUID`) VALUES ('$TUID', '$CUID');");
-}
-//echo "true";
 
 $mailSql="SELECT `email` FROM `test`.`students` WHERE `SUID`='$student'";
 $mailResult=$db->query($mailSql);
@@ -49,4 +35,19 @@ $mailContent="Hello! Your have received a new comment on BlueFeeds.
 
 Please check your BlueFeeds account at http://198.61.175.216/bluefeeds/htdocs/blueFeeds.html for more details.";
 mailer($mailAddress,$mailContent);
+
+if(!isset($tags)){
+$tags=array();
+}
+if(strlen(trim($newTag)) !=0){
+	$newTUID=uniqid("",FALSE);
+	array_push($tags,$newTUID);
+	$db->real_query("INSERT INTO `test`.`tags` (`text`, `TUID`, `UUID`) VALUES ('$newTag', '$newTUID', '$user');");
+}
+$date=date("Y-m-d H:i:s");
+$db->real_query("INSERT INTO ".$table." (`UUID`, `SUID`, `date`, `text`, `CUID`, `title`, `instructors`, `students`, `GUID`) VALUES ('$user', '$student', '$date', '$text', '$CUID','$title', '$instructors','$students', '$GUID');");
+foreach ($tags as $TUID){
+	$db->real_query("INSERT INTO ".$tag_table." (`TUID`, `CUID`) VALUES ('$TUID', '$CUID');");
+}
+echo "true";
 ?>

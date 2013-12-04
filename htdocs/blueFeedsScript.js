@@ -190,7 +190,6 @@ var courses;
 	});
 	
 	function change(){
-		alert("function change");
 		$.mobile.changePage("#login","fade");
 	}
 

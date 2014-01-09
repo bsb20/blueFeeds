@@ -3,7 +3,7 @@
 function mailer($address,$content){
 require_once "Mail.php";
  
- $from = "Brett Cadigan <bluefeedsmail@gmail.com>";
+ $from = "BlueFeeds Auto-Mailer <bluefeedsmail@gmail.com>";
  $to = $address;
 //Brett Cadigan <bluefeedsmail@gmail.com>;
  $subject = "Notification from BlueFeeds!";

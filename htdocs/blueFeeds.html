@@ -895,13 +895,12 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
     </footer>
 </div><!--add comments page-->
 
-<!--////////////////////////////////////-->
 <div data-role="page" id="addcommentstudent">
     <header data-role="header" data-theme="b"><h1>Add Reply Note</h1>
-    <a href="#viewcomment" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+    <a href="#studentCourse" data-theme="a" data-iconpos="notext" data-icon="back"></a>
     </header>
-	<div class="commentSelection" data-role="content" data-theme="b" align="center">
-        <form id="commentForm" data-dynamicQuery="genCUID">
+	<div class="commentSelection2" data-role="content" data-theme="b" align="center">
+        <form id="commentForm2" data-dynamicQuery="genCUID">
         <label for="title">Title This Post</label><input type="text" name="title">
         <label for="textarea">Leave Your Comment Below:</label>
         <textarea name="comment" id="comment">
@@ -917,7 +916,7 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
 	   <div data-role="fieldcontain" data-dynamicQuery="showUserTags" id="userTagList" data-prepend="true">
             <label class="ui-hidden-accessible" for="new"></label><input type="text" placeholder="New Tag" name="new" id="new" style="margin-top:1%;">
 	   </div>
-	<button data-theme="a" type="submit" id="commentSubmitStudent" data-validate='commentSubmitStudent' data-destination="#commentspage">Save Comment</button>          
+	<button data-theme="a" type="submit" id="commentSubmitStudent" data-validate='commentSubmitStudent' data-destination="#studentCourse">Save Comment</button>          
 	</form>
         </div>
     <footer data-role="footer" data-theme="b" data-position="fixed" value="working?">
@@ -929,8 +928,6 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
         </nav>
     </footer>
 </div><!--add student comments page-->
-
-<!--//////////////////////////-->
 
 <div data-role="page" id="courseCreate" data-theme="a">
     <header data-role="header" data-theme="b"><h1>New Course</h1>
@@ -990,7 +987,7 @@ Authors: Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke University
 
 <div data-role="page" id='viewcomment'>
     <header data-role="header" data-theme="b"><h1 id="commentHeader"></h1>
-    <a href="#commentspage" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+    <a href="#studentCourse" data-theme="a" data-iconpos="notext" data-icon="back"></a>
     </header>
     <div>
     <p id="commentText"></p>

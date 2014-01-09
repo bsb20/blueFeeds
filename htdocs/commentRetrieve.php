@@ -29,6 +29,7 @@ if($row=mysqli_fetch_array($result)){
     $text=$row["text"];
     $CUID=$row["CUID"];
     $date=$row["date"];
+    $uzer=$row["UUID"];
     $students=$row["students"];
     $instructors=$row["instructors"];
     $time=strtotime($date);
@@ -48,6 +49,7 @@ if($row=mysqli_fetch_array($result)){
                                                     <input type='text' name='instructors' value='$instructors' id='hiddenForm3' style='display: none;'>
 					</li>";}
     else{
+	$_SESSION["tempUUID"] = $uzer;
         $finally.=                       "<li data-theme='d' class='listNote dynamicComment' data-dynamicContent='commentRetrieve' onClick='echoComment()' style='margin: 1%; overflow: visible; white-space: normal;'>
 						<h1>$title</h1>
 						<p class='note'>$text</p>
@@ -58,6 +60,7 @@ if($row=mysqli_fetch_array($result)){
                                                     <input type='text' name='CUID' value='$CUID' class='hiddenForm' style='display: none;'>
                                                     <input type='text' name='students' value='$students' id='hiddenForm2' style='display: none;'>
                                                     <input type='text' name='instructors' value='$instructors' id='hiddenForm3' style='display: none;'>
+                                                    <input type='text' name='UUID' value='$uzer' id='hiddenForm4' style='display: none;'>
 					</li>";}
     }
 

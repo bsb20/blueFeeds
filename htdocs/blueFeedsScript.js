@@ -10,7 +10,7 @@ var coursePage=0;
 var courses;
 //perform data-dynamicQuery requests and append requested data
     function onPageLoad(data,status){
-//	alert(data);
+	//alert(data);
     	if(data.substring(0,1) === "~"){
     		$.mobile.changePage("#login");
     		return;
@@ -189,6 +189,21 @@ var courses;
 		setTimeout(change,2000);	
 	});
 	
+/*	$(document).ready(
+	function(){
+        	$.ajax({type: "POST", url: "setPage.php", data: {'key':found}, error: onError})
+	});
+*/
+
+function refreshPage()
+{
+    $.mobile.changePage(window.location.href, {
+        allowSamePageTransition: true,
+        transition: 'none',
+        reloadPage: true
+    });
+}
+	
 	function change(){
 		$.mobile.changePage("#login","fade");
 	}
@@ -301,6 +316,12 @@ var courses;
 //page name to callback function
         $(document).ready(function(){
         $(document).on('pagechange', function (e,data) {
+	//	alert(data.toPage.attr("id"));
+		$.ajax({url: "setPage.php/?pageurl=" + data.toPage.attr("id"), 
+			success: function(){alert("Hooray!")},
+			error: onError
+		});
+			
 	    if(data.toPage.attr("id")=="courses" && courses==null){
 		$.ajax({url: "courseSelect.php", success: onCourses, invokedata: "container", error:onError});
 	    }

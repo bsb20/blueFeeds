@@ -9,7 +9,7 @@ and many more.
 var coursePage=0;
 var courses;
 //var setPage = 0;
-alert("start of js");
+//alert("start of js");
 //perform data-dynamicQuery requests and append requested data
     function onPageLoad(data,status){
 	//alert(data);

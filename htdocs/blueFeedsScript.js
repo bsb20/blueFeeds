@@ -8,6 +8,8 @@ and many more.
 //Dynamic, requiring refresh
 var coursePage=0;
 var courses;
+//var setPage = 0;
+alert("start of js");
 //perform data-dynamicQuery requests and append requested data
     function onPageLoad(data,status){
 	//alert(data);
@@ -184,9 +186,10 @@ var courses;
 
 //Handles start page, changes after a few seconds to login page	
 //Also activates when any page is refreshed because refeshing breaks php-mySQL data loading
-	$(document).ready(
+/*	$(document).ready(
 	function(){
-		setTimeout(change,2000);	
+alert("REFERESh: " + setPage);
+		setTimeout(change,1000);	
 	});
 	
 /*	$(document).ready(
@@ -195,19 +198,23 @@ var courses;
 	});
 */
 
-function refreshPage()
+/*function refreshPage()
 {
     $.mobile.changePage(window.location.href, {
         allowSamePageTransition: true,
         transition: 'none',
         reloadPage: true
     });
-}
-	
+}*/
+/*	
 	function change(){
-		$.mobile.changePage("#login","fade");
+		if(setPage==1){
+			$.mobile.changePage("#courses","fade");
+		}else if(setPage==0){
+			$.mobile.changePage("#login","fade");
+		}
 	}
-
+*/
 //Sets tag ID for filtering by tags	
 	$(document).ready(
 	function(){
@@ -316,12 +323,16 @@ function refreshPage()
 //page name to callback function
         $(document).ready(function(){
         $(document).on('pagechange', function (e,data) {
-	//	alert(data.toPage.attr("id"));
+		//setPage=1;
+		/*if(data.toPage.attr("id")!=""){
+			setPage = 1;
+		}else	setPage = 0;
 		$.ajax({url: "setPage.php/?pageurl=" + data.toPage.attr("id"), 
-			success: function(){alert("Hooray!")},
+			success: function(){alert("Hooray!");
+				setPage=1;},
 			error: onError
 		});
-			
+		*/	
 	    if(data.toPage.attr("id")=="courses" && courses==null){
 		$.ajax({url: "courseSelect.php", success: onCourses, invokedata: "container", error:onError});
 	    }

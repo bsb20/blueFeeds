@@ -31,7 +31,7 @@ $mailContent="Hello! Your have received a new student reply on BlueFeeds.
  ".$title.":
 ".$text."
 
-Please check your BlueFeeds account at http://198.61.175.216/bluefeeds/htdocs/blueFeeds.html for more details.";
+Please check your BlueFeeds account at http://www.dukebluefeeds.com/ for more details.";
 mailer($mailAddress,$mailContent);
 
 /*if(!isset($tags)){

@@ -6,7 +6,7 @@ JQueryMobile Application, this page is loaded at the beginning of the applicatio
 throughout the use of the applcation. 
 
 The main purpose of this application is to help user (instructors and practicing medical faculty) to provide relevant and
-accurate feed back to their students and medical residents. This application uses html, php, ajax, and jqyery to function.
+accurate feed back to their students and medical residents. This application uses html, php, ajax, and jquery to function.
 
 Pages here are documented here by function.  To see particular scripts/queries executed, on a particular page, follow 
 data-dynamicQuery and data-validate tags to named php files.  For a more detailed description of this protocol, see 
@@ -43,7 +43,7 @@ Authors: Brett Cadigan, Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke
 <div data-role="page" id="splash">
 <header data-role="header" data-theme="b"><h1>BlueFeeds</h1></header>
 	<div class="loginCenter">
-		<a href="#login" data-role="button">Start</a>
+		<a href="#login" data-role="button" data-theme="b">Start</a>
 		<div data-role="content" class="container"> 
 		<p>Produced by Dr. Bruce Peyser and Dr. Lawrence Greenblatt.</p>
 		<p>Maintained by Brett Cadigan.</p>
@@ -610,6 +610,7 @@ Authors: Brett Cadigan, Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke
     <footer data-role="footer" data-theme="b" data-tap-toggle="false" data-position="fixed" value="working?">
         <nav data-role="navbar">
             <ul>
+            	<li><a href="#appointments" data-icon="grid">Meetings</a></li>
                 <li><a href="#coursesStudent" data-icon="arrow-u"  data-transition="slideup">Courses</a></li>
             </ul>
         </nav>
@@ -858,7 +859,7 @@ Authors: Brett Cadigan, Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke
     <header data-role="header" data-theme="b"><h1>Add Note</h1>
     <a href="#studentProfile2" data-theme="a" data-iconpos="notext" data-icon="back"></a>
     </header>
-	<div class="commentSelection" data-role="content" data-theme="b" align="center">
+    <div class="commentSelection" data-role="content" data-theme="b" align="center">
         <form id="commentForm" data-dynamicQuery="genCUID">
         <label for="title">Title This Post</label><input type="text" name="title">
         <label for="textarea">Leave Your Comment Below:</label>
@@ -884,7 +885,7 @@ Authors: Brett Cadigan, Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke
 	   </div>
 	<button data-theme="a" type="submit" id="commentSubmit" data-validate='commentSubmit' data-destination="#commentspage">Save Comment</button>          
 	</form>
-        </div>
+    </div>
     <footer data-role="footer" data-theme="b" data-position="fixed" value="working?">
        <nav data-role="navbar">
             <ul>
@@ -948,8 +949,8 @@ Authors: Brett Cadigan, Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke
     <header data-role="header" data-theme="b"><h1>Edit Note</h1>
     <a href="#commentspage" data-theme="a" data-iconpos="notext" data-icon="back"></a>
     </header>
-	<div class="commentSelection" data-role="content" data-theme="b" align="center">
-        <form id="commentEditForm">
+    <div class="commentSelection" data-role="content" data-theme="b" align="center">
+      <form id="commentEditForm">
         <label for="textarea">Edit Your Comment Below:</label>
         <textarea name="comment" id="commentBox">
         </textarea>
@@ -961,7 +962,6 @@ Authors: Brett Cadigan, Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke
             <option value="1">Yes</option>
         </select>
         </div>
-<!--
         <div data-role="fieldcontain">
         <label for="instructors">Release to Instructors</label>
         <select name="instructors" id="instructors2" data-role="slider" data-mini="true">
@@ -969,12 +969,11 @@ Authors: Brett Cadigan, Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke
             <option value="1">Yes</option>
         </select>
         </div>
--->
         <button data-theme="a" type="submit" id="commentEdit" data-validate='commentEdit' data-destination="#studentProfile2" data-icon="check">Save Comment</button>     
         <button data-theme="a" data-icon="star">Flag Comment</button> 
         <button data-theme="a" data-icon="delete" id="commentDelete" data-validate='commentDelete' data-destination="#commentspage">Discard Comment</button>                               
-	</form>
-        </div>
+      </form>
+    </div>
     <footer data-role="footer" data-theme="b" data-position="fixed" value="working?">
         <nav data-role="navbar">
             <ul>
@@ -992,7 +991,7 @@ Authors: Brett Cadigan, Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke
     <div>
     <p id="commentText"></p>
     </div>
-<!---->    <a data-theme="b" id="reply" data-role="button" href="#addcommentstudent">Reply</a>
+    <a data-theme="b" id="reply" data-role="button" href="#addcommentstudent">Reply</a>
     <footer data-role="footer" data-theme="b" data-position="fixed" value="working?">
     <nav data-role="navbar">
             <ul>

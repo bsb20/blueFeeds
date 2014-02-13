@@ -9,7 +9,7 @@ and many more.
 var coursePage=0;
 var courses;
 //var setPage = 0;
-//alert("start of js");
+//console.log("start of js");
 //perform data-dynamicQuery requests and append requested data
     function onPageLoad(data,status){
 	//alert(data);
@@ -253,71 +253,70 @@ alert("REFERESh: " + setPage);
 	    $("#courseList").on("click","li", function(e){
                 var found=$(this).find(".courseKey").val();
 		if($("#removeCourse").data("theme") == "a"){
-                $.ajax({type: "POST", url: "setCourse.php", data: {'key':found}, error: onError});}
+                    $.ajax({type: "POST", url: "setCourse.php", data: {'key':found}, error: onError});}
 		else{
 		    var remove=confirm("Are you sure you want to remove this course?");
 		    if(remove){
-		    $.ajax({type: "POST", url: "removeCourse.php", data: {'key':found}, error: onError});
-		    $(this).remove();
+	    	        $.ajax({type: "POST", url: "removeCourse.php", data: {'key':found}, error: onError});
+		        $(this).remove();
 		    }
 		}
-		});	    
-	    });
+	    });	    
+	});
 	$(document).ready(
 	function(){
 	    $("#courseListStudent").on("click","li", function(e){
                 var found=$(this).find(".courseKey").val();
                 $.ajax({type: "POST", url: "setCourse.php", data: {'key':found}, error: onError})
-		});	    
-	    });
-	
+	    });	    
+	});
 	
 	$(document).ready(function(){
 	    $("#fileProxy").click(function(){
 		$("#photo").click();
-		})    
+	    })    
 	});
 
 	$(document).ready(function(){
 	    $("#fileProxy2").click(function(){
 		$("#photo2").click();
-		})    
+	    })    
 	});
 
 	$(document).ready(function(){
 	    $("#foundStudents").on("click", "li", function(e){
 		var found= $(this).find(".suid").val();
 		$.ajax({type: "POST", url: "addStudent.php", data: {'suid':found}, error: onError, success: studentAdded})
-		});
 	    });
+	});
 	$(document).ready(function(){
 	    $("#foundInstructors").on("click", "li", function(e){
 		var found= $(this).find(".uuid").val();
 		$.ajax({type: "POST", url: "addInstructor.php", data: {'uuid':found}, error: onError, success: instructorAdded})
-		});
 	    });
+	});
 	$(document).ready(function(){
 	    $("#foundCourses").on("click", "li", function(e){
 		$("#foundCourses").hide();
 		var found= $(this).find(".guid").val();
 		$.ajax({type: "POST", url: "addCourse.php", data: {'guid':found}, error: onError, success: courseAdded})
-		});
 	    });
+	});
 
 	$(document).ready(function(){
 	    $(".allApptList").on("swipeleft","li", function(e){
 		$(this).find(".dismiss").slideDown();
-		});
+	    });
 	    $(".allApptList").on("swiperight","li", function(e){
 	    	$(this).find(".dismiss").slideUp();
-		});
+	    });
 	    $(".allApptList").on("click", ".remove", function(e){
 		var found=$(this).parents("li").find("#no").val();
                 $.ajax({type: "POST", async:false, url: "setAppt.php", data: {'key':found}, error: onError});
 		$.ajax({type: "POST", url: "removeAppt.php", error: onError});
 		$(this).parents("li").remove();
-		});
 	    });
+	});
 //Page change insert/remove functions
 //Code for data-dynamicQuery system, looks for dynamic elements to remove, makes query for new information, passes desintation
 //page name to callback function

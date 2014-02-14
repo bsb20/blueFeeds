@@ -18,7 +18,8 @@ $students=$_POST["students"];
 $user=$_SESSION["UUID"];
 $GUID=$_SESSION["GUID"];
 $student=$_SESSION["SUID"];
-$CUID=$_POST["CUID"];
+//$CUID=$_POST["CUID"];
+$CUID=uniqid("",false);
 $newTag=$_POST["new"];
 $tags=$_POST["tag"];
 

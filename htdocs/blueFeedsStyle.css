@@ -80,3 +80,7 @@
 		    -webkit-transform: translateZ(0);
 
 		}
+		.ui-listview{
+			position: relative;
+			width: 100%;
+		}

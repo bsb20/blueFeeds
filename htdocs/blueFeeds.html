@@ -134,16 +134,21 @@ Authors: Brett Cadigan, Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke
 </div><!-- photo upload page -->
 
 
-<div data-role="page" id="photoUpload2" data-theme="a" data-url="#studentSelection">
+<div data-role="page" id="photoUpload2" data-theme="a">
     <header data-role="header" data-theme="b">
 	<h1>Photo Selection</h1>
     </header>
     <button id="fileProxy2">Choose photo</button>
     <form data-ajax="false" enctype="multipart/form-data" method="post" action="photo2.php">
          <input type="file" name="photo2" id="photo2"  style="display:none">
-         <input id="submitPhoto2" type="submit" value="Upload photo" data-destination="#courses">
+         <input id="submitPhoto2" type="submit" value="Upload photo">
     </form>
     <a  href="#courses" data-role="button">Main Menu</a>
+   
+    <div class="studentSelectionCenter" data-role="content" data-theme="a">
+        <ul data-role="listview" data-filter="true" id="selectionList2" data-dynamicQuery="selectionInstructorsPhoto">
+        </ul>
+    </div>
 </div><!-- instructor photo upload page -->
 
 
@@ -672,7 +677,6 @@ Authors: Brett Cadigan, Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke
 			<h1>Bar Chart</h1>
 			<a href="#studentProfile2" data-theme="a" data-iconpos="notext" data-icon="back"></a>
 		</header>
-		<body>
 		<section data-role="content">
 			<div id="barChart" class="myChart"></div>
 			<button id="refreshBarChart" value="Refresh Chart" data-mini="true"></button>
@@ -681,9 +685,6 @@ Authors: Brett Cadigan, Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke
 			<input type="range" id="pageBarSliderC" value="25" min="0" max="50" data-mini="true"/>
 		</section>
 	</div>
-	</body>
-   
-   
     <footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">
             <ul>
@@ -702,7 +703,6 @@ Authors: Brett Cadigan, Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke
         <a href="#commentspage" data-theme="a" data-iconpos="notext" data-icon="back"></a>
         <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
     </header>
-    <body>
     <!--
     <div data-role="navbar" data-type="horizontal">
 	<ul>
@@ -749,7 +749,6 @@ Authors: Brett Cadigan, Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke
 		</table>
 	</div>
 	</div>
-	</body>
     <footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">
             <ul>
@@ -766,7 +765,6 @@ Authors: Brett Cadigan, Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke
         <a href="#login" data-theme="a" data-iconpos="notext" data-icon="back"></a>
         <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
     </header>
-    <body>
     		<div class="studentSelectionCenter" data-role="content">
     			<ul data-role="listview" data-prepend="true" data-inset="true">
           	  		<li>
@@ -779,7 +777,6 @@ Authors: Brett Cadigan, Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke
         	<div class="studentSelectionCenter" data-role="content">
         	<ul data-role="listview" data-prepend="true" id="rssFeeds" data-dynamicQuery="rssFetch"></ul>
         	</div>
-	</body>
     <footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">
             <ul>
@@ -796,8 +793,6 @@ Authors: Brett Cadigan, Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke
         <a href="#rssFeed" data-theme="a" data-iconpos="notext" data-icon="back"></a>
         <a href="#" data-theme="a" data-iconpos="notext" data-icon="gear"></a>
     </header>
-    <body>
- 
         <div data-role="content">
             <form id="newFeedForm" method="post" data-dynamicQuery="genFUID">
                 <div data-role="fieldcontain">
@@ -821,8 +816,6 @@ Authors: Brett Cadigan, Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke
                     </ul></div>
             </form>
         </div>
-        
-	</body>
     <footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">
             <ul>

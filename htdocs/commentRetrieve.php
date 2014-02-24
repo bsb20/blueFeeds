@@ -41,7 +41,6 @@ if($row=mysqli_fetch_array($result)){
 						<p class='note'>$text</p>
 						<div data-role='controlgroup' data-mini='true' data-type='horizontal' align='right'>
 						<a href='#editcomment' data-role='button' data-mini='true'>Edit</a>
-						<a href='#viewcomment' data-role='button' data-mini='true'>View</a>
 						</div>
                                                 <p class='ui-li-aside'><strong>$formattedDate</strong></p>
                                                     <input type='text' name='CUID' value='$CUID' class='hiddenForm' style='display: none;'>

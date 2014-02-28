@@ -2,7 +2,6 @@
 //include('Mail.php');
 function mailer($address,$content){
 require_once "Mail.php";
- 
  $from = "BlueFeeds Auto-Mailer <bluefeedsmail@gmail.com>";
  $to = $address;
 //Brett Cadigan <bluefeedsmail@gmail.com>;
@@ -15,6 +14,7 @@ require_once "Mail.php";
  
  $headers = array ('From' => $from,
    'To' => $to,
+//   'CC' => $CC,
    'Bcc' => "bluefeedsmail@gmail.com",
    'Subject' => $subject);
 

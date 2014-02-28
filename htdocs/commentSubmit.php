@@ -22,6 +22,11 @@ $student=$_SESSION["SUID"];
 $CUID=uniqid("",false);
 $newTag=$_POST["new"];
 $tags=$_POST["tag"];
+if($instructors){
+	$coSql="SELECT `email` FROM `users` INNER JOIN `groups` ON `users`.UUID=`groups`.UUID where `GUID`='$GUID';";
+	$coResult=$db->query($coSql);
+	//echo "OOO"
+}
 
 $mailSql="SELECT `email` FROM `test`.`students` WHERE `SUID`='$student'";
 $mailResult=$db->query($mailSql);

@@ -22,9 +22,11 @@ $student=$_SESSION["SUID"];
 $CUID=uniqid("",false);
 $newTag=$_POST["new"];
 $tags=$_POST["tag"];
+$instructors=1;
 if($instructors){
-	$coSql="SELECT `email` FROM `users` INNER JOIN `groups` ON `users`.UUID=`groups`.UUID where `GUID`='$GUID';";
+	$coSql="SELECT `email` FROM `users` INNER JOIN `groups` ON `users`.UUID=`groups`.UUID where `GUID`='5254bedc65ac9';";
 	$coResult=$db->query($coSql);
+	echo "OOO";
 	while($coRow=mysqli_fetch_array($coResult)){
 		$coAddress.=$coRow["email"].", ";
 	}
@@ -41,7 +43,7 @@ $mailContent="Hello! Your have received a new comment on BlueFeeds.
 ".$text."
 
 Please check your BlueFeeds account at http://www.dukebluefeeds.com/ for more details.";
-mailer($mailAddress,$mailContent,$coAddress);
+mailer($mailAddress,$mailContent);
 
 if(!isset($tags)){
 $tags=array();
@@ -56,5 +58,8 @@ $db->real_query("INSERT INTO ".$table." (`UUID`, `SUID`, `date`, `text`, `CUID`,
 foreach ($tags as $TUID){
 	$db->real_query("INSERT INTO ".$tag_table." (`TUID`, `CUID`) VALUES ('$TUID', '$CUID');");
 }
-echo "true";
+echo "true:";
+//echo $coSql." []  ";
+//echo $coRow[0]." /  ".$coRow[1]." / ".$coRow[2]." \ ";
+echo $coAddress;
 ?>

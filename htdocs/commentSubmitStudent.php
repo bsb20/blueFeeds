@@ -22,6 +22,14 @@ $CUID=uniqid("",false);
 $newTag=$_POST["new"];
 $tags=$_POST["tag"];
 
+if($instructors){
+	$coSql="SELECT `email` FROM `users` INNER JOIN `groups` ON `users`.UUID=`groups`.UUID where `GUID`='$GUID';";
+	$coResult=$db->query($coSql);
+	while($coRow=mysqli_fetch_array($coResult)){
+		$coAddress.=$coRow["email"].", ";
+	}
+}
+
 $mailSql="SELECT `email` FROM `test`.`users` WHERE `UUID`='$user'";
 $mailResult=$db->query($mailSql);
 if($mailRow=mysqli_fetch_array($mailResult)){
@@ -33,7 +41,7 @@ $mailContent="Hello! Your have received a new student reply on BlueFeeds.
 ".$text."
 
 Please check your BlueFeeds account at http://www.dukebluefeeds.com/ for more details.";
-mailer($mailAddress,$mailContent);
+mailer($mailAddress,$mailContent,$coAddress);
 
 /*if(!isset($tags)){
 $tags=array();

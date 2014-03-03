@@ -12,7 +12,7 @@ $title=$_POST["feedName"];
 $UUID=$_SESSION["UUID"];
 $FUID=$_POST["FUID"];
 
-$sql = "SELECT * FROM `test`.`feeds` WHERE `UUID`='$UUID' OR `UUID`='a'";
+$sql = "SELECT * FROM `test`.`feeds` WHERE `UUID`='$UUID'";// OR `UUID`='a'";
 
 $result=$db->query($sql);
 $finally = "";

@@ -32,7 +32,7 @@ if($row=mysqli_fetch_array($result)){
                       <p style='white-space:normal;'>$info</p>
                       </div>
                       </a>
-                      <input type='text' class='courseKey' style='display:none' value='$GUID'>
+                      <input type='text' class='courseKey' style='display:none' name='GUID' value='$GUID'>
                       </li>";
 }
 echo $finally;

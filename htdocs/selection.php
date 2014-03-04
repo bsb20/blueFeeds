@@ -11,11 +11,12 @@ $table1="`test`.`groups`";
 $table2="`test`.`gs`";
 $table3="`test`.`students`";
 if(!isset($_SESSION['GUID'])){
-$sql = "SELECT * FROM $table1, $table2, $table3 WHERE $table1.`UUID`='$UUID' AND $table1.`GUID`=$table2.`GUID` AND $table2.`SUID`=$table3.`SUID`;";
+    $GUID=$_POST['GUID'];
+    $sql = "SELECT DISTINCT * FROM $table1, $table2, $table3 WHERE $table1.`UUID`='$UUID' AND $table1.`GUID`='$GUID' AND $table1.`GUID`=$table2.`GUID` AND $table2.`SUID`=$table3.`SUID`;";
 }
 else{
     $GUID=$_SESSION['GUID'];
-    $sql = "SELECT * FROM $table1, $table2, $table3 WHERE $table1.`UUID`='$UUID' AND $table1.`GUID`='$GUID' AND $table1.`GUID`=$table2.`GUID` AND $table2.`SUID`=$table3.`SUID`;";
+    $sql = "SELECT DISTINCT * FROM $table1, $table2, $table3 WHERE $table1.`UUID`='$UUID' AND $table1.`GUID`='$GUID' AND $table1.`GUID`=$table2.`GUID` AND $table2.`SUID`=$table3.`SUID`;";
 }
 $result=$db->query($sql);
 $name;

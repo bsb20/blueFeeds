@@ -10,15 +10,15 @@ $table="`test`.`comments`";
 $SUID=$_SESSION["SUID"];
 $UUID=$_SESSION["UUID"];
 if(!isset($_SESSION["GUID"])){
-        $sql = "SELECT * FROM `test`.`comments` WHERE `SUID`='$SUID' AND `UUID`='$UUID' ORDER BY `date` DESC";
+        $sql = "SELECT DISTINCT * FROM `test`.`comments` WHERE `SUID`='$SUID' AND `UUID`='$UUID' ORDER BY `date` DESC";
 }
 else{
 $GUID=$_SESSION["GUID"];
     if(isset($_SESSION["UUID"])){
-        $sql = "SELECT * FROM `test`.`comments` WHERE `SUID`='$SUID' AND `GUID`='$GUID' AND (`UUID`='$UUID' OR `instructors`='1') ORDER BY `date` DESC";
+        $sql = "SELECT DISTINCT * FROM `test`.`comments` WHERE `SUID`='$SUID' AND `GUID`='$GUID' AND (`UUID`='$UUID' OR `instructors`='1') ORDER BY `date` DESC";
     }
     else{
-        $sql="SELECT * FROM `test`.`comments` WHERE `SUID`='$SUID' AND `GUID`='$GUID' AND `students`='1' ORDER BY `date` DESC";
+        $sql="SELECT DISTINCT * FROM `test`.`comments` WHERE `SUID`='$SUID' AND `GUID`='$GUID' AND `students`='1' ORDER BY `date` DESC";
     }
 }
 $result=$db->query($sql);

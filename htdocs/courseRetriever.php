@@ -9,12 +9,12 @@ include("initialize.php");
 $table="`test`.`courses`";
 if(isset($_SESSION["UUID"])){
 $UUID=$_SESSION["UUID"];
-$sql = "SELECT * FROM `test`.`courses`, `test`.`groups` WHERE `test`.`groups`.`UUID`='$UUID' AND `test`.`courses`.`GUID`=`test`.`groups`.`GUID`";
+$sql = "SELECT DISTINCT * FROM `test`.`courses`, `test`.`groups` WHERE `test`.`groups`.`UUID`='$UUID' AND `test`.`courses`.`GUID`=`test`.`groups`.`GUID`";
 $link="#studentSelection";
 }
 else{
 $SUID=$_SESSION["SUID"];
-$sql="SELECT * FROM `test`.`gs`, `test`.`courses` WHERE `test`.`gs`.`SUID`='$SUID' AND `test`.`courses`.`GUID`=`test`.`gs`.`GUID`;";
+$sql="SELECT DISTINCT * FROM `test`.`gs`, `test`.`courses` WHERE `test`.`gs`.`SUID`='$SUID' AND `test`.`courses`.`GUID`=`test`.`gs`.`GUID`;";
 $link="#studentCourse";
 }
 $result=$db->query($sql);

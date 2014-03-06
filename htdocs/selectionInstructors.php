@@ -9,7 +9,7 @@ $GUID=$_SESSION["GUID"];
 $tableGroups="`test`.`groups`";
 $tableUsers="`test`.`users`";
 
-$sql = 'SELECT * FROM users LEFT JOIN groups ON groups.UUID=users.UUID WHERE groups.GUID="'.$GUID.'";';
+$sql = 'SELECT DISTINCT * FROM users LEFT JOIN groups ON groups.UUID=users.UUID WHERE groups.GUID="'.$GUID.'";';
 $result=$db->query($sql);
 $name;
 $photo;

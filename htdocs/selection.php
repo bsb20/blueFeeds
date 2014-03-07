@@ -12,10 +12,12 @@ $table2="`test`.`gs`";
 $table3="`test`.`students`";
 if(!isset($_SESSION['GUID'])){
     $GUID=$_POST['GUID'];
+    $_SESSION['tempGUID']=$GUID;
     $sql = "SELECT DISTINCT * FROM $table1, $table2, $table3 WHERE $table1.`UUID`='$UUID' AND $table1.`GUID`='$GUID' AND $table1.`GUID`=$table2.`GUID` AND $table2.`SUID`=$table3.`SUID`;";
 }
 else{
     $GUID=$_SESSION['GUID'];
+    $_SESSION['tempGUID']=$GUID;
     $sql = "SELECT DISTINCT * FROM $table1, $table2, $table3 WHERE $table1.`UUID`='$UUID' AND $table1.`GUID`='$GUID' AND $table1.`GUID`=$table2.`GUID` AND $table2.`SUID`=$table3.`SUID`;";
 }
 $result=$db->query($sql);

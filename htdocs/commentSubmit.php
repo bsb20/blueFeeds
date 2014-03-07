@@ -16,8 +16,16 @@ $title=$_POST["title"];
 $instructors=$_POST["instructors"];
 $students=$_POST["students"];
 $user=$_SESSION["UUID"];
-$GUID=$_SESSION["GUID"];
-$student=$_SESSION["SUID"];
+if(isset($_SESSION["GUID"])){
+	$GUID=$_SESSION["GUID"];
+}else{
+	$GUID=$_SESSION['tempGUID'];
+}
+if(isset($_SESSION["SUID"])){
+	$student=$_SESSION["SUID"];
+}else{
+	$student=$_SESSION["tempSUID"];
+}
 //$CUID=$_POST["CUID"];
 $CUID=uniqid("",false);
 $newTag=$_POST["new"];

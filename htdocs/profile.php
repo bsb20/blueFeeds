@@ -8,6 +8,7 @@ for a given student (SUID).
 include("initialize.php");
 $table="`test`.`students`";
 $SUID=$_SESSION["SUID"];
+$_SESSION['tempSUID']=$SUID;
 $sql = "SELECT * FROM ".$table." WHERE `SUID`='".$SUID."';";
 $result=$db->query($sql);
 $name;

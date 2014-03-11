@@ -556,7 +556,7 @@ Authors: Brett Cadigan, Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke
 		</a>
 	    </li>
 	    <li>
-                <input type="submit" data-icon="delete" data-theme="a" data-validate='removeStudent' data-destination="#studentSelection" name="submit" id="removeStudent" value="Remove Student">
+                <input type="submit" data-icon="delete" data-theme="a" data-validate='removeStudent' data-destination="#studentSelection" name="submit" id="removeStudent" value="Remove Student from Course">
 	    </li>
         </ul>
     </div>
@@ -914,9 +914,9 @@ Authors: Brett Cadigan, Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke
         	</select>
         </div>
 
-	   <div data-role="fieldcontain" data-dynamicQuery="showUserTags" id="userTagList" data-prepend="true">
+	   <!--<div data-role="fieldcontain" data-dynamicQuery="showUserTags" id="userTagList" data-prepend="true">
             <label class="ui-hidden-accessible" for="new"></label><input type="text" placeholder="New Tag" name="new" id="new" style="margin-top:1%;">
-	   </div>
+	   </div>-->
 	<button data-theme="a" type="submit" id="commentSubmitStudent" data-validate='commentSubmitStudent' data-destination="#studentCourse">Save Comment</button>          
 	</form>
         </div>
@@ -969,7 +969,7 @@ Authors: Brett Cadigan, Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke
             <option value="1">Yes</option>
         </select>
         </div>
-        <button data-theme="a" type="submit" id="commentEdit" data-validate='commentEdit' data-destination="#studentProfile2" data-icon="check">Save Comment</button>     
+        <button data-theme="a" type="submit" id="commentEdit" data-validate='commentEdit' data-destination="#commentspage" data-icon="check">Save Comment</button>     
         <!--<button data-theme="a" data-icon="star">Flag Comment</button> -->
         <button data-theme="a" data-icon="delete" id="commentDelete" data-validate='commentDelete' data-destination="#commentspage">Discard Comment</button>                               
         <a href=#commentspage style="text-decoration:none"><button data-theme="a" data-icon="back" id="backButton">Back to Comments</button></a>

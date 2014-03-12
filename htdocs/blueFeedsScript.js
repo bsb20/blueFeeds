@@ -223,6 +223,13 @@ alert("REFERESh: " + setPage);
                 $.ajax({type: "POST", url: "setTag.php", data: {'key':found}, error: onError})
 		});	    
 	    });
+	$(document).ready(
+	function(){
+	    $("#tagListDelete").on("click", "li", function(e){
+                var found=$(this).find("#no").val();
+                $.ajax({type: "POST", url: "setTag.php", data: {'key':found}, error: onError})
+		});	    
+	    });
 //Sets AUID to allow viewing of page for a particular appointment
         $(document).ready(
 	function(){

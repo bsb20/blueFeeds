@@ -555,11 +555,37 @@ Authors: Brett Cadigan, Ben Berg, Jack Zhang, Rachel Harris, Conrad Haynes, Duke
 		    <p>View and add meetings with this student</p>
 		</a>
 	    </li>
-	    <li>
-                <input type="submit" data-icon="delete" data-theme="a" data-validate='removeStudent' data-destination="#studentSelection" name="submit" id="removeStudent" value="Remove Student from Course">
+	    <li><a href="#removeStudent">
+		    <h1>Remove Student</h1>
+		    <p>Remove student from this course</p>
+		</a>
 	    </li>
         </ul>
     </div>
+    <footer data-role="footer" data-theme="b" data-position="fixed">
+        <nav data-role="navbar">
+            <ul>
+            <li><a href="#appointments" data-icon="grid">Meetings</a></li>
+                <li><a href="#courses" data-icon="arrow-u" data-transition="slideup">Courses</a></li>
+            </ul>
+        </nav>
+    </footer>
+</div><!--new profile page, with list-->
+
+<div data-role="page" data-theme="a" id="removeStudent">
+     <header data-role="header" data-theme="b">
+        <h1>Remove Student</h1>
+        <a href="#studentProfile2" data-theme="a" data-iconpos="notext" data-icon="back"></a>
+        </button>
+    </header>
+    <div class="studentSelectionCenter" data-role="content">
+    			<ul data-role="listview" data-prepend="true" data-inset="true">
+          	  		<li>
+				<h1>Are you sure you want to remove this student from the selected course?</h1>
+            			</li>
+        		</ul>
+    </div>
+                <input type="submit" data-icon="delete" data-theme="a" data-validate='removeStudent' data-destination="#studentSelection" name="submit" id="removeStudent" value="Remove Student from Course">
     <footer data-role="footer" data-theme="b" data-position="fixed">
         <nav data-role="navbar">
             <ul>

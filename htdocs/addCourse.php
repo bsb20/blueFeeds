@@ -10,5 +10,5 @@ $GUID=$_POST["guid"];
 $table="`test`.`gs`";
 $sql="INSERT INTO $table (`SUID`,`GUID`) VALUES ('$SUID','$GUID');";
 $db->real_query($sql);
-//echo "true";
+echo "true";
 ?>

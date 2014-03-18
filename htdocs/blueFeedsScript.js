@@ -184,37 +184,6 @@ var courses;
 	    });
 
 
-//Handles start page, changes after a few seconds to login page	
-//Also activates when any page is refreshed because refeshing breaks php-mySQL data loading
-/*	$(document).ready(
-	function(){
-alert("REFERESh: " + setPage);
-		setTimeout(change,1000);	
-	});
-	
-/*	$(document).ready(
-	function(){
-        	$.ajax({type: "POST", url: "setPage.php", data: {'key':found}, error: onError})
-	});
-*/
-
-/*function refreshPage()
-{
-    $.mobile.changePage(window.location.href, {
-        allowSamePageTransition: true,
-        transition: 'none',
-        reloadPage: true
-    });
-}*/
-/*	
-	function change(){
-		if(setPage==1){
-			$.mobile.changePage("#courses","fade");
-		}else if(setPage==0){
-			$.mobile.changePage("#login","fade");
-		}
-	}
-*/
 //Sets tag ID for filtering by tags	
 	$(document).ready(
 	function(){
@@ -329,16 +298,6 @@ alert("REFERESh: " + setPage);
 //page name to callback function
         $(document).ready(function(){
         $(document).on('pagechange', function (e,data) {
-		//setPage=1;
-		/*if(data.toPage.attr("id")!=""){
-			setPage = 1;
-		}else	setPage = 0;
-		$.ajax({url: "setPage.php/?pageurl=" + data.toPage.attr("id"), 
-			success: function(){alert("Hooray!");
-				setPage=1;},
-			error: onError
-		});
-		*/	
 	    if(data.toPage.attr("id")=="courses" && courses==null){
 		$.ajax({url: "courseSelect.php", success: onCourses, invokedata: "container", error:onError});
 	    }

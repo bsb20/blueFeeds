@@ -8,11 +8,7 @@ include("initialize.php");
 $table="`test`.`comments`";
 $text=$_POST["comment"];
 $students=$_POST["students"];
-//ability to modify instructors visibility commented out
-//$instructors=$_POST["instructors"];
-//$instructors=1;
 $CUID=$_POST["CUID"];
 $db->real_query("UPDATE ".$table." SET `text`='$text', `students`='$students' WHERE `CUID`='$CUID';");
 echo "true";
-//$db->real_query("UPDATE ".$table." SET `text`='$text', `instructors`='$instructors', `students`='$students' WHERE `CUID`='$CUID';");
 ?>

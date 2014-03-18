@@ -1,10 +1,8 @@
 <?php
-//include('Mail.php');
 function mailer($address,$content,$CC){
 require_once "Mail.php";
  $from = "BlueFeeds Auto-Mailer <bluefeedsmail@gmail.com>";
  $to = $address;
-//Brett Cadigan <bluefeedsmail@gmail.com>;
  $subject = "Notification from BlueFeeds!";
  $body = $content;
  
@@ -27,10 +25,5 @@ require_once "Mail.php";
 
 $mail = $smtp->send($to, $headers, $body);
 
-/* if (PEAR::isError($mail)) {
-   echo($mail->getMessage());
-  } else {
-   echo("Message successfully sent!");
-  }*/
 }
  ?>

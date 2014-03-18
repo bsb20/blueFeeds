@@ -43,14 +43,6 @@ $mailContent="Hello! Your have received a new student reply on BlueFeeds.
 Please check your BlueFeeds account at http://www.dukebluefeeds.com/ for more details.";
 mailer($mailAddress,$mailContent,$coAddress);
 
-/*if(!isset($tags)){
-$tags=array();
-}
-if(strlen(trim($newTag)) !=0){
-	$newTUID=uniqid("",FALSE);
-	array_push($tags,$newTUID);
-	$db->real_query("INSERT INTO `test`.`tags` (`text`, `TUID`, `UUID`) VALUES ('$newTag', '$newTUID', '$user');");
-}*/
 $date=date("Y-m-d H:i:s");
 $db->real_query("INSERT INTO ".$table." (`UUID`, `SUID`, `date`, `text`, `CUID`, `title`, `instructors`, `students`, `GUID`) VALUES ('$user', '$student', '$date', '$text', '$CUID','$title', '$instructors','$students', '$GUID');");
 foreach ($tags as $TUID){

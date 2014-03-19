@@ -23,6 +23,7 @@ if($row=mysqli_fetch_array($result) and $row["pass"]==md5($pass,FALSE)){
             unset($_SESSION["GUID"]);
         }
         $_SESSION["UUID"]=$row["UUID"];
+	$_SESSION["tmpUUID"]=$_SESSION["UUID"];
         echo "instructor";
 	return;
     }

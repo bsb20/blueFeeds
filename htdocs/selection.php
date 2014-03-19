@@ -10,12 +10,15 @@ $UUID=$_SESSION["UUID"];
 $table1="`test`.`groups`";
 $table2="`test`.`gs`";
 $table3="`test`.`students`";
+$setter;
 if(!isset($_SESSION['GUID'])){
+    $setter="notSet";	
     $GUID=$_POST['GUID'];
     $_SESSION['tempGUID']=$GUID;
     $sql = "SELECT DISTINCT * FROM $table1, $table2, $table3 WHERE $table1.`UUID`='$UUID' AND $table1.`GUID`='$GUID' AND $table1.`GUID`=$table2.`GUID` AND $table2.`SUID`=$table3.`SUID`;";
 }
 else{
+    $setter="Set";
     $GUID=$_SESSION['GUID'];
     $_SESSION['tempGUID']=$GUID;
     $sql = "SELECT DISTINCT * FROM $table1, $table2, $table3 WHERE $table1.`UUID`='$UUID' AND $table1.`GUID`='$GUID' AND $table1.`GUID`=$table2.`GUID` AND $table2.`SUID`=$table3.`SUID`;";
@@ -44,6 +47,7 @@ $html.=           " <li class='dynamicSelection' data-dynamicContent='selection'
                     <p>$title, $spec</p>
                     </a>
                     <input type='text' id='no' style='display:none' value='$SUID'>
+		    <input type='text' id='no' style='display:none' value='$setter'>
             </li>";
     }
     }

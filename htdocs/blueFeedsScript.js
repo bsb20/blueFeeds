@@ -151,7 +151,15 @@ var courses;
 		    }
 		    });
 	    }
-	)
+	);
+/*$(document).ready(
+	function(){
+		$("#addcomment").click(function(){
+			var timer = setTimeout(function(){alert("Page has timed out. Please press the back button in the top left.")},3000);
+			clearTimeout(timer);
+		})
+	}
+);*/
 //Functions using on()
 //These handle screen events for elements that were injected dyanmically, and thus cannot have events handled in the normal
 //way

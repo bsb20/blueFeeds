@@ -15,7 +15,11 @@ $text=$_POST["comment"];
 $title=$_POST["title"];
 $instructors=$_POST["instructors"];
 $students=$_POST["students"];
-$user=$_SESSION["UUID"];
+//if(isset($_SESSION["UUID")){
+	$user=$_SESSION["UUID"];
+//}else{
+//	$user=$_SESSION["tmpUUID"];
+//}
 if(isset($_SESSION["GUID"])){
 	$GUID=$_SESSION["GUID"];
 }else{
@@ -26,7 +30,6 @@ if(isset($_SESSION["SUID"])){
 }else{
 	$student=$_SESSION["tempSUID"];
 }
-//$CUID=$_POST["CUID"];
 $CUID=uniqid("",false);
 $newTag=$_POST["new"];
 $tags=$_POST["tag"];

@@ -37,15 +37,6 @@ switch($orient){
 	break;
 	}
 }
+header("Location: blueFeeds.html#courses");
+exit;
 ?>
-<!DOCTYPE html>
-<html>
-<script>
-	function goback(){
-	window.history.back();
-}
-</script>
-<body>
-<button onclick="goback()">Back</button>
-</body>
-</html>

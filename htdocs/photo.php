@@ -37,9 +37,6 @@ switch($orient){
 	break;
 	}
 }
+header("Location: blueFeeds.html#coursesStudent");
+exit;
 ?>
-<html>
-<head>
-<meta http-equiv="REFRESH" content="0;url=blueFeeds.html#coursesStudent">
-</head>
-</html>

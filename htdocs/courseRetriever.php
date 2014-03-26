@@ -30,9 +30,9 @@ if($row=mysqli_fetch_array($result)){
 		    	<div data-role='controlgroup' data-type='horizontal'  class='noteControl'>
                   <h1>$title</h1>
                       <p style='white-space:normal;'>$info</p>
+                      <input type='text' class='courseKey' style='display:none' name='key' value='$GUID'>
                       </div>
                       </a>
-                      <input type='text' class='courseKey' style='display:none' name='GUID' value='$GUID'>
                       </li>";
 }
 echo $finally;

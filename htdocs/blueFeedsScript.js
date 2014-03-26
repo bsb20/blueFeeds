@@ -236,12 +236,13 @@ var courses;
 	function(){
 	    $("#courseList").on("click","li", function(e){
                 var found=$(this).find(".courseKey").val();
+		//alert(found);
 		if($("#removeCourse").data("theme") == "a"){
-                    $.ajax({type: "POST", url: "setCourse.php", data: {'key':found}, error: onError});}
+                    $.ajax({type: "POST", url: "setCourse.php", data: {key:found}, error: onError});}
 		else{
 		    var remove=confirm("Are you sure you want to remove this course?");
 		    if(remove){
-	    	        $.ajax({type: "POST", url: "removeCourse.php", data: {'key':found}, error: onError});
+	    	        $.ajax({type: "POST", url: "removeCourse.php", data: {key:found}, error: onError});
 		        $(this).remove();
 		    }
 		}

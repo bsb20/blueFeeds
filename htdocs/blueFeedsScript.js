@@ -185,9 +185,11 @@ var courses;
 //Sets SUID for a partiuclar student who has been selected by an instructor            
         $(document).ready(
 	function(){
-	    $("#selectionList").on("click", "li", function(e){
+	    $("#selectionList1").on("click", "li", function(e){
                 var found=$(this).find("#no").val();
-                $.ajax({type: "POST", url: "setStudent.php", data: {'key':found}, error: onError})
+		//alert("pre-select");
+                $.ajax({type: "POST", url: "setStudent.php", data: {key:found}, error: onError});
+		//alert("Student selected");
 		});	    
 	    });
 
@@ -197,14 +199,14 @@ var courses;
 	function(){
 	    $("#tagList").on("click", "li", function(e){
                 var found=$(this).find("#no").val();
-                $.ajax({type: "POST", url: "setTag.php", data: {'key':found}, error: onError})
+                $.ajax({type: "POST", url: "setTag.php", data: {key:found}, error: onError})
 		});	    
 	    });
 	$(document).ready(
 	function(){
 	    $("#tagListDelete").on("click", "li", function(e){
                 var found=$(this).find("#no").val();
-                $.ajax({type: "POST", url: "setTag.php", data: {'key':found}, error: onError})
+                $.ajax({type: "POST", url: "setTag.php", data: {key:found}, error: onError})
 		});	    
 	    });
 //Sets AUID to allow viewing of page for a particular appointment
@@ -212,7 +214,7 @@ var courses;
 	function(){
 	    $(".apptList").on("click", "li", function(e){
                 var found=$(this).find("#no").val();
-                $.ajax({type: "POST", url: "setAppt.php", data: {'key':found}, error: onError})
+                $.ajax({type: "POST", url: "setAppt.php", data: {key:found}, error: onError})
 		});	    
 	    });     
 	    
@@ -220,7 +222,7 @@ var courses;
 	function(){
 	    $(".allApptList").on("click", "li", function(e){
                 var found=$(this).find("#no").val();
-                $.ajax({type: "POST", url: "setAppt.php", data: {'key':found}, error: onError})
+                $.ajax({type: "POST", url: "setAppt.php", data: {key:found}, error: onError})
 		});	    
 	    });     
 //Sets SUID to allow retieval of info for a particualr appointment page
@@ -228,17 +230,21 @@ var courses;
 	function(){
 	    $(".allApptList").on("click", "li", function(e){
                 var found=$(this).find("#student").val();
-                $.ajax({type: "POST", url: "setStudent.php", data: {'key':found}, error: onError});
+                $.ajax({type: "POST", url: "setStudent.php", data: {key:found}, error: onError});
 		});	    
 	    });  
-//Sets CUID to allow viewing of students for a particular course based on selection	
+//Sets GUID to allow viewing of students for a particular course based on selection	
 	$(document).ready(
 	function(){
 	    $("#courseList").on("click","li", function(e){
                 var found=$(this).find(".courseKey").val();
-		//alert(found);
+		//alert("clicked courseList: " + found);
 		if($("#removeCourse").data("theme") == "a"){
-                    $.ajax({type: "POST", url: "setCourse.php", data: {key:found}, error: onError});}
+		    //alert("pre-course");only works with an alert after the ajax call
+                    $.ajax({type: "POST", url: "setCourse.php", data: {key:found}, error: onError});
+		    //$("instructSelect").hide();
+		    alert("Course selected.");
+		}	
 		else{
 		    var remove=confirm("Are you sure you want to remove this course?");
 		    if(remove){
@@ -252,7 +258,7 @@ var courses;
 	function(){
 	    $("#courseListStudent").on("click","li", function(e){
                 var found=$(this).find(".courseKey").val();
-                $.ajax({type: "POST", url: "setCourse.php", data: {'key':found}, error: onError})
+                $.ajax({type: "POST", url: "setCourse.php", data: {key:found}, error: onError})
 	    });	    
 	});
 	
@@ -297,7 +303,7 @@ var courses;
 	    });
 	    $(".allApptList").on("click", ".remove", function(e){
 		var found=$(this).parents("li").find("#no").val();
-                $.ajax({type: "POST", async:false, url: "setAppt.php", data: {'key':found}, error: onError});
+                $.ajax({type: "POST", async:false, url: "setAppt.php", data: {key:found}, error: onError});
 		$.ajax({type: "POST", url: "removeAppt.php", error: onError});
 		$(this).parents("li").remove();
 	    });
